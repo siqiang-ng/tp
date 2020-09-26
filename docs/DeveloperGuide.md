@@ -317,7 +317,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to create a tag
-2.  AddressBook to check if the tag exists and creates the tag if it has not been created.
+2.  Projact to check if the tag exists and creates the tag if it has not been created.
 
     Use case ends.
     
@@ -325,7 +325,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2a. The tag has been created.
 
-    * 2a1. AddressBook shows an error message.
+    * 2a1. Projact shows an error message.
 
   Use case ends.
   
