@@ -287,7 +287,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: List all tags*
+
+**MSS**
+
+1. User requests to list tags
+2. Proajacts shows a list of tags
+   
+   Use case ends.
+   
+**Extensions**
+
+* 2a. The list is empty.
+   
+   Use case ends.
 
 ### Non-Functional Requirements
 
