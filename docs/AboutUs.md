@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Ng Si Qiang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/siqiang-ng.png" width="200px">
 
 [[github](https://github.com/siqiang-ng)]
 
