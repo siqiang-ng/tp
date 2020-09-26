@@ -3,10 +3,14 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Projact is a **desktop app that helps NUS computing students to organise their fellow computing students' contacts and
+their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having 
+the benefits of a Graphical User Interface (GUI).
 
 * Table of Contents
-{:toc}
+    * [Quick Start](#quick-start)
+    * [Features](#features)
+    * [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -136,6 +140,17 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Deleting a tag: `tag delete`
+
+Deletes the specified tag. 
+
+Format: `tag delete INDEX`
+
+* Deletes the tag with the index `INDEX` from all contacts and the tag list.
+
+Example: 
+* `tag delete 1` deletes the tag with the index 1 in the tag list.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -172,6 +187,7 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
