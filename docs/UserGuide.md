@@ -200,7 +200,7 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Delete Tag**| `tag delete t/TAG n/name` <br> e.g., `tag delete t/CS2103T n/John Doe` <br> <br> `tag delete t/TAG` <br> e.g. `tag delete t/CS2103T` 
+**Delete Tag**| `tag delete t/TAG n/name` <br> e.g., `tag delete t/CS2103T n/John Doe` <br> <br> `tag delete t/TAG` <br> e.g., `tag delete t/CS2103T` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
