@@ -142,27 +142,14 @@ Examples:
 
 ### Deleting a tag: `tag delete`
 
-#### From a contact
+Deletes the specified tag. 
 
-Deletes the specified tag from a contact in the address book.
+Format: `tag delete INDEX`
 
-Format: `tag delete t/TAG n/NAME`
-
-* Deletes the tag from the contact with a matching name.
-
-Example:
-* `delete t/CS2103T n/John Doe` deletes only the CS2103T tag from John Doe while the rest of the tags remain intact.
-
-#### From all contacts
-
-Deletes the specified tag from all contacts in the address book.
-
-Format: `tag delete t/TAG`
-
-* Deletes the tag with the specified name `TAG` from all contacts.
+* Deletes the tag with the index `INDEX` from all contacts and the tag list.
 
 Example: 
-* `delete t/CS2103T` deletes the tag CS2103T from all contacts. 
+* `tag delete 1` deletes the tag with the index 1 in the tag list.
 
 ### Clearing all entries : `clear`
 
@@ -200,7 +187,7 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Delete Tag**| `tag delete t/TAG n/name` <br> e.g., `tag delete t/CS2103T n/John Doe` <br> <br> `tag delete t/TAG` <br> e.g., `tag delete t/CS2103T` 
+**Tag Delete**| `tag delete t/TAG` <br> e.g., `tag delete t/CS2103T` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
