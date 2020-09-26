@@ -3,10 +3,14 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Projact is a **desktop app that helps NUS computing students to organise their fellow computing students' contacts and
+their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having 
+the benefits of a Graphical User Interface (GUI).
 
 * Table of Contents
-{:toc}
+    * [Quick Start](#quick-start)
+    * [Features](#features)
+    * [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -136,6 +140,30 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Deleting a tag: `tag delete`
+
+#### From a contact
+
+Deletes the specified tag from a contact in the address book.
+
+Format: `tag delete t/TAG n/NAME`
+
+* Deletes the tag from the contact with a matching name.
+
+Example:
+* `delete t/CS2103T n/John Doe` deletes only the CS2103T tag from John Doe while the rest of the tags remain intact.
+
+#### From all contacts
+
+Deletes the specified tag from all contacts in the address book.
+
+Format: `tag delete t/TAG`
+
+* Deletes the tag with the specified name `TAG` from all contacts.
+
+Example: 
+* `delete t/CS2103T` deletes the tag CS2103T from all contacts. 
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -172,6 +200,7 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Delete Tag**| `tag delete t/TAG n/name` <br> e.g., `tag delete t/CS2103T n/John Doe` <br> <br> `tag delete t/TAG` <br> e.g. `tag delete t/CS2103T` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
