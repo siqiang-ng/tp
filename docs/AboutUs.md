@@ -37,15 +37,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Testing
 
-### Jean Doe
+### Kyi Nuu Khin Khin
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/khinkhin.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/khinkhinn)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Deliverables & Scheduling + Threading
 
 ### James Doe
 
