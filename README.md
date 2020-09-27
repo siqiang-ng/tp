@@ -1,18 +1,18 @@
 [![CI Status](https://github.com/AY2021S1-CS2103T-T17-4/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-4/tp/actions?query=workflow%3A%22Java+CI%22)
 [![codecov](https://codecov.io/gh/AY2021S1-CS2103T-T17-4/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2021S1-CS2103T-T17-4/tp)
 
-# Projacts
+# Projact
 
 ![Ui](docs/images/Ui.png)
 
-**Projacts is a desktop application optimised for managing your contacts and groups.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+**Projact is a desktop application optimised for managing your contacts and groups.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
 ### Features
 
-* Projacts remembers all your contact details
-* Projacts organises your contact into groups
-* Projacts allow fast access to team links (e.g. zoom link, google doc)
-* Projacts reduces clutter with group archiving
+* Projact remembers all your contact details
+* Projact organises your contact into groups
+* Projact allow fast access to team links (e.g. zoom link, google doc)
+* Projact reduces clutter with group archiving
 
 ### Documentation
 
