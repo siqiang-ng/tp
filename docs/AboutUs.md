@@ -38,7 +38,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Kyi Nuu Khin Khin
 
-<img src="images/khinkhin.png" width="200px">
+<img src="images/khinkhinn.png" width="200px">
 
 [[github](http://github.com/khinkhinn)]
 
