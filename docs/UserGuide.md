@@ -163,6 +163,18 @@ Exits the program.
 
 Format: `exit`
 
+### Creating a tag : `tag add`
+
+Creates a tag.
+
+Format: `tag add t/TAG`
+
+* Creates a specified tag without the need of a contact.
+* Tag will not be created if it exists in the tag list.
+
+Examples: 
+* `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
+
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -192,3 +204,4 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
+**Tag** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
