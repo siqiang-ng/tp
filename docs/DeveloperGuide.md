@@ -352,20 +352,47 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: List all tags*
+**Use case: List all tags**
 
 **MSS**
 
 1. User requests to list tags
 2. Projact shows a list of tags
    
-   Use case ends.
+    Use case ends.
    
 **Extensions**
 
 * 2a. The list is empty.
    
-   Use case ends.
+  Use case ends.
+
+**Use case: View tag members**
+
+**MSS**
+
+1.  User requests to list tags
+2.  Projact shows a list of tags
+3.  User requests to view members of a specific tag in the list
+4.  Projact displays members of the specified tag
+
+    Use case ends.
+   
+**Extensions**
+
+* 2a. The list is empty.
+   
+  Use case ends.
+  
+* 3a. The given index is invalid.
+
+    * 3a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+* 4a. Specified tag has no members.
+
+  Use case ends.
   
 *{More to be added}*
 
