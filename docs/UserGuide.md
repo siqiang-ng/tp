@@ -144,6 +144,17 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Deleting a tag: `tag delete`
+
+Deletes the specified tag. 
+
+Format: `tag delete INDEX`
+
+* Deletes the tag with the index `INDEX` from all contacts and the tag list.
+
+Example: 
+* `tag delete 1` deletes the tag with the index 1 in the tag list.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -155,6 +166,18 @@ Format: `clear`
 Exits the program.
 
 Format: `exit`
+
+### Creating a tag : `tag add`
+
+Creates a tag.
+
+Format: `tag add t/TAG`
+
+* Creates a specified tag without the need of a contact.
+* Tag will not be created if it exists in the tag list.
+
+Examples: 
+* `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
 ### Saving the data
 
@@ -180,8 +203,10 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Tag List** | `tag list`
 **Help** | `help`
+**Tag** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
