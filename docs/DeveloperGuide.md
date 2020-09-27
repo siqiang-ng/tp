@@ -234,44 +234,69 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Computing Student
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of computing student contacts
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
+* wants to group contacts based on our modules
+* has a need to store the different meeting platforms for each module project in one platform
+* wants to filter inactive contacts but does not want to delete them (Archive the contact)
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+
+**Value proposition**: 
+
+* manages contacts faster than a typical mouse/GUI driven app
+* sorts contacts based on the different modules
+* allows convenient search for project mates / friends taking the same module 
+* allows convenient search for the link for team meeting 
+* filters the main contact list such that inactive contacts will not be seen
+
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                               | So that I can…​                                                     |
+| -------- | ------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------------------- |
+| `* * *`  | new user                                   | see usage instructions                           | refer to instructions when I forget how to use the App                 |
+| `* * *`  | new user                                   | see sample contacts                              | have a brief idea on what the app will look like when it is being used |
+| `* * *`  | user                                       | add a new person                                 |                                                                        |
+| `* * *`  | user                                       | delete a person                                  | remove entries that I no longer need                                   |
+| `* * *`  | user                                       | find a person by name                            | locate details of persons without having to go through the entire list |
+| `* * *`  | user                                       | create a tag                                     | find or sort the contacts based on tags later on.                      |
+| `* * *`  | user                                       | delete a tag                                     | remove tags that are accidentally added or no longer required          |
+| `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
+| `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
+| `* *`    | user                                       | hide private contact details                     | minimize chance of someone else seeing them by accident                |
+| `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
+| `* *`    | user with many persons in the address book | sort persons by name                             | locate a person easily                                                 |
+| `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
+| `* *`    | teaching assistant	                        | add students in my tutorial to my contact list   | easily find students to give feedback to.                              |
+| `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
+| `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
+| `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
+| `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
+| `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
+| `*`      | power user	                                | import and export contact list to another device | save time compiling the contact list                                   |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a person**
 
 **MSS**
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  Projact shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  Projact deletes the person
 
     Use case ends.
 
@@ -283,7 +308,47 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+**Use case: Create a Tag**
+
+**MSS**
+
+1.  User requests to create a tag
+2.  Projact adds the tag.
+
+    Use case ends.
+    
+**Extensions**
+
+* 2a. The tag already exists.
+
+    * 2a1. Projact shows an error message.
+
+  Use case ends.
+
+**Use case: Delete a tag**
+
+**MSS**
+
+1.  User requests to list tags
+2.  Projact shows a list of tags
+3.  User requests to delete a specific tag in the list
+4.  Projact deletes the tag
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. Projact shows an error message.
 
       Use case resumes at step 2.
 
@@ -301,6 +366,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list is empty.
    
    Use case ends.
+  
+*{More to be added}*
+
 
 ### Non-Functional Requirements
 
