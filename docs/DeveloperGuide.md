@@ -292,7 +292,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to list tags
-2. Proajacts shows a list of tags
+2. Projact shows a list of tags
    
    Use case ends.
    
