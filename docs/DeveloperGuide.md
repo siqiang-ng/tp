@@ -312,18 +312,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: Add a tag**
+**Use case: Create a Tag**
 
 **MSS**
 
 1.  User requests to create a tag
-2.  Projact to check if the tag exists and creates the tag if it has not been created.
+2.  Projact adds the tag.
 
     Use case ends.
     
 **Extensions**
 
-* 2a. The tag has been created.
+* 2a. The tag already exists.
 
     * 2a1. Projact shows an error message.
 
