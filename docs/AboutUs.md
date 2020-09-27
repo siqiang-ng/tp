@@ -15,7 +15,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](https://github.com/siqiang-ng)]
 
-* Role: Team Lead & Scheduling and Tracking
+* Role: Team Lead 
+* Responsibility: Scheduling and Tracking
 
 ### Jane Doe
 
