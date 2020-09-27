@@ -9,23 +9,24 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### Ng Si Qiang
-
-<img src="images/siqiang-ng.png" width="200px">
-
-[[github](https://github.com/siqiang-ng)]
-
-* Role: Team Lead & Scheduling and Tracking
-
-### Jane Doe
+### John Doe
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[homepage](http://www.comp.nus.edu.sg/~damithch)]
+[[github](https://github.com/johndoe)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Project Advisor
+
+### Toh Hai Jie Joey
+
+<img src="images/joeytoh.png" width="200px">
+
+[[github](http://github.com/JoeyToh)]
+
+* Role: Developer
+* Responsibilities: Documentation
 
 ### Yap Jie Xiang
 
