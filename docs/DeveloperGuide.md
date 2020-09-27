@@ -384,6 +384,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 10. The software should obey Java checkstyle rules.
 11. The system should respond within two seconds.
 12. The product is not required to handle the communication between the user and those in the user’s address book.
+13. The product should be customised to target NUS Computing students.
+14. The system should be usable by a novice who has never used a command line interface before.
+15. The product should be targeting users who can type fast and prefer typing over other means of input.
+16. The product should be for a single user i.e. (not a multi-user product).
+17. The data should be stored locally and should be in a human editable text file.
+18. The data should not be stored using a Database Management System (DBMS).
+19. The data should be updated as the product is being used (update with every command).
+20. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
+21. The user’s data should not be accessible by developers of the product.
+
 
 ### Glossary
 
