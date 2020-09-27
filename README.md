@@ -5,9 +5,22 @@
 
 ![Ui](docs/images/Ui.png)
 
-description
+**Projacts is a desktop application optimised for managing your contacts and groups.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
-### Links
+### Features
 
-### Acknowledgement
-This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+* Projacts remembers all your contact details
+* Projacts organises your contact into groups
+* Projacts allow fast access to team links (e.g. zoom link, google doc)
+* Projacts reduces clutter with group archiving
+
+### Documentation
+
+* [Home](https://ay2021s1-cs2103t-t17-4.github.io/tp/)
+* [User Guide](https://ay2021s1-cs2103t-t17-4.github.io/tp/UserGuide.html)
+* [Developer Guide](https://ay2021s1-cs2103t-t17-4.github.io/tp/DeveloperGuide.html)
+* [About Us](https://ay2021s1-cs2103t-t17-4.github.io/tp/AboutUs.html)
+
+### Acknowledgements
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
