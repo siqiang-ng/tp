@@ -14,45 +14,43 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/siqiang-ng.png" width="200px">
 
 [[github](https://github.com/siqiang-ng)]
+[[portfolio](team/johndoe.md)]
 
 * Role: Team Lead 
 * Responsibility: Scheduling and Tracking
 
-### Jane Doe
+### Toh Hai Jie Joey
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/joeytoh.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Team Lead
-* Responsibilities: UI
-
-### Johnny Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/JoeyToh)]
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Documentation
 
-### Jean Doe
+### Yap Jie Xiang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/akgrensoar.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/akgrenSoar)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Testing
+
+### Kyi Nuu Khin Khin
+
+<img src="images/khinkhin.png" width="200px">
+
+[[github](http://github.com/khinkhinn)]
+
+* Role: Developer
+* Responsibilities: Deliverables & Scheduling + Threading
+
+### Yeo Ke Xin
+
+<img src="images/pockii.png" width="200px">
+
+[[github](http://github.com/pockii)]
+
+* Role: Developer
+* Responsibilities: Integration
