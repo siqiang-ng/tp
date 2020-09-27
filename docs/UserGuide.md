@@ -3,10 +3,8 @@ layout: page
 title: User Guide
 ---
 
-Projact is a **desktop app that helps NUS computing students to organise their fellow computing students' contacts and
-their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having 
-the benefits of a Graphical User Interface (GUI).
-
+Projact is a **desktop app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+ 
 * Table of Contents
     * [Quick Start](#quick-start)
     * [Features](#features)
@@ -90,6 +88,12 @@ Examples:
 Shows a list of all persons in the address book.
 
 Format: `list`
+
+### Listing all tags: `tag list`
+
+Shows a list of all tags in the address book.
+
+Format: `tag list`
 
 ### Editing a person : `edit`
 
@@ -203,5 +207,6 @@ Action | Format, Examples
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**Tag List** | `tag list`
 **Help** | `help`
 **Tag** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
