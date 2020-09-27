@@ -112,6 +112,17 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
+### Editing a tag : `tag edit`
+
+Edits an existing tag in the address book.
+
+Format: `edit tag INDEX t/tag`
+* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed person tag. The index **must be a positive integer** 1, 2, 3, …​
+* All users tagged with the original tag will have their tag renamed.
+
+Examples:
+*  `edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+
 ### Locating persons by name: `find`
 
 Finds persons whose names contain any of the given keywords.
