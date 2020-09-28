@@ -89,12 +89,6 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
-### Listing all tags: `tag list`
-
-Shows a list of all tags in the address book.
-
-Format: `tag list`
-
 ### Editing a person : `edit`
 
 Edits an existing person in the address book.
@@ -111,17 +105,6 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-
-### Editing a tag : `tag edit`
-
-Edits an existing tag in the address book.
-
-Format: `tag edit INDEX t/tag`
-* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed person tag. The index **must be a positive integer** 1, 2, 3, …​
-* All users tagged with the original tag will have their tag renamed.
-
-Examples:
-*  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
 ### Locating persons by name: `find`
 
@@ -155,17 +138,6 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
-### Deleting a tag: `tag delete`
-
-Deletes the specified tag. 
-
-Format: `tag delete INDEX`
-
-* Deletes the tag with the index `INDEX` from all contacts and the tag list.
-
-Example: 
-* `tag delete 1` deletes the tag with the index 1 in the tag list.
-
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
@@ -178,9 +150,9 @@ Exits the program.
 
 Format: `exit`
 
-### Creating a tag : `tag add`
+### Adding a tag : `tag add`
 
-Creates a tag.
+Adds a tag.
 
 Format: `tag add t/TAG`
 
@@ -189,6 +161,34 @@ Format: `tag add t/TAG`
 
 Examples: 
 * `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
+
+### Deleting a tag: `tag delete`
+
+Deletes the specified tag. 
+
+Format: `tag delete INDEX`
+
+* Deletes the tag with the index `INDEX` from all contacts and the tag list.
+
+Example: 
+* `tag delete 1` deletes the tag with the index 1 in the tag list.
+
+### Editing a tag : `tag edit`
+
+Edits an existing tag in the address book.
+
+Format: `tag edit INDEX t/tag`
+* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed person tag. The index **must be a positive integer** 1, 2, 3, …​
+* All users tagged with the original tag will have their tag renamed.
+
+Examples:
+*  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+
+### Listing all tags: `tag list`
+
+Shows a list of all tags in the address book.
+
+Format: `tag list`
 
 ### View members of a tag: `tag view`
 
@@ -225,12 +225,12 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
-**Tag Edit**| `tag edit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
-**Tag List** | `tag list`
 **Help** | `help`
 **Tag Add** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
+**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
+**Tag Edit**| `tag edit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
+**Tag List** | `tag list`
 **Tag View** | `tag view INDEX`<br> e.g., `tag view 3`
