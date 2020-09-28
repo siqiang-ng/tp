@@ -190,6 +190,17 @@ Format: `tag add t/TAG`
 Examples: 
 * `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
+### View members of a tag: `tag view`
+
+Show all members of a tag.
+
+Format: `tag view INDEX`
+
+* Show all members of the tag with index `INDEX` in the tag list.
+
+Example:
+* `tag view 3` shows all members of the tag with index 3 in the tag list.
+
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -221,4 +232,5 @@ Action | Format, Examples
 **List** | `list`
 **Tag List** | `tag list`
 **Help** | `help`
-**Tag** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
+**Tag Add** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
+**Tag View** | `tag view INDEX`<br> e.g., `tag view 3`
