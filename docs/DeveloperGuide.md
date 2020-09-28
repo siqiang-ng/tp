@@ -367,7 +367,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
    
    Use case ends.
   
-**Use case: Edit tag*
+**Use case: Edit tag**
   
 **MSS**
   
@@ -388,6 +388,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     * 3a1. Projact shows an error message.
 
+      Use case resumes at step 2.
+      
+* 3b. The new tag name is missing.
+
+    * 3b1. Projact shows an error message.
+    
       Use case resumes at step 2.
      
 *{More to be added}*
