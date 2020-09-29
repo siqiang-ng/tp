@@ -5,7 +5,7 @@ title: User Guide
 
 Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-Projact application consists of an address list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user could assign a tag in the tag list to a contact in the address list.
+Projact application consists of a contact list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the contact list.
  
 * Table of Contents
     * [Quick Start](#quick-start)
@@ -18,7 +18,7 @@ Projact application consists of an address list, which stores the contacts of th
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `projact.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `projact.jar` from [here]().
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Projact application.
 
@@ -28,17 +28,17 @@ Projact application consists of an address list, which stores the contacts of th
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts in the address list.
+   * **`list`** : Lists all contacts in the contact list.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the address list.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the contact list.
    
    * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current address list.
+   * **`delete`**`3` : Deletes the 3rd contact shown in the current contact list.
    
    * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
 
-   * **`clear`** : Deletes all contacts in the address list.
+   * **`clear`** : Deletes all contacts in the contact list.
 
    * **`exit`** : Exits the app.
 
@@ -77,7 +77,7 @@ Format: `help`
 
 ### Adding a contact: `add`
 
-Adds a contact to the address list.
+Adds a contact to the contact list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
@@ -91,13 +91,13 @@ Examples:
 
 ### Listing all contacts : `list`
 
-Shows a list of all the contacts in the address list.
+Shows a list of all the contacts in the contact list.
 
 Format: `list`
 
 ### Editing a contact : `edit`
 
-Edits the contact details of an existing contact in the address list.
+Edits the contact details of an existing contact in the contact list.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
@@ -189,7 +189,7 @@ Examples:
 
 ### View members of a tag: `tag view`
 
-Show all members assigned with the tag.
+Shows all members assigned with the tag.
 
 Format: `tag view INDEX`
 
