@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Projacts
+title: Projact
 ---
 
 [![CI Status](https://github.com/AY2021S1-CS2103T-T17-4/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-4/tp/actions?query=workflow%3A%22Java+CI%22)
@@ -8,7 +8,7 @@ title: Projacts
 
 ![Ui](images/Ui.png)
 
-**Projacts is a desktop application optimised for managing your contacts and groups.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+**Projact is a desktop application optimised for managing your contacts and groups.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
 * If you are interested in using AddressBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
 * If you are interested about developing AddressBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.

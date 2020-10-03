@@ -352,21 +352,77 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: List all tags*
+**Use case: List all tags**
 
 **MSS**
 
 1. User requests to list tags
 2. Projact shows a list of tags
    
-   Use case ends.
+    Use case ends.
    
 **Extensions**
 
 * 2a. The list is empty.
    
-   Use case ends.
+  Use case ends.
+
+**Use case: View tag members**
+
+**MSS**
+
+1.  User requests to list tags
+2.  Projact shows a list of tags
+3.  User requests to view members of a specific tag in the list
+4.  Projact displays members of the specified tag
+
+    Use case ends.
+   
+**Extensions**
+
+* 2a. The list is empty.
+   
+  Use case ends.
   
+* 3a. The given index is invalid.
+
+    * 3a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+* 4a. Specified tag has no members.
+
+  Use case ends.
+  
+**Use case: Edit tag**
+  
+**MSS**
+  
+1. User requests to list tags
+2. Projact shows a list of tags
+3. User requests to edit a specific tag in the list
+4. Projact edits the tag
+   
+   Use case ends.
+     
+**Extensions**
+  
+* 2a. The list is empty.
+     
+     Use case ends.
+     
+* 3a. The given index is invalid.
+
+    * 3a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+      
+* 3b. The new tag name is missing.
+
+    * 3b1. Projact shows an error message.
+    
+      Use case resumes at step 2.
+     
 *{More to be added}*
 
 
@@ -384,6 +440,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 10. The software should obey Java checkstyle rules.
 11. The system should respond within two seconds.
 12. The product is not required to handle the communication between the user and those in the user’s address book.
+13. The product should be customised to target NUS Computing students.
+14. The system should be usable by a novice who has never used a command line interface before.
+15. The product should be targeting users who can type fast and prefer typing over other means of input.
+16. The product should be for a single user i.e. (not a multi-user product).
+17. The data should be stored locally and should be in a human editable text file.
+18. The data should not be stored using a Database Management System (DBMS).
+19. The data should be updated as the product is being used (update with every command).
+20. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
+21. The user’s data should not be accessible by developers of the product.
+
 
 ### Glossary
 

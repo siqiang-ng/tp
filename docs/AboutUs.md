@@ -5,19 +5,19 @@ title: About Us
  
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You can reach us at the email `siqiang@comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Ng Si Qiang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/siqiang-ng.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
+[[github](https://github.com/siqiang-ng)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Project Advisor
+* Role: Team Lead 
+* Responsibility: Scheduling and Tracking
 
 ### Toh Hai Jie Joey
 
@@ -37,22 +37,20 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Testing
 
-### Jean Doe
+### Kyi Nuu Khin Khin
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/khinkhinn.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/khinkhinn)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Deliverables & Scheduling + Threading
+
+### Yeo Ke Xin
+
+<img src="images/pockii.png" width="200px">
+
+[[github](http://github.com/pockii)]
+
+* Role: Developer
+* Responsibilities: Integration
