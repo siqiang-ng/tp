@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -22,25 +22,25 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.testutil.PersonBuilder;
 
-public class AddressBookTest {
+public class ProjactTest {
 
-    private final AddressBook addressBook = new AddressBook();
+    private final Projact projact = new Projact();
 
     @Test
     public void constructor() {
-        assertEquals(Collections.emptyList(), addressBook.getPersonList());
+        assertEquals(Collections.emptyList(), projact.getPersonList());
     }
 
     @Test
     public void resetData_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> addressBook.resetData(null));
+        assertThrows(NullPointerException.class, () -> projact.resetData(null));
     }
 
     @Test
-    public void resetData_withValidReadOnlyAddressBook_replacesData() {
-        AddressBook newData = getTypicalAddressBook();
-        addressBook.resetData(newData);
-        assertEquals(newData, addressBook);
+    public void resetData_withValidReadOnlyProjact_replacesData() {
+        Projact newData = getTypicalProjact();
+        projact.resetData(newData);
+        assertEquals(newData, projact);
     }
 
     @Test
@@ -49,47 +49,47 @@ public class AddressBookTest {
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        AddressBookStub newData = new AddressBookStub(newPersons);
+        ProjactStub newData = new ProjactStub(newPersons);
 
-        assertThrows(DuplicatePersonException.class, () -> addressBook.resetData(newData));
+        assertThrows(DuplicatePersonException.class, () -> projact.resetData(newData));
     }
 
     @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> addressBook.hasPerson(null));
+        assertThrows(NullPointerException.class, () -> projact.hasPerson(null));
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
-        assertFalse(addressBook.hasPerson(ALICE));
+    public void hasPerson_personNotInProjact_returnsFalse() {
+        assertFalse(projact.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
-        addressBook.addPerson(ALICE);
-        assertTrue(addressBook.hasPerson(ALICE));
+    public void hasPerson_personInProjact_returnsTrue() {
+        projact.addPerson(ALICE);
+        assertTrue(projact.hasPerson(ALICE));
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
-        addressBook.addPerson(ALICE);
+    public void hasPerson_personWithSameIdentityFieldsInProjact_returnsTrue() {
+        projact.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasPerson(editedAlice));
+        assertTrue(projact.hasPerson(editedAlice));
     }
 
     @Test
     public void getPersonList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, () -> addressBook.getPersonList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> projact.getPersonList().remove(0));
     }
 
     /**
-     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+     * A stub ReadOnlyProjact whose persons list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyAddressBook {
+    private static class ProjactStub implements ReadOnlyProjact {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons) {
+        ProjactStub(Collection<Person> persons) {
             this.persons.setAll(persons);
         }
 
