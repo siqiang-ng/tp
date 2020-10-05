@@ -108,8 +108,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     protected void fillInnerParts() {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        tagListPanel = null;
-        //tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Enable this for v1.2
+        tagListPanel = new TagListPanel(logic.getFilteredTagList());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -132,6 +131,7 @@ public class MainWindow extends UiPart<Stage> {
      * Replace the view in listPanelPlaceholder to show the TagList
      */
     protected void showTagList() {
+        tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Remove in v1.2
         listPanelPlaceholder.getChildren().setAll(tagListPanel.getRoot());
     }
 
@@ -181,6 +181,16 @@ public class MainWindow extends UiPart<Stage> {
      * @see seedu.address.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
+
+        // TODO: Remove this on v1.2
+        // Quickhack
+        if (commandText.equals("list")) {
+            showPersonList();
+        }
+        if (commandText.equals("tag list")) {
+            showTagList();
+        }
+
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
