@@ -16,7 +16,7 @@ import seedu.address.model.person.Name;
 public class Tag {
 
     // Identity fields
-    private final TagName tagName;
+    private final TagName name;
 
     // Data fields
     private final Set<Name> persons = new HashSet<>();
@@ -24,14 +24,14 @@ public class Tag {
     /**
      * Every field must be present and not null.
      */
-    public Tag(TagName tagName, Set<Name> persons) {
-        requireAllNonNull(tagName, persons);
-        this.tagName = tagName;
+    public Tag(TagName name, Set<Name> persons) {
+        requireAllNonNull(name, persons);
+        this.name = name;
         this.persons.addAll(persons);
     }
 
     public TagName getTagName() {
-        return tagName;
+        return name;
     }
 
     /**
@@ -76,7 +76,7 @@ public class Tag {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(tagName, persons);
+        return Objects.hash(name, persons);
     }
 
     @Override
@@ -87,5 +87,11 @@ public class Tag {
         getPersons().forEach(builder::append);
         return builder.toString();
     }
+
+    // PLACEHOLDERS/QUICK FIX - DO NOT USE
+    public String tagName;
+    public static final String MESSAGE_CONSTRAINTS = "";
+    public Tag(String tagName) { this.name = new TagName(""); }
+    public static boolean isValidTagName(String tagName) { return true; }
 
 }
