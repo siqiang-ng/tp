@@ -4,14 +4,19 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -22,6 +27,7 @@ public class ModelManager implements Model {
     private final Projact projact;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private Predicate<Tag> filteredTagPredicate = x -> true;
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -128,6 +134,31 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
     }
+
+    //=========== Filtered Tag List Accessors =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Tag} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Tag> getFilteredTagList() {
+        return this.addressBook.getPersonList()
+                .stream()
+                .map(Person::getTags)
+                .flatMap(Set::stream)
+                .filter(filteredTagPredicate)
+                .collect(Collectors.toCollection(HashSet::new))
+                .stream()
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    @Override
+    public void updateFilteredTagList(Predicate<Tag> predicate) {
+        requireNonNull(predicate);
+        filteredTagPredicate = predicate;
+    }
+
 
     @Override
     public boolean equals(Object obj) {

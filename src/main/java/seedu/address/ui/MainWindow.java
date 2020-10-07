@@ -27,28 +27,25 @@ public class MainWindow extends UiPart<Stage> {
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-    private Stage primaryStage;
-    private Logic logic;
+    private final Stage primaryStage;
+    private final Logic logic;
 
     // Independent Ui parts residing in this Ui container
     private PersonListPanel personListPanel;
+    private TagListPanel tagListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
+    private final HelpWindow helpWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
-
     @FXML
     private MenuItem helpMenuItem;
-
     @FXML
-    private StackPane personListPanelPlaceholder;
-
+    private StackPane listPanelPlaceholder;
     @FXML
     private StackPane resultDisplayPlaceholder;
-
     @FXML
-    private StackPane statusbarPlaceholder;
+    private StackPane statusBarPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -109,9 +106,9 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Fills up all the placeholders of this window.
      */
-    void fillInnerParts() {
+    protected void fillInnerParts() {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        tagListPanel = new TagListPanel(logic.getFilteredTagList());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -121,6 +118,21 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+    }
+
+    /**
+     * Replace the view in listPanelPlaceholder to show the PersonList
+     */
+    protected void showPersonList() {
+        listPanelPlaceholder.getChildren().setAll(personListPanel.getRoot());
+    }
+
+    /**
+     * Replace the view in listPanelPlaceholder to show the TagList
+     */
+    protected void showTagList() {
+        tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Remove in v1.2
+        listPanelPlaceholder.getChildren().setAll(tagListPanel.getRoot());
     }
 
     /**
@@ -163,16 +175,22 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
-    }
-
     /**
      * Executes the command and returns the result.
      *
      * @see seedu.address.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
+
+        // TODO: Remove this on v1.2
+        // Quickhack
+        if (commandText.equals("list")) {
+            showPersonList();
+        }
+        if (commandText.equals("tag list")) {
+            showTagList();
+        }
+
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
