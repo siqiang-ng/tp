@@ -68,7 +68,8 @@ public class LogicManager implements Logic {
     @Override
     public Path getProjactFilePath() {
         return model.getProjactFilePath();
-
+    }
+    
     public ObservableList<Tag> getFilteredTagList() {
         return model.getFilteredTagList();
     }
