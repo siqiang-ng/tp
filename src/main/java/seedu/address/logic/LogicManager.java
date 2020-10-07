@@ -69,7 +69,7 @@ public class LogicManager implements Logic {
     public Path getProjactFilePath() {
         return model.getProjactFilePath();
     }
-    
+
     public ObservableList<Tag> getFilteredTagList() {
         return model.getFilteredTagList();
     }
