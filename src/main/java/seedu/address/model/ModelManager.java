@@ -143,7 +143,7 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<Tag> getFilteredTagList() {
-        return this.addressBook.getPersonList()
+        return this.projact.getPersonList()
                 .stream()
                 .map(Person::getTags)
                 .flatMap(Set::stream)
