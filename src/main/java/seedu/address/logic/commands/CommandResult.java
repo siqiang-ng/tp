@@ -17,13 +17,17 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The application should reflect the tag list. */
+    private final boolean tagList;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean tagList) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.tagList = tagList;
     }
 
     /**
@@ -31,7 +35,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this(feedbackToUser, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -44,6 +48,10 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isTagList() {
+        return tagList;
     }
 
     @Override
@@ -60,12 +68,13 @@ public class CommandResult {
         CommandResult otherCommandResult = (CommandResult) other;
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
-                && exit == otherCommandResult.exit;
+                && exit == otherCommandResult.exit
+                && tagList == otherCommandResult.tagList;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit);
+        return Objects.hash(feedbackToUser, showHelp, exit, tagList);
     }
 
 }

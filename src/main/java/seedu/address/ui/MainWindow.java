@@ -182,15 +182,6 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
 
-        // TODO: Remove this on v1.2
-        // Quickhack
-        if (commandText.equals("list")) {
-            showPersonList();
-        }
-        if (commandText.equals("tag list")) {
-            showTagList();
-        }
-
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
@@ -202,6 +193,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExit()) {
                 handleExit();
+            }
+
+            if (commandResult.isTagList()) {
+                showTagList();
             }
 
             return commandResult;
