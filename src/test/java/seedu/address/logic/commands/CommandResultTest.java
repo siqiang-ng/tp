@@ -8,6 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class CommandResultTest {
+
+    @Test
+    public void booleanExpressions_true() {
+        // show help true -> returns true for isShowHelp()
+        assertTrue(new CommandResult("feedback", true, false, false).isShowHelp());
+
+        // exit true -> returns true for isExit()
+        assertTrue(new CommandResult("feedback", false, true, false).isExit());
+
+        // tag list true -> returns true for isTagList()
+        assertTrue(new CommandResult("feedback", false, false, true).isTagList());
+
+        // show help false -> returns false for isShowHelp()
+        assertFalse(new CommandResult("feedback", false, false, false).isShowHelp());
+
+        // exit false -> returns false for isExit()
+        assertFalse(new CommandResult("feedback", false, false, false).isExit());
+
+        // tag list false -> returns false for isTagList()
+        assertFalse(new CommandResult("feedback", false, false, false).isTagList());
+    }
+
     @Test
     public void equals() {
         CommandResult commandResult = new CommandResult("feedback");
