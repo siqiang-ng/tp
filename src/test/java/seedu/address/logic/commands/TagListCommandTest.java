@@ -28,4 +28,5 @@ class TagListCommandTest {
         CommandResult expectedCommandResult = new CommandResult(TagListCommand.MESSAGE_SUCCESS, false, false, true);
         assertCommandSuccess(new TagListCommand(), model, expectedCommandResult, expectedModel);
     }
+
 }
