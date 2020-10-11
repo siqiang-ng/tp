@@ -18,7 +18,7 @@ public class CommandResult {
     private final boolean exit;
 
     /** The application should reflect the tag list. */
-    private final boolean tagList;
+    private final boolean tagList; //TODO: To be removed in v1.3
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.

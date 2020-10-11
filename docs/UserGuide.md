@@ -171,11 +171,11 @@ Format: `tag add t/TAG`
 Examples: 
 * `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `tag list`
+### Listing all tags: `tagList`
 
 Shows a list of all tags in the tag list.
 
-Format: `tag list`
+Format: `tagList`
 
 ### Editing a tag : `tag edit`
 
