@@ -159,17 +159,17 @@ Exits Projact application.
 
 Format: `exit`
 
-### Adding a tag : `tag add`
+### Adding a tag : `tagAdd`
 
 Adds a tag to the tag list.
 
-Format: `tag add t/TAG`
+Format: `tagAdd t/TAG`
 
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
 Examples: 
-* `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
+* `tagAdd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
 ### Listing all tags: `tagList`
 
@@ -177,40 +177,40 @@ Shows a list of all tags in the tag list.
 
 Format: `tagList`
 
-### Editing a tag : `tag edit`
+### Editing a tag : `tagEdit`
 
 Edits an existing tag in the tag list.
 
-Format: `tag edit INDEX t/tag`
+Format: `tagEdit INDEX t/tag`
 
 * Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
 * All users tagged with the original tag will have their tag renamed.
 
 Examples:
-*  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+*  `tagEdit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### View members of a tag: `tag view`
+### View members of a tag: `tagView`
 
 Shows all members assigned with the tag.
 
-Format: `tag view INDEX`
+Format: `tagView INDEX`
 
 * Show all members of the tag with index `INDEX` in the tag list. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
 
 Example:
-* `tag view 3` shows all members of the tag with index 3 in the tag list.
+* `tagView 3` shows all members of the tag with index 3 in the tag list.
 
-### Deleting a tag: `tag delete`
+### Deleting a tag: `tagDelete`
 
 Deletes the specified tag in the tag list. 
 
-Format: `tag delete INDEX`
+Format: `tagDelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
 * The tag will also be removed from the contact(s) that contain(s) the tag. 
 
 Example: 
-* `tag delete 1` deletes the tag with the index 1 in the tag list.
+* `tagDelete 1` deletes the tag with the index 1 in the tag list.
 
 ### Saving the data
 
@@ -240,8 +240,8 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Tag Add** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
-**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
-**Tag Edit**| `tag edit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
-**Tag List** | `tag list`
-**Tag View** | `tag view INDEX`<br> e.g., `tag view 3`
+**Tag Add** | `tagAdd t/TAG`<br> e.g., `tag add t/CS2103T`
+**Tag Delete**| `tagDelete INDEX` <br> e.g., `tag delete 1` 
+**Tag Edit**| `tagEdit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
+**Tag List** | `tagList`
+**Tag View** | `tagView INDEX`<br> e.g., `tag view 3`
