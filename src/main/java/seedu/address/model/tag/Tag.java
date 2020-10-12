@@ -1,54 +1,91 @@
 package seedu.address.model.tag;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import seedu.address.model.person.Name;
 
 /**
  * Represents a Tag in the address book.
- * Guarantees: immutable; name is valid as declared in {@link #isValidTagName(String)}
+ * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    // Identity fields
+    private final TagName name;
 
-    public final String tagName;
+    // Data fields
+    private final Set<Name> persons = new HashSet<>();
 
     /**
-     * Constructs a {@code Tag}.
-     *
-     * @param tagName A valid tag name.
+     * Every field must be present and not null.
      */
-    public Tag(String tagName) {
-        requireNonNull(tagName);
-        checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
-        this.tagName = tagName;
+    public Tag(TagName name, Set<Name> persons) {
+        requireAllNonNull(name, persons);
+        this.name = name;
+        this.persons.addAll(persons);
+    }
+
+    public TagName getTagName() {
+        return name;
     }
 
     /**
-     * Returns true if a given string is a valid tag name.
+     * Returns an immutable person set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
      */
-    public static boolean isValidTagName(String test) {
-        return test.matches(VALIDATION_REGEX);
+    public Set<Name> getPersons() {
+        return Collections.unmodifiableSet(persons);
     }
 
+    /**
+     * Returns true if both tags of the same name have at least one other identity field that is the same.
+     * This defines a weaker notion of equality between two tags.
+     */
+    public boolean isSameTag(Tag otherTag) {
+        if (otherTag == this) {
+            return true;
+        }
+
+        return otherTag != null && otherTag.getTagName().equals(getTagName());
+    }
+
+    /**
+     * Returns true if both tags have the same identity and data fields.
+     * This defines a stronger notion of equality between two tags.
+     */
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Tag // instanceof handles nulls
-                && tagName.equals(((Tag) other).tagName)); // state check
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Tag)) {
+            return false;
+        }
+
+        Tag otherTag = (Tag) other;
+        return otherTag.getTagName().equals(getTagName())
+                && otherTag.getPersons().equals(getPersons());
     }
 
     @Override
     public int hashCode() {
-        return tagName.hashCode();
+        // use this method for custom fields hashing instead of implementing your own
+        return Objects.hash(name, persons);
     }
 
-    /**
-     * Format state as text for viewing.
-     */
+    @Override
     public String toString() {
-        return '[' + tagName + ']';
+        final StringBuilder builder = new StringBuilder();
+        builder.append(getTagName())
+                .append(" Persons: ");
+        getPersons().forEach(builder::append);
+        return builder.toString();
     }
 
 }
