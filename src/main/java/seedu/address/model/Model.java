@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.TagName;
 
 /**
  * The API of the Model component.
@@ -13,6 +14,7 @@ import seedu.address.model.person.Person;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<TagName> PREDICATE_SHOW_ALL_TAGS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -35,44 +37,44 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' projact file path.
      */
-    Path getAddressBookFilePath();
+    Path getProjactFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' projact file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setProjactFilePath(Path projactFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces projact data with the data in {@code projact}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setProjact(ReadOnlyProjact projact);
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    /** Returns the Projact */
+    ReadOnlyProjact getProjact();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the projact.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the projact.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the projact.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the projact.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the projact.
      */
     void setPerson(Person target, Person editedPerson);
 
@@ -84,4 +86,13 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /** Returns an unmodifiable view of the filtered tag list */
+    ObservableList<TagName> getFilteredTagList();
+
+    /**
+     * Updates the filter of the filtered tag list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredTagList(Predicate<TagName> predicate);
 }
