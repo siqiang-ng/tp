@@ -7,6 +7,8 @@ import java.util.List;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.UniqueTagList;
 
 /**
  * Wraps all data at the address-book level
@@ -15,6 +17,7 @@ import seedu.address.model.person.UniquePersonList;
 public class Projact implements ReadOnlyProjact {
 
     private final UniquePersonList persons;
+    private final UniqueTagList tags;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -25,6 +28,7 @@ public class Projact implements ReadOnlyProjact {
      */
     {
         persons = new UniquePersonList();
+        tags = new UniqueTagList();
     }
 
     public Projact() {}
@@ -72,6 +76,14 @@ public class Projact implements ReadOnlyProjact {
      */
     public void addPerson(Person p) {
         persons.add(p);
+    }
+
+    /**
+     * Adds a tag to Projact.
+     * The tag must not already exist in Projact.
+     */
+    public void addTag(Tag t) {
+        tags.add(t);
     }
 
     /**
