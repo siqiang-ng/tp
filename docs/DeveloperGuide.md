@@ -252,7 +252,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * sorts contacts based on the different modules
 * allows convenient search for project mates / friends taking the same module 
 * allows convenient search for the link for team meeting 
-* filters the main contact list such that inactive contacts will not be seen
+* filters the main person list such that inactive contacts will not be seen
 
 
 
@@ -275,13 +275,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
 | `* *`    | user with many persons in the address book | sort persons by name                             | locate a person easily                                                 |
 | `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
-| `* *`    | teaching assistant	                        | add students in my tutorial to my contact list   | easily find students to give feedback to.                              |
+| `* *`    | teaching assistant	                        | add students in my tutorial to my person list   | easily find students to give feedback to.                              |
 | `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
 | `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
-| `*`      | power user	                                | import and export contact list to another device | save time compiling the contact list                                   |
+| `*`      | power user	                                | import and export person list to another device | save time compiling the person list                                   |
 
 *{More to be added}*
 

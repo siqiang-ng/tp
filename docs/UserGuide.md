@@ -5,7 +5,7 @@ title: User Guide
 
 Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-Projact application consists of a contact list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the contact list.
+Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
  
 * Table of Contents
     * [Quick Start](#quick-start)
@@ -28,17 +28,17 @@ Projact application consists of a contact list, which stores the contacts of the
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts in the contact list.
+   * **`list`** : Lists all contacts in the person list.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the contact list.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the person list.
    
    * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current contact list.
+   * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
    
    * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
 
-   * **`clear`** : Deletes all contacts in the contact list.
+   * **`clear`** : Deletes all contacts in the person list.
 
    * **`exit`** : Exits the app.
 
@@ -77,7 +77,7 @@ Format: `help`
 
 ### Adding a contact: `add`
 
-Adds a contact to the contact list.
+Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
@@ -85,23 +85,25 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 </div>
 
+* Listed tags will be created automatically if they are not found in the tag list.
+
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/CS2101`
 
 ### Listing all contacts : `list`
 
-Shows a list of all the contacts in the contact list.
+Shows a list of all the contacts in the person list.
 
 Format: `list`
 
 ### Editing a contact : `edit`
 
-Edits the contact details of an existing contact in the contact list.
+Edits the contact details of an existing contact in the person list.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-* Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed contact list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
@@ -133,21 +135,21 @@ Examples:
 
 ### Deleting a contact : `delete`
 
-Deletes the specified contact from the contact list.
+Deletes the specified contact from the person list.
 
 Format: `delete INDEX`
 
 * Deletes the contact at the specified `INDEX`.
-* The index refers to the index number shown in the displayed contact list.
+* The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd contact in the contact list.
+* `list` followed by `delete 2` deletes the 2nd contact in the person list.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
-Clears all contact entries from the contact list in Projact.
+Clears all contact entries from the person list in Projact.
 
 Format: `clear`
 
@@ -169,11 +171,11 @@ Format: `tag add t/TAG`
 Examples: 
 * `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `tag list`
+### Listing all tags: `tagList`
 
 Shows a list of all tags in the tag list.
 
-Format: `tag list`
+Format: `tagList`
 
 ### Editing a tag : `tag edit`
 

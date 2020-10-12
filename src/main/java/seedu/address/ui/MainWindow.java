@@ -113,7 +113,7 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
+        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getProjactFilePath());
         statusBarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
@@ -131,7 +131,7 @@ public class MainWindow extends UiPart<Stage> {
      * Replace the view in listPanelPlaceholder to show the TagList
      */
     protected void showTagList() {
-        tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Remove in v1.2
+        tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Remove in v1.3
         listPanelPlaceholder.getChildren().setAll(tagListPanel.getRoot());
     }
 
@@ -181,14 +181,8 @@ public class MainWindow extends UiPart<Stage> {
      * @see seedu.address.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
-
-        // TODO: Remove this on v1.2
-        // Quickhack
-        if (commandText.equals("list")) {
+        if (commandText.equals("list")) { //TODO: Remove this in v1.3
             showPersonList();
-        }
-        if (commandText.equals("tag list")) {
-            showTagList();
         }
 
         try {
@@ -202,6 +196,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExit()) {
                 handleExit();
+            }
+
+            if (commandResult.isTagList()) { // TODO: Remove this in v1.3
+                showTagList();
             }
 
             return commandResult;
