@@ -15,6 +15,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.TagFindCommand;
 import seedu.address.logic.commands.TagListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -71,6 +72,9 @@ public class ProjactParser {
 
         case TagListCommand.COMMAND_WORD:
             return new TagListCommand();
+
+        case TagFindCommand.COMMAND_WORD:
+            return new TagFindCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

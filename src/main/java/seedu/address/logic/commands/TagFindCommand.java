@@ -31,7 +31,10 @@ public class TagFindCommand extends Command {
         requireNonNull(model);
         model.updateFilteredTagList(predicate);
         return new CommandResult(
-                String.format(Messages.MESSAGE_TAGS_LISTED_OVERVIEW, model.getFilteredTagList().size()));
+                String.format(Messages.MESSAGE_TAGS_LISTED_OVERVIEW, model.getFilteredTagList().size()),
+                false,
+                false,
+                true);
     }
 
     @Override

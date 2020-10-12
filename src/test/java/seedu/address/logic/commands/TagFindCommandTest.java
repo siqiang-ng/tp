@@ -53,20 +53,32 @@ public class TagFindCommandTest {
     @Test
     public void execute_zeroKeywords_noTagFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 0);
+        CommandResult expectedResult = new CommandResult(
+                expectedMessage,
+                false,
+                false,
+                true
+        );
         TagNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
-        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertCommandSuccess(command, model, expectedResult, expectedModel);
         assertEquals(Collections.emptyList(), model.getFilteredTagList());
     }
 
     @Test
     public void execute_multipleKeywords_multipleTagsFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 2);
+        CommandResult expectedResult = new CommandResult(
+                expectedMessage,
+                false,
+                false,
+                true
+        );
         TagNameContainsKeywordsPredicate predicate = preparePredicate("FriEndS owesMoney");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
-        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertCommandSuccess(command, model, expectedResult, expectedModel);
         assertEquals(Arrays.asList(new TagName("owesMoney"), new TagName("friends")), model.getFilteredTagList());
     }
 
