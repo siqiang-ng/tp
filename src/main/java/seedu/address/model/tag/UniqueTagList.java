@@ -20,18 +20,18 @@ import seedu.address.model.tag.exceptions.TagNotFoundException;
  *
  * Supports a minimal set of list operations.
  *
- * @see Tag2#isSameTag(Tag2)
+ * @see Tag#isSameTag(Tag)
  */
-public class UniqueTagList implements Iterable<Tag2> {
+public class UniqueTagList implements Iterable<Tag> {
 
-    private final ObservableList<Tag2> internalList = FXCollections.observableArrayList();
-    private final ObservableList<Tag2> internalUnmodifiableList =
+    private final ObservableList<Tag> internalList = FXCollections.observableArrayList();
+    private final ObservableList<Tag> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
     /**
      * Returns true if the list contains an equivalent tag as the given argument.
      */
-    public boolean contains(Tag2 toCheck) {
+    public boolean contains(Tag toCheck) {
         requireNonNull(toCheck);
         return internalList.stream().anyMatch(toCheck::isSameTag);
     }
@@ -40,7 +40,7 @@ public class UniqueTagList implements Iterable<Tag2> {
      * Adds a tag to the list.
      * The tag must not already exist in the list.
      */
-    public void add(Tag2 toAdd) {
+    public void add(Tag toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
             throw new DuplicateTagException();
@@ -53,7 +53,7 @@ public class UniqueTagList implements Iterable<Tag2> {
      * {@code target} must exist in the list.
      * The tag identity of {@code editedTag} must not be the same as another existing tag in the list.
      */
-    public void setTag(Tag2 target, Tag2 editedTag) {
+    public void setTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
 
         int index = internalList.indexOf(target);
@@ -72,7 +72,7 @@ public class UniqueTagList implements Iterable<Tag2> {
      * Removes the equivalent tag from the list.
      * The tag must exist in the list.
      */
-    public void remove(Tag2 toRemove) {
+    public void remove(Tag toRemove) {
         requireNonNull(toRemove);
         if (!internalList.remove(toRemove)) {
             throw new TagNotFoundException();
@@ -88,7 +88,7 @@ public class UniqueTagList implements Iterable<Tag2> {
      * Replaces the contents of this list with {@code tags}.
      * {@code tags} must not contain duplicate tags.
      */
-    public void setTags(List<Tag2> tags) {
+    public void setTags(List<Tag> tags) {
         requireAllNonNull(tags);
         if (!tagsAreUnique(tags)) {
             throw new DuplicateTagException();
@@ -100,12 +100,12 @@ public class UniqueTagList implements Iterable<Tag2> {
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
-    public ObservableList<Tag2> asUnmodifiableObservableList() {
+    public ObservableList<Tag> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
     }
 
     @Override
-    public Iterator<Tag2> iterator() {
+    public Iterator<Tag> iterator() {
         return internalList.iterator();
     }
 
@@ -124,7 +124,7 @@ public class UniqueTagList implements Iterable<Tag2> {
     /**
      * Returns true if {@code tags} contains only unique tags.
      */
-    private boolean tagsAreUnique(List<Tag2> tags) {
+    private boolean tagsAreUnique(List<Tag> tags) {
         for (int i = 0; i < tags.size() - 1; i++) {
             for (int j = i + 1; j < tags.size(); j++) {
                 if (tags.get(i).isSameTag(tags.get(j))) {
