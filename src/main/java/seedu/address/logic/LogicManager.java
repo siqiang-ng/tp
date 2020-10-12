@@ -15,7 +15,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyProjact;
 import seedu.address.model.person.Person;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 import seedu.address.storage.Storage;
 
 /**
@@ -70,7 +70,7 @@ public class LogicManager implements Logic {
         return model.getProjactFilePath();
     }
 
-    public ObservableList<Tag> getFilteredTagList() {
+    public ObservableList<TagName> getFilteredTagList() {
         return model.getFilteredTagList();
     }
 

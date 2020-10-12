@@ -8,7 +8,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Panel containing the list of tags.
@@ -18,12 +18,12 @@ public class TagListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(TagListPanel.class);
 
     @FXML
-    private ListView<Tag> tagListView;
+    private ListView<TagName> tagListView;
 
     /**
      * Creates a {@code TagListPanel} with the given {@code ObservableList}.
      */
-    public TagListPanel(ObservableList<Tag> tagList) {
+    public TagListPanel(ObservableList<TagName> tagList) {
         super(FXML);
         tagListView.setItems(tagList);
         tagListView.setCellFactory(listView -> new TagListViewCell());
@@ -32,9 +32,9 @@ public class TagListPanel extends UiPart<Region> {
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Tag} using a {@code TagCard}.
      */
-    class TagListViewCell extends ListCell<Tag> {
+    class TagListViewCell extends ListCell<TagName> {
         @Override
-        protected void updateItem(Tag tag, boolean empty) {
+        protected void updateItem(TagName tag, boolean empty) {
             super.updateItem(tag, empty);
 
             if (empty || tag == null) {
