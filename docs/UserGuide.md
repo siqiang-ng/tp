@@ -187,16 +187,22 @@ Format: `tag edit INDEX t/tag`
 Examples:
 *  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### View members of a tag: `tag view`
+### Locating tags by name: `tagfind`
 
-Shows all members assigned with the tag.
+Finds the tags whose names contain any of the given keywords.
 
-Format: `tag view INDEX`
+Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 
-* Show all members of the tag with index `INDEX` in the tag list. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
+* The search is case-insensitive. e.g `friends` will match `Friends`
+* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
+* Only the name is searched.
+* Only full words will be matched e.g. `Team` will not match `Team1`
+* Contacts matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Team A` will return `Team B`, `Group A`
 
-Example:
-* `tag view 3` shows all members of the tag with index 3 in the tag list.
+Examples:
+* `tagfind Group` returns `group` and `Group A`
+* `tagfind Team B` returns `Team A`, `Group B`<br>
 
 ### Deleting a tag: `tag delete`
 
