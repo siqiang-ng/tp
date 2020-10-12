@@ -189,11 +189,11 @@ Format: `tag edit INDEX t/tag`
 Examples:
 *  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### Locating tags by name: `tagfind`
+### Locating tags by name: `tagFind`
 
 Finds the tags whose names contain any of the given keywords.
 
-Format: `tagfind KEYWORD [MORE_KEYWORDS]`
+Format: `tagFind KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `friends` will match `Friends`
 * The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
@@ -203,8 +203,8 @@ Format: `tagfind KEYWORD [MORE_KEYWORDS]`
   e.g. `Team A` will return `Team B`, `Group A`
 
 Examples:
-* `tagfind Group` returns `group` and `Group A`
-* `tagfind Team B` returns `Team A`, `Group B`<br>
+* `tagFind Group` returns `group` and `Group A`
+* `tagFind Team B` returns `Team A`, `Group B`<br>
 
 ### Deleting a tag: `tag delete`
 
@@ -250,4 +250,4 @@ Action | Format, Examples
 **Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
 **Tag Edit**| `tag edit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
 **Tag List** | `tag list`
-**Tag View** | `tag view INDEX`<br> e.g., `tag view 3`
+**Tag Find** | `tagFind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
