@@ -4,7 +4,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class TagTest {
+public class TagNameTest {
 
     @Test
     public void constructor_null_throwsNullPointerException() {
