@@ -24,7 +24,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -98,7 +98,7 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         TelegramAddress updatedTelegramAddress = editPersonDescriptor.getTelegramAddress()
                                                     .orElse(personToEdit.getTelegramAddress());
-        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Set<TagName> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedTelegramAddress, updatedTags);
     }
@@ -130,7 +130,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private TelegramAddress telegramAddress;
-        private Set<Tag> tags;
+        private Set<TagName> tags;
 
         public EditPersonDescriptor() {}
 
@@ -189,7 +189,7 @@ public class EditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setTags(Set<Tag> tags) {
+        public void setTags(Set<TagName> tags) {
             this.tags = (tags != null) ? new HashSet<>(tags) : null;
         }
 
@@ -198,7 +198,7 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<Tag>> getTags() {
+        public Optional<Set<TagName>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 

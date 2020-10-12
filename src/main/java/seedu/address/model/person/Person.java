@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Represents a Person in the address book.
@@ -19,15 +19,15 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
-    private final TelegramAddress telegramAddress;
 
     // Data fields
-    private final Set<Tag> tags = new HashSet<>();
+    private final TelegramAddress telegramAddress;
+    private final Set<TagName> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, TelegramAddress telegramAddress, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, TelegramAddress telegramAddress, Set<TagName> tags) {
         requireAllNonNull(name, phone, email, telegramAddress, tags);
         this.name = name;
         this.phone = phone;
@@ -56,7 +56,7 @@ public class Person {
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tag> getTags() {
+    public Set<TagName> getTags() {
         return Collections.unmodifiableSet(tags);
     }
 

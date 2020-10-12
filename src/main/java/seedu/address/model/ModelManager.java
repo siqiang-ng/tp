@@ -16,7 +16,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -27,7 +27,7 @@ public class ModelManager implements Model {
     private final Projact projact;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private Predicate<Tag> filteredTagPredicate = x -> true;
+    private Predicate<TagName> filteredTagPredicate = x -> true;
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -142,7 +142,7 @@ public class ModelManager implements Model {
      * {@code versionedAddressBook}
      */
     @Override
-    public ObservableList<Tag> getFilteredTagList() {
+    public ObservableList<TagName> getFilteredTagList() {
         return this.projact.getPersonList()
                 .stream()
                 .map(Person::getTags)
@@ -154,7 +154,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateFilteredTagList(Predicate<Tag> predicate) {
+    public void updateFilteredTagList(Predicate<TagName> predicate) {
         requireNonNull(predicate);
         filteredTagPredicate = predicate;
     }
