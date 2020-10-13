@@ -246,12 +246,12 @@ _{Explain here how the data archiving feature will be implemented}_
 * wants to filter inactive contacts but does not want to delete them (Archive the contact)
 
 
-**Value proposition**: 
+**Value proposition**:
 
 * manages contacts faster than a typical mouse/GUI driven app
 * sorts contacts based on the different modules
-* allows convenient search for project mates / friends taking the same module 
-* allows convenient search for the link for team meeting 
+* allows convenient search for project mates / friends taking the same module
+* allows convenient search for the link for team meeting
 * filters the main person list such that inactive contacts will not be seen
 
 
@@ -320,7 +320,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  Projact adds the tag.
 
     Use case ends.
-    
+
 **Extensions**
 
 * 2a. The tag already exists.
@@ -358,13 +358,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User requests to list tags
 2. Projact shows a list of tags
-   
+
     Use case ends.
-   
+
 **Extensions**
 
 * 2a. The list is empty.
-   
+
   Use case ends.
 
 **Use case: View tag members**
@@ -377,13 +377,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4.  Projact displays members of the specified tag
 
     Use case ends.
-   
+
 **Extensions**
 
 * 2a. The list is empty.
-   
+
   Use case ends.
-  
+
 * 3a. The given index is invalid.
 
     * 3a1. Projact shows an error message.
@@ -393,36 +393,36 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 4a. Specified tag has no members.
 
   Use case ends.
-  
+
 **Use case: Edit tag**
-  
+
 **MSS**
-  
+
 1. User requests to list tags
 2. Projact shows a list of tags
 3. User requests to edit a specific tag in the list
 4. Projact edits the tag
-   
+
    Use case ends.
-     
+
 **Extensions**
-  
+
 * 2a. The list is empty.
-     
+
      Use case ends.
-     
+
 * 3a. The given index is invalid.
 
     * 3a1. Projact shows an error message.
 
       Use case resumes at step 2.
-      
+
 * 3b. The new tag name is missing.
 
     * 3b1. Projact shows an error message.
-    
+
       Use case resumes at step 2.
-     
+
 *{More to be added}*
 
 
