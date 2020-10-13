@@ -16,6 +16,7 @@ import seedu.address.model.tag.Tag;
  * A utility class containing a list of {@code Tag} objects to be used in tests.
  */
 public class TypicalTags {
+
     public static final Tag GROUPMATE = new TagBuilder().withName("groupmate")
             .withPersons("Alice").build();
     public static final Tag COLLEAGUE = new TagBuilder().withName("colleague")

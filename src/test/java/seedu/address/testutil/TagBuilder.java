@@ -32,7 +32,7 @@ public class TagBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code Tag} that we are building.
+     * Sets the {@code TagName} of the {@code Tag} that we are building.
      */
     public TagBuilder withName(String name) {
         this.name = new TagName(name);
