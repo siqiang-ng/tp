@@ -38,6 +38,7 @@ public class UniqueTagList implements Iterable<Tag> {
 
     /**
      * Adds a tag to the list.
+     *
      * The tag must not already exist in the list.
      */
     public void add(Tag toAdd) {
