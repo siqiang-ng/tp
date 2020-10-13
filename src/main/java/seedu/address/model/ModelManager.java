@@ -139,7 +139,7 @@ public class ModelManager implements Model {
 
     /**
      * Returns an unmodifiable view of the list of {@code Tag} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedProjact}
      */
     @Override
     public ObservableList<TagName> getFilteredTagList() {
