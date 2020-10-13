@@ -159,41 +159,41 @@ Exits Projact application.
 
 Format: `exit`
 
-### Adding a tag : `tagAdd`
+### Adding a tag : `tagadd`
 
 Adds a tag to the tag list.
 
-Format: `tagAdd t/TAG`
+Format: `tagadd t/TAG`
 
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
 Examples: 
-* `tagAdd t/CS2103T` creates a tag named CS2103T without assigning to any contact
+* `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `tagList`
+### Listing all tags: `taglist`
 
 Shows a list of all tags in the tag list.
 
-Format: `tagList`
+Format: `taglist`
 
-### Editing a tag : `tagEdit`
+### Editing a tag : `tagedit`
 
 Edits an existing tag in the tag list.
 
-Format: `tagEdit INDEX t/tag`
+Format: `tagedit INDEX t/tag`
 
 * Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
 * All users tagged with the original tag will have their tag renamed.
 
 Examples:
-*  `tagEdit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### Locating tags by name: `tagFind`
+### Locating tags by name: `tagfind`
 
 Finds the tags whose names contain any of the given keywords.
 
-Format: `tagFind KEYWORD [MORE_KEYWORDS]`
+Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `friends` will match `Friends`
 * The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
@@ -203,20 +203,20 @@ Format: `tagFind KEYWORD [MORE_KEYWORDS]`
   e.g. `Team A` will return `Team B`, `Group A`
 
 Examples:
-* `tagFind Group` returns `group` and `Group A`
-* `tagFind Team B` returns `Team A`, `Group B`<br>
+* `tagfind Group` returns `group` and `Group A`
+* `tagfind Team B` returns `Team A`, `Group B`<br>
 
-### Deleting a tag: `tagDelete`
+### Deleting a tag: `tagdelete`
 
 Deletes the specified tag in the tag list. 
 
-Format: `tagDelete INDEX`
+Format: `tagdelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
 * The tag will also be removed from the contact(s) that contain(s) the tag. 
 
 Example: 
-* `tagDelete 1` deletes the tag with the index 1 in the tag list.
+* `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
 ### Saving the data
 
@@ -246,8 +246,8 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Tag Add** | `tagAdd t/TAG`<br> e.g., `tag add t/CS2103T`
-**Tag Delete**| `tagDelete INDEX` <br> e.g., `tag delete 1` 
-**Tag Edit**| `tagEdit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
-**Tag List** | `tagList`
-**Tag Find** | `tagFind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1` 
+**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
+**Tag List** | `taglist`
+**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
