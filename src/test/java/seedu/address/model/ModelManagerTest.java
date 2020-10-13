@@ -94,6 +94,11 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void getFilteredTagList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredTagList().remove(0));
+    }
+
+    @Test
     public void equals() {
         Projact projact = new ProjactBuilder().withPerson(ALICE).withPerson(BENSON).build();
         Projact differentProjact = new Projact();

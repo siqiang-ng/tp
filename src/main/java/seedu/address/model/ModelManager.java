@@ -143,7 +143,7 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<TagName> getFilteredTagList() {
-        return this.projact.getPersonList()
+        ObservableList<TagName> observableList = this.projact.getPersonList()
                 .stream()
                 .map(Person::getTags)
                 .flatMap(Set::stream)
@@ -151,6 +151,8 @@ public class ModelManager implements Model {
                 .collect(Collectors.toCollection(HashSet::new))
                 .stream()
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        return new FilteredList<TagName>(observableList);
     }
 
     @Override
