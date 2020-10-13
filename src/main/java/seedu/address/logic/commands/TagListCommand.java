@@ -9,7 +9,7 @@ import seedu.address.model.Model;
  * Lists all tags in the tag list to the user.
  */
 public class TagListCommand extends Command {
-    public static final String COMMAND_WORD = "taglist";
+    public static final String COMMAND_WORD = "tagList";
 
     public static final String MESSAGE_SUCCESS = "These are the tags in tag list currently.";
 
