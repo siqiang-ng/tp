@@ -159,58 +159,65 @@ Exits Projact application.
 
 Format: `exit`
 
-### Adding a tag : `tagAdd`
+### Adding a tag : `tagadd`
 
 Adds a tag to the tag list.
 
-Format: `tagAdd t/TAG`
+Format: `tagadd t/TAG`
 
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
-Examples:
-* `tagAdd t/CS2103T` creates a tag named CS2103T without assigning to any contact
+Examples: 
+* `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `tagList`
+### Listing all tags: `taglist`
 
 Shows a list of all tags in the tag list.
 
-Format: `tagList`
+Format: `taglist`
 
-### Editing a tag : `tagEdit`
+### Editing a tag : `tagedit`
 
 Edits an existing tag in the tag list.
 
-Format: `tagEdit INDEX t/tag`
+Format: `tagedit INDEX t/tag`
 
 * Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
 * All users tagged with the original tag will have their tag renamed.
 
 Examples:
-*  `tagEdit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### View members of a tag: `tagView`
+### Locating tags by name: `tagfind`
 
-Shows all members assigned with the tag.
+Finds the tags whose names contain any of the given keywords.
 
-Format: `tagView INDEX`
+Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 
-* Show all members of the tag with index `INDEX` in the tag list. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
+* The search is case-insensitive. e.g `friends` will match `Friends`
+* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
+* Only the name is searched.
+* Only full words will be matched e.g. `Team` will not match `Team1`
+* Contacts matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Team A` will return `Team B`, `Group A`
 
-Example:
-* `tagView 3` shows all members of the tag with index 3 in the tag list.
+Examples:
+* `tagfind Group` returns `group` and `Group A`
+* `tagfind Team B` returns `Team A`, `Group B`<br>
 
-### Deleting a tag: `tagDelete`
+### Deleting a tag: `tagdelete`
 
 Deletes the specified tag in the tag list.
 
-Format: `tagDelete INDEX`
+Format: `tagdelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
 * The tag will also be removed from the contact(s) that contain(s) the tag.
 
-Example:
-* `tagDelete 1` deletes the tag with the index 1 in the tag list.
+Example: 
+* `tagdelete 1` deletes the tag with the index 1 in the tag list.
+
 
 ### Saving the data
 
@@ -240,8 +247,9 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Tag Add** | `tagAdd t/TAG`<br> e.g., `tag add t/CS2103T`
-**Tag Delete**| `tagDelete INDEX` <br> e.g., `tag delete 1`
-**Tag Edit**| `tagEdit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
-**Tag List** | `tagList`
-**Tag View** | `tagView INDEX`<br> e.g., `tag view 3`
+**Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1` 
+**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
+**Tag List** | `taglist`
+**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+
