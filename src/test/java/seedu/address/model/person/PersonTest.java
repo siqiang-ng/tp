@@ -93,4 +93,23 @@ public class PersonTest {
         editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));
     }
+
+    @Test
+    public void hashCodeTest() {
+        Integer aliceHashCode = ALICE.hashCode();
+
+        // same person --> returns true
+        Integer aliceCopyHashCode = new PersonBuilder(ALICE).build().hashCode();
+        assertTrue(aliceHashCode.equals(aliceCopyHashCode));
+
+        // different person --> returns false
+        Integer bobHashCode = BOB.hashCode();
+        assertFalse(aliceHashCode.equals(bobHashCode));
+
+        // edited person --> returns false
+        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        Integer editedAliceHashCode = editedAlice.hashCode();
+        assertFalse(aliceHashCode.equals(editedAliceHashCode));
+    }
+
 }
