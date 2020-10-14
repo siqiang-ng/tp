@@ -3,9 +3,9 @@ layout: page
 title: John Doe's Project Portfolio Page
 ---
 
-## Project: AddressBook Level 3
+## Project: Projact
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 Given below are my contributions to the project.
 

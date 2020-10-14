@@ -6,7 +6,7 @@ title: User Guide
 Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
- 
+
 * Table of Contents
     * [Quick Start](#quick-start)
     * [Features](#features)
@@ -35,7 +35,7 @@ Projact application consists of a person list, which stores the contacts of the 
    * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
-   
+
    * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
 
    * **`clear`** : Deletes all contacts in the person list.
@@ -168,7 +168,7 @@ Format: `tagAdd t/TAG`
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
-Examples: 
+Examples:
 * `tagAdd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
 ### Listing all tags: `tagList`
@@ -202,14 +202,14 @@ Example:
 
 ### Deleting a tag: `tagDelete`
 
-Deletes the specified tag in the tag list. 
+Deletes the specified tag in the tag list.
 
 Format: `tagDelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag. 
+* The tag will also be removed from the contact(s) that contain(s) the tag.
 
-Example: 
+Example:
 * `tagDelete 1` deletes the tag with the index 1 in the tag list.
 
 ### Saving the data
@@ -241,7 +241,7 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Tag Add** | `tagAdd t/TAG`<br> e.g., `tag add t/CS2103T`
-**Tag Delete**| `tagDelete INDEX` <br> e.g., `tag delete 1` 
+**Tag Delete**| `tagDelete INDEX` <br> e.g., `tag delete 1`
 **Tag Edit**| `tagEdit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
 **Tag List** | `tagList`
 **Tag View** | `tagView INDEX`<br> e.g., `tag view 3`
