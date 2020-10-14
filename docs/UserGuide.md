@@ -6,7 +6,7 @@ title: User Guide
 Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
- 
+
 * Table of Contents
     * [Quick Start](#quick-start)
     * [Features](#features)
@@ -30,12 +30,12 @@ Projact application consists of a person list, which stores the contacts of the 
 
    * **`list`** : Lists all contacts in the person list.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the person list.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com ta/john_doe123` : Adds a contact named `John Doe` to the person list.
    
    * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
-   
+
    * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
 
    * **`clear`** : Deletes all contacts in the person list.
@@ -79,7 +79,7 @@ Format: `help`
 
 Adds a contact to the person list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
@@ -88,8 +88,8 @@ A person can have any number of tags since he/she is able to take more than one 
 * Listed tags will be created automatically if they are not found in the tag list.
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/CS2101`
+* `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
 
 ### Listing all contacts : `list`
 
@@ -101,7 +101,7 @@ Format: `list`
 
 Edits the contact details of an existing contact in the person list.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
 
 * Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -208,15 +208,16 @@ Examples:
 
 ### Deleting a tag: `tagdelete`
 
-Deletes the specified tag in the tag list. 
+Deletes the specified tag in the tag list.
 
 Format: `tagdelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag. 
+* The tag will also be removed from the contact(s) that contain(s) the tag.
 
 Example: 
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
+
 
 ### Saving the data
 
@@ -239,10 +240,10 @@ _{explain the feature here}_
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/CS2101 t/CS2103T`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
@@ -251,3 +252,4 @@ Action | Format, Examples
 **Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
 **Tag List** | `taglist`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+
