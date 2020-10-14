@@ -22,16 +22,19 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.TagFindCommand;
+import seedu.address.logic.commands.TagListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
 
-public class AddressBookParserTest {
+public class ProjactParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final ProjactParser parser = new ProjactParser();
 
     @Test
     public void parseCommand_add() throws Exception {
@@ -86,6 +89,20 @@ public class AddressBookParserTest {
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
+    }
+
+    @Test
+    public void parseCommand_tagList() throws Exception {
+        assertTrue(parser.parseCommand(TagListCommand.COMMAND_WORD) instanceof TagListCommand);
+        assertTrue(parser.parseCommand(TagListCommand.COMMAND_WORD + " 3") instanceof TagListCommand);
+    }
+
+    @Test
+    public void parseCommand_tagFind() throws Exception {
+        List<String> keywords = Arrays.asList("foo", "bar", "baz");
+        TagFindCommand command = (TagFindCommand) parser.parseCommand(
+                TagFindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new TagFindCommand(new TagNameContainsKeywordsPredicate(keywords)), command);
     }
 
     @Test

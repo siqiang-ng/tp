@@ -80,7 +80,7 @@ The `UI` component,
 **API** :
 [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
-1. `Logic` uses the `AddressBookParser` class to parse the user command.
+1. `Logic` uses the `ProjactParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
 1. The command execution can affect the `Model` (e.g. adding a person).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
@@ -107,7 +107,7 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Projact`, which `Person` references. This allows `Projact` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
@@ -246,13 +246,13 @@ _{Explain here how the data archiving feature will be implemented}_
 * wants to filter inactive contacts but does not want to delete them (Archive the contact)
 
 
-**Value proposition**: 
+**Value proposition**:
 
 * manages contacts faster than a typical mouse/GUI driven app
 * sorts contacts based on the different modules
-* allows convenient search for project mates / friends taking the same module 
-* allows convenient search for the link for team meeting 
-* filters the main contact list such that inactive contacts will not be seen
+* allows convenient search for project mates / friends taking the same module
+* allows convenient search for the link for team meeting
+* filters the main person list such that inactive contacts will not be seen
 
 
 
@@ -275,13 +275,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
 | `* *`    | user with many persons in the address book | sort persons by name                             | locate a person easily                                                 |
 | `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
-| `* *`    | teaching assistant	                        | add students in my tutorial to my contact list   | easily find students to give feedback to.                              |
+| `* *`    | teaching assistant	                        | add students in my tutorial to my person list   | easily find students to give feedback to.                              |
 | `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
 | `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
-| `*`      | power user	                                | import and export contact list to another device | save time compiling the contact list                                   |
+| `*`      | power user	                                | import and export person list to another device | save time compiling the person list                                   |
 
 *{More to be added}*
 
@@ -320,7 +320,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  Projact adds the tag.
 
     Use case ends.
-    
+
 **Extensions**
 
 * 2a. The tag already exists.
@@ -358,13 +358,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User requests to list tags
 2. Projact shows a list of tags
-   
+
     Use case ends.
-   
+
 **Extensions**
 
 * 2a. The list is empty.
-   
+
   Use case ends.
 
 **Use case: View tag members**
@@ -377,13 +377,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4.  Projact displays members of the specified tag
 
     Use case ends.
-   
+
 **Extensions**
 
 * 2a. The list is empty.
-   
+
   Use case ends.
-  
+
 * 3a. The given index is invalid.
 
     * 3a1. Projact shows an error message.
@@ -393,36 +393,36 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 4a. Specified tag has no members.
 
   Use case ends.
-  
+
 **Use case: Edit tag**
-  
+
 **MSS**
-  
+
 1. User requests to list tags
 2. Projact shows a list of tags
 3. User requests to edit a specific tag in the list
 4. Projact edits the tag
-   
+
    Use case ends.
-     
+
 **Extensions**
-  
+
 * 2a. The list is empty.
-     
+
      Use case ends.
-     
+
 * 3a. The given index is invalid.
 
     * 3a1. Projact shows an error message.
 
       Use case resumes at step 2.
-      
+
 * 3b. The new tag name is missing.
 
     * 3b1. Projact shows an error message.
-    
+
       Use case resumes at step 2.
-     
+
 *{More to be added}*
 
 

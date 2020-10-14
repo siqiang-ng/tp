@@ -7,8 +7,9 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyProjact;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.TagName;
 
 /**
  * API of the Logic component
@@ -24,19 +25,22 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the AddressBook.
+     * Returns the Projact.
      *
-     * @see seedu.address.model.Model#getAddressBook()
+     * @see seedu.address.model.Model#getProjact()
      */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyProjact getProjact();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the filtered list of tags*/
+    ObservableList<TagName> getFilteredTagList();
+
     /**
      * Returns the user prefs' address book file path.
      */
-    Path getAddressBookFilePath();
+    Path getProjactFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

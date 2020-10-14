@@ -5,8 +5,8 @@ title: User Guide
 
 Projact is a **project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-Projact application consists of a contact list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the contact list.
- 
+Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
+
 * Table of Contents
     * [Quick Start](#quick-start)
     * [Features](#features)
@@ -28,17 +28,17 @@ Projact application consists of a contact list, which stores the contacts of the
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts in the contact list.
+   * **`list`** : Lists all contacts in the person list.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the contact list.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com ta/john_doe123` : Adds a contact named `John Doe` to the person list.
    
    * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current contact list.
-   
+   * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
+
    * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
 
-   * **`clear`** : Deletes all contacts in the contact list.
+   * **`clear`** : Deletes all contacts in the person list.
 
    * **`exit`** : Exits the app.
 
@@ -77,31 +77,33 @@ Format: `help`
 
 ### Adding a contact: `add`
 
-Adds a contact to the contact list.
+Adds a contact to the person list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 </div>
 
+* Listed tags will be created automatically if they are not found in the tag list.
+
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/CS2101`
+* `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
 
 ### Listing all contacts : `list`
 
-Shows a list of all the contacts in the contact list.
+Shows a list of all the contacts in the person list.
 
 Format: `list`
 
 ### Editing a contact : `edit`
 
-Edits the contact details of an existing contact in the contact list.
+Edits the contact details of an existing contact in the person list.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
 
-* Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed contact list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
@@ -133,21 +135,21 @@ Examples:
 
 ### Deleting a contact : `delete`
 
-Deletes the specified contact from the contact list.
+Deletes the specified contact from the person list.
 
 Format: `delete INDEX`
 
 * Deletes the contact at the specified `INDEX`.
-* The index refers to the index number shown in the displayed contact list.
+* The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd contact in the contact list.
+* `list` followed by `delete 2` deletes the 2nd contact in the person list.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
-Clears all contact entries from the contact list in Projact.
+Clears all contact entries from the person list in Projact.
 
 Format: `clear`
 
@@ -157,58 +159,65 @@ Exits Projact application.
 
 Format: `exit`
 
-### Adding a tag : `tag add`
+### Adding a tag : `tagadd`
 
 Adds a tag to the tag list.
 
-Format: `tag add t/TAG`
+Format: `tagadd t/TAG`
 
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
 Examples: 
-* `tag add t/CS2103T` creates a tag named CS2103T without assigning to any contact
+* `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `tag list`
+### Listing all tags: `taglist`
 
 Shows a list of all tags in the tag list.
 
-Format: `tag list`
+Format: `taglist`
 
-### Editing a tag : `tag edit`
+### Editing a tag : `tagedit`
 
 Edits an existing tag in the tag list.
 
-Format: `tag edit INDEX t/tag`
+Format: `tagedit INDEX t/tag`
 
 * Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
 * All users tagged with the original tag will have their tag renamed.
 
 Examples:
-*  `tag edit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### View members of a tag: `tag view`
+### Locating tags by name: `tagfind`
 
-Shows all members assigned with the tag.
+Finds the tags whose names contain any of the given keywords.
 
-Format: `tag view INDEX`
+Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 
-* Show all members of the tag with index `INDEX` in the tag list. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
+* The search is case-insensitive. e.g `friends` will match `Friends`
+* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
+* Only the name is searched.
+* Only full words will be matched e.g. `Team` will not match `Team1`
+* Contacts matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Team A` will return `Team B`, `Group A`
 
-Example:
-* `tag view 3` shows all members of the tag with index 3 in the tag list.
+Examples:
+* `tagfind Group` returns `group` and `Group A`
+* `tagfind Team B` returns `Team A`, `Group B`<br>
 
-### Deleting a tag: `tag delete`
+### Deleting a tag: `tagdelete`
 
-Deletes the specified tag in the tag list. 
+Deletes the specified tag in the tag list.
 
-Format: `tag delete INDEX`
+Format: `tagdelete INDEX`
 
 * Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag. 
+* The tag will also be removed from the contact(s) that contain(s) the tag.
 
 Example: 
-* `tag delete 1` deletes the tag with the index 1 in the tag list.
+* `tagdelete 1` deletes the tag with the index 1 in the tag list.
+
 
 ### Saving the data
 
@@ -231,15 +240,16 @@ _{explain the feature here}_
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/CS2101 t/CS2103T`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Tag Add** | `tag add t/TAG`<br> e.g., `tag add t/CS2103T`
-**Tag Delete**| `tag delete INDEX` <br> e.g., `tag delete 1` 
-**Tag Edit**| `tag edit INDEX t/TAG` <br> e.g., `tag edit 1 t/CS2101` 
-**Tag List** | `tag list`
-**Tag View** | `tag view INDEX`<br> e.g., `tag view 3`
+**Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1` 
+**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
+**Tag List** | `taglist`
+**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+

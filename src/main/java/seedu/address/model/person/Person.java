@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Represents a Person in the address book.
@@ -21,18 +21,18 @@ public class Person {
     private final Email email;
 
     // Data fields
-    private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+    private final TelegramAddress telegramAddress;
+    private final Set<TagName> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, TelegramAddress telegramAddress, Set<TagName> tags) {
+        requireAllNonNull(name, phone, email, telegramAddress, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.telegramAddress = telegramAddress;
         this.tags.addAll(tags);
     }
 
@@ -48,15 +48,15 @@ public class Person {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    public TelegramAddress getTelegramAddress() {
+        return telegramAddress;
     }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tag> getTags() {
+    public Set<TagName> getTags() {
         return Collections.unmodifiableSet(tags);
     }
 
@@ -92,14 +92,14 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getTelegramAddress().equals(getTelegramAddress())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, telegramAddress, tags);
     }
 
     @Override
@@ -110,8 +110,8 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
+                .append(" Telegram Address: ")
+                .append(getTelegramAddress())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
