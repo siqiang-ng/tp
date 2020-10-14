@@ -2,8 +2,26 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
+# Projact Developer Guide
+
+## Table of Contents
+* [Setting up, getting started](#setting-up-getting-started)
+* [Design](#design)
+    * [Architecture](#architecture)
+    * [UI component](#ui-component)
+    * [Logic component](#logic-component)
+    * [Model component](#model-component)
+    * [Storage component](#storage-component)
+    * [Common classes](#common-classes)
+* [Implementation](#implementation)
+* [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
+* [Appendix: Requirements](#appendix-requirements)
+    * [Product Scope](#product-scope)
+    * [User Stories](#user-stories)
+    * [Use Cases](#use-cases)
+    * [Non-Functional Requirements](#non-functional-requirements)
+    * [Glossary](#glossary)
+* [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -103,7 +121,7 @@ The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* exposes unmodifiable `ObservableList<Person>` and `ObservableList<Tag>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
 
@@ -241,18 +259,18 @@ _{Explain here how the data archiving feature will be implemented}_
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
-* wants to group contacts based on our modules
+* wants to group contacts based on the different modules
 * has a need to store the different meeting platforms for each module project in one platform
 * wants to filter inactive contacts but does not want to delete them (Archive the contact)
 
 
-**Value proposition**:
+**Value propositions**:
 
-* manages contacts faster than a typical mouse/GUI driven app
-* sorts contacts based on the different modules
-* allows convenient search for project mates / friends taking the same module
-* allows convenient search for the link for team meeting
-* filters the main person list such that inactive contacts will not be seen
+* Manages contacts faster than a typical mouse/GUI driven app.
+* Sorts contacts based on the different module tags.
+* Allows convenient search for project mates / friends taking the same module.
+* Allows convenient search for the link for team meeting.
+* Filters the main person list such that inactive contacts will not be seen.
 
 
 
