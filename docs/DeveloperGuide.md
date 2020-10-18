@@ -2,10 +2,14 @@
 layout: page
 title: Developer Guide
 ---
-# Projact Developer Guide
+# **Projact** - Developer Guide
 
-## Table of Contents
-* [Setting up, getting started](#setting-up-getting-started)
+Projact is a **project and contact management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**.
+
+This developer guide provides information that helps you to get started as a contributor to Projact.
+
+## **Table of Contents**
+* [Setting up](#setting-up-getting-started)
 * [Design](#design)
     * [Architecture](#architecture)
     * [UI component](#ui-component)
@@ -13,14 +17,17 @@ title: Developer Guide
     * [Model component](#model-component)
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
+* [Implementation](#implementation)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
-* [Appendix: Requirements](#appendix-requirements)
-    * [Product Scope](#product-scope)
-    * [User Stories](#user-stories)
-    * [Use Cases](#use-cases)
-    * [Non-Functional Requirements](#non-functional-requirements)
-    * [Glossary](#glossary)
-* [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
+* [Appendix A: Product Scope](#appendix-a-product-scope)
+* [Appendix B: User Stories](#appendix-b-user-stories)
+* [Appendix C: Use Cases](#appendix-c-use-cases)
+* [Appendix D: Non-Functional Requirements](#appendix-d-non-functional-requirements)
+* [Appendix E: Glossary](#appendix-e-glossary)
+* [Appendix F: Instructions for Manual Testing](#appendix-f-instructions-for-manual-testing)
+    * [Launch and Shut Down](#launch-and-shutdown)
+    * [Deletes a person](#deletes-a-person)
+    * [Saves data](#saves-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -119,7 +126,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
+* stores the projact data.
 * exposes unmodifiable `ObservableList<Person>` and `ObservableList<Tag>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
@@ -138,14 +145,28 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save projact data in json format and read it back.
 
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+## **Implementation** 
 
+### Implemented features
+**TagList feature**
+
+**TagFind feature**
+
+### Future implementation plans
+**TagAdd feature**
+
+**TagEdit feature**
+
+**TagDelete feature**
+
+--------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
@@ -156,9 +177,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
-
-### Product scope
+## **Appendix A: Product Scope**
 
 **Target user profile**: Computing Student
 
@@ -180,9 +199,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 * Allows convenient search for the link for team meeting.
 * Filters the main person list such that inactive contacts will not be seen.
 
-
-
-### User stories
+--------------------------------------------------------------------------------------------------------------------
+## **Appendix B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -199,7 +217,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | hide private contact details                     | minimize chance of someone else seeing them by accident                |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
-| `* *`    | user with many persons in the address book | sort persons by name                             | locate a person easily                                                 |
+| `* *`    | user with many persons in projact          | sort persons by name                             | locate a person easily                                                 |
 | `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
 | `* *`    | teaching assistant	                        | add students in my tutorial to my person list   | easily find students to give feedback to.                              |
 | `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
@@ -209,13 +227,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
 | `*`      | power user	                                | import and export person list to another device | save time compiling the person list                                   |
 
-*{More to be added}*
-
-### Use cases
+--------------------------------------------------------------------------------------------------------------------
+## **Appendix C: Use Cases**
 
 (For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+### **Use case: Delete a person**
 
 **MSS**
 
@@ -238,7 +255,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: Create a Tag**
+### **Use case: Create a Tag**
 
 **MSS**
 
@@ -255,7 +272,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: Delete a tag**
+### **Use case: Delete a tag**
 
 **MSS**
 
@@ -278,7 +295,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: List all tags**
+### **Use case: List all tags**
 
 **MSS**
 
@@ -293,7 +310,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: View tag members**
+### **Use case: View tag members**
 
 **MSS**
 
@@ -320,7 +337,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: Edit tag**
+### **Use case: Edit tag**
 
 **MSS**
 
@@ -351,40 +368,39 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 *{More to be added}*
 
-
-### Non-Functional Requirements
+--------------------------------------------------------------------------------------------------------------------
+## **Appendix D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. The system should work on both 32-bit and 64-bit environments.
-5. The software should work without requiring an installer.
-6. The software should not depend on any of the team member’s own remote server.
-7. The product should not use images that would result in copyright infringement.
-8. The team should give credit for any reused code.
-9. The software should not depend on any third-party frameworks/libraries that are not approved by the CS2103T teaching team.
-10. The software should obey Java checkstyle rules.
-11. The system should respond within two seconds.
-12. The product is not required to handle the communication between the user and those in the user’s address book.
-13. The product should be customised to target NUS Computing students.
-14. The system should be usable by a novice who has never used a command line interface before.
-15. The product should be targeting users who can type fast and prefer typing over other means of input.
-16. The product should be for a single user i.e. (not a multi-user product).
-17. The data should be stored locally and should be in a human editable text file.
-18. The data should not be stored using a Database Management System (DBMS).
-19. The data should be updated as the product is being used (update with every command).
-20. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
-21. The user’s data should not be accessible by developers of the product.
+1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. The system should work on both 32-bit and 64-bit environments.
+1. The software should work without requiring an installer.
+1. The software should not depend on any of the team member’s own remote server.
+1. The product should not use images that would result in copyright infringement.
+1. The team should give credit for any reused code.
+1. The software should not depend on any third-party frameworks/libraries that are not approved by the CS2103T teaching team.
+1. The software should obey Java checkstyle rules.
+1. The system should respond within two seconds.
+1. The product is not required to handle the communication between the user and those in the user’s projact.
+1. The product should be customised to target NUS Computing students.
+1. The system should be usable by a novice who has never used a command line interface before.
+1. The product should be targeting users who can type fast and prefer typing over other means of input.
+1. The product should be for a single user i.e. (not a multi-user product).
+1. The data should be stored locally and should be in a human editable text file.
+1. The data should not be stored using a Database Management System (DBMS).
+1. The data should be updated as the product is being used (update with every command).
+1. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
+1. The user’s data should not be accessible by developers of the product.
 
-
-### Glossary
+--------------------------------------------------------------------------------------------------------------------
+## **Appendix E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
-
-## **Appendix: Instructions for manual testing**
+## **Appendix F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -399,7 +415,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file 
+       Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -408,9 +425,7 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
-
-### Deleting a person
+### Deletes a person
 
 1. Deleting a person while all persons are being shown
 
@@ -425,12 +440,13 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
 
-### Saving data
+### Saves data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
+   1. If the data file is missing, the application will launch a window that is populated with the sample data. User can use the `clear` command to get an empty projact window.
+      Expected: Window with sample data
+      
+   1. If the data file is corrupted, users should delete the `projact.json` file in data folder. Relaunch the jar file again.
+      Expected: Window with sample data
