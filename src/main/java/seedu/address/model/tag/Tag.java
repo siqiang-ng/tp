@@ -43,19 +43,22 @@ public class Tag {
     }
 
     /**
-     * Returns true if both tags of the same name have at least one other identity field that is the same.
+     * Returns true if both tags have the same name
      * This defines a weaker notion of equality between two tags.
      */
     public boolean isSameTag(Tag otherTag) {
+        if (otherTag == null) {
+            return false;
+        }
         if (otherTag == this) {
             return true;
         }
 
-        return otherTag != null && otherTag.getTagName().equals(getTagName());
+        return otherTag.getTagName().equals(getTagName());
     }
 
     /**
-     * Returns true if both tags have the same identity and data fields.
+     * Returns true if both tags have the same name and data fields.
      * This defines a stronger notion of equality between two tags.
      */
     @Override
