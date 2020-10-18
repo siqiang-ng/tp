@@ -154,6 +154,18 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 --------------------------------------------------------------------------------------------------------------------
 ## **Implementation** 
 
+### Implemented features
+**TagList feature**
+
+**TagFind feature**
+
+### Future implementation plans
+**TagAdd feature**
+
+**TagEdit feature**
+
+**TagDelete feature**
+
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
