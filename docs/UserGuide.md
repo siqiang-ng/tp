@@ -32,11 +32,11 @@ Projact application consists of a person list, which stores the contacts of the 
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com ta/john_doe123` : Adds a contact named `John Doe` to the person list.
    
-   * **`tag add`**`t/CS210T` : Adds a permanent tag to the tag list.
+   * **`tagadd`**`t/CS210T` : Adds a permanent tag to the tag list.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
 
-   * **`tag delete`**`1` : Deletes the tag of index 1 in the tag list.
+   * **`tagdelete`**`1` : Deletes the tag of index 1 in the tag list.
 
    * **`clear`** : Deletes all contacts in the person list.
 
@@ -88,7 +88,7 @@ A person can have any number of tags since he/she is able to take more than one 
 * Listed tags will be created automatically if they are not found in the tag list.
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123, block 123, #01-01`
+* `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
 
 ### Listing all contacts : `list`
@@ -243,7 +243,7 @@ Action | Format, Examples
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
