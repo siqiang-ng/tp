@@ -6,9 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ADDRESS_BOB;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BENSON;
+import static seedu.address.testutil.TypicalTags.CS2040S;
 import static seedu.address.testutil.TypicalTags.CS2103T;
 import static seedu.address.testutil.TypicalTags.GROUPMATE;
 
@@ -282,7 +284,11 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        Projact projact = new ProjactBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        Projact projact = new ProjactBuilder()
+                .withPerson(ALICE)
+                .withPerson(BENSON)
+                .withTag(CS2040S)
+                .build();
         Projact differentProjact = new Projact();
         UserPrefs userPrefs = new UserPrefs();
 
@@ -308,13 +314,16 @@ public class ModelManagerTest {
         modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
+        // resets modelManager to initial state for upcoming tests
+        modelManager.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
         // different filteredTagList -> returns false
         keywords = CS2103T.getTagName().tagName.split("\\s+");
         modelManager.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
-        modelManager.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        modelManager.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
 
         // different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();

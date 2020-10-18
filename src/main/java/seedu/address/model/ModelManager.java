@@ -186,7 +186,9 @@ public class ModelManager implements Model {
     @Override
     public void updateFilteredTagList(Predicate<TagName> predicate) { // TODO: Change to Predicate<Tag> in v1.3
         requireNonNull(predicate);
-        filteredTagPredicate = predicate;
+        filteredTagPredicate = predicate; // TODO: Remove by v1.3
+        Predicate<Tag> predicate2 = tag -> predicate.test(tag.getTagName()); // TODO: Remove by v1.3
+        filteredTags.setPredicate(predicate2);
     }
 
     //=========== Miscellaneous =============================================================
