@@ -185,6 +185,19 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 **TagDelete feature**
 
 --------------------------------------------------------------------------------------------------------------------
+## **Known Issues** 
+
+### Projact v1.2
+
+**Tag display auto-refresh issue**
+
+Problem: The tag display does not refresh itself after adding, editing and deleting a tag.
+
+Workaround: Run the `taglist` command again to refresh the display
+
+Technicalities/Explanations: The problem is caused by an ongoing change in Model, which is scheduled to be completed by Projact v1.3.
+
+--------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
