@@ -172,7 +172,8 @@ The diagram below shows a sample interaction of TagAddCommand.
 
 ![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
 
-In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
+- Why is it implemented that way:
+    - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a Tag by keywords rather than navigating to a Tag by index.
 
 ### Future implementation plans
 **TagAdd feature**
@@ -225,7 +226,8 @@ The diagram below shows a sample interaction of TagDeleteCommand.
 
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
-The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
