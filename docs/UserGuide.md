@@ -13,7 +13,7 @@ title: User Guide
 * [FAQ](#faq)
 
 --------------------------------------------------------------------------------------------------------------------
-    
+
 ## Introduction
 Welcome to the *Projact User Guide*!
 
@@ -45,7 +45,7 @@ This user guide provides in-depth documentation on the features in Projact to fa
    * **`list`** : Lists all contacts in the person list.
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com ta/john_doe123` : Adds a contact named `John Doe` to the person list.
-   
+
    * **`tagadd`**`t/CS210T` : Adds a permanent tag to the tag list.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
@@ -182,7 +182,7 @@ Format: `tagadd t/TAG`
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
-Examples: 
+Examples:
 * `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
 ### Listing all tags: `taglist`
@@ -229,7 +229,7 @@ Format: `tagdelete INDEX`
 * Deletes the tag with the index `INDEX` from the tag list.
 * The tag will also be removed from the contact(s) that contain(s) the tag.
 
-Example: 
+Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
 
@@ -251,8 +251,8 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
-**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1` 
-**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
+**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
 **Tag List** | `taglist`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
 
