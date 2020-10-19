@@ -179,15 +179,18 @@ The diagram below shows a sample interaction of TagAddCommand.
 
 The TagFind feature allows a user to display all tags which contains at least one of the specified keywords.
 
-TagFindCommand assumes that the ModelManager has an `updateFilteredTagList` method, which takes
-in a `Predicate<Tag>` and filters the TagList by the supplied predicate.
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagfind' and the arguments.
+4. ProjactParser calls the parse method of TagFindCommandParser, which parses the argument, creates a new TagNameContainsKeywordsPredicate object with the keywords, and returns a new TagFindCommand with the new TagNameContainsKeywordsPredicate object used as an argument.
+5. The LogicManager then calls the execute method of the TagFindCommand, which calls the updateFilteredTagList method of Model. This method takes in a `Predicate<Tag>` and filters the TagList by the supplied predicate.
 
-The diagram below shows the interactions of TagFindCommand.
+The diagram below shows a sample interaction of TagAddCommand. 
 
 ![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
+    - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a Tag by keywords rather than navigating to a Tag by index.
 
 ### Future implementation plans
 **TagAdd feature**
@@ -242,7 +245,8 @@ The diagram below shows a sample interaction of TagDeleteCommand.
 
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
-The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
