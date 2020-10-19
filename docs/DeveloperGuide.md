@@ -166,6 +166,11 @@ The TagList feature allows a user to display all the tags in the tag list curren
     1. ProjactParser returns TagListCommand.
     1. LogicManager executes TagListCommand, which sets isTagList parameter in CommandResult to true.
     1. MainWindow detects CommandResult isTagList() returns true and hence invokes the showTagList() method.
+    
+The diagram below shows a sample interaction of TagAddCommand. 
+
+![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
+
 
 - Why is it implemented that way:
     - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagListCommand would also be largely similar to classes implemented in AB3.
