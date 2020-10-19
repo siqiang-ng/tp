@@ -153,7 +153,7 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Implementation** 
+## **Implementation**
 
 ### Implemented features
 **TagList feature**
@@ -163,7 +163,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ### Future implementation plans
 **TagAdd feature**
 
-**TagEdit feature** 
+**TagEdit feature**
 - How it would be implemented:
     - Successful TagEdit operation:
         - First, the user input will be parsed by ProjactParser.
@@ -179,10 +179,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
         - If the index of FilteredTagList is invalid, an error is thrown to let the user know it is an invalid index.
         - If the Tag object at that index is the same as the editedTag, an error is thrown to let the user know it is a duplicate.
 - Why is it implemented that way:
-    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous 
-      code. 
-        - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser 
-          instead of creating a different parser just to identify tag commands.
+    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code. 
+        - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
 
 **TagDelete feature**
 
