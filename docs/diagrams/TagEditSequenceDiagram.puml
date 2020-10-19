@@ -3,7 +3,7 @@
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":ProjactParser" as ProjactParser LOGIC_COLOR
-participant ":TagEditParser" as TagEditParser LOGIC_COLOR
+participant ":TagEditCommandParser" as TagEditCommandParser LOGIC_COLOR
 participant "command:TagEditCommand" as TagEditCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
@@ -18,26 +18,26 @@ activate LogicManager
 LogicManager -> ProjactParser : parseCommand("tagedit 1 CS2103T")
 activate ProjactParser
 
-create TagEditParser
-ProjactParser -> TagEditParser
-activate TagEditParser
-TagEditParser --> ProjactParser
+create TagEditCommandParser
+ProjactParser -> TagEditCommandParser
+activate TagEditCommandParser
+TagEditCommandParser --> ProjactParser
 
-deactivate TagEditParser
-ProjactParser -> TagEditParser : parse("1 CS2103T")
-activate TagEditParser
+deactivate TagEditCommandParser
+ProjactParser -> TagEditCommandParser : parse("1 CS2103T")
+activate TagEditCommandParser
 
 create TagEditCommand
-TagEditParser -> TagEditCommand : TagEditCommand(index, editTagDescriptor)
+TagEditCommandParser -> TagEditCommand : TagEditCommand(index, editTagDescriptor)
 activate TagEditCommand
 
-TagEditCommand --> TagEditParser : command
+TagEditCommand --> TagEditCommandParser : command
 deactivate TagEditCommand
 
-TagEditParser --> ProjactParser : command
-deactivate TagEditParser
-TagEditParser -[hidden]-> ProjactParser
-destroy TagEditParser
+TagEditCommandParser --> ProjactParser : command
+deactivate TagEditCommandParser
+TagEditCommandParser -[hidden]-> ProjactParser
+destroy TagEditCommandParser
 
 ProjactParser --> LogicManager : command
 deactivate ProjactParser

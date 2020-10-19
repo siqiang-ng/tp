@@ -223,7 +223,7 @@ The diagram below shows a sample interaction of TagEditCommand.
 
 ![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
 
-**Note:** The lifeline for `TagEditParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+**Note:** The lifeline for `TagEditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
   
 - Why is it implemented that way:
   - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
