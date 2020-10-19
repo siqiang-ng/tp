@@ -158,6 +158,18 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ### Implemented features
 **TagList feature**
 
+The TagList feature allows a user to display all the tags in the tag list currently.
+
+- How is TagList Command executed
+    1. The command is passed into LogicManager.
+    1. LogicManager calls parseCommand method of ProjactParser.
+    1. ProjactParser returns TagListCommand.
+    1. LogicManager executes TagListCommand, which sets isTagList parameter in CommandResult to true.
+    1. MainWindow detects CommandResult isTagList() returns true and hence invokes the showTagList() method.
+
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagListCommand would also be largely similar to classes implemented in AB3.
+
 **TagFind feature**
 
 The TagFind feature allows a user to display all tags which contains at least one of the specified keywords.
@@ -180,7 +192,7 @@ The diagram below shows a sample interaction of TagAddCommand.
 
 The TagAdd feature allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
 
-1. The command is passed in to LogicManager.
+1. The command is passed into LogicManager.
 2. LogicManager calls the parseCommand method of ProjactParser.
 3. ProjactParser identifies the commandWord, which in this case is 'tagadd' and the arguments.
 4. ProjactParser calls the parse method of TagAddCommandParser, which parses the argument, creates a new Tag object, and returns a new TagAddCommand with the new Tag object used as an argument.
@@ -190,9 +202,11 @@ The diagram below shows a sample interaction of TagAddCommand.
 
 ![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
 
-The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
 
 **TagEdit feature**
+
 - How it would be implemented:
     - Successful TagEdit operation:
         - First, the user input will be parsed by ProjactParser.
@@ -208,8 +222,8 @@ The feature was implemented to be as similar as possible to the current command 
         - If the index of FilteredTagList is invalid, an error is thrown to let the user know it is an invalid index.
         - If the Tag object at that index is the same as the editedTag, an error is thrown to let the user know it is a duplicate.
 - Why is it implemented that way:
-    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
-        - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagEditCommand would also be largely similar to classes implemented in AB3.
+    - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
 
 **TagDelete feature**
 
