@@ -208,13 +208,28 @@ The feature was implemented to be as similar as possible to the current command 
         - If the index of FilteredTagList is invalid, an error is thrown to let the user know it is an invalid index.
         - If the Tag object at that index is the same as the editedTag, an error is thrown to let the user know it is a duplicate.
 - Why is it implemented that way:
-    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code. 
+    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
         - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
 
 **TagDelete feature**
 
+The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+
+How it would be implemented:
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagdelete' and the arguments.
+4. ProjactParser calls the parse method of TagDeleteCommandParser, which parses the argument, creates a new Index object with the parsed user input, and returns a new TagDeleteCommand with the new Index object used as an argument.
+5. The LogicManager then calls the execute method of the TagDeleteCommand, which retrieves the most updated tag list from the ModelManager. From this list, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
+
+The diagram below shows a sample interaction of TagDeleteCommand.
+
+![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
+ 
+The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
+
 --------------------------------------------------------------------------------------------------------------------
-## **Known Issues** 
+## **Known Issues**
 
 ### Projact v1.2
 
@@ -478,7 +493,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file 
+   1. Double-click the jar file
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
@@ -510,6 +525,6 @@ testers are expected to do more *exploratory* testing.
 
    1. If the data file is missing, the application will launch a window that is populated with the sample data. User can use the `clear` command to get an empty projact window.
       Expected: Window with sample data
-      
+
    1. If the data file is corrupted, users should delete the `projact.json` file in data folder. Relaunch the jar file again.
       Expected: Window with sample data
