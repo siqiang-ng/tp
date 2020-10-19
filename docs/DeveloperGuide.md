@@ -159,6 +159,21 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 **TagFind feature**
 
+The TagFind feature allows a user to display all tags which contains atleast one of the specified keywords.
+
+TagFindCommand assumes that the ModelManager has an `updateFilteredTagList` method, which takes
+in a `Predicate<Tag>` and filters the TagList by the supplied predicate.
+
+The diagram below shows the interactions of TagFindCommand.
+
+![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
+
+**Design Considerations**
+
+- In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single
+action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by
+index.
+
 ### Future implementation plans
 **TagAdd feature**
 
