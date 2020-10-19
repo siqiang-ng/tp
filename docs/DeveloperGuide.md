@@ -208,7 +208,7 @@ How it would be implemented:
 4. ProjactParser calls the parse method of TagDeleteCommandParser, which parses the argument, creates a new Index object with the parsed user input, and returns a new TagDeleteCommand with the new Index object used as an argument.
 5. The LogicManager then calls the execute method of the TagDeleteCommand, which retrieves the most updated tag list from the ModelManager. From this list, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
 
-The diagram below shows the interactions of TagDeleteCommand.
+The diagram below shows a sample interaction of TagDeleteCommand.
 
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
