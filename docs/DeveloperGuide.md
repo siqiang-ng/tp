@@ -178,6 +178,20 @@ index.
 ### Future implementation plans
 **TagAdd feature**
 
+The TagAdd feature allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagadd' and the arguments.
+4. ProjactParser calls the parse method of TagAddCommandParser, which parses the argument, creates a new Tag object, and returns a new TagAddCommand with the new Tag object used as an argument.
+5. The LogicManager then calls the execute method of the TagAddCommand, which calls the addTag method of Model.
+
+The diagram below shows a sample interaction of TagAddCommand. 
+
+![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
+
+The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+
 **TagEdit feature**
 - How it would be implemented:
     - Successful TagEdit operation:
