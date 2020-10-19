@@ -24,7 +24,7 @@ The Projact application consists of a person list, which stores the contacts of 
 --------------------------------------------------------------------------------------------------------------------
 
 ## About this User Guide
-This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. 
+This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. A basic understanding of how the Command Line Interface works would be good but the lack of that would not affect your experience with our Projact application as prior technical experience is not required.
 
 --------------------------------------------------------------------------------------------------------------------
 
