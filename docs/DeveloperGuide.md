@@ -19,15 +19,16 @@ This developer guide provides information that helps you to get started as a con
     * [Common classes](#common-classes)
 * [Implementation](#implementation)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
-* [Appendix A: Product Scope](#appendix-a-product-scope)
-* [Appendix B: User Stories](#appendix-b-user-stories)
-* [Appendix C: Use Cases](#appendix-c-use-cases)
-* [Appendix D: Non-Functional Requirements](#appendix-d-non-functional-requirements)
-* [Appendix E: Glossary](#appendix-e-glossary)
-* [Appendix F: Instructions for Manual Testing](#appendix-f-instructions-for-manual-testing)
-    * [Launch and Shut Down](#launch-and-shutdown)
-    * [Deletes a person](#deletes-a-person)
-    * [Saves data](#saves-data)
+* [Appendix](#appendix)
+    * [A: Product Scope](#a-product-scope)
+    * [B: User Stories](#b-user-stories)
+    * [C: Use Cases](#c-use-cases)
+    * [D: Non-Functional Requirements](#d-non-functional-requirements)
+    * [E: Glossary](#e-glossary)
+    * [F: Instructions for Manual Testing](#f-instructions-for-manual-testing)
+        * [Launch and Shut Down](#launch-and-shutdown)
+        * [Deletes a person](#deletes-a-person)
+        * [Saves data](#saves-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -152,17 +153,49 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Implementation** 
+## **Implementation**
 
 ### Implemented features
 **TagList feature**
 
 **TagFind feature**
 
+The TagFind feature allows a user to display all tags which contains atleast one of the specified keywords.
+
+TagFindCommand assumes that the ModelManager has an `updateFilteredTagList` method, which takes
+in a `Predicate<Tag>` and filters the TagList by the supplied predicate.
+
+The diagram below shows the interactions of TagFindCommand.
+
+![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
+
+**Design Considerations**
+
+- In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single
+action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by
+index.
+
 ### Future implementation plans
 **TagAdd feature**
 
 **TagEdit feature**
+- How it would be implemented:
+    - Successful TagEdit operation:
+        - First, the user input will be parsed by ProjactParser.
+        - Upon identifying the keyword `tagedit`, TagEditParser will be created to parse the rest of the user input, an
+          index and edited tag name.
+        - After parsing, TagEditCommand is created. It is then executed to create a new Tag object with the edited
+          field and replace the current Tag object at the specified index in FilteredTagList.
+        - FilteredTagList is updated with the edited Tag object and will reflect the changes in the GUI.
+        - The following sequence diagram represents how a successful TagEdit operation works:
+        ![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
+        **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+    - Error handling for the TagEdit operation:
+        - If the index of FilteredTagList is invalid, an error is thrown to let the user know it is an invalid index.
+        - If the Tag object at that index is the same as the editedTag, an error is thrown to let the user know it is a duplicate.
+- Why is it implemented that way:
+    - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code. 
+        - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
 
 **TagDelete feature**
 
@@ -176,6 +209,19 @@ The diagram below shows the interactions of TagDeleteCommand.
 
 
 --------------------------------------------------------------------------------------------------------------------
+## **Known Issues** 
+
+### Projact v1.2
+
+**Tag display auto-refresh issue**
+
+Problem: The tag display does not refresh itself after adding, editing and deleting a tag.
+
+Workaround: Run the `taglist` command again to refresh the display
+
+Technicalities/Explanations: The problem is caused by an ongoing change in Model, which is scheduled to be completed by Projact v1.3.
+
+--------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
@@ -186,7 +232,8 @@ The diagram below shows the interactions of TagDeleteCommand.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix A: Product Scope**
+## **Appendix**
+### **A: Product Scope**
 
 **Target user profile**: Computing Student
 
@@ -209,7 +256,7 @@ The diagram below shows the interactions of TagDeleteCommand.
 * Filters the main person list such that inactive contacts will not be seen.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix B: User Stories**
+## **B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -220,24 +267,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add a new person                                 |                                                                        |
 | `* * *`  | user                                       | delete a person                                  | remove entries that I no longer need                                   |
 | `* * *`  | user                                       | find a person by name                            | locate details of persons without having to go through the entire list |
+| `* * *`  | user                                       | save a telegram handle to its respective contact | find the telegram chat with that person quickly                        |
 | `* * *`  | user                                       | create a tag                                     | find or sort the contacts based on tags later on.                      |
 | `* * *`  | user                                       | delete a tag                                     | remove tags that are accidentally added or no longer required          |
 | `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
+| `* * *`  | user                                       | search for a tag                                 | find all contacts with that tag                                        |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | hide private contact details                     | minimize chance of someone else seeing them by accident                |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
 | `* *`    | user with many persons in projact          | sort persons by name                             | locate a person easily                                                 |
 | `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
-| `* *`    | teaching assistant	                        | add students in my tutorial to my person list   | easily find students to give feedback to.                              |
+| `* *`    | teaching assistant	                        | add students in my tutorial to my person list    | easily find students to give feedback to.                              |
 | `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
 | `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
-| `*`      | power user	                                | import and export person list to another device | save time compiling the person list                                   |
+| `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix C: Use Cases**
+## **C: Use Cases**
 
 (For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
@@ -378,7 +427,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 *{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix D: Non-Functional Requirements**
+## **D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
@@ -403,13 +452,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. The user’s data should not be accessible by developers of the product.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix E: Glossary**
+## **E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix F: Instructions for manual testing**
+## **F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 

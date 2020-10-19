@@ -2,15 +2,29 @@
 layout: page
 title: User Guide
 ---
+# Projact User Guide
+
+##Table of Contents
+* [Introduction](#introduction)
+* [About the User Guide](#about-this-user-guide)
+* [Quick Start](#quick-start)
+* [Features](#features)
+* [Command Summary](#command-summary)
+* [FAQ](#faq)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Introduction
+Welcome to the *Projact User Guide*!
 
 Projact is a **project and contact management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
+The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
 
-* Table of Contents
-    * [Quick Start](#quick-start)
-    * [Features](#features)
-    * [Command Summary](#command-summary)
+--------------------------------------------------------------------------------------------------------------------
+
+## About this User Guide
+This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. A basic understanding of how the Command Line Interface works would be good but the lack of that would not affect your experience with our Projact application as prior technical experience is not required.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +32,7 @@ Projact application consists of a person list, which stores the contacts of the 
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `projact.jar` from [here]().
+1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.2/projact.jar).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Projact application.
 
@@ -31,7 +45,7 @@ Projact application consists of a person list, which stores the contacts of the 
    * **`list`** : Lists all contacts in the person list.
 
    * **`add`**`n/John Doe p/98765432 e/johnd@example.com ta/john_doe123` : Adds a contact named `John Doe` to the person list.
-   
+
    * **`tagadd`**`t/CS210T` : Adds a permanent tag to the tag list.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current person list.
@@ -168,7 +182,7 @@ Format: `tagadd t/TAG`
 * Creates a specified tag without the need of a contact.
 * Tag will not be created if it already exists in the tag list.
 
-Examples: 
+Examples:
 * `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
 ### Listing all tags: `taglist`
@@ -215,24 +229,13 @@ Format: `tagdelete INDEX`
 * Deletes the tag with the index `INDEX` from the tag list.
 * The tag will also be removed from the contact(s) that contain(s) the tag.
 
-Example: 
+Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
 
 ### Saving the data
 
 Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
-### Archiving data files `[coming in v2.0]`
-
-_{explain the feature here}_
-
---------------------------------------------------------------------------------------------------------------------
-
-## FAQ
-
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Projact home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -248,8 +251,16 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
-**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1` 
-**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101` 
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
+**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
 **Tag List** | `taglist`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## FAQ
+
+**Q**: How do I transfer my data to another Computer?<br>
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Projact home folder.
+
 
