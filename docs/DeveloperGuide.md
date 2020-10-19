@@ -215,15 +215,15 @@ The diagram below shows a sample interaction of TagAddCommand.
 1. The command is passed in to LogicManager.
 2. LogicManager calls the parseCommand method of ProjactParser.
 3. ProjactParser identifies the commandWord, which in this case is 'tagedit' and the arguments.
-4. ProjactParser calls the parse method of TagAddCommandParser, which parses the argument, creates a new Index object, and returns a new TagAddCommand with the new Tag object used as an argument.
-5. The LogicManager then calls the execute method of the TagAddCommand, which create a new Tag object with the edited field and replaces the current Tag object at the specified index in FilteredTagList.
+4. ProjactParser calls the parse method of TagEditCommandParser, which parses the argument, creates a new Index object, and returns a new TagEditCommand with the new Tag object used as an argument.
+5. The LogicManager then calls the execute method of the TagEditCommand, which create a new Tag object with the edited field and replaces the current Tag object at the specified index in FilteredTagList.
 6. FilteredTagList is updated with the edited Tag object and will reflect the changes in the GUI.
 
 The diagram below shows a sample interaction of TagEditCommand.
 
 ![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
 
-**Note:** The lifeline for `TagEditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+**Note:** The lifeline for `TagEditParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
   
 - Why is it implemented that way:
   - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
