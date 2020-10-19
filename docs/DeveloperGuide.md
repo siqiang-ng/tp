@@ -21,11 +21,11 @@ This developer guide provides information that helps you to get started as a con
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix](#appendix)
     * [A: Product Scope](#a-product-scope)
-    * [B: User Stories](#appendix-b-user-stories)
-    * [C: Use Cases](#appendix-c-use-cases)
-    * [D: Non-Functional Requirements](#appendix-d-non-functional-requirements)
-    * [E: Glossary](#appendix-e-glossary)
-    * [F: Instructions for Manual Testing](#appendix-f-instructions-for-manual-testing)
+    * [B: User Stories](#b-user-stories)
+    * [C: Use Cases](#c-use-cases)
+    * [D: Non-Functional Requirements](#d-non-functional-requirements)
+    * [E: Glossary](#e-glossary)
+    * [F: Instructions for Manual Testing](#f-instructions-for-manual-testing)
         * [Launch and Shut Down](#launch-and-shutdown)
         * [Deletes a person](#deletes-a-person)
         * [Saves data](#saves-data)
@@ -221,7 +221,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 * Filters the main person list such that inactive contacts will not be seen.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix B: User Stories**
+## **B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -251,7 +251,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix C: Use Cases**
+## **C: Use Cases**
 
 (For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
@@ -392,7 +392,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 *{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix D: Non-Functional Requirements**
+## **D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
@@ -417,13 +417,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. The user’s data should not be accessible by developers of the product.
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix E: Glossary**
+## **E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
-## **Appendix F: Instructions for manual testing**
+## **F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
