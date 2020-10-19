@@ -201,12 +201,18 @@ index.
 
 The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
 
-TagDeleteCommand assumes that the ModelManager has a `getFileteredTagList` method, which retrieves the most updated TagList. From this TagList, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
+How it would be implemented:
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagdelete' and the arguments.
+4. ProjactParser calls the parse method of TagDeleteCommandParser, which parses the argument, creates a new Index object with the parsed user input, and returns a new TagDeleteCommand with the new Index object used as an argument.
+5. The LogicManager then calls the execute method of the TagDeleteCommand, which retrieves the most updated tag list from the ModelManager. From this list, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
 
 The diagram below shows the interactions of TagDeleteCommand.
 
- ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
-
+![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
+ 
+The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
