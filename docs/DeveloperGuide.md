@@ -166,6 +166,15 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 **TagDelete feature**
 
+The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+
+TagDeleteCommand assumes that the ModelManager has a `getFileteredTagList` method, which retrieves the most updated TagList. From this TagList, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
+
+The diagram below shows the interactions of TagDeleteCommand.
+
+ ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
+
+
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
