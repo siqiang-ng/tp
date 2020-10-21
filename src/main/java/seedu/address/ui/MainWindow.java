@@ -37,7 +37,7 @@ public class MainWindow extends UiPart<Stage> {
     private final HelpWindow helpWindow;
 
     // Check if the previous CommandResult is tag list. Condition is only modified if list or taglist is called.
-    private static boolean prevIsTagList = false;
+    private boolean prevIsTagList = false;
 
     @FXML
     private StackPane commandBoxPlaceholder;
