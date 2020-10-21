@@ -16,6 +16,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
 /**
@@ -27,7 +28,8 @@ public class ModelManager implements Model {
     private final Projact projact;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private Predicate<TagName> filteredTagPredicate = x -> true;
+    private final FilteredList<Tag> filteredTags;
+    private Predicate<TagName> filteredTagPredicate = x -> true; // TODO: Remove in v1.3
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -40,7 +42,8 @@ public class ModelManager implements Model {
 
         this.projact = new Projact(projact);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.projact.getPersonList());
+        this.filteredPersons = new FilteredList<>(this.projact.getPersonList());
+        this.filteredTags = new FilteredList<>(this.projact.getTagList());
     }
 
     public ModelManager() {
@@ -118,6 +121,31 @@ public class ModelManager implements Model {
         projact.setPerson(target, editedPerson);
     }
 
+    @Override
+    public boolean hasTag(Tag tag) {
+        requireNonNull(tag);
+        return projact.hasTag(tag);
+    }
+
+    @Override
+    public void deleteTag(Tag target) {
+        requireNonNull(target);
+        projact.removeTag(target);
+    }
+
+    @Override
+    public void addTag(Tag tag) {
+        requireNonNull(tag);
+        projact.addTag(tag);
+        updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
+    }
+
+    @Override
+    public void setTag(Tag target, Tag editedTag) {
+        requireAllNonNull(target, editedTag);
+        projact.setTag(target, editedTag);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
@@ -142,7 +170,7 @@ public class ModelManager implements Model {
      * {@code versionedProjact}
      */
     @Override
-    public ObservableList<TagName> getFilteredTagList() {
+    public ObservableList<TagName> getFilteredTagList() { // TODO: Change to ObservableList<Tag> in v1.3
         ObservableList<TagName> observableList = this.projact.getPersonList()
                 .stream()
                 .map(Person::getTags)
@@ -156,11 +184,14 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateFilteredTagList(Predicate<TagName> predicate) {
+    public void updateFilteredTagList(Predicate<TagName> predicate) { // TODO: Change to Predicate<Tag> in v1.3
         requireNonNull(predicate);
-        filteredTagPredicate = predicate;
+        filteredTagPredicate = predicate; // TODO: Remove by v1.3
+        Predicate<Tag> predicate2 = tag -> predicate.test(tag.getTagName()); // TODO: Remove by v1.3
+        filteredTags.setPredicate(predicate2);
     }
 
+    //=========== Miscellaneous =============================================================
 
     @Override
     public boolean equals(Object obj) {
@@ -178,7 +209,8 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return projact.equals(other.projact)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredPersons.equals(other.filteredPersons)
+                && filteredTags.equals(other.filteredTags);
     }
 
 }
