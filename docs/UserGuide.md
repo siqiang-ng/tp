@@ -4,7 +4,7 @@ title: User Guide
 ---
 # Projact User Guide
 
-##Table of Contents
+## Table of Contents
 * [Introduction](#introduction)
 * [About the User Guide](#about-this-user-guide)
 * [Quick Start](#quick-start)
