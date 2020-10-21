@@ -36,6 +36,9 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private final HelpWindow helpWindow;
 
+    // Check if the previous CommandResult is tag list. Condition is only modified if list or taglist is called.
+    private static boolean prevIsTagList = false;
+
     @FXML
     private StackPane commandBoxPlaceholder;
     @FXML
@@ -181,14 +184,20 @@ public class MainWindow extends UiPart<Stage> {
      * @see seedu.address.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
-        if (commandText.equals("list")) { //TODO: Remove this in v1.3
-            showPersonList();
-        }
 
         try {
+
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+            if (commandText.equals("list")) {
+                prevIsTagList = false;
+            }
+
+            if (commandResult.isTagList()) {
+                prevIsTagList = true;
+            }
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
@@ -198,8 +207,10 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (commandResult.isTagList()) { // TODO: Remove this in v1.3
+            if (prevIsTagList) {
                 showTagList();
+            } else {
+                showPersonList();
             }
 
             return commandResult;
