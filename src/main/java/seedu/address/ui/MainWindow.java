@@ -181,9 +181,6 @@ public class MainWindow extends UiPart<Stage> {
      * @see seedu.address.logic.Logic#execute(String)
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
-        if (commandText.equals("list")) { //TODO: Remove this in v1.3
-            showPersonList();
-        }
 
         try {
             CommandResult commandResult = logic.execute(commandText);
@@ -200,6 +197,10 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isTagList()) { // TODO: Remove this in v1.3
                 showTagList();
+            }
+
+            if (commandResult.isPersonList()) {
+                showPersonList();
             }
 
             return commandResult;
