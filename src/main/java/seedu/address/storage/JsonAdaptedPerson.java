@@ -28,7 +28,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String telegramAddress;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<JsonAdaptedTagName> tagged = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -36,7 +36,7 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("telegramAddress") String telegramAddress,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("tagged") List<JsonAdaptedTagName> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -55,7 +55,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         telegramAddress = source.getTelegramAddress().value;
         tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
+                .map(JsonAdaptedTagName::new)
                 .collect(Collectors.toList()));
     }
 
@@ -66,8 +66,8 @@ class JsonAdaptedPerson {
      */
     public Person toModelType() throws IllegalValueException {
         final List<TagName> personTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
+        for (JsonAdaptedTagName tagName : tagged) {
+            personTags.add(tagName.toModelType());
         }
 
         if (name == null) {

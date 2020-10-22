@@ -1,6 +1,7 @@
 package seedu.address.model.util;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,6 +12,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
 /**
@@ -34,10 +36,24 @@ public class SampleDataUtil {
         };
     }
 
+    public static Tag[] getSampleTags() {
+        return new Tag[] {
+                new Tag(new TagName("friends"), getPersonSet("Alex Yeoh", "Bernice Yu")),
+                new Tag(new TagName("colleagues"), getPersonSet("Bernice Yu", "Roy Balakrishnan")),
+                new Tag(new TagName("family"), getPersonSet("David Li")),
+                new Tag(new TagName("classmates"), getPersonSet("Irfan Ibrahim")),
+                new Tag(new TagName("neighbours"), getPersonSet("Charlotte Oliveiro"))
+        };
+    }
+
     public static ReadOnlyProjact getSampleProjact() {
         Projact sampleAb = new Projact();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);
+        }
+
+        for (Tag sampleTag : getSampleTags()) {
+            sampleAb.addTag(sampleTag);
         }
         return sampleAb;
     }
