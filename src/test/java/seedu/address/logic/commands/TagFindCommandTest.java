@@ -57,7 +57,8 @@ public class TagFindCommandTest {
                 expectedMessage,
                 false,
                 false,
-                true
+                true,
+                false
         );
         TagNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         TagFindCommand command = new TagFindCommand(predicate);
@@ -73,7 +74,8 @@ public class TagFindCommandTest {
                 expectedMessage,
                 false,
                 false,
-                true
+                true,
+                false
         );
         TagNameContainsKeywordsPredicate predicate = preparePredicate("FriEndS owesMoney");
         TagFindCommand command = new TagFindCommand(predicate);
