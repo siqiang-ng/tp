@@ -34,7 +34,7 @@ public class TagFindCommand extends Command {
                 String.format(Messages.MESSAGE_TAGS_LISTED_OVERVIEW, model.getFilteredTagList().size()),
                 false,
                 false,
-                true);
+                true, false);
     }
 
     @Override

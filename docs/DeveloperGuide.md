@@ -2,10 +2,14 @@
 layout: page
 title: Developer Guide
 ---
-# Projact Developer Guide
+# **Projact** - Developer Guide
 
-## Table of Contents
-* [Setting up, getting started](#setting-up-getting-started)
+Projact is a **project and contact management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**.
+
+This developer guide provides information that helps you to get started as a contributor to Projact.
+
+## **Table of Contents**
+* [Setting up](#setting-up-getting-started)
 * [Design](#design)
     * [Architecture](#architecture)
     * [UI component](#ui-component)
@@ -13,14 +17,18 @@ title: Developer Guide
     * [Model component](#model-component)
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
+* [Implementation](#implementation)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
-* [Appendix: Requirements](#appendix-requirements)
-    * [Product Scope](#product-scope)
-    * [User Stories](#user-stories)
-    * [Use Cases](#use-cases)
-    * [Non-Functional Requirements](#non-functional-requirements)
-    * [Glossary](#glossary)
-* [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
+* [Appendix](#appendix)
+    * [A: Product Scope](#a-product-scope)
+    * [B: User Stories](#b-user-stories)
+    * [C: Use Cases](#c-use-cases)
+    * [D: Non-Functional Requirements](#d-non-functional-requirements)
+    * [E: Glossary](#e-glossary)
+    * [F: Instructions for Manual Testing](#f-instructions-for-manual-testing)
+        * [Launch and Shut Down](#launch-and-shutdown)
+        * [Deletes a person](#deletes-a-person)
+        * [Saves data](#saves-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -119,7 +127,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 The `Model`,
 
 * stores a `UserPref` object that represents the user’s preferences.
-* stores the address book data.
+* stores the projact data.
 * exposes unmodifiable `ObservableList<Person>` and `ObservableList<Tag>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
@@ -138,14 +146,121 @@ The `Model`,
 
 The `Storage` component,
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save projact data in json format and read it back.
 
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+## **Implementation**
 
+### Implemented features
+**TagList feature**
+
+The TagList feature allows a user to display all the tags in the tag list currently.
+
+- How is TagList Command executed
+    1. The command is passed into LogicManager.
+    1. LogicManager calls parseCommand method of ProjactParser.
+    1. ProjactParser returns TagListCommand.
+    1. LogicManager executes TagListCommand, which sets isTagList parameter in CommandResult to true.
+    1. MainWindow detects CommandResult isTagList() returns true and hence invokes the showTagList() method.
+    
+The diagram below shows a sample interaction of TagAddCommand. 
+
+![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
+
+
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagListCommand would also be largely similar to classes implemented in AB3.
+
+**TagFind feature**
+
+The TagFind feature allows a user to display all tags which contains at least one of the specified keywords.
+
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagfind' and the arguments.
+4. ProjactParser calls the parse method of TagFindCommandParser, which parses the argument, creates a new TagNameContainsKeywordsPredicate object with the keywords, and returns a new TagFindCommand with the new TagNameContainsKeywordsPredicate object used as an argument.
+5. The LogicManager then calls the execute method of the TagFindCommand, which calls the updateFilteredTagList method of Model. This method takes in a `Predicate<Tag>` and filters the TagList by the supplied predicate.
+
+The diagram below shows a sample interaction of TagAddCommand. 
+
+![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
+
+- Why is it implemented that way:
+    - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a Tag by keywords rather than navigating to a Tag by index.
+
+### Future implementation plans
+**TagAdd feature**
+
+The TagAdd feature allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+
+1. The command is passed into LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagadd' and the arguments.
+4. ProjactParser calls the parse method of TagAddCommandParser, which parses the argument, creates a new Tag object, and returns a new TagAddCommand with the new Tag object used as an argument.
+5. The LogicManager then calls the execute method of the TagAddCommand, which calls the addTag method of Model.
+
+The diagram below shows a sample interaction of TagAddCommand. 
+
+![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
+
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+
+**TagEdit feature**
+
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagedit' and the arguments.
+4. ProjactParser calls the parse method of TagEditCommandParser, which parses the argument, creates a new Index object, and returns a new TagEditCommand with the new Tag object used as an argument.
+5. The LogicManager then calls the execute method of the TagEditCommand, which create a new Tag object with the edited field and replaces the current Tag object at the specified index in FilteredTagList.
+6. FilteredTagList is updated with the edited Tag object and will reflect the changes in the GUI.
+
+The diagram below shows a sample interaction of TagEditCommand.
+
+![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
+
+**Note:** The lifeline for `TagEditCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+  
+- Why is it implemented that way:
+  - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
+  - For example, by making the keyword `tagedit` instead of `tag edit`, we are able to make use of ProjectParser instead of creating a different parser just to identify tag commands.
+
+**TagDelete feature**
+
+The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+
+How it would be implemented:
+1. The command is passed in to LogicManager.
+2. LogicManager calls the parseCommand method of ProjactParser.
+3. ProjactParser identifies the commandWord, which in this case is 'tagdelete' and the arguments.
+4. ProjactParser calls the parse method of TagDeleteCommandParser, which parses the argument, creates a new Index object with the parsed user input, and returns a new TagDeleteCommand with the new Index object used as an argument.
+5. The LogicManager then calls the execute method of the TagDeleteCommand, which retrieves the most updated tag list from the ModelManager. From this list, the tag to be deleted is retrieved by its index. Then, the ModelManager will go on to remove all instances of the tag.
+
+The diagram below shows a sample interaction of TagDeleteCommand.
+
+![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
+ 
+- Why is it implemented that way:
+    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagDeleteCommand would also be largely similar to classes implemented in AB3.
+
+--------------------------------------------------------------------------------------------------------------------
+## **Known Issues**
+
+### Projact v1.2
+
+**Tag display auto-refresh issue**
+
+Problem: The tag display does not refresh itself after adding, editing and deleting a tag.
+
+Workaround: Run the `taglist` command again to refresh the display
+
+Technicalities/Explanations: The problem is caused by an ongoing change in Model, which is scheduled to be completed by Projact v1.3.
+
+--------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
@@ -156,9 +271,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
-
-### Product scope
+## **Appendix**
+### **A: Product Scope**
 
 **Target user profile**: Computing Student
 
@@ -180,9 +294,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 * Allows convenient search for the link for team meeting.
 * Filters the main person list such that inactive contacts will not be seen.
 
-
-
-### User stories
+--------------------------------------------------------------------------------------------------------------------
+## **B: User Stories**
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -193,29 +306,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add a new person                                 |                                                                        |
 | `* * *`  | user                                       | delete a person                                  | remove entries that I no longer need                                   |
 | `* * *`  | user                                       | find a person by name                            | locate details of persons without having to go through the entire list |
+| `* * *`  | user                                       | save a telegram handle to its respective contact | find the telegram chat with that person quickly                        |
 | `* * *`  | user                                       | create a tag                                     | find or sort the contacts based on tags later on.                      |
 | `* * *`  | user                                       | delete a tag                                     | remove tags that are accidentally added or no longer required          |
 | `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
+| `* * *`  | user                                       | search for a tag                                 | find all contacts with that tag                                        |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | hide private contact details                     | minimize chance of someone else seeing them by accident                |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
-| `* *`    | user with many persons in the address book | sort persons by name                             | locate a person easily                                                 |
+| `* *`    | user with many persons in projact          | sort persons by name                             | locate a person easily                                                 |
 | `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
-| `* *`    | teaching assistant	                        | add students in my tutorial to my person list   | easily find students to give feedback to.                              |
+| `* *`    | teaching assistant	                        | add students in my tutorial to my person list    | easily find students to give feedback to.                              |
 | `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
 | `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
-| `*`      | power user	                                | import and export person list to another device | save time compiling the person list                                   |
+| `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
 
-*{More to be added}*
-
-### Use cases
+--------------------------------------------------------------------------------------------------------------------
+## **C: Use Cases**
 
 (For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+### **Use case: Delete a person**
 
 **MSS**
 
@@ -238,7 +352,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: Create a Tag**
+### **Use case: Create a Tag**
 
 **MSS**
 
@@ -255,7 +369,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: Delete a tag**
+### **Use case: Delete a tag**
 
 **MSS**
 
@@ -278,7 +392,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-**Use case: List all tags**
+### **Use case: List all tags**
 
 **MSS**
 
@@ -293,7 +407,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: View tag members**
+### **Use case: View tag members**
 
 **MSS**
 
@@ -320,7 +434,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-**Use case: Edit tag**
+### **Use case: Edit tag**
 
 **MSS**
 
@@ -351,40 +465,39 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 *{More to be added}*
 
-
-### Non-Functional Requirements
+--------------------------------------------------------------------------------------------------------------------
+## **D: Non-Functional Requirements**
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. The system should work on both 32-bit and 64-bit environments.
-5. The software should work without requiring an installer.
-6. The software should not depend on any of the team member’s own remote server.
-7. The product should not use images that would result in copyright infringement.
-8. The team should give credit for any reused code.
-9. The software should not depend on any third-party frameworks/libraries that are not approved by the CS2103T teaching team.
-10. The software should obey Java checkstyle rules.
-11. The system should respond within two seconds.
-12. The product is not required to handle the communication between the user and those in the user’s address book.
-13. The product should be customised to target NUS Computing students.
-14. The system should be usable by a novice who has never used a command line interface before.
-15. The product should be targeting users who can type fast and prefer typing over other means of input.
-16. The product should be for a single user i.e. (not a multi-user product).
-17. The data should be stored locally and should be in a human editable text file.
-18. The data should not be stored using a Database Management System (DBMS).
-19. The data should be updated as the product is being used (update with every command).
-20. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
-21. The user’s data should not be accessible by developers of the product.
+1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. The system should work on both 32-bit and 64-bit environments.
+1. The software should work without requiring an installer.
+1. The software should not depend on any of the team member’s own remote server.
+1. The product should not use images that would result in copyright infringement.
+1. The team should give credit for any reused code.
+1. The software should not depend on any third-party frameworks/libraries that are not approved by the CS2103T teaching team.
+1. The software should obey Java checkstyle rules.
+1. The system should respond within two seconds.
+1. The product is not required to handle the communication between the user and those in the user’s projact.
+1. The product should be customised to target NUS Computing students.
+1. The system should be usable by a novice who has never used a command line interface before.
+1. The product should be targeting users who can type fast and prefer typing over other means of input.
+1. The product should be for a single user i.e. (not a multi-user product).
+1. The data should be stored locally and should be in a human editable text file.
+1. The data should not be stored using a Database Management System (DBMS).
+1. The data should be updated as the product is being used (update with every command).
+1. The user’s data should not be accessible to anyone who does not have access to the user’s local files.
+1. The user’s data should not be accessible by developers of the product.
 
-
-### Glossary
+--------------------------------------------------------------------------------------------------------------------
+## **E: Glossary**
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
-
-## **Appendix: Instructions for manual testing**
+## **F: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -399,7 +512,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file
+       Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -408,9 +522,7 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
-
-### Deleting a person
+### Deletes a person
 
 1. Deleting a person while all persons are being shown
 
@@ -425,12 +537,13 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
 
-### Saving data
+### Saves data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. If the data file is missing, the application will launch a window that is populated with the sample data. User can use the `clear` command to get an empty projact window.
+      Expected: Window with sample data
 
-1. _{ more test cases …​ }_
+   1. If the data file is corrupted, users should delete the `projact.json` file in data folder. Relaunch the jar file again.
+      Expected: Window with sample data
