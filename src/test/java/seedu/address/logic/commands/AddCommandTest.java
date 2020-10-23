@@ -22,7 +22,6 @@ import seedu.address.model.ReadOnlyProjact;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.TagName;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {

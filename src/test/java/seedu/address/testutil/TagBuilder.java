@@ -6,7 +6,6 @@ import java.util.Set;
 import seedu.address.model.person.Name;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
-import seedu.address.model.util.SampleDataUtil;
 
 public class TagBuilder {
 
@@ -38,13 +37,6 @@ public class TagBuilder {
         return this;
     }
 
-//    /**
-//     * Parses the {@code persons} into a {@code Set<Name>} and set it to the {@code Tag} that we are building.
-//     */
-//    public TagBuilder withPersons(String ... persons) {
-//        this.persons = SampleDataUtil.getPersonSet(persons);
-//        return this;
-//    }
 
     public Tag build() {
         return new Tag(name);

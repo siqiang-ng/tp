@@ -2,9 +2,7 @@ package seedu.address.model.tag;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalTags.COLLEAGUE;
 import static seedu.address.testutil.TypicalTags.GROUPMATE;
 
@@ -13,12 +11,6 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.TagBuilder;
 
 public class TagTest {
-
-//    @Test
-//    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-//        Tag tag = new TagBuilder().build();
-//        assertThrows(UnsupportedOperationException.class, () -> tag.getPersons().remove(0));
-//    }
 
     @Test
     void isSameTag() {

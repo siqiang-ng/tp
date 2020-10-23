@@ -12,7 +12,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.TagName;
 
 /**
  * Contains utility methods for populating {@code Projact} with sample data.
@@ -37,11 +36,11 @@ public class SampleDataUtil {
 
     public static Tag[] getSampleTags() {
         return new Tag[] {
-                new Tag("colleagues"),
-                new Tag("neighbours"),
-                new Tag("classmates"),
-                new Tag("family"),
-                new Tag("friends")
+            new Tag("colleagues"),
+            new Tag("neighbours"),
+            new Tag("classmates"),
+            new Tag("family"),
+            new Tag("friends")
         };
     }
 

@@ -12,17 +12,7 @@ public class Tag {
 
     // Identity fields
     private final TagName name;
-    //    // Data fields
-    //    private final Set<Name> persons = new HashSet<>();
-    //
-    //    /**
-    //     * Every field must be present and not null.
-    //     */
-    //    public Tag(TagName name, Set<Name> persons) {
-    //        requireAllNonNull(name, persons);
-    //        this.name = name;
-    //        this.persons.addAll(persons);
-    //    }
+
     /**
       * Every field must be present and not null.
       */
@@ -31,6 +21,9 @@ public class Tag {
         this.name = name;
     }
 
+    /**
+     * Every field must be present and not null.
+     */
     public Tag(String name) {
         requireAllNonNull(name);
         this.name = new TagName(name);
