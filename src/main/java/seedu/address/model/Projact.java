@@ -134,6 +134,7 @@ public class Projact implements ReadOnlyProjact {
         requireNonNull(editedTag);
 
         tags.setTag(target, editedTag);
+        persons.setTag(target, editedTag);
     }
 
     /**

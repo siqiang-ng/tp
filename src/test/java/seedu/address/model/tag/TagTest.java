@@ -14,11 +14,11 @@ import seedu.address.testutil.TagBuilder;
 
 public class TagTest {
 
-    @Test
-    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Tag tag = new TagBuilder().build();
-        assertThrows(UnsupportedOperationException.class, () -> tag.getPersons().remove(0));
-    }
+//    @Test
+//    public void asObservableList_modifyList_throwsUnsupportedOperationException() {
+//        Tag tag = new TagBuilder().build();
+//        assertThrows(UnsupportedOperationException.class, () -> tag.getPersons().remove(0));
+//    }
 
     @Test
     void isSameTag() {
@@ -31,10 +31,6 @@ public class TagTest {
         // different name -> returns false
         Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
         assertFalse(GROUPMATE.isSameTag(editedGroupmate));
-
-        // same name, different attributes -> returns true
-        editedGroupmate = new TagBuilder(GROUPMATE).withPersons(VALID_NAME_AMY).build();
-        assertTrue(GROUPMATE.isSameTag(editedGroupmate));
     }
 
     @Test
@@ -57,10 +53,6 @@ public class TagTest {
 
         // different name -> returns false
         Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
-        assertFalse(GROUPMATE.equals(editedGroupmate));
-
-        // different persons -> returns false
-        editedGroupmate = new TagBuilder(GROUPMATE).withPersons(VALID_NAME_AMY).build();
         assertFalse(GROUPMATE.equals(editedGroupmate));
     }
 }

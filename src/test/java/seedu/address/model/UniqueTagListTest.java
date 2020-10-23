@@ -42,8 +42,7 @@ public class UniqueTagListTest {
     @Test
     public void contains_tagWithSameIdentityFieldsInList_returnsTrue() {
         uniqueTagList.add(CS2103T);
-        Tag editedCS2103T = new TagBuilder(CS2103T).withPersons(VALID_PERSON_AMY)
-                .build();
+        Tag editedCS2103T = new TagBuilder(CS2103T).build();
         assertTrue(uniqueTagList.contains(editedCS2103T));
     }
 
@@ -85,8 +84,7 @@ public class UniqueTagListTest {
     @Test
     public void setTag_editedTagHasSameIdentity_success() {
         uniqueTagList.add(CS2103T);
-        Tag editedCS2103T = new TagBuilder(CS2103T).withPersons(VALID_PERSON_AMY)
-                .build();
+        Tag editedCS2103T = new TagBuilder(CS2103T).build();
         uniqueTagList.setTag(CS2103T, editedCS2103T);
         UniqueTagList expectedUniqueTagList = new UniqueTagList();
         expectedUniqueTagList.add(editedCS2103T);

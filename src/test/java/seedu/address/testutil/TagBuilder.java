@@ -28,7 +28,6 @@ public class TagBuilder {
      */
     public TagBuilder(Tag tagToCopy) {
         name = tagToCopy.getTagName();
-        persons = new HashSet<>(tagToCopy.getPersons());
     }
 
     /**
@@ -39,15 +38,15 @@ public class TagBuilder {
         return this;
     }
 
-    /**
-     * Parses the {@code persons} into a {@code Set<Name>} and set it to the {@code Tag} that we are building.
-     */
-    public TagBuilder withPersons(String ... persons) {
-        this.persons = SampleDataUtil.getPersonSet(persons);
-        return this;
-    }
+//    /**
+//     * Parses the {@code persons} into a {@code Set<Name>} and set it to the {@code Tag} that we are building.
+//     */
+//    public TagBuilder withPersons(String ... persons) {
+//        this.persons = SampleDataUtil.getPersonSet(persons);
+//        return this;
+//    }
 
     public Tag build() {
-        return new Tag(name, persons);
+        return new Tag(name);
     }
 }

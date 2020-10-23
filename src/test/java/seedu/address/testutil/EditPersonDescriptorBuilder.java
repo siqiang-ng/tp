@@ -10,6 +10,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
 /**
@@ -76,7 +77,7 @@ public class EditPersonDescriptorBuilder {
      * that we are building.
      */
     public EditPersonDescriptorBuilder withTags(String... tags) {
-        Set<TagName> tagSet = Stream.of(tags).map(TagName::new).collect(Collectors.toSet());
+        Set<Tag> tagSet = Stream.of(tags).map(Tag::new).collect(Collectors.toSet());
         descriptor.setTags(tagSet);
         return this;
     }

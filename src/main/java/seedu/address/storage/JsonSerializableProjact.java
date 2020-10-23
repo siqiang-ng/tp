@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.Projact;
 import seedu.address.model.ReadOnlyProjact;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 
 /**
  * An Immutable Projact that is serializable to JSON format.
@@ -20,15 +21,19 @@ import seedu.address.model.person.Person;
 class JsonSerializableProjact {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_TAG = "Tags list contains duplicate tag(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
+    private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableProjact} with the given persons.
      */
     @JsonCreator
-    public JsonSerializableProjact(@JsonProperty("persons") List<JsonAdaptedPerson> persons) {
+    public JsonSerializableProjact(@JsonProperty("persons") List<JsonAdaptedPerson> persons,
+                                   @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.persons.addAll(persons);
+        this.tags.addAll(tags);
     }
 
     /**
@@ -38,6 +43,7 @@ class JsonSerializableProjact {
      */
     public JsonSerializableProjact(ReadOnlyProjact source) {
         persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
+        tags.addAll(source.getTagList().stream().map(JsonAdaptedTag::new).collect(Collectors.toList()));
     }
 
     /**
@@ -53,6 +59,14 @@ class JsonSerializableProjact {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
             projact.addPerson(person);
+        }
+
+        for (JsonAdaptedTag jsonAdaptedTag : tags) {
+            Tag tag = jsonAdaptedTag.toModelType();
+            if (projact.hasTag(tag)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_TAG);
+            }
+            projact.addTag(tag);
         }
         return projact;
     }

@@ -56,7 +56,6 @@ public class UniqueTagList implements Iterable<Tag> {
      */
     public void setTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
-
         int index = internalList.indexOf(target);
         if (index == -1) {
             throw new TagNotFoundException();

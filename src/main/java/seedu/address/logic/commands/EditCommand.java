@@ -24,10 +24,10 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing person in Projact.
  */
 public class EditCommand extends Command {
 
@@ -98,7 +98,7 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         TelegramAddress updatedTelegramAddress = editPersonDescriptor.getTelegramAddress()
                                                     .orElse(personToEdit.getTelegramAddress());
-        Set<TagName> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedTelegramAddress, updatedTags);
     }
@@ -130,7 +130,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private TelegramAddress telegramAddress;
-        private Set<TagName> tags;
+        private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
 
@@ -189,7 +189,7 @@ public class EditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setTags(Set<TagName> tags) {
+        public void setTags(Set<Tag> tags) {
             this.tags = (tags != null) ? new HashSet<>(tags) : null;
         }
 
@@ -198,7 +198,7 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<TagName>> getTags() {
+        public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
@@ -223,5 +223,6 @@ public class EditCommand extends Command {
                     && getTelegramAddress().equals(e.getTelegramAddress())
                     && getTags().equals(e.getTags());
         }
+
     }
 }
