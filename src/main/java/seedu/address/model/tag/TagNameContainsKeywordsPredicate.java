@@ -8,7 +8,7 @@ import seedu.address.commons.util.StringUtil;
 /**
  * Tests that a {@code Tag}'s {@code Name} matches any of the keywords given.
  */
-public class TagNameContainsKeywordsPredicate implements Predicate<TagName> {
+public class TagNameContainsKeywordsPredicate implements Predicate<Tag> {
     private final List<String> keywords;
 
     public TagNameContainsKeywordsPredicate(List<String> keywords) {
@@ -16,9 +16,9 @@ public class TagNameContainsKeywordsPredicate implements Predicate<TagName> {
     }
 
     @Override
-    public boolean test(TagName tagName) {
+    public boolean test(Tag tag) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(tagName.tagName, keyword));
+                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(tag.getTagName().tagName, keyword));
     }
 
     @Override

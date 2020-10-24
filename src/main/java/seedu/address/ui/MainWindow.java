@@ -131,7 +131,6 @@ public class MainWindow extends UiPart<Stage> {
      * Replace the view in listPanelPlaceholder to show the TagList
      */
     protected void showTagList() {
-        tagListPanel = new TagListPanel(logic.getFilteredTagList()); // TODO: Remove in v1.3
         listPanelPlaceholder.getChildren().setAll(tagListPanel.getRoot());
     }
 

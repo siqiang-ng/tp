@@ -4,20 +4,15 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.TagName;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -29,7 +24,6 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Tag> filteredTags;
-    private Predicate<TagName> filteredTagPredicate = x -> true; // TODO: Remove in v1.3
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -170,25 +164,14 @@ public class ModelManager implements Model {
      * {@code versionedProjact}
      */
     @Override
-    public ObservableList<TagName> getFilteredTagList() { // TODO: Change to ObservableList<Tag> in v1.3
-        ObservableList<TagName> observableList = this.projact.getPersonList()
-                .stream()
-                .map(Person::getTags)
-                .flatMap(Set::stream)
-                .filter(filteredTagPredicate)
-                .collect(Collectors.toCollection(HashSet::new))
-                .stream()
-                .collect(Collectors.toCollection(FXCollections::observableArrayList));
-
-        return new FilteredList<TagName>(observableList);
+    public ObservableList<Tag> getFilteredTagList() {
+        return filteredTags;
     }
 
     @Override
-    public void updateFilteredTagList(Predicate<TagName> predicate) { // TODO: Change to Predicate<Tag> in v1.3
+    public void updateFilteredTagList(Predicate<Tag> predicate) {
         requireNonNull(predicate);
-        filteredTagPredicate = predicate; // TODO: Remove by v1.3
-        Predicate<Tag> predicate2 = tag -> predicate.test(tag.getTagName()); // TODO: Remove by v1.3
-        filteredTags.setPredicate(predicate2);
+        filteredTags.setPredicate(predicate);
     }
 
     //=========== Miscellaneous =============================================================

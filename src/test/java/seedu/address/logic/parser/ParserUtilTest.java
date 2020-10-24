@@ -18,7 +18,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
@@ -160,14 +160,14 @@ public class ParserUtilTest {
 
     @Test
     public void parseTag_validValueWithoutWhitespace_returnsTag() throws Exception {
-        TagName expectedTag = new TagName(VALID_TAG_1);
+        Tag expectedTag = new Tag(VALID_TAG_1);
         assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_1));
     }
 
     @Test
     public void parseTag_validValueWithWhitespace_returnsTrimmedTag() throws Exception {
         String tagWithWhitespace = WHITESPACE + VALID_TAG_1 + WHITESPACE;
-        TagName expectedTag = new TagName(VALID_TAG_1);
+        Tag expectedTag = new Tag(VALID_TAG_1);
         assertEquals(expectedTag, ParserUtil.parseTag(tagWithWhitespace));
     }
 
@@ -188,9 +188,9 @@ public class ParserUtilTest {
 
     @Test
     public void parseTags_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<TagName> actualTagSet = ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, VALID_TAG_2));
-        Set<TagName> expectedTagSet = new HashSet<TagName>(Arrays.asList(
-                                                            new TagName(VALID_TAG_1), new TagName(VALID_TAG_2)));
+        Set<Tag> actualTagSet = ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, VALID_TAG_2));
+        Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(
+                                                            new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
     }
