@@ -199,7 +199,7 @@ public class ModelManagerTest {
     @Test
     public void hasTag_tagWithSameNameInModelManager_returnsTrue() {
         modelManager.addTag(CS2103T);
-        Tag editedTag = new TagBuilder(CS2103T).withPersons("ALICE").build();
+        Tag editedTag = new TagBuilder(CS2103T).build();
         assertTrue(modelManager.hasTag(editedTag));
     }
 

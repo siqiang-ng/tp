@@ -53,8 +53,8 @@ public class PersonCard extends UiPart<Region> {
         telegramAddress.setText("@" + person.getTelegramAddress().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .sorted(Comparator.comparing(tag -> tag.getTagName().tagName))
+                .forEach(tag -> tags.getChildren().add(new Label(tag.getTagName().tagName)));
     }
 
     @Override

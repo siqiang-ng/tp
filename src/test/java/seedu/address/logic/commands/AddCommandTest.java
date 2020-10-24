@@ -22,7 +22,6 @@ import seedu.address.model.ReadOnlyProjact;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.TagName;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -171,12 +170,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public ObservableList<TagName> getFilteredTagList() {
+        public ObservableList<Tag> getFilteredTagList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void updateFilteredTagList(Predicate<TagName> predicate) {
+        public void updateFilteredTagList(Predicate<Tag> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }

@@ -17,11 +17,13 @@ import java.util.List;
 
 import seedu.address.model.Projact;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
  */
 public class TypicalPersons {
+    // Persons
 
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withTelegramAddress("alicepauline")
@@ -65,14 +67,22 @@ public class TypicalPersons {
      * Returns an {@code Projact} with all the typical persons.
      */
     public static Projact getTypicalProjact() {
-        Projact ab = new Projact();
+        Projact projact = new Projact();
         for (Person person : getTypicalPersons()) {
-            ab.addPerson(person);
+            projact.addPerson(person);
         }
-        return ab;
+
+        for (Tag tag : getTypicalTags()) {
+            projact.addTag(tag);
+        }
+        return projact;
     }
 
     public static List<Person> getTypicalPersons() {
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+    }
+
+    public static List<Tag> getTypicalTags() {
+        return new ArrayList<>(Arrays.asList(new Tag("friends"), new Tag("owesMoney")));
     }
 }

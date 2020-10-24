@@ -206,7 +206,7 @@ public class ProjactTest {
     @Test
     public void hasTag_tagWithSameNameInProjact_returnsTrue() {
         projact.addTag(CS2103T);
-        Tag editedTag = new TagBuilder(CS2103T).withPersons("ALICE").build();
+        Tag editedTag = new TagBuilder(CS2103T).build();
         assertTrue(projact.hasTag(editedTag));
     }
 
