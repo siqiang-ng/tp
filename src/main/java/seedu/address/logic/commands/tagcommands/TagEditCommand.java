@@ -83,8 +83,7 @@ public class TagEditCommand extends Command {
 
         // currently only the name of the tag can be edited
         TagName updatedTagName = editTagDescriptor.getTagName().get();
-        Set<Name> persons = tagToEdit.getPersons();
-        return new Tag(updatedTagName, persons);
+        return new Tag(updatedTagName);
     }
 
     @Override
@@ -111,10 +110,6 @@ public class TagEditCommand extends Command {
      */
     public static class EditTagDescriptor {
         private TagName tagName;
-<<<<<<< HEAD:src/main/java/seedu/address/logic/commands/TagEditCommand.java
-=======
-        private Set<PersonName> persons;
->>>>>>> a81afe4bcc11b1b997611f901a999c24465b1e30:src/main/java/seedu/address/logic/commands/tagcommands/TagEditCommand.java
 
         public EditTagDescriptor() {}
 
@@ -140,26 +135,6 @@ public class TagEditCommand extends Command {
             return Optional.ofNullable(tagName);
         }
 
-<<<<<<< HEAD:src/main/java/seedu/address/logic/commands/TagEditCommand.java
-=======
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setPersons(Set<PersonName> persons) {
-            this.persons = (persons != null) ? new HashSet<>(persons) : null;
-        }
-
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<PersonName>> getPersons() {
-            return (persons != null) ? Optional.of(Collections.unmodifiableSet(persons)) : Optional.empty();
-        }
-
->>>>>>> a81afe4bcc11b1b997611f901a999c24465b1e30:src/main/java/seedu/address/logic/commands/tagcommands/TagEditCommand.java
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
