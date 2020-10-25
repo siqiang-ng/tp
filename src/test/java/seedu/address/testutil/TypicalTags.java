@@ -1,9 +1,7 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,13 +15,10 @@ import seedu.address.model.tag.Tag;
  */
 public class TypicalTags {
 
-    public static final Tag GROUPMATE = new TagBuilder().withName("groupmate")
-            .withPersons("Alice").build();
-    public static final Tag COLLEAGUE = new TagBuilder().withName("colleague")
-            .withPersons("Benson", "Carl").build();
+    public static final Tag GROUPMATE = new TagBuilder().withName("groupmate").build();
+    public static final Tag COLLEAGUE = new TagBuilder().withName("colleague").build();
     public static final Tag CS2103T = new TagBuilder().withName("CS2103T").build();
-    public static final Tag CS2040S = new TagBuilder().withName("CS2040S")
-            .withPersons("Daniel").build();
+    public static final Tag CS2040S = new TagBuilder().withName("CS2040S").build();
     public static final Tag SEP = new TagBuilder().withName("SEP").build();
     public static final Tag HALL = new TagBuilder().withName("Hall").build();
     public static final Tag HANDBALL = new TagBuilder().withName("Handball").build();
@@ -33,11 +28,8 @@ public class TypicalTags {
     public static final Tag PROFESSOR = new TagBuilder().withName("Professor").build();
 
     // Manually added - Tag's details found in {@code CommandTestUtil}
-    public static final Tag FRIEND = new TagBuilder().withName(VALID_TAG_FRIEND)
-                .withPersons(VALID_NAME_AMY).build();
-    public static final Tag HUSBAND = new TagBuilder().withName(VALID_NAME_BOB)
-                .withPersons(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
-                .build();
+    public static final Tag FRIEND = new TagBuilder().withName(VALID_TAG_FRIEND).build();
+    public static final Tag HUSBAND = new TagBuilder().withName(VALID_NAME_BOB).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "CS"; // A keyword that matches CS
 

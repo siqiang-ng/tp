@@ -13,6 +13,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
 /**
@@ -101,23 +102,23 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code tag} is invalid.
      */
-    public static TagName parseTag(String tag) throws ParseException {
+    public static Tag parseTag(String tag) throws ParseException {
         requireNonNull(tag);
         String trimmedTag = tag.trim();
         if (!TagName.isValidTagName(trimmedTag)) {
             throw new ParseException(TagName.MESSAGE_CONSTRAINTS);
         }
-        return new TagName(trimmedTag);
+        return new Tag(trimmedTag);
     }
 
     /**
      * Parses {@code Collection<String> tags} into a {@code Set<TagName>}.
      */
-    public static Set<TagName> parseTags(Collection<String> tags) throws ParseException {
+    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
         requireNonNull(tags);
-        final Set<TagName> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(parseTag(tagName));
+        final Set<Tag> tagSet = new HashSet<>();
+        for (String tag : tags) {
+            tagSet.add(parseTag(tag));
         }
         return tagSet;
     }

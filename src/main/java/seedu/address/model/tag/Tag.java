@@ -2,12 +2,8 @@ package seedu.address.model.tag;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
-import seedu.address.model.person.PersonName;
 
 /**
  * Represents a Tag in the address book.
@@ -18,43 +14,42 @@ public class Tag {
     // Identity fields
     private final TagName name;
 
-    // Data fields
-    private final Set<PersonName> persons = new HashSet<>();
+    /**
+      * Every field must be present and not null.
+      */
+    public Tag(TagName name) {
+        requireAllNonNull(name);
+        this.name = name;
+    }
 
     /**
      * Every field must be present and not null.
      */
-    public Tag(TagName name, Set<PersonName> persons) {
-        requireAllNonNull(name, persons);
-        this.name = name;
-        this.persons.addAll(persons);
+    public Tag(String name) {
+        requireAllNonNull(name);
+        this.name = new TagName(name);
     }
 
     public TagName getTagName() {
         return name;
     }
 
-    /**
-     * Returns an immutable person set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<PersonName> getPersons() {
-        return Collections.unmodifiableSet(persons);
-    }
+
+    //    /**
+    //     * Returns an immutable person set, which throws {@code UnsupportedOperationException}
+    //     * if modification is attempted.
+    //     */
+    //    public Set<Name> getPersons() {
+    //        return Collections.unmodifiableSet(persons);
+    //    }
+
 
     /**
      * Returns true if both tags have the same name
      * This defines a weaker notion of equality between two tags.
      */
     public boolean isSameTag(Tag otherTag) {
-        if (otherTag == null) {
-            return false;
-        }
-        if (otherTag == this) {
-            return true;
-        }
-
-        return otherTag.getTagName().equals(getTagName());
+        return this.equals(otherTag);
     }
 
     /**
@@ -63,31 +58,23 @@ public class Tag {
      */
     @Override
     public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof Tag)) {
-            return false;
-        }
-
-        Tag otherTag = (Tag) other;
-        return otherTag.getTagName().equals(getTagName())
-                && otherTag.getPersons().equals(getPersons());
+        return other == this // short circuit if same object
+                || (other instanceof Tag // instanceof handles nulls
+                && getTagName().equals(((Tag) other).getTagName())); // state check
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, persons);
+        return Objects.hash(name);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getTagName())
-                .append(" Persons: ");
-        getPersons().forEach(builder::append);
+        builder.append(getTagName());
+        //                .append(" Persons: ");
+        //        getPersons().forEach(builder::append);
         return builder.toString();
     }
 

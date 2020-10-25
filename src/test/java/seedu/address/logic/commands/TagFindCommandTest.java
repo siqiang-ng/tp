@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 
 public class TagFindCommandTest {
@@ -57,7 +57,8 @@ public class TagFindCommandTest {
                 expectedMessage,
                 false,
                 false,
-                true
+                true,
+                false
         );
         TagNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         TagFindCommand command = new TagFindCommand(predicate);
@@ -73,13 +74,14 @@ public class TagFindCommandTest {
                 expectedMessage,
                 false,
                 false,
-                true
+                true,
+                false
         );
         TagNameContainsKeywordsPredicate predicate = preparePredicate("FriEndS owesMoney");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
         assertCommandSuccess(command, model, expectedResult, expectedModel);
-        assertEquals(Arrays.asList(new TagName("owesMoney"), new TagName("friends")), model.getFilteredTagList());
+        assertEquals(Arrays.asList(new Tag("friends"), new Tag("owesMoney")), model.getFilteredTagList());
     }
 
     /**

@@ -4,11 +4,13 @@ title: User Guide
 ---
 # Projact User Guide
 
-##Table of Contents
+## Table of Contents
 * [Introduction](#introduction)
 * [About the User Guide](#about-this-user-guide)
 * [Quick Start](#quick-start)
 * [Features](#features)
+    * [Contact](#_contact-features_)
+    * [Tag](#_tag-features_)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
@@ -24,7 +26,9 @@ The Projact application consists of a person list, which stores the contacts of 
 --------------------------------------------------------------------------------------------------------------------
 
 ## About this User Guide
-This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. A basic understanding of how the Command Line Interface works would be good but the lack of that would not affect your experience with our Projact application as prior technical experience is not required.
+This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. 
+
+A basic understanding of how the Command Line Interface works would be good. However, a lack of it would not affect your experience with Projact as prior technical experience is not required.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -88,6 +92,13 @@ Shows a message explaining how to access the help page.
 
 Format: `help`
 
+### Clearing all entries : `clear`
+
+Clears all contact entries from the person list in Projact.
+
+Format: `clear`
+
+### _Contact Features_
 
 ### Adding a contact: `add`
 
@@ -161,17 +172,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
-### Clearing all entries : `clear`
-
-Clears all contact entries from the person list in Projact.
-
-Format: `clear`
-
-### Exiting the program : `exit`
-
-Exits Projact application.
-
-Format: `exit`
+### _Tag Features_
 
 ### Adding a tag : `tagadd`
 
@@ -232,6 +233,11 @@ Format: `tagdelete INDEX`
 Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
+### Exiting the program : `exit`
+
+Exits Projact application.
+
+Format: `exit`
 
 ### Saving the data
 
