@@ -25,7 +25,7 @@ import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.TagFindCommand;
 import seedu.address.logic.commands.TagListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
@@ -76,7 +76,7 @@ public class ProjactParserTest {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
         FindCommand command = (FindCommand) parser.parseCommand(
                 FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+        assertEquals(new FindCommand(new PersonNameContainsKeywordsPredicate(keywords)), command);
     }
 
     @Test

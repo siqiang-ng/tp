@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.person.Name;
+import seedu.address.model.person.PersonName;
 
 /**
  * Represents a Tag in the address book.
@@ -19,12 +19,12 @@ public class Tag {
     private final TagName name;
 
     // Data fields
-    private final Set<Name> persons = new HashSet<>();
+    private final Set<PersonName> persons = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Tag(TagName name, Set<Name> persons) {
+    public Tag(TagName name, Set<PersonName> persons) {
         requireAllNonNull(name, persons);
         this.name = name;
         this.persons.addAll(persons);
@@ -38,7 +38,7 @@ public class Tag {
      * Returns an immutable person set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Name> getPersons() {
+    public Set<PersonName> getPersons() {
         return Collections.unmodifiableSet(persons);
     }
 
