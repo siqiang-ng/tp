@@ -4,11 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -17,7 +14,6 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.PersonName;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
@@ -28,7 +24,7 @@ public class TagEditCommand extends Command {
 
     public static final String COMMAND_WORD = "tagedit";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the tag identified "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the name of the tag identified "
             + "by the index number used in the displayed tag list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
@@ -44,8 +40,8 @@ public class TagEditCommand extends Command {
     private final EditTagDescriptor editTagDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editTagDescriptor details to edit the person with
+     * @param index of the tag in the filtered tag list to edit
+     * @param editTagDescriptor details to edit the tag with
      */
     public TagEditCommand(Index index, EditTagDescriptor editTagDescriptor) {
         requireNonNull(index);
@@ -77,15 +73,14 @@ public class TagEditCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Tag} with the details of {@code tagToEdit}
+     * Creates and returns a {@code Tag} with the name of {@code tagToEdit}
      * edited with {@code editTagDescriptor}.
      */
     private static Tag createEditedTag(Tag tagToEdit, EditTagDescriptor editTagDescriptor) {
         assert tagToEdit != null;
 
+        // currently only the name of the tag can be edited
         TagName updatedTagName = editTagDescriptor.getTagName().get();
-        //  Set<Name> persons = tagToEdit.getPersons();
-
         return new Tag(updatedTagName);
     }
 
@@ -108,12 +103,11 @@ public class TagEditCommand extends Command {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the tag with. The name will replace the
+     * corresponding name of the tag.
      */
     public static class EditTagDescriptor {
         private TagName tagName;
-        private Set<PersonName> persons;
 
         public EditTagDescriptor() {}
 
@@ -122,7 +116,6 @@ public class TagEditCommand extends Command {
          */
         public EditTagDescriptor(EditTagDescriptor toCopy) {
             setTagName(toCopy.tagName);
-            setPersons(toCopy.persons);
         }
 
         /**
@@ -140,23 +133,6 @@ public class TagEditCommand extends Command {
             return Optional.ofNullable(tagName);
         }
 
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setPersons(Set<PersonName> persons) {
-            this.persons = (persons != null) ? new HashSet<>(persons) : null;
-        }
-
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<PersonName>> getPersons() {
-            return (persons != null) ? Optional.of(Collections.unmodifiableSet(persons)) : Optional.empty();
-        }
-
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -172,8 +148,7 @@ public class TagEditCommand extends Command {
             // state check
             EditTagDescriptor e = (EditTagDescriptor) other;
 
-            return getTagName().equals(e.getTagName())
-                    && getPersons().equals(e.getPersons());
+            return getTagName().equals(e.getTagName());
         }
     }
 }

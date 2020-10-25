@@ -2,6 +2,7 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -143,6 +144,19 @@ public class Projact implements ReadOnlyProjact {
      */
     public void removeTag(Tag key) {
         tags.remove(key);
+    }
+
+    /**
+     * Returns the list of contacts who have the {@code target} tag.
+     */
+    public List<Person> findContactsByTag(Tag target) {
+        List<Person> personsWithTag = new ArrayList<>();
+        for (Person p : persons) {
+            if (p.getTags().contains(target)) {
+                personsWithTag.add(p);
+            }
+        }
+        return personsWithTag;
     }
 
     //// util methods
