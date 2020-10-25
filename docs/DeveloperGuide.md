@@ -314,6 +314,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | find contacts based on alphabetical order                              |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
+| `* *`    | student with many project groups	        | delete the meeting platform link to each tag     | remove the link if it has been added wrongly                           |
+| `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
+| `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
