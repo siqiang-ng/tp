@@ -2,12 +2,7 @@ package seedu.address.model.tag;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
-
-import seedu.address.model.person.Name;
 
 /**
  * Represents a Tag in the address book.
@@ -18,17 +13,9 @@ public class Tag {
     // Identity fields
     private final TagName name;
 
-    // Data fields
-    private final Set<Name> persons = new HashSet<>();
-
     /**
       * Every field must be present and not null.
       */
-    public Tag(TagName name, Set<Name> persons) {
-        requireAllNonNull(name, persons);
-        this.name = name;
-        this.persons.addAll(persons);
-    }
 
     public Tag(TagName name) {
         requireAllNonNull(name);
@@ -42,14 +29,6 @@ public class Tag {
 
     public TagName getTagName() {
         return name;
-    }
-
-    /**
-     * Returns an immutable person set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Name> getPersons() {
-        return Collections.unmodifiableSet(persons);
     }
 
     /**
@@ -82,22 +61,19 @@ public class Tag {
         }
 
         Tag otherTag = (Tag) other;
-        return otherTag.getTagName().equals(getTagName())
-                && otherTag.getPersons().equals(getPersons());
+        return otherTag.getTagName().equals(getTagName());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, persons);
+        return Objects.hash(name);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getTagName())
-                .append(" Persons: ");
-        getPersons().forEach(builder::append);
+        builder.append(getTagName());
         return builder.toString();
     }
 

@@ -3,7 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.Name;
+import seedu.address.model.person.PersonName;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
@@ -12,7 +12,7 @@ public class TagBuilder {
     public static final String DEFAULT_NAME = "friend";
 
     private TagName name;
-    private Set<Name> persons;
+    private Set<PersonName> persons;
 
     /**
      * Creates a {@code TagBuilder} with the default details.
