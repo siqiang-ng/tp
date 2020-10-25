@@ -52,11 +52,10 @@ public class UniqueTagList implements Iterable<Tag> {
     /**
      * Replaces the tag {@code target} in the list with {@code editedTag}.
      * {@code target} must exist in the list.
-     * The tag identity of {@code editedTag} must not be the same as another existing tag in the list.
+     * The tag name of {@code editedTag} must not be the same as another existing tag in the list.
      */
     public void setTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
-
         int index = internalList.indexOf(target);
         if (index == -1) {
             throw new TagNotFoundException();
@@ -80,6 +79,9 @@ public class UniqueTagList implements Iterable<Tag> {
         }
     }
 
+    /**
+     * Replaces the contents of this list with {@code replacement}
+     */
     public void setTags(UniqueTagList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);

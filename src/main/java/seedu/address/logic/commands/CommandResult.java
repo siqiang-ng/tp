@@ -18,16 +18,20 @@ public class CommandResult {
     private final boolean exit;
 
     /** The application should reflect the tag list. */
-    private final boolean tagList; //TODO: To be removed in v1.3
+    private final boolean tagList;
+
+    /** The application should reflect the person list. */
+    private final boolean personList;
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean tagList) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean tagList, boolean personlist) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.tagList = tagList;
+        this.personList = personlist;
     }
 
     /**
@@ -35,7 +39,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -54,6 +58,10 @@ public class CommandResult {
         return tagList;
     }
 
+    public boolean isPersonList() {
+        return personList;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -69,12 +77,13 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
-                && tagList == otherCommandResult.tagList;
+                && tagList == otherCommandResult.tagList
+                && personList == otherCommandResult.personList;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, tagList);
+        return Objects.hash(feedbackToUser, showHelp, exit, tagList, personList);
     }
 
 }

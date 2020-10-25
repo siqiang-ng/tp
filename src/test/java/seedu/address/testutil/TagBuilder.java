@@ -3,17 +3,16 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.Name;
+import seedu.address.model.person.PersonName;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
-import seedu.address.model.util.SampleDataUtil;
 
 public class TagBuilder {
 
     public static final String DEFAULT_NAME = "friend";
 
     private TagName name;
-    private Set<Name> persons;
+    private Set<PersonName> persons;
 
     /**
      * Creates a {@code TagBuilder} with the default details.
@@ -28,7 +27,6 @@ public class TagBuilder {
      */
     public TagBuilder(Tag tagToCopy) {
         name = tagToCopy.getTagName();
-        persons = new HashSet<>(tagToCopy.getPersons());
     }
 
     /**
@@ -39,15 +37,8 @@ public class TagBuilder {
         return this;
     }
 
-    /**
-     * Parses the {@code persons} into a {@code Set<Name>} and set it to the {@code Tag} that we are building.
-     */
-    public TagBuilder withPersons(String ... persons) {
-        this.persons = SampleDataUtil.getPersonSet(persons);
-        return this;
-    }
 
     public Tag build() {
-        return new Tag(name, persons);
+        return new Tag(name);
     }
 }

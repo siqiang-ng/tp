@@ -3,6 +3,7 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Objects;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
@@ -11,8 +12,8 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 
 /**
- * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Wraps all data at the projact level
+ * Duplicates are not allowed (by .isSamePerson comparison and by .isSameTag comparison)
  */
 public class Projact implements ReadOnlyProjact {
 
@@ -52,12 +53,21 @@ public class Projact implements ReadOnlyProjact {
     }
 
     /**
+     * Replaces the contents of the tag list with {@code tags}.
+     * {@code tags} must not contain duplicate tags.
+     */
+    public void setTags(List<Tag> tags) {
+        this.tags.setTags(tags);
+    }
+
+    /**
      * Resets the existing data of this {@code Projact} with {@code newData}.
      */
     public void resetData(ReadOnlyProjact newData) {
         requireNonNull(newData);
 
         setPersons(newData.getPersonList());
+        setTags(newData.getTagList());
     }
 
     //// person-level operations
@@ -79,14 +89,6 @@ public class Projact implements ReadOnlyProjact {
     }
 
     /**
-     * Adds a tag to Projact.
-     * The tag must not already exist in Projact.
-     */
-    public void addTag(Tag t) {
-        tags.add(t);
-    }
-
-    /**
      * Replaces the given person {@code target} in the list with {@code editedPerson}.
      * {@code target} must exist in Projact.
      * The person identity of {@code editedPerson} must not be the same as another existing person in Projact.
@@ -105,11 +107,50 @@ public class Projact implements ReadOnlyProjact {
         persons.remove(key);
     }
 
+    //// tag-level operations
+
+    /**
+     * Returns true if a tag with the same name as {@code tag} exists in Projact.
+     */
+    public boolean hasTag(Tag tag) {
+        requireNonNull(tag);
+        return tags.contains(tag);
+    }
+
+    /**
+     * Adds a tag to Projact.
+     * The tag must not already exist in Projact.
+     */
+    public void addTag(Tag tag) {
+        tags.add(tag);
+    }
+
+    /**
+     * Replaces the given tag {@code target} in the list with {@code editedTag}.
+     * {@code target} must exist in Projact.
+     * The tag name of {@code editedTag} must not be the same as another existing tag in Projact.
+     */
+    public void setTag(Tag target, Tag editedTag) {
+        requireNonNull(editedTag);
+
+        tags.setTag(target, editedTag);
+        persons.setTag(target, editedTag);
+    }
+
+    /**
+     * Removes {@code key} from this {@code Projact}.
+     * {@code key} must exist in Projact.
+     */
+    public void removeTag(Tag key) {
+        tags.remove(key);
+    }
+
     //// util methods
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return persons.asUnmodifiableObservableList().size() + " persons\t"
+                + tags.asUnmodifiableObservableList().size() + " tags";
         // TODO: refine later
     }
 
@@ -119,14 +160,20 @@ public class Projact implements ReadOnlyProjact {
     }
 
     @Override
+    public ObservableList<Tag> getTagList() {
+        return tags.asUnmodifiableObservableList();
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Projact // instanceof handles nulls
-                && persons.equals(((Projact) other).persons));
+                && persons.equals(((Projact) other).persons)
+                && tags.equals(((Projact) other).tags));
     }
 
     @Override
     public int hashCode() {
-        return persons.hashCode();
+        return Objects.hash(persons, tags);
     }
 }

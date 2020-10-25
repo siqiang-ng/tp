@@ -7,6 +7,7 @@ import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.tagcommands.TagListCommand;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -23,7 +24,8 @@ class TagListCommandTest {
 
     @Test
     public void execute_tagList_success() {
-        CommandResult expectedCommandResult = new CommandResult(TagListCommand.MESSAGE_SUCCESS, false, false, true);
+        CommandResult expectedCommandResult =
+                new CommandResult(TagListCommand.MESSAGE_SUCCESS, false, false, true, false);
         assertCommandSuccess(new TagListCommand(), model, expectedCommandResult, expectedModel);
     }
 }

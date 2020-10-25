@@ -6,17 +6,18 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.TagFindCommand;
-import seedu.address.logic.commands.TagListCommand;
+import seedu.address.logic.commands.contactcommands.AddCommand;
+import seedu.address.logic.commands.contactcommands.DeleteCommand;
+import seedu.address.logic.commands.contactcommands.EditCommand;
+import seedu.address.logic.commands.contactcommands.FindCommand;
+import seedu.address.logic.commands.contactcommands.ListCommand;
+import seedu.address.logic.commands.tagcommands.TagEditCommand;
+import seedu.address.logic.commands.tagcommands.TagFindCommand;
+import seedu.address.logic.commands.tagcommands.TagListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -75,6 +76,9 @@ public class ProjactParser {
 
         case TagFindCommand.COMMAND_WORD:
             return new TagFindCommandParser().parse(arguments);
+
+        case TagEditCommand.COMMAND_WORD:
+            return new TagEditCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

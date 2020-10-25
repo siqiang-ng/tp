@@ -4,19 +4,15 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
-import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.Tag;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -27,7 +23,7 @@ public class ModelManager implements Model {
     private final Projact projact;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-    private Predicate<TagName> filteredTagPredicate = x -> true;
+    private final FilteredList<Tag> filteredTags;
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -40,7 +36,8 @@ public class ModelManager implements Model {
 
         this.projact = new Projact(projact);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.projact.getPersonList());
+        this.filteredPersons = new FilteredList<>(this.projact.getPersonList());
+        this.filteredTags = new FilteredList<>(this.projact.getTagList());
     }
 
     public ModelManager() {
@@ -118,6 +115,31 @@ public class ModelManager implements Model {
         projact.setPerson(target, editedPerson);
     }
 
+    @Override
+    public boolean hasTag(Tag tag) {
+        requireNonNull(tag);
+        return projact.hasTag(tag);
+    }
+
+    @Override
+    public void deleteTag(Tag target) {
+        requireNonNull(target);
+        projact.removeTag(target);
+    }
+
+    @Override
+    public void addTag(Tag tag) {
+        requireNonNull(tag);
+        projact.addTag(tag);
+        updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
+    }
+
+    @Override
+    public void setTag(Tag target, Tag editedTag) {
+        requireAllNonNull(target, editedTag);
+        projact.setTag(target, editedTag);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
@@ -142,25 +164,17 @@ public class ModelManager implements Model {
      * {@code versionedProjact}
      */
     @Override
-    public ObservableList<TagName> getFilteredTagList() {
-        ObservableList<TagName> observableList = this.projact.getPersonList()
-                .stream()
-                .map(Person::getTags)
-                .flatMap(Set::stream)
-                .filter(filteredTagPredicate)
-                .collect(Collectors.toCollection(HashSet::new))
-                .stream()
-                .collect(Collectors.toCollection(FXCollections::observableArrayList));
-
-        return new FilteredList<TagName>(observableList);
+    public ObservableList<Tag> getFilteredTagList() {
+        return filteredTags;
     }
 
     @Override
-    public void updateFilteredTagList(Predicate<TagName> predicate) {
+    public void updateFilteredTagList(Predicate<Tag> predicate) {
         requireNonNull(predicate);
-        filteredTagPredicate = predicate;
+        filteredTags.setPredicate(predicate);
     }
 
+    //=========== Miscellaneous =============================================================
 
     @Override
     public boolean equals(Object obj) {
@@ -178,7 +192,8 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return projact.equals(other.projact)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredPersons.equals(other.filteredPersons)
+                && filteredTags.equals(other.filteredTags);
     }
 
 }
