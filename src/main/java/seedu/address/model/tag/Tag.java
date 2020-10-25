@@ -4,7 +4,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
-
 /**
  * Represents a Tag in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
@@ -34,22 +33,19 @@ public class Tag {
         return name;
     }
 
-
-    //    /**
-    //     * Returns an immutable person set, which throws {@code UnsupportedOperationException}
-    //     * if modification is attempted.
-    //     */
-    //    public Set<Name> getPersons() {
-    //        return Collections.unmodifiableSet(persons);
-    //    }
-
-
     /**
      * Returns true if both tags have the same name
      * This defines a weaker notion of equality between two tags.
      */
     public boolean isSameTag(Tag otherTag) {
-        return this.equals(otherTag);
+        if (otherTag == null) {
+            return false;
+        }
+        if (otherTag == this) {
+            return true;
+        }
+
+        return otherTag.getTagName().equals(getTagName());
     }
 
     /**
@@ -58,9 +54,16 @@ public class Tag {
      */
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Tag // instanceof handles nulls
-                && getTagName().equals(((Tag) other).getTagName())); // state check
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof Tag)) {
+            return false;
+        }
+
+        Tag otherTag = (Tag) other;
+        return otherTag.getTagName().equals(getTagName());
     }
 
     @Override
@@ -73,8 +76,6 @@ public class Tag {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTagName());
-        //                .append(" Persons: ");
-        //        getPersons().forEach(builder::append);
         return builder.toString();
     }
 
