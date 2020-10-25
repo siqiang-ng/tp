@@ -5,6 +5,8 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -141,9 +143,25 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void addTags(Set<Tag> tags) {
+        requireNonNull(tags);
+        for (Tag tag : tags) {
+            if (!hasTag(tag)) {
+                addTag(tag);
+            }
+        }
+    }
+
+    @Override
     public void setTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
         projact.setTag(target, editedTag);
+    }
+
+    @Override
+    public List<Person> findContactsByTag(Tag target) {
+        requireNonNull(target);
+        return projact.findContactsByTag(target);
     }
 
     //=========== Filtered Person List Accessors =============================================================
