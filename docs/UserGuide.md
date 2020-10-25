@@ -98,9 +98,9 @@ Clears all contact entries from the person list in Projact.
 
 Format: `clear`
 
-### _Contact Features_
+### Contact Features
 
-### Adding a contact: `add`
+#### Adding a contact: `add`
 
 Adds a contact to the person list.
 
@@ -116,13 +116,13 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
 
-### Listing all contacts : `list`
+#### Listing all contacts : `list`
 
 Shows a list of all the contacts in the person list.
 
 Format: `list`
 
-### Editing a contact : `edit`
+#### Editing a contact : `edit`
 
 Edits the contact details of an existing contact in the person list.
 
@@ -140,7 +140,7 @@ Examples:
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 t/CS2103T` Edits the tag of the 2nd contact to only contain the module CS2103T tag.
 
-### Locating contacts by name: `find`
+#### Locating contacts by name: `find`
 
 Finds the contacts whose names contain any of the given keywords.
 
@@ -157,8 +157,20 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+  
+#### Sort contacts by name: `sortcontact`
+ 
+Sort the current person list in alphabetical order permanently.
+ 
+ Format: `sortcontact`
+ 
+ * Any new contact added will be displayed at the end of the list.
+ * To get the list to be sorted with the new contact, call `sortcontact` command again.
+ 
+ Examples:
+ * `sortcontact` returns the person list sorted in alphabetical order.
 
-### Deleting a contact : `delete`
+#### Deleting a contact : `delete`
 
 Deletes the specified contact from the person list.
 
@@ -172,9 +184,9 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
-### _Tag Features_
+### Tag Features
 
-### Adding a tag : `tagadd`
+#### Adding a tag : `tagadd`
 
 Adds a tag to the tag list.
 
@@ -186,13 +198,13 @@ Format: `tagadd t/TAG`
 Examples:
 * `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `taglist`
+#### Listing all tags: `taglist`
 
 Shows a list of all tags in the tag list.
 
 Format: `taglist`
 
-### Editing a tag : `tagedit`
+#### Editing a tag : `tagedit`
 
 Edits an existing tag in the tag list.
 
@@ -204,7 +216,7 @@ Format: `tagedit INDEX t/tag`
 Examples:
 *  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### Locating tags by name: `tagfind`
+#### Locating tags by name: `tagfind`
 
 Finds the tags whose names contain any of the given keywords.
 
@@ -221,7 +233,7 @@ Examples:
 * `tagfind Group` returns `group` and `Group A`
 * `tagfind Team B` returns `Team A`, `Group B`<br>
 
-### Deleting a tag: `tagdelete`
+#### Deleting a tag: `tagdelete`
 
 Deletes the specified tag in the tag list.
 
@@ -233,13 +245,13 @@ Format: `tagdelete INDEX`
 Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
-### Exiting the program : `exit`
+#### Exiting the program : `exit`
 
 Exits Projact application.
 
 Format: `exit`
 
-### Saving the data
+#### Saving the data
 
 Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
