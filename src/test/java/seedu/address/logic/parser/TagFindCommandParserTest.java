@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.TagFindCommand;
+import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 
 public class TagFindCommandParserTest {
