@@ -16,12 +16,14 @@ public class Tag {
     /**
       * Every field must be present and not null.
       */
-
     public Tag(TagName name) {
         requireAllNonNull(name);
         this.name = name;
     }
 
+    /**
+     * Every field must be present and not null.
+     */
     public Tag(String name) {
         requireAllNonNull(name);
         this.name = new TagName(name);
