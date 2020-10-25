@@ -121,7 +121,12 @@ public interface Model {
      */
     void updateFilteredTagList(Predicate<Tag> predicate);
 
-    ObservableList<Person> getSortedTagList();
+    /** Returns an unmodifiable view of the sorted person list */
+    ObservableList<Person> getSortedPersonList();
 
+    /**
+     * Updates the sorted person list to sort by the given {@code comparator}.
+     * @throws NullPointerException if {@code comparator} is null.
+     */
     void updateSortedPersonList(Comparator<Person> comparator);
 }

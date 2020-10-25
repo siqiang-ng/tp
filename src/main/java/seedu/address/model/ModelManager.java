@@ -186,7 +186,7 @@ public class ModelManager implements Model {
      * {@code versionedProjact}
      */
     @Override
-    public ObservableList<Person> getSortedTagList() {
+    public ObservableList<Person> getSortedPersonList() {
         return sortedPersons;
     }
 
@@ -216,7 +216,8 @@ public class ModelManager implements Model {
         return projact.equals(other.projact)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
-                && filteredTags.equals(other.filteredTags);
+                && filteredTags.equals(other.filteredTags)
+                && sortedPersons.equals(other.sortedPersons);
     }
 
 }
