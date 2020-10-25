@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Email;
-import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
 import seedu.address.model.tag.Tag;
