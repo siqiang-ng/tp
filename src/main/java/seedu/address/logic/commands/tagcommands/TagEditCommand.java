@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -13,9 +13,11 @@ import java.util.Set;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Name;
+import seedu.address.model.person.PersonName;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
@@ -111,7 +113,7 @@ public class TagEditCommand extends Command {
      */
     public static class EditTagDescriptor {
         private TagName tagName;
-        private Set<Name> persons;
+        private Set<PersonName> persons;
 
         public EditTagDescriptor() {}
 
@@ -142,7 +144,7 @@ public class TagEditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setPersons(Set<Name> persons) {
+        public void setPersons(Set<PersonName> persons) {
             this.persons = (persons != null) ? new HashSet<>(persons) : null;
         }
 
@@ -151,7 +153,7 @@ public class TagEditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<Name>> getPersons() {
+        public Optional<Set<PersonName>> getPersons() {
             return (persons != null) ? Optional.of(Collections.unmodifiableSet(persons)) : Optional.empty();
         }
 
