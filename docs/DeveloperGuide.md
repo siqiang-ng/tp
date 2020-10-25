@@ -312,7 +312,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
 | `* * *`  | user                                       | search for a tag                                 | find all contacts with that tag                                        |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
-| `* *`    | user with many contacts                    | sort the contacts by name                        | find contacts based on alphabetical order                              |
+| `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
+| `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
 | `* *`    | student with many project groups	        | delete the meeting platform link to each tag     | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |

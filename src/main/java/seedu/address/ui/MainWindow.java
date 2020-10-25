@@ -194,7 +194,7 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (commandResult.isTagList()) { // TODO: Remove this in v1.3
+            if (commandResult.isTagList()) {
                 showTagList();
             }
 
