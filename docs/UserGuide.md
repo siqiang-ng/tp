@@ -9,8 +9,8 @@ title: User Guide
 * [About the User Guide](#about-this-user-guide)
 * [Quick Start](#quick-start)
 * [Features](#features)
-    * [Contact](#contact-features)
-    * [Tag](#tag-features)
+    * [Contact](#_contact-features_)
+    * [Tag](#_tag-features_)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
