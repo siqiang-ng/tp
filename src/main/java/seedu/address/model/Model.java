@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -105,6 +106,11 @@ public interface Model {
      * The tag identity of {@code editedTag} must not be the same as another existing tag in the projact.
      */
     void setTag(Tag target, Tag editedTag);
+
+    /**
+     * Returns the list of contacts who have the {@code target} tag.
+     */
+    List<Person> findContactsByTag(Tag target);
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();

@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -149,6 +150,12 @@ public class ModelManager implements Model {
     public void setTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
         projact.setTag(target, editedTag);
+    }
+
+    @Override
+    public List<Person> findContactsByTag(Tag target) {
+        requireNonNull(target);
+        return projact.findContactsByTag(target);
     }
 
     //=========== Filtered Person List Accessors =============================================================
