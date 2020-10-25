@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -132,6 +133,16 @@ public class ModelManager implements Model {
         requireNonNull(tag);
         projact.addTag(tag);
         updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
+    }
+
+    @Override
+    public void addTags(Set<Tag> tags) {
+        requireNonNull(tags);
+        for (Tag tag : tags) {
+            if (!hasTag(tag)) {
+                addTag(tag);
+            }
+        }
     }
 
     @Override

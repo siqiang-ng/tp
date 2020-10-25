@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -95,6 +96,9 @@ public interface Model {
      */
     void addTag(Tag tag);
 
+
+    void addTags(Set<Tag> tags);
+
     /**
      * Replaces the given tag {@code target} with {@code editedTag}.
      * {@code target} must exist in the projact.
@@ -119,4 +123,5 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredTagList(Predicate<Tag> predicate);
+
 }
