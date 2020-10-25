@@ -11,7 +11,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.Tag;
 
 /**
  * Contains utility methods for populating {@code Projact} with sample data.
@@ -34,10 +34,26 @@ public class SampleDataUtil {
         };
     }
 
+    public static Tag[] getSampleTags() {
+        return new Tag[] {
+            new Tag("colleagues"),
+            new Tag("neighbours"),
+            new Tag("classmates"),
+            new Tag("family"),
+            new Tag("friends")
+        };
+    }
+
+
+
     public static ReadOnlyProjact getSampleProjact() {
         Projact sampleAb = new Projact();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);
+        }
+
+        for (Tag sampleTag : getSampleTags()) {
+            sampleAb.addTag(sampleTag);
         }
         return sampleAb;
     }
@@ -45,9 +61,9 @@ public class SampleDataUtil {
     /**
      * Returns a tag set containing the list of strings given.
      */
-    public static Set<TagName> getTagSet(String... strings) {
+    public static Set<Tag> getTagSet(String... strings) {
         return Arrays.stream(strings)
-                .map(TagName::new)
+                .map(Tag::new)
                 .collect(Collectors.toSet());
     }
 

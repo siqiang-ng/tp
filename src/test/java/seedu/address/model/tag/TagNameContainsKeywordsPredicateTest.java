@@ -46,29 +46,29 @@ public class TagNameContainsKeywordsPredicateTest {
         // One keyword
         TagNameContainsKeywordsPredicate predicate = new TagNameContainsKeywordsPredicate(
                 Collections.singletonList("Alice"));
-        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build().getTagName()));
+        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build()));
 
         // Multiple keywords
         predicate = new TagNameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob"));
-        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build().getTagName()));
+        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build()));
 
         // Only one matching keyword
         predicate = new TagNameContainsKeywordsPredicate(Arrays.asList("Bob", "Carol"));
-        assertTrue(predicate.test(new TagBuilder().withName("Alice Carol").build().getTagName()));
+        assertTrue(predicate.test(new TagBuilder().withName("Alice Carol").build()));
 
         // Mixed-case keywords
         predicate = new TagNameContainsKeywordsPredicate(Arrays.asList("aLIce", "bOB"));
-        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build().getTagName()));
+        assertTrue(predicate.test(new TagBuilder().withName("Alice Bob").build()));
     }
 
     @Test
     public void test_nameDoesNotContainKeywords_returnsFalse() {
         // Zero keywords
         TagNameContainsKeywordsPredicate predicate = new TagNameContainsKeywordsPredicate(Collections.emptyList());
-        assertFalse(predicate.test(new TagBuilder().withName("Alice").build().getTagName()));
+        assertFalse(predicate.test(new TagBuilder().withName("Alice").build()));
 
         // Non-matching keyword
         predicate = new TagNameContainsKeywordsPredicate(Arrays.asList("Carol"));
-        assertFalse(predicate.test(new TagBuilder().withName("Alice Bob").build().getTagName()));
+        assertFalse(predicate.test(new TagBuilder().withName("Alice Bob").build()));
     }
 }

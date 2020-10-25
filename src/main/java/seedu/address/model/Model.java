@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.TagName;
 
 /**
  * The API of the Model component.
@@ -15,7 +14,7 @@ import seedu.address.model.tag.TagName;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
-    Predicate<TagName> PREDICATE_SHOW_ALL_TAGS = unused -> true;
+    Predicate<Tag> PREDICATE_SHOW_ALL_TAGS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -113,11 +112,11 @@ public interface Model {
     void updateFilteredPersonList(Predicate<Person> predicate);
 
     /** Returns an unmodifiable view of the filtered tag list */
-    ObservableList<TagName> getFilteredTagList();
+    ObservableList<Tag> getFilteredTagList();
 
     /**
      * Updates the filter of the filtered tag list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredTagList(Predicate<TagName> predicate);
+    void updateFilteredTagList(Predicate<Tag> predicate);
 }
