@@ -194,6 +194,12 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
+            if (commandResult.isSortPerson()) {
+                personListPanel = new PersonListPanel(logic.getSortedPersonList());
+            } else {
+                personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+            }
+
             if (commandResult.isTagList()) {
                 showTagList();
             }

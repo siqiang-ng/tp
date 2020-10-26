@@ -58,6 +58,7 @@ public class TagFindCommandTest {
                 expectedMessage,
                 false,
                 false,
+                false,
                 true,
                 false
         );
@@ -73,6 +74,7 @@ public class TagFindCommandTest {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 2);
         CommandResult expectedResult = new CommandResult(
                 expectedMessage,
+                false,
                 false,
                 false,
                 true,

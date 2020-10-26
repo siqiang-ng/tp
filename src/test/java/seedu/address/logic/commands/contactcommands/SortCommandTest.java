@@ -45,6 +45,7 @@ class SortCommandTest {
                 expectedMessage,
                 false,
                 false,
+                true,
                 false,
                 true
         );

@@ -18,6 +18,6 @@ public class SortCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateSortedPersonList(new PersonNameComparator());
-        return new CommandResult(MESSAGE_SUCCESS, false, false, false, true);
+        return new CommandResult(MESSAGE_SUCCESS, false, false, true, false, true);
     }
 }

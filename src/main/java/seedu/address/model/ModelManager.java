@@ -212,7 +212,6 @@ public class ModelManager implements Model {
     public void updateSortedPersonList(Comparator<Person> comparator) {
         requireNonNull(comparator);
         sortedPersons.setComparator(comparator);
-        projact.setPersons(sortedPersons);
     }
 
     //=========== Miscellaneous =============================================================
