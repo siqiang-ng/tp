@@ -158,17 +158,17 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
   
-#### Sort contacts by name: `sortcontact`
+#### Sort contacts by name: `sort`
  
 Sort the current person list in alphabetical order permanently.
  
- Format: `sortcontact`
+ Format: `sort`
  
  * Any new contact added will be displayed at the end of the list.
- * To get the list to be sorted with the new contact, call `sortcontact` command again.
+ * To get the list to be sorted with the new contact, call `sort` command again.
  
  Examples:
- * `sortcontact` returns the person list sorted in alphabetical order.
+ * `sort` returns the person list sorted in alphabetical order.
 
 #### Deleting a contact : `delete`
 

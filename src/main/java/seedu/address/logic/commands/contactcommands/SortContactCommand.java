@@ -9,9 +9,9 @@ import seedu.address.model.person.PersonNameComparator;
 
 public class SortContactCommand extends Command {
 
-    public static final String COMMAND_WORD = "sortcontact";
+    public static final String COMMAND_WORD = "sort";
 
-    public static final String MESSAGE_SUCCESS = "These are the contacts in your person list in alphabetical order.";
+    public static final String MESSAGE_SUCCESS = "These are the contacts in your person list sorted in alphabetical order.";
 
     @Override
     public CommandResult execute(Model model) {

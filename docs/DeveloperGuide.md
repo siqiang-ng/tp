@@ -158,9 +158,9 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ### Implemented features
 #### Contact features
 **SortContact feature**
-The SortContact allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
+The `sort` command (class SortContactCommand) is a SortContact feature which allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
-- How is SortContact Command executed
+- How is SortContactCommand executed
     1. The command is passed into LogicManager
     1. LogicManager calls parseCommand method of ProjactParser.
     1. ProjactParser returns SortContactCommand.
