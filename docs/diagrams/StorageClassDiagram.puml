@@ -18,7 +18,7 @@ StorageManager o--> ProjactStorage
 
 JsonUserPrefsStorage .left.|> UserPrefsStorage
 JsonProjactStorage .left.|> ProjactStorage
-JsonProjactStorage .down.> JsonSerializableProjactStorage
-JsonSerializableProjactStorage .right.> JsonSerializablePerson
-JsonSerializablePerson .right.> JsonAdaptedTag
+JsonProjactStorage .down.> JsonSerializableProjact
+JsonSerializableProjact .right.> JsonAdaptedPerson
+JsonSerializableProjact .left.> JsonAdaptedTag
 @enduml

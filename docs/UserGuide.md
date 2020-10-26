@@ -98,9 +98,9 @@ Clears all contact entries from the person list in Projact.
 
 Format: `clear`
 
-### _Contact Features_
+### Contact Features
 
-### Adding a contact: `add`
+#### Adding a contact: `add`
 
 Adds a contact to the person list.
 
@@ -116,13 +116,13 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
 
-### Listing all contacts : `list`
+#### Listing all contacts : `list`
 
 Shows a list of all the contacts in the person list.
 
 Format: `list`
 
-### Editing a contact : `edit`
+#### Editing a contact : `edit`
 
 Edits the contact details of an existing contact in the person list.
 
@@ -140,7 +140,7 @@ Examples:
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 t/CS2103T` Edits the tag of the 2nd contact to only contain the module CS2103T tag.
 
-### Locating contacts by name: `find`
+#### Locating contacts by name: `find`
 
 Finds the contacts whose names contain any of the given keywords.
 
@@ -157,8 +157,27 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+  
+#### Sort contacts by name: `sort`
 
-### Deleting a contact : `delete`
+Dislike how the current list of contacts is displayed? Sort the names in alphabetical order by typing a single `sort` word on the command line.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
+</div>
+ 
+**Format:** `sort`
+ 
+**Step-By-Step Guide:**
+
+Step 1: Key in the `sort` command.
+![SortContactCommand Step 1](images/SortCommandGuide1.png)
+
+Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
+![SortContactCommand Step 2](images/SortCommandGuide2.png)
+
+
+#### Deleting a contact : `delete`
 
 Deletes the specified contact from the person list.
 
@@ -172,9 +191,9 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
-### _Tag Features_
+### Tag Features
 
-### Adding a tag : `tagadd`
+#### Adding a tag : `tagadd`
 
 Adds a tag to the tag list.
 
@@ -186,13 +205,21 @@ Format: `tagadd t/TAG`
 Examples:
 * `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
 
-### Listing all tags: `taglist`
+#### Listing all tags: `taglist`
 
-Shows a list of all tags in the tag list.
+Want to see all the tags you have added? Display them with simply the `taglist` command.
 
-Format: `taglist`
+**Format:** `taglist`
+ 
+**Step-By-Step Guide:**
 
-### Editing a tag : `tagedit`
+Step 1: Key in the `taglist` command.
+![TagListCommand Step 1](images/TagListCommandGuide1.png)
+
+Step 2: Hit enter and the list with all the tags that you have added will be displayed immediately as shown.
+![TagListCommand Step 2](images/TagListCommandGuide2.png)
+
+#### Editing a tag : `tagedit`
 
 Edits an existing tag in the tag list.
 
@@ -204,7 +231,7 @@ Format: `tagedit INDEX t/tag`
 Examples:
 *  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
 
-### Locating tags by name: `tagfind`
+#### Locating tags by name: `tagfind`
 
 Finds the tags whose names contain any of the given keywords.
 
@@ -221,7 +248,7 @@ Examples:
 * `tagfind Group` returns `group` and `Group A`
 * `tagfind Team B` returns `Team A`, `Group B`<br>
 
-### Deleting a tag: `tagdelete`
+#### Deleting a tag: `tagdelete`
 
 Deletes the specified tag in the tag list.
 
@@ -233,13 +260,13 @@ Format: `tagdelete INDEX`
 Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
 
-### Exiting the program : `exit`
+#### Exiting the program : `exit`
 
 Exits Projact application.
 
 Format: `exit`
 
-### Saving the data
+#### Saving the data
 
 Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 

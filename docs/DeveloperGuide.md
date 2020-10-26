@@ -157,9 +157,26 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ## **Implementation**
 
 ### Implemented features
-**TagList feature**
+#### Contact features
+**Sort command**
+The `sort` command allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
-The TagList feature allows a user to display all the tags in the tag list currently.
+- How is SortContactCommand executed
+    1. The command is passed into LogicManager
+    1. LogicManager calls parseCommand method of ProjactParser.
+    1. ProjactParser returns SortCommand.
+    1. LogicManager executes SortCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
+    
+- Why is it implemented that way?
+    - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
+    
+The diagram below shows a sample interaction of SortCommand. 
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+#### Tag features
+**TagList command**
+
+The TagList command allows a user to display all the tags in the tag list currently.
 
 - How is TagList Command executed
     1. The command is passed into `LogicManager`.
@@ -172,13 +189,12 @@ The diagram below shows a sample interaction of `TagListCommand`.
 
 ![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
 
-
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
 
-**TagFind feature**
+**TagFind command**
 
-The TagFind feature allows a user to display all tags which contains at least one of the specified keywords.
+The TagFind command allows a user to display all tags which contains at least one of the specified keywords.
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -194,9 +210,9 @@ The diagram below shows a sample interaction of `TagFindCommand`.
     - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
 
 ### Future implementation plans
-**TagAdd feature**
+**TagAdd command**
 
-The TagAdd feature allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+The TagAdd command allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
 
 1. The command is passed into `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -209,9 +225,9 @@ The diagram below shows a sample interaction of `TagAddCommand`.
 ![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
 
-**TagEdit feature**
+**TagEdit command**
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -228,9 +244,9 @@ The diagram below shows a sample interaction of `TagEditCommand`.
   - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
   - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
 
-**TagDelete feature**
+**TagDelete command**
 
-The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+The TagDelete command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
 
 How it would be implemented:
 1. The command is passed in to `LogicManager`.
@@ -244,7 +260,7 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
@@ -311,13 +327,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
 | `* * *`  | user                                       | search for a tag                                 | find all contacts with that tag                                        |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
-| `* *`    | user                                       | hide private contact details                     | minimize chance of someone else seeing them by accident                |
+| `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
+| `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
-| `* *`    | user with many persons in projact          | sort persons by name                             | locate a person easily                                                 |
-| `* *`    | teaching assistant                         | obtain the email list for a particular class     | save the need to copy and paste the email one by one                   |
-| `* *`    | teaching assistant	                        | add students in my tutorial to my person list    | easily find students to give feedback to.                              |
-| `* *`    | teaching assistant	                        | add comments to the students 	                   | check the strengths/weaknesses of the students                         |
-| `* *`    | teaching assistant                         | mark attendance for a particular session	       | check the availability of the students during a particular session     |
+| `* *`    | student with many project groups	        | delete the meeting platform link to each tag     | remove the link if it has been added wrongly                           |
+| `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
+| `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |

@@ -22,6 +22,7 @@ import seedu.address.logic.commands.contactcommands.EditCommand;
 import seedu.address.logic.commands.contactcommands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.contactcommands.FindCommand;
 import seedu.address.logic.commands.contactcommands.ListCommand;
+import seedu.address.logic.commands.contactcommands.SortCommand;
 import seedu.address.logic.commands.tagcommands.TagAddCommand;
 import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
@@ -114,6 +115,12 @@ public class ProjactParserTest {
         TagFindCommand command = (TagFindCommand) parser.parseCommand(
                 TagFindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
         assertEquals(new TagFindCommand(new TagNameContainsKeywordsPredicate(keywords)), command);
+    }
+
+    @Test
+    public void parseCommand_sortContact() throws Exception {
+        assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD) instanceof SortCommand);
+        assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " 3") instanceof SortCommand);
     }
 
     @Test

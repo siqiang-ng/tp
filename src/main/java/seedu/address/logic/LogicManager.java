@@ -77,6 +77,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public ObservableList<Person> getSortedPersonList() {
+        return model.getSortedPersonList();
+    }
+
+    @Override
     public Path getProjactFilePath() {
         return model.getProjactFilePath();
     }
