@@ -22,7 +22,7 @@ public class Person {
 
     // Data fields
     private final TelegramAddress telegramAddress;
-    private final Set<Tag> tags = new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
@@ -59,6 +59,10 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 
     /**

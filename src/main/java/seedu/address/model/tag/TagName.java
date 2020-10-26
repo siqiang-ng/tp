@@ -31,6 +31,10 @@ public class TagName {
         this.tagName = name;
     }
 
+    public String getTagName() {
+        return tagName;
+    }
+
     /**
      * Returns true if a given string is a valid name.
      */
