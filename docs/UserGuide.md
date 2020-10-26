@@ -221,6 +221,19 @@ Examples:
 * `tagfind Group` returns `group` and `Group A`
 * `tagfind Team B` returns `Team A`, `Group B`<br>
 
+### Sorting tags by tag name: `tagsort`
+
+Sort the current tag list in alphabetical order permanently.
+
+Format: `tagsort`
+
+* Any new tag added will be displayed at the end of the list.
+* To get the list to be sorted with the new tag, call `tagsort` command again.
+
+Examples:
+* `tagsort` returns the tag list sorted in alphabetical order.
+
+
 ### Deleting a tag: `tagdelete`
 
 Deletes the specified tag in the tag list.
