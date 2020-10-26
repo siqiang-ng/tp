@@ -51,7 +51,7 @@ public class TagAddCommandTest {
         TagAddCommand tagAddCommand = new TagAddCommand(validTag);
         ModelStub modelStub = new ModelStubWithTag(validTag);
 
-        assertThrows(CommandException.class, TagAddCommand.MESSAGE_DUPLICATE_PERSON, () ->
+        assertThrows(CommandException.class, TagAddCommand.MESSAGE_DUPLICATE_TAG, () ->
             tagAddCommand.execute(modelStub));
     }
 
