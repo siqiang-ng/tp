@@ -7,6 +7,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.tag.TagNameComparator;
 
+/**
+ *  Sort all the tags in Projact by their names in alphabetical order.
+ */
 public class TagSortCommand extends Command {
     public static final String COMMAND_WORD = "tagsort";
 

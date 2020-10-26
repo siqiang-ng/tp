@@ -7,6 +7,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.person.PersonNameComparator;
 
+/**
+ * Sort all the contacts in Projact by their names in alphabetical order.
+ */
 public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
