@@ -165,7 +165,10 @@ The `sort` command (class SortContactCommand) is a SortContact feature which all
     1. The command is passed into LogicManager
     1. LogicManager calls parseCommand method of ProjactParser.
     1. ProjactParser returns SortContactCommand.
-    1. LogicManager executes SortContactCommand, which updates the sorted person list using PersonNameComparator in Model.
+    1. LogicManager executes SortContactCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
+    
+- Why is it implemented that way?
+    - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
     
 The diagram below shows a sample interaction of SortContactCommand. 
 ![SortContactSequenceDiagram](images/SortContactSequenceDiagram.png)
@@ -185,7 +188,6 @@ The TagList feature allows a user to display all the tags in the tag list curren
 The diagram below shows a sample interaction of `TagListCommand`. 
 
 ![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
-
 
 - Why is it implemented that way:
     - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
