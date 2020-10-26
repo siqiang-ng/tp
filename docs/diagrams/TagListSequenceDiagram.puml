@@ -1,10 +1,6 @@
 @startuml
 !include style.puml
 
-box UI UI_COLOR_T1
-participant ":MainWindow" as MainWindow UI_COLOR
-end box
-
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":ProjactParser" as ProjactParser LOGIC_COLOR
@@ -12,10 +8,7 @@ participant ":TagListCommand" as TagListCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-[-> MainWindow: "taglist"
-activate MainWindow
-
-MainWindow -> LogicManager: execute("taglist")
+[-> LogicManager : execute("taglist")
 activate LogicManager
 
 LogicManager -> ProjactParser : parseCommand("taglist")
@@ -35,7 +28,7 @@ LogicManager --> TagListCommand : execute()
 activate TagListCommand
 
 create CommandResult
-TagListCommand -> CommandResult
+TagListCommand -> CommandResult : set tagList field to true
 activate CommandResult
 
 CommandResult --> TagListCommand
@@ -44,9 +37,7 @@ deactivate CommandResult
 TagListCommand --> LogicManager : CommandResult
 deactivate TagListCommand
 
-LogicManager --> MainWindow
+LogicManager -->[
 deactivate LogicManager
 
-[<-- MainWindow
-deactivate MainWindow
 @enduml
