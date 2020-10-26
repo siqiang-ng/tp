@@ -207,7 +207,7 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<Tag> getSortedTagList() {
-        return filteredTags;
+        return sortedTags;
     }
 
     @Override

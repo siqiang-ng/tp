@@ -13,7 +13,7 @@ public class CommandResultTest {
     public void booleanExpressions_true() {
         // show help true -> returns true for isShowHelp()
         assertTrue(new CommandResult("feedback",
-                true, false, false, false, false,false).isShowHelp());
+                true, false, false, false, false, false).isShowHelp());
 
         // exit true -> returns true for isExit()
         assertTrue(new CommandResult("feedback",
@@ -29,7 +29,7 @@ public class CommandResultTest {
 
         // tag list true -> returns true for isTagList()
         assertTrue(new CommandResult("feedback",
-                false, false, false,false, true, false).isTagList());
+                false, false, false, false, true, false).isTagList());
 
         // person list true -> returns true for isPersonList()
         assertTrue(new CommandResult("feedback",
@@ -79,7 +79,7 @@ public class CommandResultTest {
 
         // different showHelp value -> returns false
         assertFalse(commandResult.equals(new CommandResult("feedback",
-                true, false, false, false,false, false)));
+                true, false, false, false, false, false)));
 
         // different exit value -> returns false
         assertFalse(commandResult.equals(new CommandResult("feedback",
