@@ -1,11 +1,15 @@
 package seedu.address.ui;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -18,21 +22,26 @@ public class TagCard extends UiPart<Region> {
     private final Tag tag;
 
     @FXML
-    private HBox cardPane;
+    private HBox tagCardPane;
     @FXML
     private Label id;
     @FXML
-    private Label name;
+    private Label tagName;
+    @FXML
+    private FlowPane persons;
 
     /**
      * Creates a {@code TagCard} with the given {@code Tag} and index to display.
      */
-    public TagCard(Tag tag, int displayedIndex) {
+    public TagCard(Tag tag, int displayedIndex, List<Person> personList) {
         super(FXML);
         Objects.requireNonNull(tag);
         this.tag = tag;
         id.setText(displayedIndex + ". ");
-        name.setText(tag.getTagName().tagName);
+        tagName.setText(tag.getTagName().tagName);
+        personList.stream()
+                .sorted(Comparator.comparing(person -> person.getName().fullName))
+                .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
     }
 
     /**
