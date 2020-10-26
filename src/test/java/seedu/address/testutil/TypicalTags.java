@@ -15,21 +15,21 @@ import seedu.address.model.tag.Tag;
  */
 public class TypicalTags {
 
-    public static final Tag GROUPMATE = new TagBuilder().withName("groupmate").build();
-    public static final Tag COLLEAGUE = new TagBuilder().withName("colleague").build();
-    public static final Tag CS2103T = new TagBuilder().withName("CS2103T").build();
-    public static final Tag CS2040S = new TagBuilder().withName("CS2040S").build();
-    public static final Tag SEP = new TagBuilder().withName("SEP").build();
-    public static final Tag HALL = new TagBuilder().withName("Hall").build();
-    public static final Tag HANDBALL = new TagBuilder().withName("Handball").build();
+    public static final Tag GROUPMATE = new TagBuilder().withTagName("groupmate").build();
+    public static final Tag COLLEAGUE = new TagBuilder().withTagName("colleague").build();
+    public static final Tag CS2103T = new TagBuilder().withTagName("CS2103T").build();
+    public static final Tag CS2040S = new TagBuilder().withTagName("CS2040S").build();
+    public static final Tag SEP = new TagBuilder().withTagName("SEP").build();
+    public static final Tag HALL = new TagBuilder().withTagName("Hall").build();
+    public static final Tag HANDBALL = new TagBuilder().withTagName("Handball").build();
 
     // Manually added
-    public static final Tag SWIMMING = new TagBuilder().withName("Swimming").build();
-    public static final Tag PROFESSOR = new TagBuilder().withName("Professor").build();
+    public static final Tag SWIMMING = new TagBuilder().withTagName("Swimming").build();
+    public static final Tag PROFESSOR = new TagBuilder().withTagName("Professor").build();
 
     // Manually added - Tag's details found in {@code CommandTestUtil}
-    public static final Tag FRIEND = new TagBuilder().withName(VALID_TAG_FRIEND).build();
-    public static final Tag HUSBAND = new TagBuilder().withName(VALID_NAME_BOB).build();
+    public static final Tag FRIEND = new TagBuilder().withTagName(VALID_TAG_FRIEND).build();
+    public static final Tag HUSBAND = new TagBuilder().withTagName(VALID_NAME_BOB).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "CS"; // A keyword that matches CS
 

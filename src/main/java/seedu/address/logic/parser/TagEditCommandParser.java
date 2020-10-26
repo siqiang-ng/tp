@@ -34,7 +34,7 @@ public class TagEditCommandParser implements Parser<TagEditCommand> {
 
         EditTagDescriptor editTagDescriptor = new EditTagDescriptor();
         if (argMultimap.getValue(PREFIX_TAG).isPresent()) {
-            editTagDescriptor.setTagName(ParserUtil.parseTag(argMultimap.getValue(PREFIX_TAG).get()).getTagName());
+            editTagDescriptor.setTagName(ParserUtil.parseTagName(argMultimap.getValue(PREFIX_TAG).get()));
         } else {
             throw new ParseException(TagEditCommand.MESSAGE_NOT_EDITED);
         }
