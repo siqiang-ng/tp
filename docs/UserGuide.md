@@ -169,6 +169,7 @@ This command will only sort the current list of contacts. Any newly added contac
 **Format:** `sort`
  
 **Step-By-Step Guide:**
+
 Step 1: Key in the `sort` command.
 ![SortContactCommand Step 1](images/SortContactCommandGuide1.png)
 
@@ -211,6 +212,7 @@ Want to see all the tags you have added? Display them with simply the `taglist` 
 **Format:** `taglist`
  
 **Step-By-Step Guide:**
+
 Step 1: Key in the `taglist` command.
 ![TagListCommand Step 1](images/TagListCommandGuide1.png)
 
