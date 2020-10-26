@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -160,11 +159,6 @@ public class TagAddCommandTest {
         }
 
         @Override
-        public void addTags(Set<Tag> tags) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public void setTag(Tag target, Tag editedTag) {
             throw new AssertionError("This method should not be called.");
         }
@@ -240,9 +234,6 @@ public class TagAddCommandTest {
             requireNonNull(tag);
             tagsAdded.add(tag);
         }
-
-        @Override
-        public void addTags(Set<Tag> tags) { }
 
         @Override
         public ReadOnlyProjact getProjact() {

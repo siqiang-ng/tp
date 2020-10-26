@@ -6,7 +6,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -113,14 +112,23 @@ public class ModelManager implements Model {
     @Override
     public void addPerson(Person person) {
         projact.addPerson(person);
+        for (Tag tag : person.getTags()) {
+            if (!hasTag(tag)) {
+                projact.addTag(tag);
+            }
+        }
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
     @Override
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
-
         projact.setPerson(target, editedPerson);
+        for (Tag tag : editedPerson.getTags()) {
+            if (!hasTag(tag)) {
+                projact.addTag(tag);
+            }
+        }
     }
 
     @Override
@@ -140,16 +148,6 @@ public class ModelManager implements Model {
         requireNonNull(tag);
         projact.addTag(tag);
         updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
-    }
-
-    @Override
-    public void addTags(Set<Tag> tags) {
-        requireNonNull(tags);
-        for (Tag tag : tags) {
-            if (!hasTag(tag)) {
-                addTag(tag);
-            }
-        }
     }
 
     @Override
