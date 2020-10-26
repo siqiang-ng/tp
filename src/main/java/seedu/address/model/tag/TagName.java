@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a TagName in the address book.
+ * Represents a TagName in the Projact.
  * Guarantees: immutable; name is valid as declared in {@link #isValidTagName(String)}
  */
 public class TagName {

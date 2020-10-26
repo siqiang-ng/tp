@@ -19,7 +19,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the Projact data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -38,7 +38,7 @@ public class ModelManager implements Model {
         super();
         requireAllNonNull(projact, userPrefs);
 
-        logger.fine("Initializing with address book: " + projact + " and user prefs " + userPrefs);
+        logger.fine("Initializing with Projact: " + projact + " and user prefs " + userPrefs);
 
         this.projact = new Projact(projact);
         this.userPrefs = new UserPrefs(userPrefs);
@@ -198,6 +198,24 @@ public class ModelManager implements Model {
         filteredTags.setPredicate(predicate);
     }
 
+
+    //=========== Sorted Tag List Accessors =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Tag} backed by the internal list of
+     * {@code versionedProjact}
+     */
+    @Override
+    public ObservableList<Tag> getSortedTagList() {
+        return sortedTags;
+    }
+
+    @Override
+    public void updateSortedTagList(Comparator<Tag> comparator) {
+        requireNonNull(comparator);
+        sortedTags.setComparator(comparator);
+    }
+
     //=========== Sorted Person List Accessors =============================================================
     /**
      * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
@@ -234,7 +252,7 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
                 && filteredTags.equals(other.filteredTags)
+                && sortedTags.equals(other.sortedTags)
                 && sortedPersons.equals(other.sortedPersons);
     }
-
 }

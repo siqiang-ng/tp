@@ -21,6 +21,7 @@ import seedu.address.logic.commands.tagcommands.TagDeleteCommand;
 import seedu.address.logic.commands.tagcommands.TagEditCommand;
 import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
+import seedu.address.logic.commands.tagcommands.TagSortCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -74,6 +75,9 @@ public class ProjactParser {
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
 
+        case SortCommand.COMMAND_WORD:
+            return new SortCommand();
+            
         case TagAddCommand.COMMAND_WORD:
             return new TagAddCommandParser().parse(arguments);
 
@@ -88,9 +92,9 @@ public class ProjactParser {
 
         case TagDeleteCommand.COMMAND_WORD:
             return new TagDeleteCommandParser().parse(arguments);
-
-        case SortCommand.COMMAND_WORD:
-            return new SortCommand();
+            
+        case TagSortCommand.COMMAND_WORD:
+            return new TagSortCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
