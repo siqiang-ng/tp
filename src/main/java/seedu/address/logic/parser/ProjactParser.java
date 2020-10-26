@@ -77,7 +77,7 @@ public class ProjactParser {
 
         case SortCommand.COMMAND_WORD:
             return new SortCommand();
-            
+
         case TagAddCommand.COMMAND_WORD:
             return new TagAddCommandParser().parse(arguments);
 
@@ -92,7 +92,7 @@ public class ProjactParser {
 
         case TagDeleteCommand.COMMAND_WORD:
             return new TagDeleteCommandParser().parse(arguments);
-            
+
         case TagSortCommand.COMMAND_WORD:
             return new TagSortCommand();
 
