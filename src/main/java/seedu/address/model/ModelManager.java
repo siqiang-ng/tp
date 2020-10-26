@@ -196,7 +196,7 @@ public class ModelManager implements Model {
         filteredTags.setPredicate(predicate);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
+    //=========== Sorted Tag List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Tag} backed by the internal list of
@@ -211,7 +211,6 @@ public class ModelManager implements Model {
     public void updateSortedTagList(Comparator<Tag> comparator) {
         requireNonNull(comparator);
         sortedTags.setComparator(comparator);
-        projact.setTags(sortedTags);
     }
 
     //=========== Miscellaneous =============================================================

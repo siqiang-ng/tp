@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.tag.Tag;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -194,7 +195,13 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (commandResult.isTagList()) { // TODO: Remove this in v1.3
+            if (commandResult.isSortTag()) {
+                tagListPanel = new TagListPanel(logic.getSortedTagList());
+            } else {
+                tagListPanel = new TagListPanel(logic.getFilteredTagList());
+            }
+
+            if (commandResult.isTagList()) {
                 showTagList();
             }
 

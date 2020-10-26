@@ -17,6 +17,8 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+
+
     /** The application should reflect the tag list. */
     private final boolean tagList;
 
@@ -77,6 +79,7 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
+                && sortTag == otherCommandResult.sortTag
                 && tagList == otherCommandResult.tagList
                 && personList == otherCommandResult.personList;
     }
