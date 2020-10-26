@@ -15,8 +15,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class TagEditCommandParser implements Parser<TagEditCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the EditCommand
-     * and returns an EditCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the TagEditCommand
+     * and returns a TagEditCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public TagEditCommand parse(String args) throws ParseException {
