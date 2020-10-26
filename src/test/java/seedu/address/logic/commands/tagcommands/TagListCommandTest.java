@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
@@ -6,7 +6,7 @@ import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.tagcommands.TagListCommand;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -24,7 +24,7 @@ class TagListCommandTest {
     @Test
     public void execute_tagList_success() {
         CommandResult expectedCommandResult =
-                new CommandResult(TagListCommand.MESSAGE_SUCCESS, false, false, true, false);
+                new CommandResult(TagListCommand.MESSAGE_SUCCESS, false, false, false, false, true, false);
         assertCommandSuccess(new TagListCommand(), model, expectedCommandResult, expectedModel);
     }
 }

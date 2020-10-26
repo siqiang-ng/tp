@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a Tag in the address book.
+ * Represents a Tag in the Projact.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Tag {

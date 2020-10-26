@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -14,7 +14,7 @@ import java.util.Collections;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.tagcommands.TagFindCommand;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -56,12 +56,7 @@ public class TagFindCommandTest {
     public void execute_zeroKeywords_noTagFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 0);
         CommandResult expectedResult = new CommandResult(
-                expectedMessage,
-                false,
-                false,
-                true,
-                false
-        );
+                expectedMessage, false, false, false, false, true, false);
         TagNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
@@ -74,6 +69,8 @@ public class TagFindCommandTest {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 2);
         CommandResult expectedResult = new CommandResult(
                 expectedMessage,
+                false,
+                false,
                 false,
                 false,
                 true,

@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -11,13 +12,14 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the Projact data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -26,6 +28,8 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Tag> filteredTags;
+    private final SortedList<Person> sortedPersons;
+    private final SortedList<Tag> sortedTags;
 
     /**
      * Initializes a ModelManager with the given projact and userPrefs.
@@ -34,12 +38,14 @@ public class ModelManager implements Model {
         super();
         requireAllNonNull(projact, userPrefs);
 
-        logger.fine("Initializing with address book: " + projact + " and user prefs " + userPrefs);
+        logger.fine("Initializing with Projact: " + projact + " and user prefs " + userPrefs);
 
         this.projact = new Projact(projact);
         this.userPrefs = new UserPrefs(userPrefs);
         this.filteredPersons = new FilteredList<>(this.projact.getPersonList());
         this.filteredTags = new FilteredList<>(this.projact.getTagList());
+        this.sortedPersons = new SortedList<>(this.projact.getPersonList());
+        this.sortedTags = new SortedList<>(this.projact.getTagList());
     }
 
     public ModelManager() {
@@ -192,6 +198,40 @@ public class ModelManager implements Model {
         filteredTags.setPredicate(predicate);
     }
 
+
+    //=========== Sorted Tag List Accessors =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Tag} backed by the internal list of
+     * {@code versionedProjact}
+     */
+    @Override
+    public ObservableList<Tag> getSortedTagList() {
+        return sortedTags;
+    }
+
+    @Override
+    public void updateSortedTagList(Comparator<Tag> comparator) {
+        requireNonNull(comparator);
+        sortedTags.setComparator(comparator);
+    }
+
+    //=========== Sorted Person List Accessors =============================================================
+    /**
+     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * {@code versionedProjact}
+     */
+    @Override
+    public ObservableList<Person> getSortedPersonList() {
+        return sortedPersons;
+    }
+
+    @Override
+    public void updateSortedPersonList(Comparator<Person> comparator) {
+        requireNonNull(comparator);
+        sortedPersons.setComparator(comparator);
+    }
+
     //=========== Miscellaneous =============================================================
 
     @Override
@@ -211,7 +251,8 @@ public class ModelManager implements Model {
         return projact.equals(other.projact)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
-                && filteredTags.equals(other.filteredTags);
+                && filteredTags.equals(other.filteredTags)
+                && sortedTags.equals(other.sortedTags)
+                && sortedPersons.equals(other.sortedPersons);
     }
-
 }
