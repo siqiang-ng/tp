@@ -158,8 +158,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 ### Implemented features
 #### Contact features
-**SortContact feature**
-The `sort` command (class SortContactCommand) is a SortContact feature which allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
+**Sort command**
+The `sort` command (class SortContactCommand) allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
 - How is SortContactCommand executed
     1. The command is passed into LogicManager
@@ -171,12 +171,12 @@ The `sort` command (class SortContactCommand) is a SortContact feature which all
     - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
     
 The diagram below shows a sample interaction of SortContactCommand. 
-![SortContactSequenceDiagram](images/SortContactSequenceDiagram.png)
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
 #### Tag features
-**TagList feature**
+**TagList command**
 
-The TagList feature allows a user to display all the tags in the tag list currently.
+The TagList command allows a user to display all the tags in the tag list currently.
 
 - How is TagList Command executed
     1. The command is passed into `LogicManager`.
@@ -190,11 +190,11 @@ The diagram below shows a sample interaction of `TagListCommand`.
 ![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
 
-**TagFind feature**
+**TagFind command**
 
-The TagFind feature allows a user to display all tags which contains at least one of the specified keywords.
+The TagFind command allows a user to display all tags which contains at least one of the specified keywords.
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -210,9 +210,9 @@ The diagram below shows a sample interaction of `TagFindCommand`.
     - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
 
 ### Future implementation plans
-**TagAdd feature**
+**TagAdd command**
 
-The TagAdd feature allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+The TagAdd command allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
 
 1. The command is passed into `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -225,9 +225,9 @@ The diagram below shows a sample interaction of `TagAddCommand`.
 ![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
 
-**TagEdit feature**
+**TagEdit command**
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -244,9 +244,9 @@ The diagram below shows a sample interaction of `TagEditCommand`.
   - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
   - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
 
-**TagDelete feature**
+**TagDelete command**
 
-The TagDelete feature allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+The TagDelete command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
 
 How it would be implemented:
 1. The command is passed in to `LogicManager`.
@@ -260,7 +260,7 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
 - Why is it implemented that way:
-    - The feature was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**

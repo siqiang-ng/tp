@@ -171,10 +171,10 @@ This command will only sort the current list of contacts. Any newly added contac
 **Step-By-Step Guide:**
 
 Step 1: Key in the `sort` command.
-![SortContactCommand Step 1](images/SortContactCommandGuide1.png)
+![SortContactCommand Step 1](images/SortCommandGuide1.png)
 
 Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
-![SortContactCommand Step 2](images/SortContactCommandGuide2.png)
+![SortContactCommand Step 2](images/SortCommandGuide2.png)
 
 
 #### Deleting a contact : `delete`
