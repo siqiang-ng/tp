@@ -20,6 +20,8 @@ import seedu.address.model.Model;
 import seedu.address.model.Projact;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -130,6 +132,20 @@ public class CommandTestUtil {
         model.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredPersonList().size());
+    }
+
+    /**
+     * Updates {@code model}'s filtered list to show only the tag at the given {@code targetIndex} in the
+     * {@code model}'s address book.
+     */
+    public static void showTagAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredTagList().size());
+
+        Tag tag = model.getFilteredTagList().get(targetIndex.getZeroBased());
+        final String[] splitName = tag.getTagName().tagName.split("\\s+");
+        model.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+
+        assertEquals(1, model.getFilteredTagList().size());
     }
 
 }
