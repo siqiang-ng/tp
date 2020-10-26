@@ -233,7 +233,8 @@ public class ModelManager implements Model {
         return projact.equals(other.projact)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
-                && filteredTags.equals(other.filteredTags);
+                && filteredTags.equals(other.filteredTags)
+                && sortedTags.equals(other.sortedTags);
     }
 
 }

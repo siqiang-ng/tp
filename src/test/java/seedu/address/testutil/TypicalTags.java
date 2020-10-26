@@ -36,7 +36,7 @@ public class TypicalTags {
     private TypicalTags() {} // prevents instantiation
 
     /**
-     * Returns an {@code Projact} with all the typical atgs.
+     * Returns an {@code Projact} with all the typical tags.
      */
     public static Projact getTypicalProjact() {
         Projact ab = new Projact();

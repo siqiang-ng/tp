@@ -26,6 +26,7 @@ import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagNameComparator;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.model.tag.exceptions.DuplicateTagException;
 import seedu.address.model.tag.exceptions.TagNotFoundException;
@@ -320,6 +321,10 @@ public class ModelManagerTest {
         // different filteredTagList -> returns false
         keywords = CS2103T.getTagName().tagName.split("\\s+");
         modelManager.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
+
+        // different sortedTagList -> returns false
+        modelManager.updateSortedTagList(new TagNameComparator());
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
