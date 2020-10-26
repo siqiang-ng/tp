@@ -159,18 +159,18 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ### Implemented features
 #### Contact features
 **Sort command**
-The `sort` command (class SortContactCommand) allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
+The `sort` command allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
 - How is SortContactCommand executed
     1. The command is passed into LogicManager
     1. LogicManager calls parseCommand method of ProjactParser.
-    1. ProjactParser returns SortContactCommand.
-    1. LogicManager executes SortContactCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
+    1. ProjactParser returns SortCommand.
+    1. LogicManager executes SortCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
     
 - Why is it implemented that way?
     - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
     
-The diagram below shows a sample interaction of SortContactCommand. 
+The diagram below shows a sample interaction of SortCommand. 
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
 #### Tag features
