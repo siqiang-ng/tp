@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonNameComparator;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -284,6 +285,11 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void getSortedPersonList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getSortedPersonList().remove(0));
+    }
+
+    @Test
     public void equals() {
         Projact projact = new ProjactBuilder()
                 .withPerson(ALICE)
@@ -323,8 +329,13 @@ public class ModelManagerTest {
         modelManager.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
+
         // different sortedTagList -> returns false
         modelManager.updateSortedTagList(new TagNameComparator());
+
+        // different sortedPersonList -> returns false
+        modelManager.updateSortedPersonList(new PersonNameComparator());
+
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests

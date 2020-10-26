@@ -1,11 +1,11 @@
-package seedu.address.logic.commands.tagcommands;
+package seedu.address.logic.commands.contactcommands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.tagcommands.TagSortCommand.MESSAGE_SUCCESS;
-import static seedu.address.testutil.TypicalTags.getTypicalProjact;
+import static seedu.address.logic.commands.contactcommands.SortCommand.MESSAGE_SUCCESS;
+import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,16 +13,16 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.tag.TagNameComparator;
+import seedu.address.model.person.PersonNameComparator;
 
-class TagSortCommandTest {
+class SortCommandTest {
     private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalProjact(), new UserPrefs());
 
     @Test
     public void equals() {
-        TagSortCommand commandOne = new TagSortCommand();
-        TagSortCommand commandTwo = new TagSortCommand();
+        SortCommand commandOne = new SortCommand();
+        SortCommand commandTwo = new SortCommand();
 
         // same object -> returns true
         assertTrue(commandOne.equals(commandOne));
@@ -42,11 +42,11 @@ class TagSortCommandTest {
     public void execute_sortContactCommand_success() {
         String expectedMessage = MESSAGE_SUCCESS;
         CommandResult expectedResult = new CommandResult(
-                expectedMessage, false, false, true, false, true, false);
-        TagNameComparator comparator = new TagNameComparator();
-        TagSortCommand command = new TagSortCommand();
-        expectedModel.updateSortedTagList(comparator);
+                expectedMessage, false, false, false, true, false, true);
+        PersonNameComparator comparator = new PersonNameComparator();
+        SortCommand command = new SortCommand();
+        expectedModel.updateSortedPersonList(comparator);
         assertCommandSuccess(command, model, expectedResult, expectedModel);
-        assertEquals(expectedModel.getSortedTagList(), model.getSortedTagList());
+        assertEquals(expectedModel.getSortedPersonList(), model.getSortedPersonList());
     }
 }

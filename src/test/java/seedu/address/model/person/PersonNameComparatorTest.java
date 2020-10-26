@@ -1,4 +1,4 @@
-package seedu.address.model.tag;
+package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,13 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.testutil.TagBuilder;
+import seedu.address.testutil.PersonBuilder;
 
-class TagNameComparatorTest {
+class PersonNameComparatorTest {
+
     @Test
     public void equals() {
-        TagNameComparator firstComparator = new TagNameComparator();
-        TagNameComparator secondComparator = new TagNameComparator();
+        PersonNameComparator firstComparator = new PersonNameComparator();
+        PersonNameComparator secondComparator = new PersonNameComparator();
 
         // same comparator -> returns true
         assertTrue(firstComparator.equals(firstComparator));
@@ -29,25 +30,25 @@ class TagNameComparatorTest {
 
     @Test
     public void test_personNameEqual_returns0() {
-        TagNameComparator comparator = new TagNameComparator();
-        Tag p1 = new TagBuilder().build();
-        Tag p2 = new TagBuilder().build();
+        PersonNameComparator comparator = new PersonNameComparator();
+        Person p1 = new PersonBuilder().build();
+        Person p2 = new PersonBuilder().build();
         assertEquals(comparator.compare(p1, p2), 0);
     }
 
     @Test
     public void test_personNameGreaterThan_returnsNegativeValues() {
-        TagNameComparator comparator = new TagNameComparator();
-        Tag p1 = new TagBuilder().withTagName("CS2103").build();
-        Tag p2 = new TagBuilder().withTagName("friends").build();
+        PersonNameComparator comparator = new PersonNameComparator();
+        Person p1 = new PersonBuilder().withName("Alice").build();
+        Person p2 = new PersonBuilder().withName("Carl").build();
         assertTrue(comparator.compare(p1, p2) < 0);
     }
 
     @Test
     public void test_personNameSmallerThan_returnsPositiveValues() {
-        TagNameComparator comparator = new TagNameComparator();
-        Tag p1 = new TagBuilder().withTagName("friends").build();
-        Tag p2 = new TagBuilder().withTagName("CS2103").build();
+        PersonNameComparator comparator = new PersonNameComparator();
+        Person p1 = new PersonBuilder().withName("Diana").build();
+        Person p2 = new PersonBuilder().withName("Bob").build();
         assertTrue(comparator.compare(p1, p2) > 0);
     }
 }

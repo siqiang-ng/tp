@@ -28,6 +28,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Tag> filteredTags;
+    private final SortedList<Person> sortedPersons;
     private final SortedList<Tag> sortedTags;
 
     /**
@@ -43,6 +44,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         this.filteredPersons = new FilteredList<>(this.projact.getPersonList());
         this.filteredTags = new FilteredList<>(this.projact.getTagList());
+        this.sortedPersons = new SortedList<>(this.projact.getPersonList());
         this.sortedTags = new SortedList<>(this.projact.getTagList());
     }
 
@@ -196,6 +198,7 @@ public class ModelManager implements Model {
         filteredTags.setPredicate(predicate);
     }
 
+
     //=========== Sorted Tag List Accessors =============================================================
 
     /**
@@ -211,6 +214,22 @@ public class ModelManager implements Model {
     public void updateSortedTagList(Comparator<Tag> comparator) {
         requireNonNull(comparator);
         sortedTags.setComparator(comparator);
+    }
+
+    //=========== Sorted Person List Accessors =============================================================
+    /**
+     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * {@code versionedProjact}
+     */
+    @Override
+    public ObservableList<Person> getSortedPersonList() {
+        return sortedPersons;
+    }
+
+    @Override
+    public void updateSortedPersonList(Comparator<Person> comparator) {
+        requireNonNull(comparator);
+        sortedPersons.setComparator(comparator);
     }
 
     //=========== Miscellaneous =============================================================
@@ -233,7 +252,7 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons)
                 && filteredTags.equals(other.filteredTags)
-                && sortedTags.equals(other.sortedTags);
+                && sortedTags.equals(other.sortedTags)
+                && sortedPersons.equals(other.sortedPersons);
     }
-
 }

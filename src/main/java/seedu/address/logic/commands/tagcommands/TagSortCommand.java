@@ -16,6 +16,7 @@ public class TagSortCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateSortedTagList(new TagNameComparator());
-        return new CommandResult(MESSAGE_SUCCESS, false, false, true, false);
+        return new CommandResult(MESSAGE_SUCCESS,
+                false, false, true, false, true, false);
     }
 }

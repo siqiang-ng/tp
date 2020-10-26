@@ -22,16 +22,21 @@ import seedu.address.logic.commands.contactcommands.EditCommand;
 import seedu.address.logic.commands.contactcommands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.contactcommands.FindCommand;
 import seedu.address.logic.commands.contactcommands.ListCommand;
+import seedu.address.logic.commands.contactcommands.SortCommand;
+import seedu.address.logic.commands.tagcommands.TagAddCommand;
 import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
 import seedu.address.logic.commands.tagcommands.TagSortCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.TagBuilder;
+import seedu.address.testutil.TagUtil;
 
 public class ProjactParserTest {
 
@@ -93,6 +98,13 @@ public class ProjactParserTest {
     }
 
     @Test
+    public void parseCommand_tagAdd() throws Exception {
+        Tag tag = new TagBuilder().build();
+        TagAddCommand command = (TagAddCommand) parser.parseCommand(TagUtil.getTagAddCommand(tag));
+        assertEquals(new TagAddCommand(tag), command);
+    }
+
+    @Test
     public void parseCommand_tagList() throws Exception {
         assertTrue(parser.parseCommand(TagListCommand.COMMAND_WORD) instanceof TagListCommand);
         assertTrue(parser.parseCommand(TagListCommand.COMMAND_WORD + " 3") instanceof TagListCommand);
@@ -110,6 +122,13 @@ public class ProjactParserTest {
     public void parseCommand_tagSort() throws Exception {
         assertTrue(parser.parseCommand(TagSortCommand.COMMAND_WORD) instanceof TagSortCommand);
         assertTrue(parser.parseCommand(TagSortCommand.COMMAND_WORD + " 3") instanceof TagSortCommand);
+    }
+
+    @Test
+    public void parseCommand_sortContact() throws Exception {
+        assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD) instanceof SortCommand);
+        assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " 3") instanceof SortCommand);
+
     }
 
     @Test

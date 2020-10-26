@@ -1,6 +1,7 @@
 package seedu.address.logic;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
@@ -31,6 +32,8 @@ public interface Logic {
      */
     ReadOnlyProjact getProjact();
 
+    public List<Person> findContactsByTag(Tag target);
+
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
 
@@ -39,6 +42,9 @@ public interface Logic {
 
     /** Returns an unmodifiable view of the filtered list of tags*/
     ObservableList<Tag> getSortedTagList();
+
+    /** Returns an unmodifiable view of the filtered list of persons */
+    ObservableList<Person> getSortedPersonList();
 
     /**
      * Returns the user prefs' address book file path.

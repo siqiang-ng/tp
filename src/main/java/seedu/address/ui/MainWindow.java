@@ -109,7 +109,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     protected void fillInnerParts() {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        tagListPanel = new TagListPanel(logic.getFilteredTagList());
+        tagListPanel = new TagListPanel(logic.getFilteredTagList(), logic::findContactsByTag);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -196,9 +196,15 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             if (commandResult.isSortTag()) {
-                tagListPanel = new TagListPanel(logic.getSortedTagList());
+                tagListPanel = new TagListPanel(logic.getSortedTagList(), logic::findContactsByTag);
             } else {
-                tagListPanel = new TagListPanel(logic.getFilteredTagList());
+                tagListPanel = new TagListPanel(logic.getFilteredTagList(), logic::findContactsByTag);
+            }
+
+            if (commandResult.isSortPerson()) {
+                personListPanel = new PersonListPanel(logic.getSortedPersonList());
+            } else {
+                personListPanel = new PersonListPanel(logic.getFilteredPersonList());
             }
 
             if (commandResult.isTagList()) {
