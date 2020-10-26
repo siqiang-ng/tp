@@ -47,6 +47,7 @@ public class TagDeleteCommand extends Command {
 
         Tag tagToDelete = lastShownList.get(targetIndex.getZeroBased());
         List<Person> contactsWithTagToDelete = model.findContactsByTag(tagToDelete);
+        assert contactsWithTagToDelete != null;
 
         for (Person p : contactsWithTagToDelete) {
             Person personToEdit = p;
