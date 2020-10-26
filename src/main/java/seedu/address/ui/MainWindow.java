@@ -108,7 +108,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     protected void fillInnerParts() {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        tagListPanel = new TagListPanel(logic.getFilteredTagList());
+        tagListPanel = new TagListPanel(logic.getFilteredTagList(), logic::findContactsByTag);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -194,7 +194,7 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            if (commandResult.isTagList()) { // TODO: Remove this in v1.3
+            if (commandResult.isTagList()) {
                 showTagList();
             }
 
