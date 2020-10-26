@@ -248,13 +248,12 @@ Examples:
 * `tagfind Group` returns `group` and `Group A`
 * `tagfind Team B` returns `Team A`, `Group B`<br>
 
-<<<<<<< HEAD
-### Sorting tags by tag name: `tagsort`
+#### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-This command will only sort the current list of tags. Any newly added tags will be displayed at the bottom. Simply type another `tagsort` command to sort the whole list again!
+Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
  
 **Format:** `tagsort`
@@ -267,10 +266,7 @@ Step 1: Key in the `tagsort` command.
 Step 2: Hit enter and the list with all the tag names sorted will be displayed immediately as shown.
 ![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
 
-### Deleting a tag: `tagdelete`
-=======
 #### Deleting a tag: `tagdelete`
->>>>>>> 6cf3cb459aa7c854f0d62cdb5e8c73b523ef8f08
 
 Deletes the specified tag in the tag list.
 
