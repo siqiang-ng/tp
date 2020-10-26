@@ -159,16 +159,22 @@ Examples:
   ![result for 'find alex david'](images/findAlexDavidResult.png)
   
 #### Sort contacts by name: `sort`
+
+Dislike how the current list of contacts is displayed? Sort the names in alphabetical order by typing a single `sort` word on the command line.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+This command will only sort the current list of contacts. Any newly added contacts will be displayed at the bottom. Simply type another `sort` command to sort the whole list again!
+</div>
  
-Sort the current person list in alphabetical order permanently.
+**Format:** `sort`
  
- Format: `sort`
- 
- * Any new contact added will be displayed at the end of the list.
- * To get the list to be sorted with the new contact, call `sort` command again.
- 
- Examples:
- * `sort` returns the person list sorted in alphabetical order.
+**Step-By-Step Guide:**
+Step 1: Key in the `sort` command.
+![SortContactCommand Step 1](images/SortContactCommandGuide1.png)
+
+Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
+![SortContactCommand Step 2](images/SortContactCommandGuide2.png)
+
 
 #### Deleting a contact : `delete`
 
@@ -200,9 +206,16 @@ Examples:
 
 #### Listing all tags: `taglist`
 
-Shows a list of all tags in the tag list.
+Want to see all the tags you have added? Display them with simply the `taglist` command.
 
-Format: `taglist`
+**Format:** `taglist`
+ 
+**Step-By-Step Guide:**
+Step 1: Key in the `taglist` command.
+![TagListCommand Step 1](images/TagListCommandGuide1.png)
+
+Step 2: Hit enter and the list with all the tags that you have added will be displayed immediately as shown.
+![TagListCommand Step 2](images/TagListCommandGuide2.png)
 
 #### Editing a tag : `tagedit`
 
