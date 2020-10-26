@@ -23,12 +23,12 @@ public class TagName {
     /**
      * Constructs a {@code TagName}.
      *
-     * @param name A valid name.
+     * @param tagName A valid name.
      */
-    public TagName(String name) {
-        requireNonNull(name);
-        checkArgument(isValidTagName(name), MESSAGE_CONSTRAINTS);
-        this.tagName = name;
+    public TagName(String tagName) {
+        requireNonNull(tagName);
+        checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
+        this.tagName = tagName;
     }
 
     /**

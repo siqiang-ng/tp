@@ -19,6 +19,7 @@ import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
@@ -149,26 +150,26 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseTag_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseTag(null));
+    public void parseTagName_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseTagName(null));
     }
 
     @Test
-    public void parseTag_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseTag(INVALID_TAG));
+    public void parseTagName_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseTagName(INVALID_TAG));
     }
 
     @Test
-    public void parseTag_validValueWithoutWhitespace_returnsTag() throws Exception {
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_1));
+    public void parseTagName_validValueWithoutWhitespace_returnsTag() throws Exception {
+        TagName expectedTag = new TagName(VALID_TAG_1);
+        assertEquals(expectedTag, ParserUtil.parseTagName(VALID_TAG_1));
     }
 
     @Test
-    public void parseTag_validValueWithWhitespace_returnsTrimmedTag() throws Exception {
+    public void parseTagName_validValueWithWhitespace_returnsTrimmedTag() throws Exception {
         String tagWithWhitespace = WHITESPACE + VALID_TAG_1 + WHITESPACE;
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(tagWithWhitespace));
+        TagName expectedTag = new TagName(VALID_TAG_1);
+        assertEquals(expectedTag, ParserUtil.parseTagName(tagWithWhitespace));
     }
 
     @Test

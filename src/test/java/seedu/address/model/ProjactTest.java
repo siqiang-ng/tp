@@ -81,7 +81,7 @@ public class ProjactTest {
     @Test
     public void resetData_withDuplicateTags_throwsDuplicateTagException() {
         // Two tags with same tag names
-        Tag editedCS2103T = new TagBuilder(CS2040S).withName("CS2103T").build();
+        Tag editedCS2103T = new TagBuilder(CS2040S).withTagName("CS2103T").build();
         List<Person> newPersons = Arrays.asList(ALICE);
         List<Tag> newTags = Arrays.asList(CS2103T, editedCS2103T);
         ProjactStub newData = new ProjactStub(newPersons, newTags);
