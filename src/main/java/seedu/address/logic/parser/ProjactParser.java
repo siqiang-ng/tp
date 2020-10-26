@@ -88,10 +88,10 @@ public class ProjactParser {
 
         case TagDeleteCommand.COMMAND_WORD:
             return new TagDeleteCommandParser().parse(arguments);
-            
+
         case SortCommand.COMMAND_WORD:
             return new SortCommand();
-            
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
