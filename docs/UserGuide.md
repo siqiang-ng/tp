@@ -223,16 +223,21 @@ Examples:
 
 ### Sorting tags by tag name: `tagsort`
 
-Sort the current tag list in alphabetical order permanently.
+Dislike how the current list of tags is displayed? Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
 
-Format: `tagsort`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+This command will only sort the current list of tags. Any newly added tags will be displayed at the bottom. Simply type another `tagsort` command to sort the whole list again!
+</div>
+ 
+**Format:** `tagsort`
+ 
+**Step-By-Step Guide:**
 
-* Any new tag added will be displayed at the end of the list.
-* To get the list to be sorted with the new tag, call `tagsort` command again.
+Step 1: Key in the `tagsort` command.
+![TagSortCommand Step 1](images/TagSortCommandGuide1.png)
 
-Examples:
-* `tagsort` returns the tag list sorted in alphabetical order.
-
+Step 2: Hit enter and the list with all the tag names sorted will be displayed immediately as shown.
+![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
 
 ### Deleting a tag: `tagdelete`
 
