@@ -6,7 +6,7 @@ import seedu.address.model.Model;
 import seedu.address.model.Projact;
 
 /**
- * Clears the address book.
+ * Clears the data in the Projact.
  */
 public class ClearCommand extends Command {
 

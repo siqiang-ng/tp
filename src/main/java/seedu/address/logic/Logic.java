@@ -47,7 +47,7 @@ public interface Logic {
     ObservableList<Person> getSortedPersonList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' Projact file path.
      */
     Path getProjactFilePath();
 
