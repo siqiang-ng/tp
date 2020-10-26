@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.contactcommands.SortContactCommand.MESSAGE_SUCCESS;
+import static seedu.address.logic.commands.contactcommands.SortCommand.MESSAGE_SUCCESS;
 import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
 
 import org.junit.jupiter.api.Test;
@@ -15,14 +15,14 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.PersonNameComparator;
 
-class SortContactCommandTest {
+class SortCommandTest {
     private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalProjact(), new UserPrefs());
 
     @Test
     public void equals() {
-        SortContactCommand commandOne = new SortContactCommand();
-        SortContactCommand commandTwo = new SortContactCommand();
+        SortCommand commandOne = new SortCommand();
+        SortCommand commandTwo = new SortCommand();
 
         // same object -> returns true
         assertTrue(commandOne.equals(commandOne));
@@ -49,7 +49,7 @@ class SortContactCommandTest {
                 true
         );
         PersonNameComparator comparator = new PersonNameComparator();
-        SortContactCommand command = new SortContactCommand();
+        SortCommand command = new SortCommand();
         expectedModel.updateSortedPersonList(comparator);
         assertCommandSuccess(command, model, expectedResult, expectedModel);
         assertEquals(expectedModel.getSortedPersonList(), model.getSortedPersonList());

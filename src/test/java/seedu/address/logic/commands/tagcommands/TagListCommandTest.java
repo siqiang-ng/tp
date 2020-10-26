@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
@@ -7,6 +7,7 @@ import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;

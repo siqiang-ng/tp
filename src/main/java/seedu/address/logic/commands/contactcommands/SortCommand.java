@@ -7,7 +7,7 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.person.PersonNameComparator;
 
-public class SortContactCommand extends Command {
+public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
 
