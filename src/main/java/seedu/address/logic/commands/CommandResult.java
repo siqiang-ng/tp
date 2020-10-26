@@ -17,7 +17,7 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
-    /** The application should reflect the tag list. */
+    /** The application should reflect the sorted person list. */
     private final boolean sortPerson;
 
     /** The application should reflect the tag list. */
