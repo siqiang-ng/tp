@@ -10,7 +10,7 @@ import seedu.address.model.tag.TagNameComparator;
 public class TagSortCommand extends Command {
     public static final String COMMAND_WORD = "tagsort";
 
-    public static final String MESSAGE_SUCCESS = "These are the tags in your tag list in alphabetical order.";
+    public static final String MESSAGE_SUCCESS = "These are the tags in your tag list sorted in alphabetical order.";
 
     @Override
     public CommandResult execute(Model model) {
