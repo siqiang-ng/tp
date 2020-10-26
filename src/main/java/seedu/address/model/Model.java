@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -129,5 +130,14 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredTagList(Predicate<Tag> predicate);
+
+    /** Returns an unmodifiable view of the filtered tag list */
+    ObservableList<Tag> getSortedTagList();
+
+    /**
+     * Updates the sorted tag list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateSortedTagList(Comparator<Tag> comparator);
 
 }
