@@ -17,7 +17,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -44,9 +44,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         TelegramAddress telegramAddress = ParserUtil.parseTelegramAddress(argMultimap
                                             .getValue(PREFIX_TELEGRAM_ADDRESS).get());
-        Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Set<TagName> tagNameList = ParserUtil.parseTagNames(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, telegramAddress, tagList);
+        Person person = new Person(name, phone, email, telegramAddress, tagNameList);
 
         return new AddCommand(person);
     }

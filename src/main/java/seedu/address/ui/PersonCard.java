@@ -52,9 +52,9 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         telegramAddress.setText("@" + person.getTelegramAddress().value);
         email.setText(person.getEmail().value);
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.getTagName().tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.getTagName().tagName)));
+        person.getTagNames().stream()
+                .sorted(Comparator.comparing(tagName -> tagName.tagName))
+                .forEach(tagName -> tags.getChildren().add(new Label(tagName.tagName)));
     }
 
     @Override

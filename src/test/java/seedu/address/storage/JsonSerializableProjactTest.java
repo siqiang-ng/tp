@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.JsonUtil;
 import seedu.address.model.Projact;
-import seedu.address.testutil.TypicalPersons;
+import seedu.address.testutil.TypicalProjact;
 
 public class JsonSerializableProjactTest {
 
@@ -25,7 +25,7 @@ public class JsonSerializableProjactTest {
         JsonSerializableProjact dataFromFile = JsonUtil.readJsonFile(TYPICAL_PERSONS_FILE,
                 JsonSerializableProjact.class).get();
         Projact projactFromFile = dataFromFile.toModelType();
-        Projact typicalPersonsProjact = TypicalPersons.getTypicalProjact();
+        Projact typicalPersonsProjact = TypicalProjact.getTypicalProjact();
         assertEquals(projactFromFile, typicalPersonsProjact);
     }
 

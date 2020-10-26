@@ -107,7 +107,7 @@ public class ModelManagerTest {
     public void hasPerson_personWithSameIdentityFieldsInModelManager_returnsTrue() {
         modelManager.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_HUSBAND).build();
         assertTrue(modelManager.hasPerson(editedAlice));
     }
 

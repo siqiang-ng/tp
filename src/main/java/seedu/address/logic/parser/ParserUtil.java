@@ -13,8 +13,8 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.TagTask;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -97,29 +97,45 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String tag} into a {@code Tag}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code tag} is invalid.
+     * Parses {@code Collection<String> tagNames} into a {@code Set<TagName>}.
      */
-    public static Tag parseTag(String tag) throws ParseException {
-        requireNonNull(tag);
-        String trimmedTag = tag.trim();
-        if (!TagName.isValidTagName(trimmedTag)) {
-            throw new ParseException(TagName.MESSAGE_CONSTRAINTS);
+    public static Set<TagName> parseTagNames(Collection<String> tagNames) throws ParseException {
+        requireNonNull(tagNames);
+        final Set<TagName> tagNameSet = new HashSet<>();
+        for (String tagName : tagNames) {
+            tagNameSet.add(parseTagName(tagName));
         }
-        return new Tag(trimmedTag);
+        return tagNameSet;
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     * Parses a {@code String tagName} into a {@code TagName}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tagName} is invalid.
      */
-    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
-        requireNonNull(tags);
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tag : tags) {
-            tagSet.add(parseTag(tag));
+    public static TagName parseTagName(String tagName) throws ParseException {
+        requireNonNull(tagName);
+        String trimmedTag = tagName.trim();
+        if (!TagName.isValidTagName(trimmedTag)) {
+            throw new ParseException(TagName.MESSAGE_CONSTRAINTS);
         }
-        return tagSet;
+        return new TagName(trimmedTag);
     }
+
+    /**
+     * Parses a {@code String taskDescription} and a {@code boolean isDone} into a {@code TagTask}.
+     * Leading and trailing whitespaces in {@code String taskDescription} will be trimmed.
+     *
+     * @throws ParseException if the given {@code taskDescription} is invalid
+     */
+    public static TagTask parseTagTask(String taskDescription, boolean isDone) throws ParseException {
+        requireNonNull(taskDescription);
+        String trimmedTaskDescription = taskDescription.trim();
+        if (!TagTask.isValidTaskDescription(trimmedTaskDescription)) {
+            throw new ParseException(TagTask.MESSAGE_CONSTRAINTS);
+        }
+        return new TagTask(taskDescription, isDone);
+    }
+
 }

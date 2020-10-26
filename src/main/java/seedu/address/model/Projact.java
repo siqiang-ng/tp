@@ -152,7 +152,7 @@ public class Projact implements ReadOnlyProjact {
     public List<Person> findContactsByTag(Tag target) {
         List<Person> personsWithTag = new ArrayList<>();
         for (Person p : persons) {
-            if (p.getTags().contains(target)) {
+            if (p.getTagNames().contains(target.getTagName())) {
                 personsWithTag.add(p);
             }
         }

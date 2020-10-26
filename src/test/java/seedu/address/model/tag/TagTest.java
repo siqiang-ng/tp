@@ -21,7 +21,7 @@ public class TagTest {
         assertFalse(GROUPMATE.isSameTag(null));
 
         // different name -> returns false
-        Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
+        Tag editedGroupmate = new TagBuilder(GROUPMATE).withTagName(VALID_TAG_HUSBAND).build();
         assertFalse(GROUPMATE.isSameTag(editedGroupmate));
     }
 
@@ -44,7 +44,7 @@ public class TagTest {
         assertFalse(GROUPMATE.equals(COLLEAGUE));
 
         // different name -> returns false
-        Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
+        Tag editedGroupmate = new TagBuilder(GROUPMATE).withTagName(VALID_TAG_HUSBAND).build();
         assertFalse(GROUPMATE.equals(editedGroupmate));
     }
 }
