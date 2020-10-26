@@ -209,6 +209,15 @@ The diagram below shows a sample interaction of `TagFindCommand`.
 - Why is it implemented that way:
     - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
 
+**TagSort feature**
+
+The TagSort feature allows a user to sort the tag list in alphabetical order permanently. Tags that are being added to the list later will not be sorted and be displayed at the end of the list.
+
+The implementation and interaction of the TagSort command is similar to SortContact feature but it uses TagNameComaparator instead.
+
+- Why is it implemented that way:
+    - The TagSort and SortContact share the similar functions with one sorting the tag list and the other one sorting the person list. Hence, a similar set of commands are created for this feature to ensure the application can work smoothly.
+ 
 ### Future implementation plans
 **TagAdd command**
 

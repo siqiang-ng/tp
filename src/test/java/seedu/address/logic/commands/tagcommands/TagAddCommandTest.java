@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.commands.tagcommands.TagAddCommand;
 import seedu.address.model.Model;
 import seedu.address.model.Projact;
 import seedu.address.model.ReadOnlyProjact;
@@ -185,6 +185,16 @@ public class TagAddCommandTest {
 
         @Override
         public void updateFilteredTagList(Predicate<Tag> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Tag> getSortedTagList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateSortedTagList(Comparator<Tag> comparator) {
             throw new AssertionError("This method should not be called.");
         }
 

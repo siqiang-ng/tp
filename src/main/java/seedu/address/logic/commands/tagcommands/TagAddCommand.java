@@ -10,20 +10,20 @@ import seedu.address.model.Model;
 import seedu.address.model.tag.Tag;
 
 /**
- * Adds a tag to the address book.
+ * Adds a tag to the tag list in Projact.
  */
 public class TagAddCommand extends Command {
 
     public static final String COMMAND_WORD = "tagadd";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a tag to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a tag to the Projact. "
             + "Parameters: "
             + PREFIX_TAG + "TAG\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_TAG + "cs2101";
 
     public static final String MESSAGE_SUCCESS = "New tag added: %1$s";
-    public static final String MESSAGE_DUPLICATE_TAG = "This tag already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_TAG = "This tag already exists in the Projact";
 
     private final Tag toAdd;
 

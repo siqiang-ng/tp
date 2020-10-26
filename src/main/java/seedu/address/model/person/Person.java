@@ -10,7 +10,7 @@ import java.util.Set;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the Projact.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -22,7 +22,7 @@ public class Person {
 
     // Data fields
     private final TelegramAddress telegramAddress;
-    private final Set<Tag> tags = new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
@@ -59,6 +59,10 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 
     /**

@@ -26,6 +26,7 @@ import seedu.address.logic.commands.contactcommands.SortCommand;
 import seedu.address.logic.commands.tagcommands.TagAddCommand;
 import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
+import seedu.address.logic.commands.tagcommands.TagSortCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
@@ -118,9 +119,16 @@ public class ProjactParserTest {
     }
 
     @Test
+    public void parseCommand_tagSort() throws Exception {
+        assertTrue(parser.parseCommand(TagSortCommand.COMMAND_WORD) instanceof TagSortCommand);
+        assertTrue(parser.parseCommand(TagSortCommand.COMMAND_WORD + " 3") instanceof TagSortCommand);
+    }
+
+    @Test
     public void parseCommand_sortContact() throws Exception {
         assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD) instanceof SortCommand);
         assertTrue(parser.parseCommand(SortCommand.COMMAND_WORD + " 3") instanceof SortCommand);
+
     }
 
     @Test
