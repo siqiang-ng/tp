@@ -28,7 +28,7 @@ LogicManager --> TagListCommand : execute()
 activate TagListCommand
 
 create CommandResult
-TagListCommand -> CommandResult : set tagList parameter to true
+TagListCommand -> CommandResult : set tagList field to true
 activate CommandResult
 
 CommandResult --> TagListCommand

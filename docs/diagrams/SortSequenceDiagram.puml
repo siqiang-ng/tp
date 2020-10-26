@@ -46,7 +46,7 @@ Model --> SortContactCommand
 deactivate Model
 
 create CommandResult
-SortContactCommand -> CommandResult
+SortContactCommand -> CommandResult : set SortPerson and TagList fields to true
 activate CommandResult
 
 CommandResult --> SortContactCommand

@@ -163,7 +163,7 @@ Examples:
 Dislike how the current list of contacts is displayed? Sort the names in alphabetical order by typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-This command will only sort the current list of contacts. Any newly added contacts will be displayed at the bottom. Simply type another `sort` command to sort the whole list again!
+Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
 </div>
  
 **Format:** `sort`
