@@ -55,13 +55,7 @@ public class TagFindCommandTest {
     public void execute_zeroKeywords_noTagFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 0);
         CommandResult expectedResult = new CommandResult(
-                expectedMessage,
-                false,
-                false,
-                false,
-                true,
-                false
-        );
+                expectedMessage, false, false, false, false, true, false);
         TagNameContainsKeywordsPredicate predicate = preparePredicate(" ");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
@@ -73,13 +67,7 @@ public class TagFindCommandTest {
     public void execute_multipleKeywords_multipleTagsFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 2);
         CommandResult expectedResult = new CommandResult(
-                expectedMessage,
-                false,
-                false,
-                false,
-                true,
-                false
-        );
+                expectedMessage, false, false, false, false, true, false);
         TagNameContainsKeywordsPredicate predicate = preparePredicate("FriEndS owesMoney");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);

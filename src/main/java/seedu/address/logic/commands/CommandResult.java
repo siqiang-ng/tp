@@ -17,6 +17,9 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The application should reflect the sorted tag list. */
+    private final boolean sortTag;
+
     /** The application should reflect the sorted person list. */
     private final boolean sortPerson;
 
@@ -29,11 +32,13 @@ public class CommandResult {
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean sortPerson,
-                         boolean tagList, boolean personlist) {
+
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean sortTag,
+                         boolean sortPerson, boolean tagList, boolean personlist) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.sortTag = sortTag;
         this.sortPerson = sortPerson;
         this.tagList = tagList;
         this.personList = personlist;
@@ -44,7 +49,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false, false, false, false);
+        this(feedbackToUser, false, false, false, false, false, false);
     }
 
     public String getFeedbackToUser() {
@@ -57,6 +62,10 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isSortTag() {
+        return sortTag;
     }
 
     public boolean isSortPerson() {
@@ -86,6 +95,7 @@ public class CommandResult {
         return feedbackToUser.equals(otherCommandResult.feedbackToUser)
                 && showHelp == otherCommandResult.showHelp
                 && exit == otherCommandResult.exit
+                && sortTag == otherCommandResult.sortTag
                 && sortPerson == otherCommandResult.sortPerson
                 && tagList == otherCommandResult.tagList
                 && personList == otherCommandResult.personList;
@@ -93,7 +103,7 @@ public class CommandResult {
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackToUser, showHelp, exit, sortPerson, tagList, personList);
+        return Objects.hash(feedbackToUser, showHelp, exit, sortTag, sortPerson, tagList, personList);
     }
 
 }
