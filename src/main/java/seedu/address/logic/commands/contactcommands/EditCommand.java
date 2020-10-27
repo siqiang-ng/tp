@@ -8,11 +8,13 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -27,6 +29,8 @@ import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.TagTask;
 
 /**
  * Edits the details of an existing person in Projact.
@@ -85,6 +89,9 @@ public class EditCommand extends Command {
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.addTags(editedPerson.getTagNames().stream()
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>()))
+                .collect(Collectors.toSet()));
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
 
@@ -100,7 +107,7 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         TelegramAddress updatedTelegramAddress = editPersonDescriptor.getTelegramAddress()
                                                     .orElse(personToEdit.getTelegramAddress());
-        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Set<TagName> updatedTags = editPersonDescriptor.getTagNames().orElse(personToEdit.getTagNames());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedTelegramAddress, updatedTags);
     }
@@ -132,7 +139,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private TelegramAddress telegramAddress;
-        private Set<Tag> tags;
+        private Set<TagName> tagNames;
 
         public EditPersonDescriptor() {}
 
@@ -145,14 +152,14 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setTelegramAddress(toCopy.telegramAddress);
-            setTags(toCopy.tags);
+            setTagNames(toCopy.tagNames);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, telegramAddress, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, telegramAddress, tagNames);
         }
 
         public void setName(PersonName name) {
@@ -191,8 +198,8 @@ public class EditCommand extends Command {
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        public void setTags(Set<Tag> tags) {
-            this.tags = (tags != null) ? new HashSet<>(tags) : null;
+        public void setTagNames(Set<TagName> tagNames) {
+            this.tagNames = (tagNames != null) ? new HashSet<>(tagNames) : null;
         }
 
         /**
@@ -200,8 +207,8 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        public Optional<Set<Tag>> getTags() {
-            return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        public Optional<Set<TagName>> getTagNames() {
+            return (tagNames != null) ? Optional.of(Collections.unmodifiableSet(tagNames)) : Optional.empty();
         }
 
         @Override
@@ -223,7 +230,7 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getTelegramAddress().equals(e.getTelegramAddress())
-                    && getTags().equals(e.getTags());
+                    && getTagNames().equals(e.getTagNames());
         }
 
     }

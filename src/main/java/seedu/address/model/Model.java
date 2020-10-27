@@ -3,6 +3,7 @@ package seedu.address.model;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -96,6 +97,9 @@ public interface Model {
      * {@code tag} must not already exist in the projact.
      */
     void addTag(Tag tag);
+
+
+    void addTags(Set<Tag> tags);
 
     /**
      * Replaces the given tag {@code target} with {@code editedTag}.

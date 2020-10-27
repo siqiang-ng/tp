@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * A list of persons that enforces uniqueness between its elements and does not allow nulls.
@@ -88,16 +89,16 @@ public class UniquePersonList implements Iterable<Person> {
         // Iterate through all contacts and update their tags.
         for (int i = 0; i < count; i++) {
             Person original = internalList.get(i);
-            Set<Tag> tags = new HashSet<>(original.getTags());
-            if (tags.contains(target)) {
-                tags.remove(target);
-                tags.add(editedTag);
+            Set<TagName> tagNames = new HashSet<>(original.getTagNames());
+            if (tagNames.contains(target.getTagName())) {
+                tagNames.remove(target.getTagName());
+                tagNames.add(editedTag.getTagName());
                 Person p = new Person(
                         original.getName(),
                         original.getPhone(),
                         original.getEmail(),
                         original.getTelegramAddress(),
-                        tags);
+                        tagNames);
                 internalList.set(i, p);
             }
         }

@@ -1,9 +1,9 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -15,7 +15,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Jackson-friendly version of {@link Person}.
@@ -28,7 +28,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String telegramAddress;
-    private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final List<String> tagNames = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -36,13 +36,13 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("telegramAddress") String telegramAddress,
-            @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+            @JsonProperty("tagged") List<String> tagNames) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.telegramAddress = telegramAddress;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
+        if (tagNames != null) {
+            this.tagNames.addAll(tagNames);
         }
     }
 
@@ -54,8 +54,8 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         telegramAddress = source.getTelegramAddress().value;
-        tagged.addAll(source.getTags().stream()
-                .map(JsonAdaptedTag::new)
+        tagNames.addAll(source.getTagNames().stream()
+                .map(tagName -> tagName.tagName)
                 .collect(Collectors.toList()));
     }
 
@@ -65,10 +65,6 @@ class JsonAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person.
      */
     public Person toModelType() throws IllegalValueException {
-        final List<Tag> personTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            personTags.add(tag.toModelType());
-        }
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -104,7 +100,12 @@ class JsonAdaptedPerson {
         }
         final TelegramAddress modelTelegramAddress = new TelegramAddress(telegramAddress);
 
-        final Set<Tag> modelTags = new HashSet<>(personTags);
+        if (this.tagNames.stream().anyMatch(Predicate.not(TagName::isValidTagName))) {
+            throw new IllegalValueException(TagName.MESSAGE_CONSTRAINTS);
+        }
+        final Set<TagName> modelTags = this.tagNames.stream()
+                .map(TagName::new)
+                .collect(Collectors.toSet());
         return new Person(modelName, modelPhone, modelEmail, modelTelegramAddress, modelTags);
     }
 

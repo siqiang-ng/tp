@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.model.Projact;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -34,17 +33,6 @@ public class TypicalTags {
     public static final String KEYWORD_MATCHING_MEIER = "CS"; // A keyword that matches CS
 
     private TypicalTags() {} // prevents instantiation
-
-    /**
-     * Returns an {@code Projact} with all the typical tags.
-     */
-    public static Projact getTypicalProjact() {
-        Projact ab = new Projact();
-        for (Tag tag : getTypicalTags()) {
-            ab.addTag(tag);
-        }
-        return ab;
-    }
 
     public static List<Tag> getTypicalTags() {
         return new ArrayList<>(Arrays.asList(GROUPMATE, COLLEAGUE, CS2103T, CS2040S, SEP, HALL, HANDBALL));

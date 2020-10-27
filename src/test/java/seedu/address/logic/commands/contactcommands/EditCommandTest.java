@@ -12,7 +12,10 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +28,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.Projact;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagTask;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 
@@ -57,10 +62,10 @@ public class EditCommandTest {
 
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_HUSBAND).build();
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withPhone(VALID_PHONE_BOB).withTagNames(VALID_TAG_HUSBAND).build();
 
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
 
@@ -68,6 +73,9 @@ public class EditCommandTest {
 
         Model expectedModel = new ModelManager(new Projact(model.getProjact()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
+        expectedModel.addTags(editedPerson.getTagNames().stream()
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>()))
+                .collect(Collectors.toSet()));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }

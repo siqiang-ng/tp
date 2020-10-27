@@ -8,7 +8,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -25,7 +25,7 @@ public class PersonBuilder {
     private Phone phone;
     private Email email;
     private TelegramAddress telegramAddress;
-    private Set<Tag> tags;
+    private Set<TagName> tags;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -46,7 +46,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         telegramAddress = personToCopy.getTelegramAddress();
-        tags = new HashSet<>(personToCopy.getTags());
+        tags = new HashSet<>(personToCopy.getTagNames());
     }
 
     /**
@@ -60,8 +60,8 @@ public class PersonBuilder {
     /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+    public PersonBuilder withTagNames(String ... tags) {
+        this.tags = SampleDataUtil.getTagNameSet(tags);
         return this;
     }
 

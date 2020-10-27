@@ -15,6 +15,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * Deletes a tag identified using it's displayed index from the tag list.
@@ -48,13 +49,17 @@ public class TagDeleteCommand extends Command {
         Tag tagToDelete = lastShownList.get(targetIndex.getZeroBased());
         List<Person> contactsWithTagToDelete = model.findContactsByTag(tagToDelete);
 
-        for (Person p : contactsWithTagToDelete) {
-            Person personToEdit = p;
-            Set<Tag> oldTags = p.getTags();
-            Set<Tag> newTags = new HashSet<>(oldTags);
-            newTags.remove(tagToDelete);
-            p.setTags(newTags);
-            model.setPerson(personToEdit, p);
+        for (Person person : contactsWithTagToDelete) {
+            Set<TagName> editedTagName = new HashSet<>(person.getTagNames());
+            editedTagName.remove(tagToDelete.getTagName());
+            Person editedPerson = new Person(
+                    person.getName(),
+                    person.getPhone(),
+                    person.getEmail(),
+                    person.getTelegramAddress(),
+                    editedTagName
+            );
+            model.setPerson(person, editedPerson);
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         }
 
