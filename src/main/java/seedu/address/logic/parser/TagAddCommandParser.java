@@ -4,6 +4,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.tagcommands.TagAddCommand;
@@ -32,7 +33,7 @@ public class TagAddCommandParser implements Parser<TagAddCommand> {
 
         TagName name = ParserUtil.parseTagName(argMultimap.getValue(PREFIX_TAG).get());
 
-        Tag tag = new Tag(name, new ArrayList<>());
+        Tag tag = new Tag(name, new ArrayList<>(), Optional.empty());
 
         return new TagAddCommand(tag);
     }

@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import seedu.address.logic.commands.Command;
@@ -63,7 +64,7 @@ public class AddCommand extends Command {
 
         model.addPerson(toAdd);
         model.addTags(toAdd.getTagNames().stream()
-                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>()))
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
                 .collect(Collectors.toSet()));
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
