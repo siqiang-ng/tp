@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Represents a Tag in the Projact.
@@ -15,14 +16,16 @@ public class Tag {
     // Identity fields
     private final TagName tagName;
     private final List<TagTask> tagTasks;
+    private final Optional<MeetingLink> meetingLink;
 
     /**
      * Every field must be present and not null.
      */
-    public Tag(TagName tagName, List<TagTask> tagTasks) {
+    public Tag(TagName tagName, List<TagTask> tagTasks, Optional<MeetingLink> link) {
         requireAllNonNull(tagName, tagTasks);
         this.tagName = tagName;
         this.tagTasks = tagTasks;
+        this.meetingLink = link;
     }
 
     public TagName getTagName() {
@@ -31,6 +34,10 @@ public class Tag {
 
     public List<TagTask> getTagTasks() {
         return Collections.unmodifiableList(this.tagTasks);
+    }
+
+    public Optional<MeetingLink> getMeetingLink() {
+        return meetingLink;
     }
 
     /**
@@ -64,20 +71,23 @@ public class Tag {
 
         Tag otherTag = (Tag) other;
         return otherTag.getTagName().equals(getTagName())
-                && otherTag.getTagTasks().equals(getTagTasks());
+                && otherTag.getTagTasks().equals(getTagTasks())
+                && otherTag.getMeetingLink().equals(getMeetingLink());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(tagName, tagTasks);
+        return Objects.hash(tagName, tagTasks, meetingLink);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTagName())
-                .append(" Tasks: ");
+                .append(" Meeting Link: ");
+        getMeetingLink().ifPresent(link -> builder.append(link));
+        builder.append(" Tasks: ");
         getTagTasks().forEach(builder::append);
 
         return builder.toString();
