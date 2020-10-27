@@ -15,6 +15,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
@@ -74,7 +75,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new Projact(model.getProjact()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
         expectedModel.addTags(editedPerson.getTagNames().stream()
-                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>()))
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
                 .collect(Collectors.toSet()));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
