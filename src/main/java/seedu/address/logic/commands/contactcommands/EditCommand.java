@@ -90,7 +90,7 @@ public class EditCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         model.addTags(editedPerson.getTagNames().stream()
-                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>()))
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
                 .collect(Collectors.toSet()));
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
