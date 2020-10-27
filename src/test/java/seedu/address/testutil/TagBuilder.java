@@ -1,8 +1,11 @@
 package seedu.address.testutil;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import seedu.address.model.tag.MeetingLink;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 import seedu.address.model.tag.TagTask;
@@ -14,6 +17,7 @@ public class TagBuilder {
 
     private TagName tagName;
     private List<TagTask> tagTasks;
+    private Optional<MeetingLink> meetingLink;
 
     /**
      * Creates a {@code TagBuilder} with the default details.
@@ -21,6 +25,7 @@ public class TagBuilder {
     public TagBuilder() {
         this.tagName = new TagName(DEFAULT_NAME);
         this.tagTasks = new ArrayList<>();
+        this.meetingLink = Optional.empty();
     }
 
     /**
@@ -29,6 +34,7 @@ public class TagBuilder {
     public TagBuilder(Tag tagToCopy) {
         this.tagName = tagToCopy.getTagName();
         this.tagTasks = tagToCopy.getTagTasks();
+        this.meetingLink = tagToCopy.getMeetingLink();
     }
 
     /**
@@ -48,6 +54,18 @@ public class TagBuilder {
     }
 
     /**
+     * Sets the {@code MeetingLink} of the {@code Tag} that we are building.
+     */
+    public TagBuilder withMeetingLink(String meetingLink) {
+        try {
+            this.meetingLink = Optional.of(new MeetingLink(meetingLink));
+        } catch (MalformedURLException e) {
+            this.meetingLink = Optional.empty();
+        }
+        return this;
+    }
+
+    /**
      * Parses the {@code taskDescription} and {@code isDone} into a {@code TagTask}
      * and add it to the {@code List<TagTask>} of this {@code Tag} that we are building.
      */
@@ -57,6 +75,6 @@ public class TagBuilder {
     }
 
     public Tag build() {
-        return new Tag(tagName, tagTasks);
+        return new Tag(tagName, tagTasks, meetingLink);
     }
 }

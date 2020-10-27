@@ -1,7 +1,9 @@
 package seedu.address.model.util;
 
+import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -12,6 +14,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.MeetingLink;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 import seedu.address.model.tag.TagTask;
@@ -38,20 +41,31 @@ public class SampleDataUtil {
     }
 
     public static Tag[] getSampleTags() {
-        return new Tag[] {
-            new Tag(new TagName("colleagues"),
-                    getTagTaskList(new TagTask("after work party", false))),
-            new Tag(new TagName("neighbours"),
-                    getTagTaskList()),
-            new Tag(new TagName("classmates"),
-                    getTagTaskList(
-                            new TagTask("project meeting at 2pm", true),
-                            new TagTask("assignment 1 submission by 23:59", false))),
-            new Tag(new TagName("family"),
-                    getTagTaskList()),
-            new Tag(new TagName("friends"),
-                    getTagTaskList())
-        };
+        try {
+            Tag[] tags = new Tag[] {
+                new Tag(new TagName("colleagues"),
+                            getTagTaskList(new TagTask("after work party", false)),
+                            Optional.empty()),
+                new Tag(new TagName("neighbours"),
+                            getTagTaskList(),
+                            Optional.empty()),
+                new Tag(new TagName("classmates"),
+                            getTagTaskList(
+                                new TagTask("project meeting at 2pm", true),
+                                new TagTask("assignment 1 submission by 23:59", false)),
+                            Optional.of(new MeetingLink("https://nus-sg.com"))),
+                new Tag(new TagName("family"),
+                            getTagTaskList(),
+                            Optional.of(new MeetingLink("http://skype.com"))),
+                new Tag(new TagName("friends"),
+                            getTagTaskList(),
+                            Optional.empty())
+            };
+            return tags;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static ReadOnlyProjact getSampleProjact() {
