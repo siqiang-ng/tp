@@ -339,9 +339,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
 | `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
+| `* *`    | student                        	        | edit a particular task description               |                                                                        |
 | `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
 | `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
-| `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
+| `* *`    | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
+| `* *`    | student with many project groups	        | edit the meeting platform link for each tag      |                                                                        |
 | `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
 | `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
