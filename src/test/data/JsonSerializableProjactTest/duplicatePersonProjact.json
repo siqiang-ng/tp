@@ -4,12 +4,13 @@
     "phone": "94351253",
     "email": "alice@example.com",
     "telegramAddress": "alicepauline",
-    "tagged": [ "friends" ]
+    "tagNames": [ "friends" ]
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "telegramAddress": "alice_pauline"
+    "telegramAddress": "alice_pauline",
+    "tagNames" : [ ]
   } ],
-  "tags": []
+  "tags": [ "friends" ]
 }
