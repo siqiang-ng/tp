@@ -1,6 +1,7 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -48,7 +49,8 @@ class JsonAdaptedTag {
         }
         return new Tag(
                 new TagName(tagName),
-                new ArrayList<TagTask>()
+                new ArrayList<TagTask>(),
+                Optional.empty()
         );
     }
 
