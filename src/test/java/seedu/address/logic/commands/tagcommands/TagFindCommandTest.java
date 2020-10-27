@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_TAGS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
+import static seedu.address.testutil.TypicalTags.COLLEAGUE;
+import static seedu.address.testutil.TypicalTags.GROUPMATE;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,7 +18,6 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 
 public class TagFindCommandTest {
@@ -67,12 +68,19 @@ public class TagFindCommandTest {
     public void execute_multipleKeywords_multipleTagsFound() {
         String expectedMessage = String.format(MESSAGE_TAGS_LISTED_OVERVIEW, 2);
         CommandResult expectedResult = new CommandResult(
-                expectedMessage, false, false, false, false, true, false);
-        TagNameContainsKeywordsPredicate predicate = preparePredicate("FriEndS owesMoney");
+                expectedMessage,
+                false,
+                false,
+                false,
+                false,
+                true,
+                false
+        );
+        TagNameContainsKeywordsPredicate predicate = preparePredicate("gRoUpMaTe colleague");
         TagFindCommand command = new TagFindCommand(predicate);
         expectedModel.updateFilteredTagList(predicate);
         assertCommandSuccess(command, model, expectedResult, expectedModel);
-        assertEquals(Arrays.asList(new Tag("friends"), new Tag("owesMoney")), model.getFilteredTagList());
+        assertEquals(Arrays.asList(GROUPMATE, COLLEAGUE), model.getFilteredTagList());
     }
 
     /**
