@@ -340,7 +340,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
 | `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
 | `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
-| `* *`    | student                        	        | mark the task status done                        | keep track of the different task progress under that tag.              |
+| `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
 | `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
 | `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
