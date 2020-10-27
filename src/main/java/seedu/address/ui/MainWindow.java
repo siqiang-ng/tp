@@ -215,7 +215,6 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             tagListPanel.refresh();
-
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
