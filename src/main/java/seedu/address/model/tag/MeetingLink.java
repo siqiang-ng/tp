@@ -16,7 +16,8 @@ public class MeetingLink {
             + " followed by a subdomain, and end with top level domains like"
             + " .com or .org";
 
-    public static final String VALIDATION_REGEX = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+    public static final String VALIDATION_REGEX =
+            "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
     public final URL link;
 
