@@ -27,6 +27,7 @@
         </Label>
         <Label fx:id="tagName" text="\$first" styleClass="cell_big_label" />
       </HBox>
+      <Label fx:id="meetingLink" styleClass="cell_small_label" />
       <FlowPane fx:id="persons" />
     </VBox>
   </GridPane>

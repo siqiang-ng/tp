@@ -53,10 +53,10 @@ public class SampleDataUtil {
                             getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
                                 new TagTask("assignment 1 submission by 23:59", false)),
-                            Optional.of(new MeetingLink("https://nus-sg.zoom.us/j/87576Z4OXkveS9HNUV5QT09"))),
+                            Optional.of(new MeetingLink("https://nus-sg.com"))),
                 new Tag(new TagName("family"),
                             getTagTaskList(),
-                            Optional.of(new MeetingLink("http://skype.com/limfamily"))),
+                            Optional.of(new MeetingLink("http://skype.com"))),
                 new Tag(new TagName("friends"),
                             getTagTaskList(),
                             Optional.empty())
