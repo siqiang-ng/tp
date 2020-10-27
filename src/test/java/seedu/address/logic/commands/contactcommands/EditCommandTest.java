@@ -75,7 +75,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new Projact(model.getProjact()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
         expectedModel.addTags(editedPerson.getTagNames().stream()
-                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), null))
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
                 .collect(Collectors.toSet()));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);

@@ -71,7 +71,8 @@ public class Tag {
 
         Tag otherTag = (Tag) other;
         return otherTag.getTagName().equals(getTagName())
-                && otherTag.getTagTasks().equals(getTagTasks());
+                && otherTag.getTagTasks().equals(getTagTasks())
+                && otherTag.getMeetingLink().equals(getMeetingLink());
     }
 
     @Override
