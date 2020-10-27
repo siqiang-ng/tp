@@ -31,8 +31,8 @@ public class TagEditCommandTest {
 
     @Test
     public void execute_noFieldSpecifiedUnfilteredList_success() {
-        TagEditCommand tagEditCommand = new TagEditCommand(INDEX_FIRST_PERSON, new EditTagDescriptor());
-        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_PERSON.getZeroBased());
+        TagEditCommand tagEditCommand = new TagEditCommand(INDEX_FIRST_TAG, new EditTagDescriptor());
+        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
 
         String expectedMessage = String.format(TagEditCommand.MESSAGE_EDIT_TAG_SUCCESS, editedTag);
 
