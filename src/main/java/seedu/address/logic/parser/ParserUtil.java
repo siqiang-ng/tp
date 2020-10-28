@@ -149,7 +149,6 @@ public class ParserUtil {
      */
     public static Optional<MeetingLink> parseMeetingLink(String link) throws ParseException {
         requireNonNull(link);
-//        String trimmedLink = link.trim();
         if (!MeetingLink.isValidMeetingLink(link)) {
             throw new ParseException(MeetingLink.MESSAGE_CONSTRAINTS);
         }
