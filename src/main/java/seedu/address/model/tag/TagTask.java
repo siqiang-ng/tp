@@ -13,7 +13,7 @@ public class TagTask {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Task description should start with an alphanumeric character, and it should not be blank";
-    public static final String VALIDATION_REGEX = "^\\w.*$";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9].*$";
 
     public final String taskDescription;
     public final boolean isDone;
