@@ -3,27 +3,23 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.tagcommands.LinkDeleteCommand;
 import seedu.address.logic.commands.tagcommands.TagDeleteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-/**
- * Parses input arguments and creates a new TagDeleteCommand object
- */
-public class TagDeleteCommandParser implements Parser<TagDeleteCommand> {
-
+public class LinkDeleteCommandParser implements Parser<LinkDeleteCommand> {
     /**
-     * Parses the given {@code String} of arguments in the context of the TagDeleteCommand
-     * and returns a TagDeleteCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the LinkDeleteCommand
+     * and returns a LinkDeleteCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public TagDeleteCommand parse(String args) throws ParseException {
+    public LinkDeleteCommand parse(String args) throws ParseException {
         try {
             Index index = ParserUtil.parseIndex(args);
-            return new TagDeleteCommand(index);
+            return new LinkDeleteCommand(index);
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, TagDeleteCommand.MESSAGE_USAGE), pe);
         }
     }
-
 }
