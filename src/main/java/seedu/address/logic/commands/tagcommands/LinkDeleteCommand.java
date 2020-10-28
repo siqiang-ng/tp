@@ -26,6 +26,7 @@ public class LinkDeleteCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_DELETE_LINK_SUCCESS = "Deleted Link: %1$s from %2$s";
+    public static final String MESSAGE_NO_LINK_FAILURE = "This tag does not have link!";
 
     private final Index targetIndex;
 
@@ -43,6 +44,10 @@ public class LinkDeleteCommand extends Command {
         }
 
         Tag tagToDeleteLinkFrom = lastShownList.get(targetIndex.getZeroBased());
+
+        if (tagToDeleteLinkFrom.getMeetingLink().isEmpty()) {
+            throw new CommandException(MESSAGE_NO_LINK_FAILURE);
+        }
 
         Tag editedTag = new Tag(tagToDeleteLinkFrom.getTagName(),
                                 tagToDeleteLinkFrom.getTagTasks(), Optional.empty());

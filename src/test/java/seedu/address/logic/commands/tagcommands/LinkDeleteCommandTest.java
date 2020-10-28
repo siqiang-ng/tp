@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showTagAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TAG;
-import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjactWithLinks;
 
 import java.util.Optional;
 
@@ -26,19 +26,19 @@ import seedu.address.model.tag.Tag;
  */
 public class LinkDeleteCommandTest {
 
-    private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalProjactWithLinks(), new UserPrefs());
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Tag tagToDeleteLinkFrom = model.getFilteredTagList().get(0);
         LinkDeleteCommand linkDeleteCommand = new LinkDeleteCommand(INDEX_FIRST_TAG);
 
         String expectedMessage = String.format(LinkDeleteCommand.MESSAGE_DELETE_LINK_SUCCESS,
-                tagToDelete.getMeetingLink(), tagToDelete.getTagName());
+                tagToDeleteLinkFrom.getMeetingLink().get(), tagToDeleteLinkFrom.getTagName());
 
         ModelManager expectedModel = new ModelManager(model.getProjact(), new UserPrefs());
-        expectedModel.setTag(tagToDelete, new Tag(tagToDelete.getTagName(),
-                                                tagToDelete.getTagTasks(),
+        expectedModel.setTag(tagToDeleteLinkFrom, new Tag(tagToDeleteLinkFrom.getTagName(),
+                                                tagToDeleteLinkFrom.getTagTasks(),
                                                 Optional.empty()));
 
         assertCommandSuccess(linkDeleteCommand, model, expectedMessage, expectedModel);
@@ -56,15 +56,15 @@ public class LinkDeleteCommandTest {
     public void execute_validIndexFilteredList_success() {
         showTagAtIndex(model, INDEX_FIRST_TAG);
 
-        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Tag tagToDeleteLinkFrom = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
         LinkDeleteCommand linkDeleteCommand = new LinkDeleteCommand(INDEX_FIRST_TAG);
 
         String expectedMessage = String.format(LinkDeleteCommand.MESSAGE_DELETE_LINK_SUCCESS,
-                tagToDelete.getMeetingLink(), tagToDelete.getTagName());
+                tagToDeleteLinkFrom.getMeetingLink().get(), tagToDeleteLinkFrom.getTagName());
 
         Model expectedModel = new ModelManager(model.getProjact(), new UserPrefs());
-        expectedModel.setTag(tagToDelete, new Tag(tagToDelete.getTagName(),
-                tagToDelete.getTagTasks(),
+        expectedModel.setTag(tagToDeleteLinkFrom, new Tag(tagToDeleteLinkFrom.getTagName(),
+                tagToDeleteLinkFrom.getTagTasks(),
                 Optional.empty()));
 
         assertCommandSuccess(linkDeleteCommand, model, expectedMessage, expectedModel);
