@@ -28,6 +28,8 @@ public class TagCard extends UiPart<Region> {
     @FXML
     private Label tagName;
     @FXML
+    private Label meetingLink;
+    @FXML
     private FlowPane persons;
 
     /**
@@ -39,6 +41,7 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
+        tag.getMeetingLink().ifPresent(link -> meetingLink.setText(link.toString()));
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
