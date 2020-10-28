@@ -35,8 +35,6 @@ public class TagCard extends UiPart<Region> {
     private FlowPane persons;
     @FXML
     private Label tasks;
-    @FXML
-    private Label taskid;
 
     /**
      * Creates a {@code TagCard} with the given {@code Tag} and index to display.
