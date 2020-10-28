@@ -10,7 +10,7 @@ import seedu.address.model.Model;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 
 /**
- * Finds and lists all tags in projact whose name contains any of the argument keywords.
+ * Finds and lists all tags in Projact whose name contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class TagFindCommand extends Command {
@@ -34,9 +34,7 @@ public class TagFindCommand extends Command {
         model.updateFilteredTagList(predicate);
         return new CommandResult(
                 String.format(Messages.MESSAGE_TAGS_LISTED_OVERVIEW, model.getFilteredTagList().size()),
-                false,
-                false,
-                true, false);
+                false, false, false, false, true, false);
     }
 
     @Override

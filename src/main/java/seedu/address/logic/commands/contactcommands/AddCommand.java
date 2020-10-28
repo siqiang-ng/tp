@@ -7,20 +7,26 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 
+import java.util.ArrayList;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagTask;
 
 /**
- * Adds a person to the address book.
+ * Adds a person to Projact.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the Projact. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -36,7 +42,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the Projact";
 
     private final Person toAdd;
 
@@ -57,7 +63,9 @@ public class AddCommand extends Command {
         }
 
         model.addPerson(toAdd);
-        model.addTags(toAdd.getTags());
+        model.addTags(toAdd.getTagNames().stream()
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
+                .collect(Collectors.toSet()));
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

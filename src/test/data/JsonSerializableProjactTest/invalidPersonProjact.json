@@ -3,7 +3,8 @@
     "name": "Hans Muster",
     "phone": "9482424",
     "email": "invalid@email!3e",
-    "telegramAddress": "hans_solo"
+    "telegramAddress": "hans_solo",
+    "tagNames" : [ ]
   } ],
   "tags": []
 }
