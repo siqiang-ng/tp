@@ -57,8 +57,10 @@ public class TagTask {
      */
     @Override
     public String toString() {
-        return '[' + (this.isDone ? "Done" : "Not Done")
-                + '|' + this.taskDescription + ']';
+        String tick = "\u2713";
+        String cross = "\u2718";
+        return '[' + (this.isDone ? tick : cross)
+                + " | " + this.taskDescription + ']';
     }
 
     @Override
