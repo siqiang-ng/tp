@@ -50,7 +50,7 @@ public class LinkDeleteCommand extends Command {
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
 
         return new CommandResult(String.format(MESSAGE_DELETE_LINK_SUCCESS,
-                                                tagToDeleteLinkFrom.getMeetingLink(),
+                                                tagToDeleteLinkFrom.getMeetingLink().get(),
                                                 tagToDeleteLinkFrom.getTagName()));
     }
 
