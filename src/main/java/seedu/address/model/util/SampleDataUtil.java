@@ -45,7 +45,7 @@ public class SampleDataUtil {
             Tag[] tags = new Tag[] {
                 new Tag(new TagName("colleagues"),
                             getTagTaskList(new TagTask("after work party", false)),
-                            Optional.empty()),
+                            Optional.of(new MeetingLink("https://zoom.com"))),
                 new Tag(new TagName("neighbours"),
                             getTagTaskList(),
                             Optional.empty()),
