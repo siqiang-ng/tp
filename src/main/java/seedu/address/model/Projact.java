@@ -99,7 +99,6 @@ public class Projact implements ReadOnlyProjact {
      */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
-
         persons.setPerson(target, editedPerson);
     }
 
@@ -136,7 +135,6 @@ public class Projact implements ReadOnlyProjact {
      */
     public void setTag(Tag target, Tag editedTag) {
         requireNonNull(editedTag);
-
         persons.setTag(target, editedTag);
         tags.setTag(target, editedTag);
     }
