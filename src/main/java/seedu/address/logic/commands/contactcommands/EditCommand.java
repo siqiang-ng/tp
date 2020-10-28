@@ -8,11 +8,13 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -26,7 +28,9 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
+import seedu.address.model.tag.TagTask;
 
 /**
  * Edits the details of an existing person in Projact.
@@ -85,6 +89,9 @@ public class EditCommand extends Command {
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.addTags(editedPerson.getTagNames().stream()
+                .map(tagName -> new Tag(tagName, new ArrayList<TagTask>(), Optional.empty()))
+                .collect(Collectors.toSet()));
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
     }
 
@@ -138,7 +145,7 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
+         * A defensive copy of {@code tagsNames} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
@@ -188,8 +195,8 @@ public class EditCommand extends Command {
         }
 
         /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
+         * Sets {@code tagNames} to this object's {@code tagNames}.
+         * A defensive copy of {@code tagsNames} is used internally.
          */
         public void setTagNames(Set<TagName> tagNames) {
             this.tagNames = (tagNames != null) ? new HashSet<>(tagNames) : null;
@@ -198,7 +205,7 @@ public class EditCommand extends Command {
         /**
          * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
          * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
+         * Returns {@code Optional#empty()} if {@code tagNames} is null.
          */
         public Optional<Set<TagName>> getTagNames() {
             return (tagNames != null) ? Optional.of(Collections.unmodifiableSet(tagNames)) : Optional.empty();

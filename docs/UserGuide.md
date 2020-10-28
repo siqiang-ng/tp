@@ -255,7 +255,7 @@ Dislike how the current list of tags is displayed? Sort the tags by their names 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
- 
+
 **Format:** `tagsort`
  
 **Step-By-Step Guide:**
@@ -277,6 +277,23 @@ Format: `tagdelete INDEX`
 
 Example:
 * `tagdelete 1` deletes the tag with the index 1 in the tag list.
+
+#### Deleting the meeting link under the tag: `linkdelete`
+
+Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command follow by the index `INDEX` of that tag from the tag list.
+ 
+**Format:** `linkdelete INDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![LinkDeleteCommand Step 1](images/LinkDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to remove the tag from the "classmates" tag, key in `linkdelete 3` and hit enter.
+![LinkDeleteCommand Step 2](images/LinkDeleteCommandGuide2.png)
+
+Step 3: You should see the link being removed from the "classmates" tag like this.
+![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
 
 #### Exiting the program : `exit`
 

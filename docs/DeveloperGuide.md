@@ -218,6 +218,22 @@ The implementation and interaction of the TagSort command is similar to SortCont
 - Why is it implemented that way:
     - The TagSort and SortContact share the similar functions with one sorting the tag list and the other one sorting the person list. Hence, a similar set of commands are created for this feature to ensure the application can work smoothly.
  
+**LinkDelete command**
+ 
+The LinkDelete command allows a user to delete the meeting link from a tag permanently. 
+ 
+-How it is implemented:
+    1. The command is passed in to `LogicManager`.
+    1. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    1. `ProjactParser` identifies the command word, which in this case is 'linkdelete' and the arguments.
+    1. `ProjactParser` calls the parse method of `LinkDeleteCommandParser`, which parses the argument, creates a new `Index` object with the parsed user input, and returns a new `LinkDeleteCommand` with the new `Index` object used as an argument.
+    1. The `LogicManager` then calls the execute method of the `LinkDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. 
+    From this list, the tag that will has its meeting link being removed will be retrieved. A new tag will be created with an empty meeting link using Optional class and replaced the old tag retrieved. 
+    Then, the `ModelManager` will update the tag list.
+
+- Why is it implemented that way:
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
+
 ### Future implementation plans
 **TagAdd command**
 
@@ -270,6 +286,7 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
  
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
@@ -338,8 +355,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
-| `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
-| `* *`    | student with many project groups	        | delete the meeting platform link to each tag     | remove the link if it has been added wrongly                           |
+| `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
+| `* *`    | student                        	        | edit a particular task description               |                                                                        |
+| `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
+| `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
+| `* *`    | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
+| `* *`    | student with many project groups	        | edit the meeting platform link for each tag      |                                                                        |
+| `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
 | `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
