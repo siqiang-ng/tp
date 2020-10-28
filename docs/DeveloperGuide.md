@@ -232,7 +232,7 @@ The LinkDelete command allows a user to delete the meeting link from a tag perma
     Then, the `ModelManager` will update the tag list.
 
 - Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
 
 ### Future implementation plans
 **TagAdd command**
