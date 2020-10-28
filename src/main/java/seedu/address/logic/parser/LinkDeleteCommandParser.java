@@ -19,7 +19,7 @@ public class LinkDeleteCommandParser implements Parser<LinkDeleteCommand> {
             return new LinkDeleteCommand(index);
         } catch (ParseException pe) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, TagDeleteCommand.MESSAGE_USAGE), pe);
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, LinkDeleteCommand.MESSAGE_USAGE), pe);
         }
     }
 }
