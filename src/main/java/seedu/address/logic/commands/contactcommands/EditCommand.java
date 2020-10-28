@@ -138,7 +138,7 @@ public class EditCommand extends Command {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
+         * A defensive copy of {@code tagsNames} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
@@ -188,8 +188,8 @@ public class EditCommand extends Command {
         }
 
         /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
+         * Sets {@code tagNames} to this object's {@code tagNames}.
+         * A defensive copy of {@code tagsNames} is used internally.
          */
         public void setTagNames(Set<TagName> tagNames) {
             this.tagNames = (tagNames != null) ? new HashSet<>(tagNames) : null;
@@ -198,7 +198,7 @@ public class EditCommand extends Command {
         /**
          * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
          * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
+         * Returns {@code Optional#empty()} if {@code tagNames} is null.
          */
         public Optional<Set<TagName>> getTagNames() {
             return (tagNames != null) ? Optional.of(Collections.unmodifiableSet(tagNames)) : Optional.empty();
