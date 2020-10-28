@@ -30,9 +30,7 @@
       <FlowPane fx:id="persons" />
       <Label fx:id="meetingLink" styleClass="cell_small_label" />
       <VBox>
-
           <Label fx:id="tasks" styleClass="cell_small_label" />
-
       </VBox>
     </VBox>
   </GridPane>
