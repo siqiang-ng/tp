@@ -4,7 +4,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -28,7 +31,7 @@ public class TagCard extends UiPart<Region> {
     @FXML
     private Label tagName;
     @FXML
-    private Label meetingLink;
+    private Hyperlink meetingLink;
     @FXML
     private FlowPane persons;
 
@@ -42,6 +45,12 @@ public class TagCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
         tag.getMeetingLink().ifPresent(link -> meetingLink.setText(link.toString()));
+        meetingLink.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+            }
+        });
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
