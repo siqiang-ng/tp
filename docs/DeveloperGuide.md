@@ -220,7 +220,7 @@ The implementation and interaction of the TagSort command is similar to SortCont
  
 **LinkDelete command**
  
-The TagDelete command allows a user to delete the meeting link from a tag permanently. 
+The LinkDelete command allows a user to delete the meeting link from a tag permanently. 
  
 -How it is implemented:
     1. The command is passed in to `LogicManager`.
