@@ -65,7 +65,7 @@ public class TagCard extends UiPart<Region> {
                 try {
                     Desktop.getDesktop().browse(url.toURI());
                 } catch (Exception e) {
-                    // Do nothing
+                    new DialogWindow("Link cannot be opened").show();
                 }
             }
         });
