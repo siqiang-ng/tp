@@ -73,7 +73,7 @@ public class TagEditCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code TagName} with the name of {@code tagToEdit}
+     * Creates and returns a {@code Tag} with the name of {@code tagToEdit}
      * edited with {@code editTagDescriptor}.
      */
     private static Tag createEditedTag(Tag tagToEdit, EditTagDescriptor editTagDescriptor) {
