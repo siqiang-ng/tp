@@ -43,5 +43,40 @@
     "telegramAddress" : "george_the_best",
     "tagNames" : [ ]
   } ],
-  "tags": ["groupmate", "colleague", "CS2103T", "CS2040S", "SEP", "Hall", "Handball"]
+  "tags": [ {
+    "tagName": "groupmate",
+    "tagTasks": [],
+    "meetingLink": ""
+    },
+    {
+      "tagName": "colleague",
+      "tagTasks": [],
+      "meetingLink": ""
+    },
+    {
+      "tagName": "CS2103T",
+      "tagTasks": [],
+      "meetingLink": ""
+    },
+    {
+      "tagName": "CS2040S",
+      "tagTasks": [],
+      "meetingLink": ""
+    },
+    {
+      "tagName": "SEP",
+      "tagTasks": [],
+      "meetingLink": ""
+    },
+    {
+      "tagName": "Hall",
+      "tagTasks": [],
+      "meetingLink": ""
+    },
+    {
+      "tagName": "Handball",
+      "tagTasks": [],
+      "meetingLink": ""
+    }
+  ]
 }

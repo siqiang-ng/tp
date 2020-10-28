@@ -12,5 +12,9 @@
     "telegramAddress": "alice_pauline",
     "tagNames" : [ ]
   } ],
-  "tags": [ "friends" ]
+  "tags": [ {
+    "tagName": "friends",
+    "tagTasks": [],
+    "meetingLinks": ""
+  }]
 }
