@@ -5,7 +5,7 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 
 /**
- * A utility class to help with building EditPersonDescriptor objects.
+ * A utility class to help with building EditTagDescriptor objects.
  */
 public class EditTagDescriptorBuilder {
 
@@ -28,7 +28,7 @@ public class EditTagDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Name} of the {@code EditTagDescriptor} that we are building.
      */
     public EditTagDescriptorBuilder withTagName(String tagName) {
         descriptor.setTagName(new TagName(tagName));
