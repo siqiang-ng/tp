@@ -25,7 +25,7 @@ public class LinkAddCommandParser {
 
         Index index;
         try {
-            index = ParserUtil.parseIndex(args);
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, LinkAddCommand.MESSAGE_USAGE), pe);
