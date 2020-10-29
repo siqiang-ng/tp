@@ -1,6 +1,8 @@
 package seedu.address.ui;
 
 import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
@@ -49,14 +51,16 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
+        // Initialize meeting link
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
-            setHyperlink(meetingLink, link.link);
+            setHyperlinkUrl(meetingLink, link.link);
         }, () -> meetingLink.setVisible(false));
+        // Initialize list of persons
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
-
+        // Initialize list of tasks
         List<TagTask> tagTasksList = tag.getTagTasks();
         String taskList = "";
         char start = 'a';
@@ -68,7 +72,7 @@ public class TagCard extends UiPart<Region> {
         tasks.setText(taskList);
     }
 
-    private void setHyperlink(Hyperlink hyperlink, URL url) {
+    private void setHyperlinkUrl(Hyperlink hyperlink, URL url) {
         hyperlink.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -77,8 +81,10 @@ public class TagCard extends UiPart<Region> {
                 }
                 try {
                     Desktop.getDesktop().browse(url.toURI());
-                } catch (Exception e) {
-                    new DialogWindow("Link cannot be opened").show();
+                } catch (URISyntaxException e) {
+                    new DialogWindow("Link cannot be converted to URI format").show();
+                } catch (IOException e) {
+                    new DialogWindow("Unable to launch browser").show();
                 }
             }
         });
