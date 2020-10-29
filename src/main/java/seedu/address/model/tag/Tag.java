@@ -2,6 +2,7 @@ package seedu.address.model.tag;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +27,16 @@ public class Tag {
         this.tagName = tagName;
         this.tagTasks = tagTasks;
         this.meetingLink = link;
+    }
+
+    /**
+     * Every field must be present and not null.
+     */
+    public Tag(TagName tagName) {
+        requireAllNonNull(tagName);
+        this.tagName = tagName;
+        this.tagTasks = new ArrayList<TagTask>();
+        this.meetingLink = Optional.empty();
     }
 
     public TagName getTagName() {
