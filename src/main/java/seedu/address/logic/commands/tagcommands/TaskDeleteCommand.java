@@ -1,12 +1,15 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.tag.Tag;
@@ -55,7 +58,7 @@ public class TaskDeleteCommand extends Command {
 
         List<TagTask> editedTaskList = createEditedTaskList(tagToEdit, taskIndex);
 
-        Tag editedTag = createEditedTag(tagToEdit, editedTaskList);
+        Tag editedTag = new Tag(tagToEdit.getTagName(), editedTaskList, tagToEdit.getMeetingLink());
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
@@ -72,22 +75,9 @@ public class TaskDeleteCommand extends Command {
         if (taskIndex.getZeroBased() >= oldTaskList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
-        for (int i = 0; i < oldTaskList.size(); i++) {
-            int target = taskIndex.getZeroBased();
-            if (i == target) {
-                oldTaskList.remove(target);
-            }
-        }
-        return oldTaskList;
-    }
-
-    /**
-     * Creates and returns a {@code Tag} with the name of {@code tagToEdit} with the newTaskList.
-     */
-    private static Tag createEditedTag(Tag tagToEdit, List<TagTask> newTaskList) {
-        assert tagToEdit != null;
-
-        return new Tag(tagToEdit.getTagName(), newTaskList, tagToEdit.getMeetingLink());
+        List<TagTask> updatedTagTask = new ArrayList<>(oldTaskList);
+        updatedTagTask.remove(taskIndex.getZeroBased());
+        return updatedTagTask;
     }
 
     @Override
