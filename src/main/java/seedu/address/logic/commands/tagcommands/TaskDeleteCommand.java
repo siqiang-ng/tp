@@ -35,7 +35,7 @@ public class TaskDeleteCommand extends Command {
 
     /**
      * @param index of the tag in the filtered tag list to edit
-     * @param index of the task in the targeted tag to edit
+     * @param taskIndex of the task in the targeted tag to edit
      */
     public TaskDeleteCommand(Index index, Index taskIndex) {
         requireNonNull(index);
