@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -46,6 +48,8 @@ public class PersonCard extends UiPart<Region> {
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
+        requireNonNull(person);
+        assert displayedIndex > 0 : "Displayed index should be greater than 0";
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
