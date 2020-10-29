@@ -3,7 +3,7 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ADDRESS_BOB;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
@@ -109,7 +109,7 @@ public class ModelManagerTest {
     public void hasPerson_personWithSameIdentityFieldsInModelManager_returnsTrue() {
         modelManager.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTagNames(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         assertTrue(modelManager.hasPerson(editedAlice));
     }
 

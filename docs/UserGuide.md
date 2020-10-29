@@ -20,6 +20,7 @@ title: User Guide
     * [Contact](#contact-features)
     * [Tag](#tag-features)
         * [Link](#link-features)
+        * [Task](#task-features)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
@@ -287,15 +288,25 @@ Step 2: Hit enter and the list with all the tags that you have added will be dis
 
 #### Editing a tag : `tagedit`
 
-Edits an existing tag in the tag list.
+Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
 
-Format: `tagedit INDEX t/tag`
+**Format**: `tagedit INDEX t/TAG_NAME`
 
-* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
-* All users tagged with the original tag will have their tag renamed.
+**Step-By-Step Guide:**
 
-Examples:
-*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
+![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
+
+Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
+
+Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
+![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Take note:**<br>
+* The index **must be a positive integer** 1, 2, 3, …​
+</div>
 
 #### Locating tags by name: `tagfind`
 
@@ -334,15 +345,50 @@ Step 2: Hit enter and the list with all the tag names sorted will be displayed i
 
 #### Deleting a tag: `tagdelete`
 
-Deletes the specified tag in the tag list.
+Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-Format: `tagdelete INDEX`
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+The tag will also be removed from the contact(s) that contain(s) the tag.
+</div>
 
-* Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag.
+**Format:** `tagdelete INDEX`
 
-Example:
-* `tagdelete 1` deletes the tag with the index 1 in the tag list.
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5` and hit enter.
+![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
+
+Step 3: You should see the updated tag list without the "family" tag.
+![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
+
+#### Adding a meeting link under a tag: `linkadd`
+
+This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+
+**Format:** `linkadd INDEX l/LINK`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
+
+Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkdelete 6 l/https://skype.com/cs2103proj/` and hit enter.
+
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
+</div>
+
+![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
+
+Step 3: You should see the link being added to the "CS2103Project" tag like this. 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Click on the link to be redirected to your browser!
+</div>
+
+![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
 ### Link Features
 
@@ -363,6 +409,31 @@ Step 2: For example, if you want to remove the tag from the "classmates" tag, ke
 Step 3: You should see the link being removed from the "classmates" tag like this.
 ![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
 
+### Task Features
+
+#### Adding a task: `taskadd`
+
+Is there a specific task you want to add to a tag? Simply use the `taskadd` command followed by the index of that tag, and the name of the task!
+
+**Format:** `taskadd INDEX task/TASK_NAME`
+
+* Adds a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Task will not be added if specified tag with `INDEX` already has a task with the same task name.
+
+Example:
+* `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
+
+#### Deleting a task: `taskdelete`
+
+Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
+
+**Format:** `taskdelete INDEX ALPHAINDEX`
+
+* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+
+Example:
+* `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
@@ -378,9 +449,14 @@ Action | Format, Examples
 **Help** | `help`
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
-**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
-**Tag List** | `taglist`
+**Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag List** | `taglist`
+**Link Add** | `linkadd INDEX l/LINK` <br> e.g, `linkadd 2 l/https://skype.com/cs2103proj/`
+**Link Delete** | `linkdelete INDEX`<br> e.g., `linkdelete 1`
+**Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
+**Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
+**Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
 
 --------------------------------------------------------------------------------------------------------------------
 
