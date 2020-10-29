@@ -268,15 +268,50 @@ Step 2: Hit enter and the list with all the tag names sorted will be displayed i
 
 #### Deleting a tag: `tagdelete`
 
-Deletes the specified tag in the tag list.
+Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-Format: `tagdelete INDEX`
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+The tag will also be removed from the contact(s) that contain(s) the tag.
+</div>
 
-* Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag.
+**Format:** `tagdelete INDEX`
 
-Example:
-* `tagdelete 1` deletes the tag with the index 1 in the tag list.
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5` and hit enter.
+![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
+
+Step 3: You should see the updated tag list without the "family" tag.
+![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
+
+#### Adding a meeting link under a tag: `linkadd`
+
+This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+
+**Format:** `linkadd INDEX l/LINK`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
+
+Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkdelete 6 l/https://skype.com/cs2103proj/` and hit enter.
+
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
+</div>
+
+![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
+
+Step 3: You should see the link being added to the "CS2103Project" tag like this. 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Click on the link to be redirected to your browser!
+</div>
+
+![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
 #### Deleting the meeting link under the tag: `linkdelete`
 
