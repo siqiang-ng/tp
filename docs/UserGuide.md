@@ -297,8 +297,8 @@ Step 3: You should see the link being removed from the "classmates" tag like thi
 
 #### Marking a task under a tag as done: `taskdone`
 
-After adding task to your targeted tag, you must have seen the cross beside the task description. So how to change it 
-to a tick so that you can keep track of the task progress? Use `taskdone` followed by the index `INDEX` of the tag and 
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
 the alphabetical index `ALPHAINDEX` to do the magic!
 
 **Format:** `taskdone INDEX ALPHAINDEX`
@@ -311,7 +311,7 @@ Step 1: First key in `taglist` and hit enter to display all the tags.
 Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
 ![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
 
-Step 3: You should see the task "complete user guide" having a tick beside it.
+Step 3: You should see the task "complete user guide" have a tick beside it.
 ![TaskDoneCommand Step 3](images/TaskDoneCommandGuide3.png)
 
 #### Exiting the program : `exit`
