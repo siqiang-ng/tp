@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ADDRESS_BOB;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
@@ -70,7 +70,7 @@ public class ProjactTest {
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two persons with the same identity fields
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTagNames(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
         List<Tag> newTags = Arrays.asList(CS2103T);
         ProjactStub newData = new ProjactStub(newPersons, newTags);
@@ -109,7 +109,7 @@ public class ProjactTest {
     public void hasPerson_personWithSameIdentityFieldsInProjact_returnsTrue() {
         projact.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTagNames(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         assertTrue(projact.hasPerson(editedAlice));
     }
 
