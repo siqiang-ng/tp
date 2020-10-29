@@ -89,4 +89,22 @@ public class TaskDoneCommand extends Command {
 
         return new Tag(tagToEdit.getTagName(), newTaskList, tagToEdit.getMeetingLink());
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof TaskDoneCommand)) {
+            return false;
+        }
+
+        // state check
+        TaskDoneCommand e = (TaskDoneCommand) other;
+        return index.equals(e.index)
+                && taskIndex.equals(e.taskIndex);
+    }
 }
