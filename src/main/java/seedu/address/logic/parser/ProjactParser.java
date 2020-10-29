@@ -10,6 +10,7 @@ import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.TaskDeleteCommand;
 import seedu.address.logic.commands.contactcommands.AddCommand;
 import seedu.address.logic.commands.contactcommands.DeleteCommand;
 import seedu.address.logic.commands.contactcommands.EditCommand;
@@ -95,6 +96,9 @@ public class ProjactParser {
 
         case TagSortCommand.COMMAND_WORD:
             return new TagSortCommand();
+
+        case TaskDeleteCommand.COMMAND_WORD:
+            return new TaskDeleteCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
