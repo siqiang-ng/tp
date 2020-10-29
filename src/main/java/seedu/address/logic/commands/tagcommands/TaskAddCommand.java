@@ -1,9 +1,10 @@
-package seedu.address.logic.commands.taskcommands;
+package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,7 @@ public class TaskAddCommand extends Command {
             + PREFIX_TASK + "Peer review ";
 
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
+    public static final String MESSAGE_TASK_NAME_NOT_PROVIDED = "Name of task must be provided.";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in this tag.";
 
     private final Index index;
@@ -77,8 +79,9 @@ public class TaskAddCommand extends Command {
         assert tagToEdit != null;
 
         TagName tagName = tagToEdit.getTagName();
-        List<TagTask> updatedTagTasks = tagToEdit.getModifiableTagTask();
+        List<TagTask> oldTagTasks = tagToEdit.getTagTasks();
         // add tasks to tagtasks
+        List<TagTask> updatedTagTasks = new ArrayList<>(oldTagTasks);
         updatedTagTasks.add(editTagDescriptor.newTagTask);
         Optional<MeetingLink> meetingLink = tagToEdit.getMeetingLink();
         return new Tag(tagName, updatedTagTasks, meetingLink);

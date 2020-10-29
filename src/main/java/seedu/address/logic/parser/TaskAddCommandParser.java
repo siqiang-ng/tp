@@ -5,8 +5,8 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.taskcommands.TaskAddCommand;
-import seedu.address.logic.commands.taskcommands.TaskAddCommand.EditTagDescriptor;
+import seedu.address.logic.commands.tagcommands.TaskAddCommand;
+import seedu.address.logic.commands.tagcommands.TaskAddCommand.EditTagDescriptor;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -36,6 +36,8 @@ public class TaskAddCommandParser implements Parser<TaskAddCommand> {
 
         if (argMultimap.getValue(PREFIX_TASK).isPresent()) {
             editTagDescriptor.setNewTagTask(ParserUtil.parseTagTask(argMultimap.getValue(PREFIX_TASK).get(), false));
+        } else {
+            throw new ParseException(TaskAddCommand.MESSAGE_TASK_NAME_NOT_PROVIDED);
         }
 
         return new TaskAddCommand(index, editTagDescriptor);
