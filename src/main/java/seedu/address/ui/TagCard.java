@@ -49,7 +49,7 @@ public class TagCard extends UiPart<Region> {
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
             setHyperlink(meetingLink, link.link);
-            }, () -> meetingLink.setVisible(false));
+        }, () -> meetingLink.setVisible(false));
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
