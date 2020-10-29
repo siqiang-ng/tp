@@ -30,11 +30,11 @@ public class SampleDataUtil {
             new Person(new PersonName("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new TelegramAddress("berniceYu"), getTagNameSet("colleagues", "friends")),
             new Person(new PersonName("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                new TelegramAddress("char_Oli"), getTagNameSet("neighbours")),
+                new TelegramAddress("char_Oli"), getTagNameSet("CS2100")),
             new Person(new PersonName("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
                 new TelegramAddress("david123"), getTagNameSet("family")),
             new Person(new PersonName("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                new TelegramAddress("Irfan_Ibrahim24"), getTagNameSet("classmates")),
+                new TelegramAddress("Irfan_Ibrahim24"), getTagNameSet("CS2101")),
             new Person(new PersonName("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new TelegramAddress("RoyBalak111"), getTagNameSet("colleagues"))
         };
@@ -46,10 +46,15 @@ public class SampleDataUtil {
                 new Tag(new TagName("colleagues"),
                         getTagTaskList(new TagTask("after work party", false)),
                         Optional.of(new MeetingLink("https://zoom.com"))),
-                new Tag(new TagName("neighbours"),
-                        getTagTaskList(),
-                        Optional.empty()),
-                new Tag(new TagName("classmates"),
+                new Tag(new TagName("CS2101"),
+                        getTagTaskList(
+                                new TagTask("presentation on mon", false),
+                                new TagTask("complete user guide", false),
+                                new TagTask("email teacher for consultation", false)),
+                        Optional.of(
+                                new MeetingLink("https://nus-sg.zoom.us/j/96034098506?pwd=b3l6UWpMb25yN1"
+                                        + "JlUldTbGdhbTFSdz09"))),
+                new Tag(new TagName("CS2100"),
                         getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
                                 new TagTask("assignment 1 submission by 23:59", false)),

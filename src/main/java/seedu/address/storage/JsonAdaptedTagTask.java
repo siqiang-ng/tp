@@ -28,7 +28,7 @@ public class JsonAdaptedTagTask {
      */
     public JsonAdaptedTagTask(TagTask source) {
         this.taskDescription = source.taskDescription;
-        this.isDone = source.isDone;
+        this.isDone = source.getIsDone();
     }
 
     /**

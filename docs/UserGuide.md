@@ -22,6 +22,11 @@ title: User Guide
         * [Link](#link-features)
         * [Task](#task-features)
 * [Command Summary](#command-summary)
+    * [General](#general-commands)
+    * [Contact](#contact-commands)
+    * [Tag](#tag-commands)
+    * [Link](#link-commands)
+    * [Task](#task-commands)
 * [FAQ](#faq)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -55,7 +60,7 @@ Before you go on, here are some key terms and symbols you should know!
    
 #### Wait, what are Tags?
 - Tags are extremely customizable labels you can use to help organise your contacts. 
-- Each contact can have any number of tags, from 0 to any number you can think of!
+- Each contact can have any number of tags, from 0 to any number you assign it!
 - Tags can store the following information:
     - Tasks
     - Meeting link
@@ -74,12 +79,16 @@ Before you go on, here are some key terms and symbols you should know!
 
 ### Symbols
 
+<!--suppress HtmlUnknownAttribute -->
+<div markdown="block" class="alert alert-info">
+
 #### <div> :information_source: </div> 
 - This information symbol signals that there are things you should take note of! 
 
 #### <div> :bulb: </div>
 - The light bulb symbol will show you a tip to make your Projact experience smoother.
 
+</div>
 
 Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
 
@@ -89,7 +98,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.2/projact.jar).
+1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.3/projact.jar).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Projact application.
 
@@ -243,7 +252,6 @@ Step 1: Key in the `sort` command.
 Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
 ![SortContactCommand Step 2](images/SortCommandGuide2.png)
 
-
 #### Deleting a contact : `delete`
 
 Deletes the specified contact from the person list.
@@ -364,6 +372,8 @@ Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5
 Step 3: You should see the updated tag list without the "family" tag.
 ![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
 
+### Link Features
+
 #### Adding a meeting link under a tag: `linkadd`
 
 This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
@@ -390,11 +400,9 @@ Click on the link to be redirected to your browser!
 
 ![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
-### Link Features
-
 #### Deleting the meeting link under the tag: `linkdelete`
 
-Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command follow by the index `INDEX` of that tag from the tag list.
+Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
 
@@ -403,7 +411,7 @@ Want to get rid of the meeting link under a particular tag? Use the `linkdelete`
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkDeleteCommand Step 1](images/LinkDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the tag from the "classmates" tag, key in `linkdelete 3` and hit enter.
+Step 2: For example, if you want to remove the link from the "classmates" tag, key in `linkdelete 3` and hit enter.
 ![LinkDeleteCommand Step 2](images/LinkDeleteCommandGuide2.png)
 
 Step 3: You should see the link being removed from the "classmates" tag like this.
@@ -423,6 +431,25 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
 
+#### Marking a task under a tag as done: `taskdone`
+
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
+the alphabetical index `ALPHAINDEX` to do the magic!
+
+**Format:** `taskdone INDEX ALPHAINDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
+
+Step 3: You should see the task "complete user guide" have a tick beside it.
+![TaskDoneCommand Step 3](images/TaskDoneCommandGuide3.png)
+
 #### Deleting a task: `taskdelete`
 
 Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
@@ -438,22 +465,47 @@ Example:
 
 ## Command summary
 
+### General commands
+
+Action | Format, Examples
+--------|------------------
+**Help** | `help`
+**Clear** | `clear`
+**Exit** | `exit`
+
+### Contact commands
+
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**List** | `list`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+**Sort** | `sort`
+**Delete** | `delete INDEX`<br> e.g., `delete 3`
+
+### Tag commands
+
+Action | Format, Examples
+--------|------------------
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
-**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
+**Tag List** | `taglist`
 **Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
-**Tag List** | `taglist`
+**Tag Sort** | `tagsort`
+**Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
+
+### Link commands
+
+Action | Format, Examples
+--------|------------------
 **Link Add** | `linkadd INDEX l/LINK` <br> e.g, `linkadd 2 l/https://skype.com/cs2103proj/`
 **Link Delete** | `linkdelete INDEX`<br> e.g., `linkdelete 1`
+
+### Task commands
+
+Action | Format, Examples
+--------|------------------
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
 **Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
 **Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
@@ -464,5 +516,3 @@ Action | Format, Examples
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Projact home folder.
-
-

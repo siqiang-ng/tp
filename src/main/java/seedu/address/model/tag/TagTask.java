@@ -5,6 +5,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.util.Objects;
 
+import seedu.address.logic.commands.exceptions.CommandException;
+
 /**
  * Represents a TagTask in the address book.
  * Guarantees: immutable; task description is valid as declared in {@link #isValidTaskDescription(String)}
@@ -16,7 +18,7 @@ public class TagTask {
     public static final String VALIDATION_REGEX = "^[a-zA-Z0-9].*$";
 
     public final String taskDescription;
-    public final boolean isDone;
+    private boolean isDone;
 
     /**
      * Constructs a {@code TagTask}.
@@ -30,6 +32,10 @@ public class TagTask {
         checkArgument(isValidTaskDescription(taskDescription), MESSAGE_CONSTRAINTS);
         this.taskDescription = taskDescription;
         this.isDone = isDone;
+    }
+
+    public boolean getIsDone() {
+        return this.isDone;
     }
 
     /**
@@ -53,12 +59,27 @@ public class TagTask {
     }
 
     /**
+     * Modify the isDone status to true to signify the completion of task.
+     * @throws CommandException if the Task has already been completed
+     */
+    public void markDone() throws CommandException {
+        if (!this.isDone) {
+            this.isDone = true;
+        } else {
+            throw new CommandException(
+                    String.format("Task: %1$s is already completed!", this.toString()));
+        }
+    }
+
+    /**
      * Format state as text for viewing.
      */
     @Override
     public String toString() {
-        return '[' + (this.isDone ? "Done" : "Not Done")
-                + '|' + this.taskDescription + ']';
+        String tick = "\u2713";
+        String cross = "\u2718";
+        return '[' + (this.isDone ? tick : cross)
+                + " | " + this.taskDescription + ']';
     }
 
     @Override
