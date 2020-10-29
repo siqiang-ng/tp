@@ -48,7 +48,7 @@ public class SampleDataUtil {
                             Optional.of(new MeetingLink("https://zoom.com"))),
                 new Tag(new TagName("neighbours"),
                             getTagTaskList(),
-                            Optional.empty()),
+                        Optional.empty()),
                 new Tag(new TagName("classmates"),
                             getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
