@@ -28,8 +28,6 @@ public class TaskDoneCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 a";
 
     public static final String MESSAGE_MARK_DONE_SUCCESS = "This task in tag %1$s has been marked done:\n" + "%2$s";
-    public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_TAG = "This tag already exists in Projact.";
 
     private final Index index;
     private final Index taskIndex;
@@ -60,10 +58,6 @@ public class TaskDoneCommand extends Command {
         List<TagTask> editedTaskList = createEditedTaskList(tagToEdit, taskIndex);
 
         Tag editedTag = createEditedTag(tagToEdit, editedTaskList);
-
-        if (!tagToEdit.isSameTag(editedTag) && model.hasTag(editedTag)) {
-            throw new CommandException(MESSAGE_DUPLICATE_TAG);
-        }
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
