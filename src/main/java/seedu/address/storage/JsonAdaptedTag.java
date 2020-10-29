@@ -21,6 +21,7 @@ import seedu.address.model.tag.TagTask;
  * Jackson-friendly version of {@link Tag}.
  */
 class JsonAdaptedTag {
+    public static final String MISSING_FIELD_MESSAGE_FORMAT = "Tag's %s field is missing!";
 
     private final String tagName;
     private final List<JsonAdaptedTagTask> tagTasks = new ArrayList<>();
