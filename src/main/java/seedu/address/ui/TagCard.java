@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import java.awt.Desktop;
+import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -44,16 +46,29 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
-        tag.getMeetingLink().ifPresent(link -> meetingLink.setText(link.toString()));
-        meetingLink.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-            }
+        tag.getMeetingLink().ifPresent(link -> {
+            meetingLink.setText(link.toString());
+            setHyperlink(meetingLink, link.link);
         });
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
+    }
+
+    private void setHyperlink(Hyperlink hyperlink, URL url) {
+        hyperlink.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!Desktop.isDesktopSupported()) {
+                    return;
+                }
+                try {
+                    Desktop.getDesktop().browse(url.toURI());
+                } catch (Exception e) {
+                    new DialogWindow("Link cannot be opened").show();
+                }
+            }
+        });
     }
 
     /**
