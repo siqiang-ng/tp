@@ -55,7 +55,7 @@ public class TaskDoneCommand extends Command {
 
         Tag tagToEdit = lastShownList.get(index.getZeroBased());
 
-        List<TagTask> editedTaskList = createEditedTaskList(tagToEdit, taskIndex);
+        List<TagTask> editedTaskList = createModifiedTaskList(tagToEdit, taskIndex);
 
         Tag editedTag = createEditedTag(tagToEdit, editedTaskList);
 
@@ -69,7 +69,7 @@ public class TaskDoneCommand extends Command {
     /**
      * Mark the targeted task as done and returns an edited {@code List<TagTask>}.
      */
-    private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
+    private static List<TagTask> createModifiedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
         if (taskIndex.getZeroBased() >= oldTaskList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);

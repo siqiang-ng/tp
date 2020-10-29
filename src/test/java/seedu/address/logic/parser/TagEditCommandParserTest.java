@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.tagcommands.TagEditCommand;
+import seedu.address.logic.parser.tagparsers.TagEditCommandParser;
 import seedu.address.model.tag.TagName;
 import seedu.address.testutil.EditTagDescriptorBuilder;
 
