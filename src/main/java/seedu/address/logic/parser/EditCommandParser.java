@@ -27,16 +27,16 @@ public class EditCommandParser implements Parser<EditCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                                                                                PREFIX_TELEGRAM_ADDRESS, PREFIX_TAG);
+                        PREFIX_TELEGRAM_ADDRESS, PREFIX_TAG);
 
         Index index;
-
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
@@ -55,7 +55,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         if (argMultimap.getValue(PREFIX_TELEGRAM_ADDRESS).isPresent()) {
             editPersonDescriptor.setTelegramAddress(ParserUtil.parseTelegramAddress(
-                                                    argMultimap.getValue(PREFIX_TELEGRAM_ADDRESS).get()));
+                    argMultimap.getValue(PREFIX_TELEGRAM_ADDRESS).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTagNames);
 

@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.commons.core.index.Index;
@@ -13,10 +14,12 @@ public class TagDeleteCommandParser implements Parser<TagDeleteCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the TagDeleteCommand
-     * and returns a TagDeleteCommand object faor execution.
+     * and returns a TagDeleteCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public TagDeleteCommand parse(String args) throws ParseException {
+        requireNonNull(args);
+
         try {
             Index index = ParserUtil.parseIndex(args);
             return new TagDeleteCommand(index);

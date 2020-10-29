@@ -119,7 +119,6 @@ public class ModelManager implements Model {
     @Override
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
-
         projact.setPerson(target, editedPerson);
     }
 
@@ -150,6 +149,7 @@ public class ModelManager implements Model {
                 addTag(tag);
             }
         }
+        updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
     }
 
     @Override
