@@ -69,11 +69,11 @@ Before you go on, here are some key terms and symbols you should know!
 
 ### Symbols
 
-<div> :information_source: </div> 
+#### <div> :information_source: </div> 
 - This information symbol signals that there are things you should take note of! 
 
-<div> :bulb: </div>
-- The light bulb symbol will alert you to a tip by us to make your Projact experience smoother.
+#### <div> :bulb: </div>
+- The light bulb symbol will show you a tip to make your Projact experience smoother.
 
 
 Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
