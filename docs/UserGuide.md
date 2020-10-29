@@ -280,7 +280,7 @@ Example:
 
 #### Deleting the meeting link under the tag: `linkdelete`
 
-Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command follow by the index `INDEX` of that tag from the tag list.
+Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
 
@@ -294,6 +294,25 @@ Step 2: For example, if you want to remove the tag from the "classmates" tag, ke
 
 Step 3: You should see the link being removed from the "classmates" tag like this.
 ![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
+
+#### Marking a task under a tag as done: `taskdone`
+
+After adding task to your targeted tag, you must have seen the cross beside the task description. So how to change it 
+to a tick so that you can keep track of the task progress? Use `taskdone` followed by the index `INDEX` of the tag and 
+the alphabetical index `ALPHAINDEX` to do the magic!
+
+**Format:** `taskdone INDEX ALPHAINDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
+
+Step 3: You should see the task "complete user guide" having a tick beside it.
+![TaskDoneCommand Step 3](images/TaskDoneCommandGuide3.png)
 
 #### Exiting the program : `exit`
 
