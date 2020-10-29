@@ -9,8 +9,8 @@ title: User Guide
 * [About the User Guide](#about-this-user-guide)
 * [Quick Start](#quick-start)
 * [Features](#features)
-    * [Contact](#_contact-features_)
-    * [Tag](#_tag-features_)
+    * [Contact](#contact-features)
+    * [Tag](#tag-features)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
@@ -221,15 +221,25 @@ Step 2: Hit enter and the list with all the tags that you have added will be dis
 
 #### Editing a tag : `tagedit`
 
-Edits an existing tag in the tag list.
+Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
 
-Format: `tagedit INDEX t/tag`
+**Format**: `tagedit INDEX t/TAG_NAME`
 
-* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
-* All users tagged with the original tag will have their tag renamed.
+**Step-By-Step Guide:**
 
-Examples:
-*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
+![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
+
+Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
+
+Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
+![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Take note:**<br>
+* The index **must be a positive integer** 1, 2, 3, …​
+</div>
 
 #### Locating tags by name: `tagfind`
 
