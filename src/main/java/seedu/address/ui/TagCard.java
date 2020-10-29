@@ -49,10 +49,10 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
-        tag.getMeetingLink().ifPresent(link -> {
+        tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
             setHyperlink(meetingLink, link.link);
-        });
+        }, () -> meetingLink.setVisible(false));
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));

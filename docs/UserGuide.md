@@ -7,10 +7,20 @@ title: User Guide
 ## Table of Contents
 * [Introduction](#introduction)
 * [About the User Guide](#about-this-user-guide)
+    * [Key Terms](#key-terms)
+        * [Contacts](#what-are-contacts)
+        * [Tags](#wait-what-are-tags)
+        * [Tasks](#how-about-tasks)
+        * [Meeting Links](#and-meeting-links)
+        * [Index](#index) 
+    * [Symbols](#symbols)
 * [Quick Start](#quick-start)
 * [Features](#features)
-    * [Contact](#_contact-features_)
-    * [Tag](#_tag-features_)
+    * [General](#general-features)
+    * [Contact](#contact-features)
+    * [Tag](#tag-features)
+        * [Link](#link-features)
+        * [Task](#task-features)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
@@ -19,9 +29,9 @@ title: User Guide
 ## Introduction
 Welcome to the *Projact User Guide*!
 
-Projact is a **project and contact management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+Projact is a **project and contact management app that helps NUS computing students to organise their fellow students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
+The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which can store the tags of the modules that the current user is taking in this semester and even more!
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -29,6 +39,49 @@ The Projact application consists of a person list, which stores the contacts of 
 This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. 
 
 A basic understanding of how the Command Line Interface works would be good. However, a lack of it would not affect your experience with Projact as prior technical experience is not required.
+
+Before you go on, here are some key terms and symbols you should know!
+
+### Key Terms
+
+#### What are Contacts?
+- People whose information you store inside Projact are known as contacts. 
+- Contacts contain the following information:
+    - Name
+    - Phone number
+    - Email address
+    - Telegram address
+- You can also tag your contacts!
+   
+#### Wait, what are Tags?
+- Tags are extremely customizable labels you can use to help organise your contacts. 
+- Each contact can have any number of tags, from 0 to any number you can think of!
+- Tags can store the following information:
+    - Tasks
+    - Meeting link
+
+#### How about Tasks?
+- Ever forget what to-dos have been allocated to your project mates? Keep track of them by storing the to-dos as Tasks in Projact!
+- Tasks are stored under a tag so you can easily categorise them.
+- Whenever you or your project mates are done with their tasks, you can easily check them off and feel accomplished!
+
+#### And Meeting Links?
+- There are so many meeting links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
+- The Meeting Link will be stored under a tag so it's easy to know what it's for. 
+
+#### Index?
+- Index refers to the contact's or tag's position in its list. You will need this to use many of the commands! But fret not, it's really easy to identify the index of your desired contact or tag. Find out more about this later on in the User Guide!
+
+### Symbols
+
+#### <div> :information_source: </div> 
+- This information symbol signals that there are things you should take note of! 
+
+#### <div> :bulb: </div>
+- The light bulb symbol will show you a tip to make your Projact experience smoother.
+
+
+Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -81,10 +134,14 @@ A basic understanding of how the Command Line Interface works would be good. How
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
 
 </div>
 
-### Viewing help : `help`
+### General Features
+
+#### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
 
@@ -92,11 +149,21 @@ Shows a message explaining how to access the help page.
 
 Format: `help`
 
-### Clearing all entries : `clear`
+#### Clearing all entries : `clear`
 
 Clears all contact entries from the person list in Projact.
 
 Format: `clear`
+
+#### Exiting the program : `exit`
+
+Exits Projact application.
+
+Format: `exit`
+
+#### Saving the data
+
+Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Contact Features
 
@@ -176,7 +243,6 @@ Step 1: Key in the `sort` command.
 Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
 ![SortContactCommand Step 2](images/SortCommandGuide2.png)
 
-
 #### Deleting a contact : `delete`
 
 Deletes the specified contact from the person list.
@@ -221,15 +287,25 @@ Step 2: Hit enter and the list with all the tags that you have added will be dis
 
 #### Editing a tag : `tagedit`
 
-Edits an existing tag in the tag list.
+Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
 
-Format: `tagedit INDEX t/tag`
+**Format**: `tagedit INDEX t/TAG_NAME`
 
-* Edits the tag at the specified `INDEX`. The index refers to the index number shown in the displayed tag list. The index **must be a positive integer** 1, 2, 3, …​
-* All users tagged with the original tag will have their tag renamed.
+**Step-By-Step Guide:**
 
-Examples:
-*  `tagedit 1 t/CS2101` Edits the original tag in index 1 in the tag list to `CS2101`. All users will have the old tag edited to be `CS2101`.
+Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
+![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
+
+Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
+
+Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
+![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Take note:**<br>
+* The index **must be a positive integer** 1, 2, 3, …​
+</div>
 
 #### Locating tags by name: `tagfind`
 
@@ -268,15 +344,52 @@ Step 2: Hit enter and the list with all the tag names sorted will be displayed i
 
 #### Deleting a tag: `tagdelete`
 
-Deletes the specified tag in the tag list.
+Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-Format: `tagdelete INDEX`
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+The tag will also be removed from the contact(s) that contain(s) the tag.
+</div>
 
-* Deletes the tag with the index `INDEX` from the tag list.
-* The tag will also be removed from the contact(s) that contain(s) the tag.
+**Format:** `tagdelete INDEX`
 
-Example:
-* `tagdelete 1` deletes the tag with the index 1 in the tag list.
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5` and hit enter.
+![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
+
+Step 3: You should see the updated tag list without the "family" tag.
+![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
+
+#### Adding a meeting link under a tag: `linkadd`
+
+This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+
+**Format:** `linkadd INDEX l/LINK`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
+
+Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkdelete 6 l/https://skype.com/cs2103proj/` and hit enter.
+
+<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
+</div>
+
+![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
+
+Step 3: You should see the link being added to the "CS2103Project" tag like this. 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Click on the link to be redirected to your browser!
+</div>
+
+![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
+
+### Link Features
 
 #### Deleting the meeting link under the tag: `linkdelete`
 
@@ -294,6 +407,20 @@ Step 2: For example, if you want to remove the link from the "classmates" tag, k
 
 Step 3: You should see the link being removed from the "classmates" tag like this.
 ![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
+
+### Task Features
+
+#### Adding a task: `taskadd`
+
+Is there a specific task you want to add to a tag? Simply use the `taskadd` command followed by the index of that tag, and the name of the task!
+
+**Format:** `taskadd INDEX task/TASK_NAME`
+
+* Adds a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Task will not be added if specified tag with `INDEX` already has a task with the same task name.
+
+Example:
+* `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
 
 #### Marking a task under a tag as done: `taskdone`
 
@@ -314,15 +441,16 @@ Step 2: For example, if you want to mark the second task under the tag "CS2101" 
 Step 3: You should see the task "complete user guide" have a tick beside it.
 ![TaskDoneCommand Step 3](images/TaskDoneCommandGuide3.png)
 
-#### Exiting the program : `exit`
+#### Deleting a task: `taskdelete`
 
-Exits Projact application.
+Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
 
-Format: `exit`
+**Format:** `taskdelete INDEX ALPHAINDEX`
 
-#### Saving the data
+* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
 
-Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Example:
+* `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -339,9 +467,14 @@ Action | Format, Examples
 **Help** | `help`
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
-**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
-**Tag List** | `taglist`
+**Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag List** | `taglist`
+**Link Add** | `linkadd INDEX l/LINK` <br> e.g, `linkadd 2 l/https://skype.com/cs2103proj/`
+**Link Delete** | `linkdelete INDEX`<br> e.g., `linkdelete 1`
+**Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
+**Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
+**Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
 
 --------------------------------------------------------------------------------------------------------------------
 
