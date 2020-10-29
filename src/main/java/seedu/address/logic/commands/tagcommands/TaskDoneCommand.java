@@ -57,7 +57,7 @@ public class TaskDoneCommand extends Command {
 
         List<TagTask> editedTaskList = createModifiedTaskList(tagToEdit, taskIndex);
 
-        Tag editedTag = createEditedTag(tagToEdit, editedTaskList);
+        Tag editedTag = new Tag(tagToEdit.getTagName(), editedTaskList, tagToEdit.getMeetingLink());
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
@@ -83,15 +83,6 @@ public class TaskDoneCommand extends Command {
             }
         }
         return oldTaskList;
-    }
-
-    /**
-     * Creates and returns a {@code Tag} with the name of {@code tagToEdit} with the newTaskList.
-     */
-    private static Tag createEditedTag(Tag tagToEdit, List<TagTask> newTaskList) {
-        assert tagToEdit != null;
-
-        return new Tag(tagToEdit.getTagName(), newTaskList, tagToEdit.getMeetingLink());
     }
 
     @Override
