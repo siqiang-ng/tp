@@ -275,10 +275,32 @@ The LinkDelete command allows a user to delete the meeting link from a tag perma
     1. `ProjactParser` calls the parse method of `LinkDeleteCommandParser`, which parses the argument, creates a new `Index` object with the parsed user input, and returns a new `LinkDeleteCommand` with the new `Index` object used as an argument.
     1. The `LogicManager` then calls the execute method of the `LinkDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. 
     From this list, the tag that will has its meeting link being removed will be retrieved. A new tag will be created with an empty meeting link using Optional class and replaced the old tag retrieved. 
-    Then, the `ModelManager` will update the tag list.
+    1. Then, the `ModelManager` will update the tag list.
 
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
+    
+**TaskDone command**
+ 
+The TaskDone command allows the user to mark a task under a tag as done. 
+ 
+-How it is implemented:
+    1. The command is passed in to `LogicManager`.
+    1. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    1. `ProjactParser` identifies the command word, which in this case is 'taskdone' and the arguments.
+    1. `ProjactParser` calls the parse method of `TaskDoneCommandParser`, which parses the arguments, creates two `Index` objects, the first one to be 
+     the tag Index and the second one is the task Index and returns a new `TaskDoneCommand` with two `Index` objects pass in as parameters.
+    1. The `LogicManager` then calls the execute method of the `TaskDoneCommand`, which retrieves the tag from the taglist based on the tag Index. From
+    the tag, the task list will be retrieved to get the targeted task using the task Index. The targeted task will be marked done and a new tag with
+    the modified task list will be created and replaced the old Tag. 
+    1. Then, the `ModelManager` will update the tag list.
+
+- Why is it implemented that way:
+    - The command is implemented such that there is no need for any prefixes. This helps to shorten the command and reduces the time required just to mark a task as done.
+
+The diagram below shows a sample interaction of `TaskDoneCommand`. 
+
+![TaskDoneSequenceDiagram](images/TaskDoneSequenceDiagram.png)    
 
 ### Future implementation plans
 **TagAdd command**

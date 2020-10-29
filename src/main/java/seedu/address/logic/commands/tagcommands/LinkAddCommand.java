@@ -37,7 +37,7 @@ public class LinkAddCommand extends Command {
     private final MeetingLink toAdd;
 
     /**
-     * Creates a LinkAddCommand to add the specified {@code MeetingLink}
+     * Creates a LinkAddCommand to add the specified {@code MeetingLink}.
      */
     public LinkAddCommand(Index index, MeetingLink link) {
         requireAllNonNull(index, link);
@@ -67,8 +67,7 @@ public class LinkAddCommand extends Command {
     }
 
     /**
-     * Creates and returns a {@code Tag} with the name of {@code tagToEdit}
-     * edited with {@code editTagDescriptor}.
+     * Creates and returns a {@code Tag} with the name of {@code tagToEdit} with the new meetingLink.
      */
     private static Tag createEditedTag(Tag tagToEdit, MeetingLink meetingLink) {
         assert tagToEdit != null;

@@ -252,7 +252,6 @@ Step 1: Key in the `sort` command.
 Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
 ![SortContactCommand Step 2](images/SortCommandGuide2.png)
 
-
 #### Deleting a contact : `delete`
 
 Deletes the specified contact from the person list.
@@ -403,7 +402,7 @@ Click on the link to be redirected to your browser!
 
 #### Deleting the meeting link under the tag: `linkdelete`
 
-Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command follow by the index `INDEX` of that tag from the tag list.
+Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
 
@@ -412,7 +411,7 @@ Want to get rid of the meeting link under a particular tag? Use the `linkdelete`
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkDeleteCommand Step 1](images/LinkDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the tag from the "classmates" tag, key in `linkdelete 3` and hit enter.
+Step 2: For example, if you want to remove the link from the "classmates" tag, key in `linkdelete 3` and hit enter.
 ![LinkDeleteCommand Step 2](images/LinkDeleteCommandGuide2.png)
 
 Step 3: You should see the link being removed from the "classmates" tag like this.
@@ -431,6 +430,25 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
+
+#### Marking a task under a tag as done: `taskdone`
+
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
+the alphabetical index `ALPHAINDEX` to do the magic!
+
+**Format:** `taskdone INDEX ALPHAINDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: First key in `taglist` and hit enter to display all the tags.
+![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
+
+Step 3: You should see the task "complete user guide" have a tick beside it.
+![TaskDoneCommand Step 3](images/TaskDoneCommandGuide3.png)
 
 #### Deleting a task: `taskdelete`
 

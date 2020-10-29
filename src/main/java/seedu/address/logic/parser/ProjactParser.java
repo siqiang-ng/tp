@@ -24,7 +24,19 @@ import seedu.address.logic.commands.tagcommands.TagEditCommand;
 import seedu.address.logic.commands.tagcommands.TagFindCommand;
 import seedu.address.logic.commands.tagcommands.TagListCommand;
 import seedu.address.logic.commands.tagcommands.TagSortCommand;
+import seedu.address.logic.commands.tagcommands.TaskDoneCommand;
+import seedu.address.logic.parser.contactparsers.AddCommandParser;
+import seedu.address.logic.parser.contactparsers.DeleteCommandParser;
+import seedu.address.logic.parser.contactparsers.EditCommandParser;
+import seedu.address.logic.parser.contactparsers.FindCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.logic.parser.tagparsers.LinkAddCommandParser;
+import seedu.address.logic.parser.tagparsers.LinkDeleteCommandParser;
+import seedu.address.logic.parser.tagparsers.TagAddCommandParser;
+import seedu.address.logic.parser.tagparsers.TagDeleteCommandParser;
+import seedu.address.logic.parser.tagparsers.TagEditCommandParser;
+import seedu.address.logic.parser.tagparsers.TagFindCommandParser;
+import seedu.address.logic.parser.tagparsers.TaskDoneCommandParser;
 
 /**
  * Parses user input.
@@ -103,6 +115,9 @@ public class ProjactParser {
 
         case LinkDeleteCommand.COMMAND_WORD:
             return new LinkDeleteCommandParser().parse(arguments);
+
+        case TaskDoneCommand.COMMAND_WORD:
+            return new TaskDoneCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
