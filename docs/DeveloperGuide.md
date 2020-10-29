@@ -174,6 +174,24 @@ The diagram below shows a sample interaction of SortCommand.
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
 #### Tag features
+**TagEdit command**
+
+1. The command is passed in to `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
+4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
+5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
+
+The diagram below shows a sample interaction of `TagEditCommand`.
+
+![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
+  
+- Why is it implemented that way:
+  - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
+  - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
+  - TagEdit can only edit the tag name and edits to TagTasks or MeetingLinks will be done with `taskedit` or `linkedit`. This is more intuitive for the user and prevents them from having to remember that Tag contains TagTasks and MeetingLinks.
+
 **TagList command**
 
 The TagList command allows a user to display all the tags in the tag list currently.
@@ -251,23 +269,6 @@ The diagram below shows a sample interaction of `TagAddCommand`.
 
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
-
-**TagEdit command**
-
-1. The command is passed in to `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
-4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
-5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
-6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
-
-The diagram below shows a sample interaction of `TagEditCommand`.
-
-![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
-  
-- Why is it implemented that way:
-  - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
-  - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
 
 **TagDelete command**
 
