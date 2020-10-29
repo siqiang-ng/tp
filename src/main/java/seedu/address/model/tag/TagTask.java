@@ -34,6 +34,10 @@ public class TagTask {
         this.isDone = isDone;
     }
 
+    public boolean getIsDone() {
+        return this.isDone;
+    }
+
     /**
      * Returns true if a given string is a valid task description.
      */
