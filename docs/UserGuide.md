@@ -7,10 +7,20 @@ title: User Guide
 ## Table of Contents
 * [Introduction](#introduction)
 * [About the User Guide](#about-this-user-guide)
+    * [Key Terms](#key-terms)
+        * [Contacts](#what-are-contacts)
+        * [Tags](#wait-what-are-tags)
+        * [Tasks](#how-about-tasks)
+        * [Meeting Links](#and-meeting-links)
+        * [Index](#index) 
+    * [Symbols](#symbols)
 * [Quick Start](#quick-start)
 * [Features](#features)
+    * [General](#general-features)
     * [Contact](#contact-features)
     * [Tag](#tag-features)
+        * [Link](#link-features)
+        * [Task](#task-features)
 * [Command Summary](#command-summary)
 * [FAQ](#faq)
 
@@ -19,9 +29,9 @@ title: User Guide
 ## Introduction
 Welcome to the *Projact User Guide*!
 
-Projact is a **project and contact management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+Projact is a **project and contact management app that helps NUS computing students to organise their fellow students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which stores the tags of the modules that the current user is taking in this semester. The user can assign a tag in the tag list to a contact in the person list.
+The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which can store the tags of the modules that the current user is taking in this semester and even more!
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -29,6 +39,49 @@ The Projact application consists of a person list, which stores the contacts of 
 This user guide provides in-depth documentation on the features in Projact to facilitate the effective organisation of your contacts. In addition, the quick start guide provides an end-to-end setup process to get you started. 
 
 A basic understanding of how the Command Line Interface works would be good. However, a lack of it would not affect your experience with Projact as prior technical experience is not required.
+
+Before you go on, here are some key terms and symbols you should know!
+
+### Key Terms
+
+#### What are Contacts?
+- People whose information you store inside Projact are known as contacts. 
+- Contacts contain the following information:
+    - Name
+    - Phone number
+    - Email address
+    - Telegram address
+- You can also tag your contacts!
+   
+#### Wait, what are Tags?
+- Tags are extremely customizable labels you can use to help organise your contacts. 
+- Each contact can have any number of tags, from 0 to any number you can think of!
+- Tags can store the following information:
+    - Tasks
+    - Meeting link
+
+#### How about Tasks?
+- Ever forget what to-dos have been allocated to your project mates? Keep track of them by storing the to-dos as Tasks in Projact!
+- Tasks are stored under a tag so you can easily categorise them.
+- Whenever you or your project mates are done with their tasks, you can easily check them off and feel accomplished!
+
+#### And Meeting Links?
+- There are so many meeting links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
+- The Meeting Link will be stored under a tag so it's easy to know what it's for. 
+
+#### Index?
+- Index refers to the contact's or tag's position in its list. You will need this to use many of the commands! But fret not, it's really easy to identify the index of your desired contact or tag. Find out more about this later on in the User Guide!
+
+### Symbols
+
+#### <div> :information_source: </div> 
+- This information symbol signals that there are things you should take note of! 
+
+#### <div> :bulb: </div>
+- The light bulb symbol will show you a tip to make your Projact experience smoother.
+
+
+Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -81,10 +134,14 @@ A basic understanding of how the Command Line Interface works would be good. How
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
 
 </div>
 
-### Viewing help : `help`
+### General Features
+
+#### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
 
@@ -92,11 +149,21 @@ Shows a message explaining how to access the help page.
 
 Format: `help`
 
-### Clearing all entries : `clear`
+#### Clearing all entries : `clear`
 
 Clears all contact entries from the person list in Projact.
 
 Format: `clear`
+
+#### Exiting the program : `exit`
+
+Exits Projact application.
+
+Format: `exit`
+
+#### Saving the data
+
+Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Contact Features
 
@@ -323,6 +390,8 @@ Click on the link to be redirected to your browser!
 
 ![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
+### Link Features
+
 #### Deleting the meeting link under the tag: `linkdelete`
 
 Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command follow by the index `INDEX` of that tag from the tag list.
@@ -339,6 +408,8 @@ Step 2: For example, if you want to remove the tag from the "classmates" tag, ke
 
 Step 3: You should see the link being removed from the "classmates" tag like this.
 ![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
+
+### Task Features
 
 #### Adding a task: `taskadd`
 
@@ -363,16 +434,6 @@ Are the tasks added no longer needed? Or perhaps you accidentally added the wron
 Example:
 * `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
 
-#### Exiting the program : `exit`
-
-Exits Projact application.
-
-Format: `exit`
-
-#### Saving the data
-
-Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
@@ -388,9 +449,9 @@ Action | Format, Examples
 **Help** | `help`
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
-**Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
-**Tag List** | `taglist`
+**Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag List** | `taglist`
 **Link Add** | `linkadd INDEX l/LINK` <br> e.g, `linkadd 2 l/https://skype.com/cs2103proj/`
 **Link Delete** | `linkdelete INDEX`<br> e.g., `linkdelete 1`
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
