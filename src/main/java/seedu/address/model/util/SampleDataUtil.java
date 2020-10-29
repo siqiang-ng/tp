@@ -44,22 +44,22 @@ public class SampleDataUtil {
         try {
             Tag[] tags = new Tag[] {
                 new Tag(new TagName("colleagues"),
-                            getTagTaskList(new TagTask("after work party", false)),
-                            Optional.empty()),
+                        getTagTaskList(new TagTask("after work party", false)),
+                        Optional.of(new MeetingLink("https://zoom.com"))),
                 new Tag(new TagName("neighbours"),
-                            getTagTaskList(),
-                            Optional.empty()),
+                        getTagTaskList(),
+                        Optional.empty()),
                 new Tag(new TagName("classmates"),
-                            getTagTaskList(
+                        getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
                                 new TagTask("assignment 1 submission by 23:59", false)),
-                            Optional.of(new MeetingLink("https://nus-sg.com"))),
+                        Optional.of(new MeetingLink("https://nus-sg.com"))),
                 new Tag(new TagName("family"),
-                            getTagTaskList(),
-                            Optional.of(new MeetingLink("http://skype.com"))),
+                        getTagTaskList(),
+                        Optional.of(new MeetingLink("http://skype.com"))),
                 new Tag(new TagName("friends"),
-                            getTagTaskList(),
-                            Optional.empty())
+                        getTagTaskList(),
+                        Optional.empty())
             };
             return tags;
         } catch (MalformedURLException e) {

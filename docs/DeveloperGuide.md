@@ -174,6 +174,24 @@ The diagram below shows a sample interaction of SortCommand.
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
 #### Tag features
+**TagEdit command**
+
+1. The command is passed in to `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
+4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
+5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
+
+The diagram below shows a sample interaction of `TagEditCommand`.
+
+![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
+  
+- Why is it implemented that way:
+  - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
+  - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
+  - TagEdit can only edit the tag name and edits to TagTasks or MeetingLinks will be done with `taskedit` or `linkedit`. This is more intuitive for the user and prevents them from having to remember that Tag contains TagTasks and MeetingLinks.
+
 **TagList command**
 
 The TagList command allows a user to display all the tags in the tag list currently.
@@ -217,7 +235,51 @@ The implementation and interaction of the TagSort command is similar to SortCont
 
 - Why is it implemented that way:
     - The TagSort and SortContact share the similar functions with one sorting the tag list and the other one sorting the person list. Hence, a similar set of commands are created for this feature to ensure the application can work smoothly.
+    
+**TagDelete command**
+
+The TagDelete command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+
+1. The command is passed in to `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is 'tagdelete' and the arguments.
+4. `ProjactParser` calls the parse method of `TagDeleteCommandParser`, which parses the argument, creates a new `Index` object with the parsed user input, and returns a new `TagDeleteCommand` with the new `Index` object used as an argument.
+5. The `LogicManager` then calls the execute method of the `TagDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. From this list, the tag to be deleted is retrieved by its index. Then, the `ModelManager` will go on to remove all instances of the tag.
+
+The diagram below shows a sample interaction of `TagDeleteCommand`.
+
+![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
+- Why is it implemented that way:
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+    
+**LinkAdd command**
+
+The LinkAdd command allows a user to add a meeting link to a specified tag.
+
+1. The command is passed into `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is 'linkadd' and the arguments.
+4. `ProjactParser` calls the parse method of `LinkAddCommandParser`, which parses the argument, creates a new `Optional<MeetingLink>` and `Index` object, and returns a new `LinkAddCommand` with the new `Optional<MeetingLink>` and `Index` objects used as arguments.
+5. The `LogicManager` then calls the execute method of the `LinkAddCommand`, which creates a new `Tag` object with the `Optional<MeetingLink>` object, and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
+ 
+**LinkDelete command**
+ 
+The LinkDelete command allows a user to delete the meeting link from a tag permanently. 
+ 
+-How it is implemented:
+    1. The command is passed in to `LogicManager`.
+    1. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    1. `ProjactParser` identifies the command word, which in this case is 'linkdelete' and the arguments.
+    1. `ProjactParser` calls the parse method of `LinkDeleteCommandParser`, which parses the argument, creates a new `Index` object with the parsed user input, and returns a new `LinkDeleteCommand` with the new `Index` object used as an argument.
+    1. The `LogicManager` then calls the execute method of the `LinkDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. 
+    From this list, the tag that will has its meeting link being removed will be retrieved. A new tag will be created with an empty meeting link using Optional class and replaced the old tag retrieved. 
+    Then, the `ModelManager` will update the tag list.
+
+- Why is it implemented that way:
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
+
 ### Future implementation plans
 **TagAdd command**
 
@@ -338,8 +400,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
-| `* *`    | student with many project groups	        | add meeting platform links to each module tag    | conveniently contact the team or initiate a team meeting               |
-| `* *`    | student with many project groups	        | delete the meeting platform link to each tag     | remove the link if it has been added wrongly                           |
+| `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
+| `* *`    | student                        	        | edit a particular task description               |                                                                        |
+| `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
+| `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
+| `* *`    | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
+| `* *`    | student with many project groups	        | edit the meeting platform link for each tag      |                                                                        |
+| `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
 | `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |

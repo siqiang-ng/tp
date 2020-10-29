@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showTagAtIndex;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TAG;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
 
 import org.junit.jupiter.api.Test;
@@ -19,7 +19,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for
+ * Contains integration tests (interaction with the Model) and unit tests for
  * {@code TagDeleteCommand}.
  */
 public class TagDeleteCommandTest {
@@ -28,8 +28,8 @@ public class TagDeleteCommandTest {
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
-        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_PERSON.getZeroBased());
-        TagDeleteCommand tagDeleteCommand = new TagDeleteCommand(INDEX_FIRST_PERSON);
+        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        TagDeleteCommand tagDeleteCommand = new TagDeleteCommand(INDEX_FIRST_TAG);
 
         String expectedMessage = String.format(TagDeleteCommand.MESSAGE_DELETE_TAG_SUCCESS, tagToDelete);
 
@@ -49,10 +49,10 @@ public class TagDeleteCommandTest {
 
     @Test
     public void execute_validIndexFilteredList_success() {
-        showTagAtIndex(model, INDEX_FIRST_PERSON);
+        showTagAtIndex(model, INDEX_FIRST_TAG);
 
-        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_PERSON.getZeroBased());
-        TagDeleteCommand tagDeleteCommand = new TagDeleteCommand(INDEX_FIRST_PERSON);
+        Tag tagToDelete = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        TagDeleteCommand tagDeleteCommand = new TagDeleteCommand(INDEX_FIRST_TAG);
 
         String expectedMessage = String.format(TagDeleteCommand.MESSAGE_DELETE_TAG_SUCCESS, tagToDelete);
 
@@ -65,9 +65,9 @@ public class TagDeleteCommandTest {
 
     @Test
     public void execute_invalidIndexFilteredList_throwsCommandException() {
-        showTagAtIndex(model, INDEX_FIRST_PERSON);
+        showTagAtIndex(model, INDEX_FIRST_TAG);
 
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
+        Index outOfBoundIndex = INDEX_SECOND_TAG;
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getProjact().getTagList().size());
 
@@ -78,14 +78,14 @@ public class TagDeleteCommandTest {
 
     @Test
     public void equals() {
-        TagDeleteCommand deleteFirstCommand = new TagDeleteCommand(INDEX_FIRST_PERSON);
-        TagDeleteCommand deleteSecondCommand = new TagDeleteCommand(INDEX_SECOND_PERSON);
+        TagDeleteCommand deleteFirstCommand = new TagDeleteCommand(INDEX_FIRST_TAG);
+        TagDeleteCommand deleteSecondCommand = new TagDeleteCommand(INDEX_SECOND_TAG);
 
         // same object -> returns true
         assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
 
         // same values -> returns true
-        TagDeleteCommand deleteFirstCommandCopy = new TagDeleteCommand(INDEX_FIRST_PERSON);
+        TagDeleteCommand deleteFirstCommandCopy = new TagDeleteCommand(INDEX_FIRST_TAG);
         assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
 
         // different types -> returns false

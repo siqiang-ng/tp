@@ -1,10 +1,15 @@
 package seedu.address.ui;
 
+import java.awt.Desktop;
+import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -28,7 +33,7 @@ public class TagCard extends UiPart<Region> {
     @FXML
     private Label tagName;
     @FXML
-    private Label meetingLink;
+    private Hyperlink meetingLink;
     @FXML
     private FlowPane persons;
 
@@ -41,10 +46,29 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
-        tag.getMeetingLink().ifPresent(link -> meetingLink.setText(link.toString()));
+        tag.getMeetingLink().ifPresentOrElse(link -> {
+            meetingLink.setText(link.toString());
+            setHyperlink(meetingLink, link.link);
+        }, () -> meetingLink.setVisible(false));
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
+    }
+
+    private void setHyperlink(Hyperlink hyperlink, URL url) {
+        hyperlink.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!Desktop.isDesktopSupported()) {
+                    return;
+                }
+                try {
+                    Desktop.getDesktop().browse(url.toURI());
+                } catch (Exception e) {
+                    new DialogWindow("Link cannot be opened").show();
+                }
+            }
+        });
     }
 
     /**

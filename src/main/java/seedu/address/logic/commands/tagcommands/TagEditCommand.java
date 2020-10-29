@@ -80,7 +80,7 @@ public class TagEditCommand extends Command {
         assert tagToEdit != null;
 
         // currently only the name of the tag can be edited
-        TagName updatedTagName = editTagDescriptor.getTagName().get();
+        TagName updatedTagName = editTagDescriptor.getTagName().orElse(tagToEdit.getTagName());
         return new Tag(updatedTagName, tagToEdit.getTagTasks(), tagToEdit.getMeetingLink());
     }
 
