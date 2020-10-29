@@ -71,6 +71,10 @@ public class TaskDoneCommand extends Command {
      */
     private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
+        if (taskIndex.getZeroBased() >= oldTaskList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+        }
+
         for (int i = 0; i < oldTaskList.size(); i++) {
             int target = taskIndex.getZeroBased();
             if (i == target) {
