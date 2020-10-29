@@ -51,7 +51,9 @@ public class SampleDataUtil {
                                 new TagTask("presentation on mon", false),
                                 new TagTask("complete user guide", false),
                                 new TagTask("email teacher for consultation", false)),
-                        Optional.of(new MeetingLink("https://nus-sg.zoom.us/j/96034098506?pwd=b3l6UWpMb25yN1JlUldTbGdhbTFSdz09"))),
+                        Optional.of(
+                                new MeetingLink("https://nus-sg.zoom.us/j/96034098506?pwd=b3l6UWpMb25yN1"
+                                        + "JlUldTbGdhbTFSdz09"))),
                 new Tag(new TagName("CS2100"),
                         getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
