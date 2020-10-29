@@ -98,13 +98,13 @@ public class ProjactParser {
 
         case TagSortCommand.COMMAND_WORD:
             return new TagSortCommand();
-            
+
         case LinkAddCommand.COMMAND_WORD:
             return new LinkAddCommandParser().parse(arguments);
 
         case LinkDeleteCommand.COMMAND_WORD:
             return new LinkDeleteCommandParser().parse(arguments);
-            
+
         case TaskAddCommand.COMMAND_WORD:
             return new TaskAddCommandParser().parse(arguments);
 
