@@ -65,7 +65,7 @@ public class TaskDeleteCommand extends Command {
     }
 
     /**
-     * Mark the targeted task as done and returns an edited {@code List<TagTask>}.
+     * Remove the target task and returns an edited {@code List<TagTask>}.
      */
     private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
