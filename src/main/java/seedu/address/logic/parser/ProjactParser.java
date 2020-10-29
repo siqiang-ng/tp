@@ -16,6 +16,8 @@ import seedu.address.logic.commands.contactcommands.EditCommand;
 import seedu.address.logic.commands.contactcommands.FindCommand;
 import seedu.address.logic.commands.contactcommands.ListCommand;
 import seedu.address.logic.commands.contactcommands.SortCommand;
+import seedu.address.logic.commands.tagcommands.LinkAddCommand;
+import seedu.address.logic.commands.tagcommands.LinkDeleteCommand;
 import seedu.address.logic.commands.tagcommands.TagAddCommand;
 import seedu.address.logic.commands.tagcommands.TagDeleteCommand;
 import seedu.address.logic.commands.tagcommands.TagEditCommand;
@@ -96,7 +98,13 @@ public class ProjactParser {
 
         case TagSortCommand.COMMAND_WORD:
             return new TagSortCommand();
+            
+        case LinkAddCommand.COMMAND_WORD:
+            return new LinkAddCommandParser().parse(arguments);
 
+        case LinkDeleteCommand.COMMAND_WORD:
+            return new LinkDeleteCommandParser().parse(arguments);
+            
         case TaskAddCommand.COMMAND_WORD:
             return new TaskAddCommandParser().parse(arguments);
 

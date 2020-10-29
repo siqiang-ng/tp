@@ -2,8 +2,10 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.net.MalformedURLException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -13,6 +15,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.PersonName;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.TelegramAddress;
+import seedu.address.model.tag.MeetingLink;
 import seedu.address.model.tag.TagName;
 import seedu.address.model.tag.TagTask;
 
@@ -136,6 +139,24 @@ public class ParserUtil {
             throw new ParseException(TagTask.MESSAGE_CONSTRAINTS);
         }
         return new TagTask(taskDescription, isDone);
+    }
+
+    /**
+     * Parses a {@code String link} into a {@code MeetingLink}.
+     * Leading and trailing whitespaces in {@code String link} will be trimmed.
+     *
+     * @throws ParseException if the given {@code link} is invalid
+     */
+    public static Optional<MeetingLink> parseMeetingLink(String link) throws ParseException {
+        requireNonNull(link);
+        if (!MeetingLink.isValidMeetingLink(link)) {
+            throw new ParseException(MeetingLink.MESSAGE_CONSTRAINTS);
+        }
+        try {
+            return Optional.of(new MeetingLink(link));
+        } catch (MalformedURLException e) {
+            return Optional.empty();
+        }
     }
 
 }

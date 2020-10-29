@@ -35,6 +35,13 @@ public class TagListPanel extends UiPart<Region> {
     }
 
     /**
+     * Refreshes the TagListPanel.
+     */
+    void refresh() {
+        this.tagListView.refresh();
+    }
+
+    /**
      * Custom {@code ListCell} that displays the graphics of a {@code Tag} using a {@code TagCard}.
      */
     class TagListViewCell extends ListCell<Tag> {

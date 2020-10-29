@@ -1,5 +1,6 @@
 package seedu.address.storage;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,7 +52,7 @@ class JsonSerializableProjact {
      *
      * @throws IllegalValueException if there were any data constraints violated.
      */
-    public Projact toModelType() throws IllegalValueException {
+    public Projact toModelType() throws IllegalValueException, MalformedURLException {
         Projact projact = new Projact();
         for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
             Person person = jsonAdaptedPerson.toModelType();

@@ -13,7 +13,7 @@ public class TagDeleteCommandParser implements Parser<TagDeleteCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the TagDeleteCommand
-     * and returns a TagDeleteCommand object faor execution.
+     * and returns a TagDeleteCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public TagDeleteCommand parse(String args) throws ParseException {

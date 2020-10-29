@@ -27,10 +27,13 @@ public class TagTaskTest {
         assertFalse(TagTask.isValidTaskDescription(""));
         assertFalse(TagTask.isValidTaskDescription(" "));
         assertFalse(TagTask.isValidTaskDescription(" abc "));
-        assertFalse(TagTask.isValidTaskDescription("invalid symbol !@#"));
+        assertFalse(TagTask.isValidTaskDescription("_abc"));
 
         // Valid description
         assertTrue(TagTask.isValidTaskDescription("abc"));
-        assertTrue(TagTask.isValidTaskDescription("abc _1234 ASDF"));
+        assertTrue(TagTask.isValidTaskDescription("ABC"));
+        assertTrue(TagTask.isValidTaskDescription("123"));
+        assertTrue(TagTask.isValidTaskDescription("with spacing and underscore_ "));
+        assertTrue(TagTask.isValidTaskDescription("valid symbol !@#"));
     }
 }
