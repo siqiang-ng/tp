@@ -40,7 +40,7 @@ public class TaskAddCommand extends Command {
     private final EditTagDescriptor editTagDescriptor;
 
     /**
-     * Creates an TaskAddCommand to add the specified {@code Person}
+     * Creates an TaskAddCommand to add the specified {@code Tag}
      */
     public TaskAddCommand(Index index, EditTagDescriptor editTagDescriptor) {
         requireNonNull(index);
