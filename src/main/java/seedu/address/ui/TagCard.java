@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagTask;
 
 /**
  * An UI component that displays information of a {@code Tag}.
@@ -36,6 +37,8 @@ public class TagCard extends UiPart<Region> {
     private Hyperlink meetingLink;
     @FXML
     private FlowPane persons;
+    @FXML
+    private Label tasks;
 
     /**
      * Creates a {@code TagCard} with the given {@code Tag} and index to display.
@@ -46,13 +49,23 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
-        tag.getMeetingLink().ifPresent(link -> {
+        tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
             setHyperlink(meetingLink, link.link);
-        });
+        }, () -> meetingLink.setVisible(false));
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
+
+        List<TagTask> tagTasksList = tag.getTagTasks();
+        String taskList = "";
+        char start = 'a';
+        for (TagTask task : tagTasksList) {
+            taskList += start + ". " + task.toString() + "\n";
+            start++;
+        }
+
+        tasks.setText(taskList);
     }
 
     private void setHyperlink(Hyperlink hyperlink, URL url) {
