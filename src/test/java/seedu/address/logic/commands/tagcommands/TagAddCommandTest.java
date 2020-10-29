@@ -53,7 +53,7 @@ public class TagAddCommandTest {
         ModelStub modelStub = new ModelStubWithTag(validTag);
 
         assertThrows(CommandException.class, TagAddCommand.MESSAGE_DUPLICATE_TAG, () ->
-            tagAddCommand.execute(modelStub));
+                tagAddCommand.execute(modelStub));
     }
 
     @Test

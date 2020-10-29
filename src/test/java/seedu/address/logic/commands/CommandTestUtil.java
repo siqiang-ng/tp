@@ -16,6 +16,7 @@ import java.util.List;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.contactcommands.EditCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.commands.tagcommands.TagEditCommand;
 import seedu.address.model.Model;
 import seedu.address.model.Projact;
 import seedu.address.model.person.Person;
@@ -23,6 +24,7 @@ import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.testutil.EditTagDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -69,6 +71,10 @@ public class CommandTestUtil {
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
 
+    public static final TagEditCommand.EditTagDescriptor TAG_DESC_COLLEAGUE;
+    public static final TagEditCommand.EditTagDescriptor TAG_DESC_HANDBALL;
+
+
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withTelegramAddress(VALID_TELEGRAM_ADDRESS_AMY)
@@ -76,6 +82,9 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
                 .withTagNames(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+
+        TAG_DESC_COLLEAGUE = new EditTagDescriptorBuilder().withTagName(VALID_TAG_NAME_COLLEAGUE).build();
+        TAG_DESC_HANDBALL = new EditTagDescriptorBuilder().withTagName(VALID_TAG_NAME_HANDBALL).build();
     }
 
     /**

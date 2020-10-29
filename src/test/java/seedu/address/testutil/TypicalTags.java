@@ -1,8 +1,5 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,19 +19,20 @@ public class TypicalTags {
     public static final Tag HALL = new TagBuilder().withTagName("Hall").build();
     public static final Tag HANDBALL = new TagBuilder().withTagName("Handball").build();
 
-    // Manually added
-    public static final Tag SWIMMING = new TagBuilder().withTagName("Swimming").build();
-    public static final Tag PROFESSOR = new TagBuilder().withTagName("Professor").build();
+    //Tags with Links
+    public static final Tag CS2101 = new TagBuilder().withTagName("CS2101")
+                                                    .withMeetingLink("https://skype.com").build();
+    public static final Tag CS2040 = new TagBuilder().withTagName("CS2040")
+                                                    .withMeetingLink("https://zoomus.nus").build();
 
-    // Manually added - Tag's details found in {@code CommandTestUtil}
-    public static final Tag FRIEND = new TagBuilder().withTagName(VALID_TAG_FRIEND).build();
-    public static final Tag HUSBAND = new TagBuilder().withTagName(VALID_NAME_BOB).build();
-
-    public static final String KEYWORD_MATCHING_MEIER = "CS"; // A keyword that matches CS
 
     private TypicalTags() {} // prevents instantiation
 
     public static List<Tag> getTypicalTags() {
         return new ArrayList<>(Arrays.asList(GROUPMATE, COLLEAGUE, CS2103T, CS2040S, SEP, HALL, HANDBALL));
+    }
+
+    public static List<Tag> getTypicalTagsWithLinks() {
+        return new ArrayList<>(Arrays.asList(CS2101, CS2040));
     }
 }
