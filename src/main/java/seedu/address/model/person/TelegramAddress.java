@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's telegram address in the address book.
+ * Represents a Person's telegram address in the Projact.
  * Guarantees: immutable; is valid as declared in {@link #isValidTelegramAddress(String)}
  */
 public class TelegramAddress {

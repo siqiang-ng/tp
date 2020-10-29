@@ -2,7 +2,7 @@ package seedu.address.model.tag;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.testutil.TypicalTags.COLLEAGUE;
 import static seedu.address.testutil.TypicalTags.GROUPMATE;
 
@@ -21,7 +21,7 @@ public class TagTest {
         assertFalse(GROUPMATE.isSameTag(null));
 
         // different name -> returns false
-        Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
+        Tag editedGroupmate = new TagBuilder(GROUPMATE).withTagName(VALID_TAG_NAME_HUSBAND).build();
         assertFalse(GROUPMATE.isSameTag(editedGroupmate));
     }
 
@@ -44,7 +44,7 @@ public class TagTest {
         assertFalse(GROUPMATE.equals(COLLEAGUE));
 
         // different name -> returns false
-        Tag editedGroupmate = new TagBuilder(GROUPMATE).withName(VALID_TAG_HUSBAND).build();
+        Tag editedGroupmate = new TagBuilder(GROUPMATE).withTagName(VALID_TAG_NAME_HUSBAND).build();
         assertFalse(GROUPMATE.equals(editedGroupmate));
     }
 }

@@ -16,11 +16,15 @@ import java.util.List;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.contactcommands.EditCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.commands.tagcommands.TagEditCommand;
 import seedu.address.model.Model;
 import seedu.address.model.Projact;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
+import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.testutil.EditTagDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -35,9 +39,10 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_TELEGRAM_ADDRESS_AMY = "AmyBee";
     public static final String VALID_TELEGRAM_ADDRESS_BOB = "bobchoo";
-    public static final String VALID_TAG_HUSBAND = "husband";
-    public static final String VALID_TAG_FRIEND = "friend";
-    public static final String VALID_PERSON_AMY = "Amy";
+    public static final String VALID_TAG_NAME_HUSBAND = "husband";
+    public static final String VALID_TAG_NAME_FRIEND = "friend";
+    public static final String VALID_TAG_NAME_COLLEAGUE = "colleague";
+    public static final String VALID_TAG_NAME_HANDBALL = "handball";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -47,8 +52,10 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String TELEGRAM_ADDRESS_DESC_AMY = " " + PREFIX_TELEGRAM_ADDRESS + VALID_TELEGRAM_ADDRESS_AMY;
     public static final String TELEGRAM_ADDRESS_DESC_BOB = " " + PREFIX_TELEGRAM_ADDRESS + VALID_TELEGRAM_ADDRESS_BOB;
-    public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
-    public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
+    public static final String TAG_NAME_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_NAME_FRIEND;
+    public static final String TAG_NAME_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_NAME_HUSBAND;
+    public static final String TAG_NAME_DESC_COLLEAGUE = " " + PREFIX_TAG + VALID_TAG_NAME_COLLEAGUE;
+    public static final String TAG_NAME_DESC_HANDBALL = " " + PREFIX_TAG + VALID_TAG_NAME_HANDBALL;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
@@ -56,6 +63,7 @@ public class CommandTestUtil {
     public static final String INVALID_TELEGRAM_ADDRESS_DESC =
                                             " " + PREFIX_TELEGRAM_ADDRESS; // telegram address cannot be blank
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_TAG_NAME_DESC = " " + PREFIX_TAG + "colleague*";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -63,13 +71,20 @@ public class CommandTestUtil {
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;
 
+    public static final TagEditCommand.EditTagDescriptor TAG_DESC_COLLEAGUE;
+    public static final TagEditCommand.EditTagDescriptor TAG_DESC_HANDBALL;
+
+
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withTelegramAddress(VALID_TELEGRAM_ADDRESS_AMY)
-                .withTags(VALID_TAG_FRIEND).build();
+                .withTagNames(VALID_TAG_NAME_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND, VALID_TAG_NAME_FRIEND).build();
+
+        TAG_DESC_COLLEAGUE = new EditTagDescriptorBuilder().withTagName(VALID_TAG_NAME_COLLEAGUE).build();
+        TAG_DESC_HANDBALL = new EditTagDescriptorBuilder().withTagName(VALID_TAG_NAME_HANDBALL).build();
     }
 
     /**
@@ -102,7 +117,7 @@ public class CommandTestUtil {
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
-     * - the address book, filtered person list and selected person in {@code actualModel} remain unchanged
+     * - the Projact, filtered person list and selected person in {@code actualModel} remain unchanged
      */
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
@@ -116,7 +131,7 @@ public class CommandTestUtil {
     }
     /**
      * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
-     * {@code model}'s address book.
+     * {@code model}'s Projact.
      */
     public static void showPersonAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
@@ -126,6 +141,20 @@ public class CommandTestUtil {
         model.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredPersonList().size());
+    }
+
+    /**
+     * Updates {@code model}'s filtered list to show only the tag at the given {@code targetIndex} in the
+     * {@code model}'s address book.
+     */
+    public static void showTagAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredTagList().size());
+
+        Tag tag = model.getFilteredTagList().get(targetIndex.getZeroBased());
+        final String[] splitName = tag.getTagName().tagName.split("\\s+");
+        model.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+
+        assertEquals(1, model.getFilteredTagList().size());
     }
 
 }

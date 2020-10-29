@@ -194,6 +194,18 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
+            if (commandResult.isSortTag()) {
+                tagListPanel = new TagListPanel(logic.getSortedTagList(), logic::findContactsByTag);
+            } else {
+                tagListPanel = new TagListPanel(logic.getFilteredTagList(), logic::findContactsByTag);
+            }
+
+            if (commandResult.isSortPerson()) {
+                personListPanel = new PersonListPanel(logic.getSortedPersonList());
+            } else {
+                personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+            }
+
             if (commandResult.isTagList()) {
                 showTagList();
             }
@@ -202,6 +214,7 @@ public class MainWindow extends UiPart<Stage> {
                 showPersonList();
             }
 
+            tagListPanel.refresh();
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);

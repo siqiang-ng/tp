@@ -3,7 +3,7 @@ package seedu.address.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ADDRESS_BOB;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
@@ -22,10 +22,12 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonNameComparator;
 import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagNameComparator;
 import seedu.address.model.tag.TagNameContainsKeywordsPredicate;
 import seedu.address.model.tag.exceptions.DuplicateTagException;
 import seedu.address.model.tag.exceptions.TagNotFoundException;
@@ -107,7 +109,7 @@ public class ModelManagerTest {
     public void hasPerson_personWithSameIdentityFieldsInModelManager_returnsTrue() {
         modelManager.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         assertTrue(modelManager.hasPerson(editedAlice));
     }
 
@@ -283,6 +285,11 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void getSortedPersonList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getSortedPersonList().remove(0));
+    }
+
+    @Test
     public void equals() {
         Projact projact = new ProjactBuilder()
                 .withPerson(ALICE)
@@ -320,6 +327,15 @@ public class ModelManagerTest {
         // different filteredTagList -> returns false
         keywords = CS2103T.getTagName().tagName.split("\\s+");
         modelManager.updateFilteredTagList(new TagNameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
+
+
+        // different sortedTagList -> returns false
+        modelManager.updateSortedTagList(new TagNameComparator());
+
+        // different sortedPersonList -> returns false
+        modelManager.updateSortedPersonList(new PersonNameComparator());
+
         assertFalse(modelManager.equals(new ModelManager(projact, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests

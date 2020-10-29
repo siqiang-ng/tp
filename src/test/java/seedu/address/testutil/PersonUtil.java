@@ -11,7 +11,7 @@ import java.util.Set;
 import seedu.address.logic.commands.contactcommands.AddCommand;
 import seedu.address.logic.commands.contactcommands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Person;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 
 /**
  * A utility class for Person.
@@ -34,9 +34,7 @@ public class PersonUtil {
         sb.append(PREFIX_PHONE + person.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_TELEGRAM_ADDRESS + person.getTelegramAddress().value + " ");
-        person.getTags().stream().forEach(
-            s -> sb.append(PREFIX_TAG + s.getTagName().tagName + " ")
-        );
+        person.getTagNames().stream().forEach(tagName -> sb.append(PREFIX_TAG + tagName.tagName + " "));
         return sb.toString();
     }
 
@@ -50,12 +48,12 @@ public class PersonUtil {
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getTelegramAddress().ifPresent(telegramAddress -> sb.append(PREFIX_TELEGRAM_ADDRESS)
                 .append(telegramAddress.value).append(" "));
-        if (descriptor.getTags().isPresent()) {
-            Set<Tag> tags = descriptor.getTags().get();
-            if (tags.isEmpty()) {
+        if (descriptor.getTagNames().isPresent()) {
+            Set<TagName> tagNames = descriptor.getTagNames().get();
+            if (tagNames.isEmpty()) {
                 sb.append(PREFIX_TAG);
             } else {
-                tags.forEach(s -> sb.append(PREFIX_TAG).append(s.getTagName().tagName).append(" "));
+                tagNames.forEach(tagName -> sb.append(PREFIX_TAG).append(tagName.tagName).append(" "));
             }
         }
         return sb.toString();

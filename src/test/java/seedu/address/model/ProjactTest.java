@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TELEGRAM_ADDRESS_BOB;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BENSON;
-import static seedu.address.testutil.TypicalPersons.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
 import static seedu.address.testutil.TypicalTags.CS2040S;
 import static seedu.address.testutil.TypicalTags.CS2103T;
 import static seedu.address.testutil.TypicalTags.GROUPMATE;
@@ -70,7 +70,7 @@ public class ProjactTest {
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
         // Two persons with the same identity fields
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
         List<Tag> newTags = Arrays.asList(CS2103T);
         ProjactStub newData = new ProjactStub(newPersons, newTags);
@@ -81,7 +81,7 @@ public class ProjactTest {
     @Test
     public void resetData_withDuplicateTags_throwsDuplicateTagException() {
         // Two tags with same tag names
-        Tag editedCS2103T = new TagBuilder(CS2040S).withName("CS2103T").build();
+        Tag editedCS2103T = new TagBuilder(CS2040S).withTagName("CS2103T").build();
         List<Person> newPersons = Arrays.asList(ALICE);
         List<Tag> newTags = Arrays.asList(CS2103T, editedCS2103T);
         ProjactStub newData = new ProjactStub(newPersons, newTags);
@@ -109,7 +109,7 @@ public class ProjactTest {
     public void hasPerson_personWithSameIdentityFieldsInProjact_returnsTrue() {
         projact.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withTelegramAddress(VALID_TELEGRAM_ADDRESS_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+                .withTagNames(VALID_TAG_NAME_HUSBAND).build();
         assertTrue(projact.hasPerson(editedAlice));
     }
 

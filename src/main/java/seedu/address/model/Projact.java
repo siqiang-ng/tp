@@ -3,13 +3,16 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagName;
 import seedu.address.model.tag.UniqueTagList;
 
 /**
@@ -96,7 +99,6 @@ public class Projact implements ReadOnlyProjact {
      */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
-
         persons.setPerson(target, editedPerson);
     }
 
@@ -133,7 +135,6 @@ public class Projact implements ReadOnlyProjact {
      */
     public void setTag(Tag target, Tag editedTag) {
         requireNonNull(editedTag);
-
         persons.setTag(target, editedTag);
         tags.setTag(target, editedTag);
     }
@@ -144,6 +145,20 @@ public class Projact implements ReadOnlyProjact {
      */
     public void removeTag(Tag key) {
         tags.remove(key);
+        for (Person person : persons) {
+            if (person.getTagNames().contains(key.getTagName())) {
+                Set<TagName> editedTagNames = new HashSet<>(person.getTagNames());
+                editedTagNames.remove(key.getTagName());
+                Person editedPerson = new Person(
+                        person.getName(),
+                        person.getPhone(),
+                        person.getEmail(),
+                        person.getTelegramAddress(),
+                        editedTagNames
+                );
+                setPerson(person, editedPerson);
+            }
+        }
     }
 
     /**
@@ -152,7 +167,7 @@ public class Projact implements ReadOnlyProjact {
     public List<Person> findContactsByTag(Tag target) {
         List<Person> personsWithTag = new ArrayList<>();
         for (Person p : persons) {
-            if (p.getTags().contains(target)) {
+            if (p.getTagNames().contains(target.getTagName())) {
                 personsWithTag.add(p);
             }
         }
