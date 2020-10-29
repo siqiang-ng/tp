@@ -11,7 +11,8 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Links](#meeting-links)
+        * [Meeting Links](#and-meeting-links)
+        * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
 * [Features](#features)
@@ -29,7 +30,7 @@ Welcome to the *Projact User Guide*!
 
 Projact is a **project and contact management app that helps NUS computing students to organise their fellow students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which can store the tags of the modules that the current user is taking in this semester and more! The user can assign a tag in the tag list to a contact in the person list.
+The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which can store the tags of the modules that the current user is taking in this semester and even more!
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -60,12 +61,15 @@ Before you go on, here are some key terms and symbols you should know!
 
 #### How about Tasks?
 - Ever forget what to-dos have been allocated to your project mates? Keep track of them by storing the to-dos as Tasks in Projact!
-- Tasks are linked to a tag so you can easily categorise them.
+- Tasks are stored under a tag so you can easily categorise them.
 - Whenever you or your project mates are done with their tasks, you can easily check them off and feel accomplished!
 
-#### Meeting links?
-- Nowadays, there are so many meeting links floating around and it's so hard to keep track of them all. But don't worry, we've got your back!
-- A meeting link is linked to a tag so it's easy to know what it's for. 
+#### And Meeting Links?
+- There are so many meeting links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
+- The Meeting Link will be stored under a tag so it's easy to know what it's for. 
+
+#### Index?
+- Index refers to the contact's or tag's position in its list. You will need this to use many of the commands! But fret not, it's really easy to identify the index of your desired contact or tag. Find out more about this later on in the User Guide!
 
 ### Symbols
 
