@@ -29,6 +29,10 @@ public class Tag {
         return this.tagName;
     }
 
+    public List<TagTask> getModifiableTagTask() {
+        return this.tagTasks;
+    }
+
     public List<TagTask> getTagTasks() {
         return Collections.unmodifiableList(this.tagTasks);
     }
