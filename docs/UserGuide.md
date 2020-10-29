@@ -295,6 +295,29 @@ Step 2: For example, if you want to remove the tag from the "classmates" tag, ke
 Step 3: You should see the link being removed from the "classmates" tag like this.
 ![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
 
+#### Adding a task: `taskadd`
+
+Is there a specific task you want to add to a tag? Simply use the `taskadd` command followed by the index of that tag, and the name of the task!
+
+**Format:** `taskadd INDEX task/TASK_NAME`
+
+* Adds a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Task will not be added if specified tag with `INDEX` already has a task with the same task name.
+
+Example:
+* `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
+
+#### Deleting a task: `taskdelete`
+
+Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
+
+**Format:** `taskdelete INDEX ALPHAINDEX`
+
+* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+
+Example:
+* `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
+
 #### Exiting the program : `exit`
 
 Exits Projact application.
@@ -323,6 +346,11 @@ Action | Format, Examples
 **Tag Edit**| `tagedit INDEX t/TAG` <br> e.g., `tagedit 1 t/CS2101`
 **Tag List** | `taglist`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Link Add** | `linkadd INDEX l/LINK`<br> e.g., `linkadd 1 l/https://nus-sg.zoom/cs2101g01`
+**Link Delete** | `linkdelete INDEX`<br> e.g., `linkdelete 1`
+**Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
+**Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
+**Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
 
 --------------------------------------------------------------------------------------------------------------------
 
