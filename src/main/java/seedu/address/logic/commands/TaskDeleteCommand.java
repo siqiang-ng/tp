@@ -18,14 +18,14 @@ import seedu.address.model.tag.TagTask;
 public class TaskDeleteCommand extends Command {
     public static final String COMMAND_WORD = "taskdelete";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Mark the task identified by the alphabetical "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Delete the task identified by the alphabetical "
             + "index number used in the task list of the tag, which is identified by the numerical index used in "
             + "the displayed tag list. "
             + "Parameters: INDEX (must be a positive integer) "
             + "ALPHABETICAL INDEX (must be in lower case from 'a' to 'z')"
             + "Example: " + COMMAND_WORD + " 1 a";
 
-    public static final String MESSAGE_MARK_DONE_SUCCESS = "This task in tag %1$s has been deleted:\n" + "%2$s";
+    public static final String MESSAGE_MARK_DELETE_SUCCESS = "This task in tag %1$s has been deleted:\n" + "%2$s";
 
     private final Index index;
     private final Index taskIndex;
@@ -34,7 +34,7 @@ public class TaskDeleteCommand extends Command {
      * @param index of the tag in the filtered tag list to edit
      * @param index of the task in the targeted tag to edit
      */
-    public TaskDoneCommand(Index index, Index taskIndex) {
+    public TaskDeleteCommand(Index index, Index taskIndex) {
         requireNonNull(index);
         requireNonNull(taskIndex);
 
@@ -59,7 +59,7 @@ public class TaskDeleteCommand extends Command {
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
-        return new CommandResult(String.format(MESSAGE_MARK_DONE_SUCCESS,
+        return new CommandResult(String.format(MESSAGE_MARK_DELETE_SUCCESS,
                 tagToEdit.getTagName(),
                 editedTaskList.get(taskIndex.getZeroBased())));
     }
@@ -69,6 +69,9 @@ public class TaskDeleteCommand extends Command {
      */
     private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
+        if (taskIndex.getZeroBased() >= oldTaskList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+        }
         for (int i = 0; i < oldTaskList.size(); i++) {
             int target = taskIndex.getZeroBased();
             if (i == target) {

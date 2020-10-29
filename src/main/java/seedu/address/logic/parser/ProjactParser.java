@@ -98,7 +98,7 @@ public class ProjactParser {
             return new TagSortCommand();
 
         case TaskDeleteCommand.COMMAND_WORD:
-            return new TaskDeleteCommand();
+            return new TaskDeleteCommand().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
