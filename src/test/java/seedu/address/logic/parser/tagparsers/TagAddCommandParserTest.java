@@ -14,7 +14,6 @@ import static seedu.address.testutil.TypicalTags.COLLEAGUE;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.tagcommands.TagAddCommand;
-import seedu.address.logic.parser.tagparsers.TagAddCommandParser;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagName;
 import seedu.address.testutil.TagBuilder;

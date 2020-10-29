@@ -8,7 +8,6 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.tagcommands.TagDeleteCommand;
-import seedu.address.logic.parser.tagparsers.TagDeleteCommandParser;
 
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
