@@ -133,6 +133,8 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+  
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
 
 </div>
 
