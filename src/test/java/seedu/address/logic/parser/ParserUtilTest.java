@@ -2,9 +2,13 @@ package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_ALPHAINDEX;
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
+import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_LOWERCASEINDEX;
+import static seedu.address.logic.parser.ParserUtil.MESSAGE_MISSING_ARGS;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,6 +58,52 @@ public class ParserUtilTest {
 
         // Leading and trailing whitespaces
         assertEquals(INDEX_FIRST_PERSON, ParserUtil.parseIndex("  1  "));
+    }
+
+    @Test
+    public void parseAlphaIndex_invalidInput_throwsParseException() {
+        // Wrong input type
+        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, ()
+                -> ParserUtil.parseAlphaIndex(Long.toString(Integer.MAX_VALUE + 1)));
+
+        // More than one input required
+        assertThrows(ParseException.class, () -> ParserUtil.parseAlphaIndex("10 a"));
+    }
+
+    @Test
+    public void parseTwoIndex_invalidInput_throwsParseException() {
+        // Only a single input
+        assertThrows(ParseException.class, MESSAGE_MISSING_ARGS, (()
+                -> ParserUtil.parseTwoIndex("a")));
+    }
+
+    @Test
+    public void parseTwoIndex_validInput_success() throws Exception {
+        // Two inputs
+        assertEquals(2, ParserUtil.parseTwoIndex("1 a").length);
+
+        // Leading and trailing whitespaces
+        assertEquals(2, ParserUtil.parseTwoIndex("  1 a  ").length);
+    }
+
+    @Test
+    public void parseAlphaIndex_outOfRangeInput_throwsParseException() {
+        // More than one letter
+        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, (()
+                -> ParserUtil.parseAlphaIndex("aa")));
+
+        // Input is not within the range of a to z
+        assertThrows(ParseException.class, MESSAGE_INVALID_LOWERCASEINDEX, ()
+                -> ParserUtil.parseAlphaIndex("A"));
+    }
+
+    @Test
+    public void parseAlphaIndex_validInput_success() throws Exception {
+        // No whitespaces
+        assertEquals(INDEX_FIRST_TASK, ParserUtil.parseAlphaIndex("a"));
+
+        // Leading and trailing whitespaces
+        assertEquals(INDEX_FIRST_TASK, ParserUtil.parseAlphaIndex("  a  "));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package seedu.address.logic.parser;
+package seedu.address.logic.parser.tagparsers;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_NAME_DESC;
@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.tagcommands.TagEditCommand;
-import seedu.address.logic.parser.tagparsers.TagEditCommandParser;
 import seedu.address.model.tag.TagName;
 import seedu.address.testutil.EditTagDescriptorBuilder;
 
