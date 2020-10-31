@@ -1,6 +1,10 @@
 package seedu.address.ui;
 
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
 import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
@@ -41,22 +45,25 @@ public class TagCard extends UiPart<Region> {
     private Label tasks;
 
     /**
-     * Creates a {@code TagCard} with the given {@code Tag} and index to display.
+     * Creates a {@code TagCard} with the given {@code Tag}, index, and {@code personList} to display.
      */
     public TagCard(Tag tag, int displayedIndex, List<Person> personList) {
         super(FXML);
-        Objects.requireNonNull(tag);
+        requireAllNonNull(tag, personList);
+        assert displayedIndex > 0 : "Displayed index should be greater than 0";
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
+        // Initialize meeting link
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
-            setHyperlink(meetingLink, link.link);
+            setHyperlinkAction(meetingLink, link.link);
         }, () -> meetingLink.setVisible(false));
+        // Initialize list of persons
         personList.stream()
                 .sorted(Comparator.comparing(person -> person.getName().fullName))
                 .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
-
+        // Initialize list of tasks
         List<TagTask> tagTasksList = tag.getTagTasks();
         String taskList = "";
         char start = 'a';
@@ -68,7 +75,12 @@ public class TagCard extends UiPart<Region> {
         tasks.setText(taskList);
     }
 
-    private void setHyperlink(Hyperlink hyperlink, URL url) {
+    /**
+     * Sets the {@code hyperlink} to open an {@code url} when selected.
+     */
+    private void setHyperlinkAction(Hyperlink hyperlink, URL url) {
+        requireAllNonNull(hyperlink, url);
+
         hyperlink.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -77,8 +89,10 @@ public class TagCard extends UiPart<Region> {
                 }
                 try {
                     Desktop.getDesktop().browse(url.toURI());
-                } catch (Exception e) {
-                    new DialogWindow("Link cannot be opened").show();
+                } catch (URISyntaxException e) {
+                    new DialogWindow("Link cannot be converted to URI format").show();
+                } catch (IOException e) {
+                    new DialogWindow("Unable to launch browser").show();
                 }
             }
         });
