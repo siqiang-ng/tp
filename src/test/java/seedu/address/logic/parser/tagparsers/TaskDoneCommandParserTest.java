@@ -15,7 +15,7 @@ class TaskDoneCommandParserTest {
     @Test
     public void parse_allFieldsPresent_success() {
         // whitespace only preamble
-        assertParseSuccess(parser,  "1 a",
+        assertParseSuccess(parser, "1 a",
                 new TaskDoneCommand(Index.fromOneBased(1), Index.fromOneBased(1)));
     }
 

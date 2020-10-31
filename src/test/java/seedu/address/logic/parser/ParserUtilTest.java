@@ -63,8 +63,8 @@ public class ParserUtilTest {
     @Test
     public void parseAlphaIndex_invalidInput_throwsParseException() {
         // Wrong input type
-        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, ()
-                -> ParserUtil.parseAlphaIndex(Long.toString(Integer.MAX_VALUE + 1)));
+        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, () ->
+                        ParserUtil.parseAlphaIndex(Long.toString(Integer.MAX_VALUE + 1)));
 
         // More than one input required
         assertThrows(ParseException.class, () -> ParserUtil.parseAlphaIndex("10 a"));
@@ -73,8 +73,8 @@ public class ParserUtilTest {
     @Test
     public void parseTwoIndex_invalidInput_throwsParseException() {
         // Only a single input
-        assertThrows(ParseException.class, MESSAGE_MISSING_ARGS, (()
-                -> ParserUtil.parseTwoIndex("a")));
+        assertThrows(ParseException.class, MESSAGE_MISSING_ARGS, (() ->
+                        ParserUtil.parseTwoIndex("a")));
     }
 
     @Test
@@ -89,12 +89,12 @@ public class ParserUtilTest {
     @Test
     public void parseAlphaIndex_outOfRangeInput_throwsParseException() {
         // More than one letter
-        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, (()
-                -> ParserUtil.parseAlphaIndex("aa")));
+        assertThrows(ParseException.class, MESSAGE_INVALID_ALPHAINDEX, (() ->
+                        ParserUtil.parseAlphaIndex("aa")));
 
         // Input is not within the range of a to z
-        assertThrows(ParseException.class, MESSAGE_INVALID_LOWERCASEINDEX, ()
-                -> ParserUtil.parseAlphaIndex("A"));
+        assertThrows(ParseException.class, MESSAGE_INVALID_LOWERCASEINDEX, () ->
+                        ParserUtil.parseAlphaIndex("A"));
     }
 
     @Test

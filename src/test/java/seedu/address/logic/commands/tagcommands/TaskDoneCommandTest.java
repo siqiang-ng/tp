@@ -1,9 +1,8 @@
 package seedu.address.logic.commands.tagcommands;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HANDBALL;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showTagAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
@@ -47,9 +46,9 @@ class TaskDoneCommandTest {
         // ensures that outOfBoundIndex is still in bounds of Projact list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getProjact().getTagList().size());
 
-        TaskDoneCommand TaskDoneCommand = new TaskDoneCommand(outOfBoundIndex, INDEX_FIRST_TASK);
+        TaskDoneCommand taskDoneCommand = new TaskDoneCommand(outOfBoundIndex, INDEX_FIRST_TASK);
 
-        assertCommandFailure(TaskDoneCommand, model, Messages.MESSAGE_INVALID_TAG_DISPLAYED_INDEX);
+        assertCommandFailure(taskDoneCommand, model, Messages.MESSAGE_INVALID_TAG_DISPLAYED_INDEX);
     }
 
     @Test

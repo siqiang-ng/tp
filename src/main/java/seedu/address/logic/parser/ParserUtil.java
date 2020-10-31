@@ -2,8 +2,6 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
-import javax.swing.plaf.basic.BasicColorChooserUI;
-
 import java.net.MalformedURLException;
 import java.util.Collection;
 import java.util.HashSet;
