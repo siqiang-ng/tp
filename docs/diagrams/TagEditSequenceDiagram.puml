@@ -12,7 +12,7 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("tagedit 1 CS2103T")
+[-> LogicManager : execute("tagedit 1 t/CS2103T")
 activate LogicManager
 
 LogicManager -> ProjactParser : parseCommand("tagedit 1 CS2103T")
@@ -24,7 +24,7 @@ activate TagEditCommandParser
 TagEditCommandParser --> ProjactParser
 
 deactivate TagEditCommandParser
-ProjactParser -> TagEditCommandParser : parse("1 CS2103T")
+ProjactParser -> TagEditCommandParser : parse("1 t/CS2103T")
 activate TagEditCommandParser
 
 create TagEditCommand
