@@ -21,10 +21,10 @@ public class TaskDoneCommand extends Command {
     public static final String COMMAND_WORD = "taskdone";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Mark the task identified by the alphabetical "
-            + "index number used in the task list of the tag, which is identified by the numerical index used in "
-            + "the displayed tag list. "
-            + "Parameters: INDEX (must be a positive integer) "
-            + "ALPHABETICAL INDEX (must be in lower case from 'a' to 'z')"
+            + "index number used in the task list \n of the tag, which is identified by the numerical index used in "
+            + "the displayed tag list. \n"
+            + "Parameters: \n 1. INDEX (must be a positive integer) \n"
+            + "2. ALPHABETICAL INDEX (must be an alphabet in lower case from 'a' to 'z')\n"
             + "Example: " + COMMAND_WORD + " 1 a";
 
     public static final String MESSAGE_MARK_DONE_SUCCESS = "This task in tag %1$s has been marked done:\n" + "%2$s";
@@ -72,6 +72,11 @@ public class TaskDoneCommand extends Command {
      */
     private static List<TagTask> createModifiedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
+
+        if (oldTaskList.isEmpty()) {
+            throw new CommandException(Messages.MESSAGE_NO_TASK_LIST);
+        }
+
         if (taskIndex.getZeroBased() >= oldTaskList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
