@@ -8,6 +8,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TAG;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjactWithTasks;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,11 +33,21 @@ class TaskDoneCommandTest {
 
     @Test
     public void execute_invalidTaskIndexUnfilteredList_failure() {
-        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Model modelWithTasks = new ModelManager(getTypicalProjactWithTasks(), new UserPrefs());
+        Tag editedTag = modelWithTasks.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
         Index outOfBoundIndex = Index.fromOneBased(editedTag.getTagTasks().size() + 1);
         TaskDoneCommand taskDoneCommand = new TaskDoneCommand(INDEX_FIRST_TAG, outOfBoundIndex);
 
-        assertCommandFailure(taskDoneCommand, model, Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+        assertCommandFailure(taskDoneCommand, modelWithTasks, Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_noTaskList_failure() {
+        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Index taskIndex = Index.fromOneBased(editedTag.getTagTasks().size() + 1);
+        TaskDoneCommand taskDoneCommand = new TaskDoneCommand(INDEX_FIRST_TAG, taskIndex);
+
+        assertCommandFailure(taskDoneCommand, model, Messages.MESSAGE_NO_TASK_LIST);
     }
 
     @Test
