@@ -27,7 +27,7 @@ public class TaskAddCommand extends Command {
     public static final String COMMAND_WORD = "taskadd";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a task to a tag. "
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
             + PREFIX_TASK + "TASK DESCRIPTION "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TASK + "Peer review ";
