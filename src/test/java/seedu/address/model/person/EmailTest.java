@@ -70,8 +70,11 @@ public class EmailTest {
         assertTrue(Email.isValidEmail("a1+be!@1example1.1com1")); // first and last characters for domain are numbers
         assertTrue(Email.isValidEmail("peter_jack@very-very-very-long-example.com")); // long domain server name
         assertTrue(Email.isValidEmail("if.you.dream.it_you.can.do.it@example.com")); // long local part
-        assertTrue(Email.isValidEmail("peterjack@example.long.long.long.extension")); // long domain extension with periods
-        assertTrue(Email.isValidEmail("peterjack@example.long-long-long-extension")); // long domain extension with hyphens
-        assertTrue(Email.isValidEmail("peterjack@example.long-long.long.extension")); // long domain extension with hyphens and periods
+        // long domain extension with periods
+        assertTrue(Email.isValidEmail("peterjack@example.long.long.long.extension"));
+        // long domain extension with hyphens
+        assertTrue(Email.isValidEmail("peterjack@example.long-long-long-extension"));
+        // long domain extension with hyphens and periods
+        assertTrue(Email.isValidEmail("peterjack@example.long-long.long.extension"));
     }
 }
