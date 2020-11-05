@@ -519,7 +519,8 @@ Action | Format, Examples
 in the other computer. The data should remain the same as it was in your previous computer.
 
 **Q**: I have tried double-clicking the `projact.jar` file but the application does not open. <br>
-**A**: Ensure that you are downloading the `projact.jar` from our latest release on our github website and you have the 
-Java RunTime Environment installed in your computer. Delete the original file and download again. If the file still does not open, 
-please contact us by raising an issue on our github page.
+**A**: Please ensure that you have loaded the `projact.jar` file from our latest release on our github website. 
+A temporary solution could be to open your Command Prompt (Windows OS) or terminal (MacOS) and key in `java -jar <path_of_file>`. 
+For example, `java -jar C:\Users\name\projact\projact.jar`. We understand that this may be troublesome over time, so please 
+drop an email at siqiang@comp.nus.edu.sg or raise an issue on our github page.
 
