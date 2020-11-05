@@ -67,11 +67,11 @@ public class TagCard extends UiPart<Region> {
             meetingLink.setText(link.toString());
             setHyperlinkAction(meetingLink, link.link);
         }, () -> {
-            linkBox.setVisible(false);
-            linkBox.setManaged(false);
-        });
+                linkBox.setVisible(false);
+                linkBox.setManaged(false);
+            });
         // Initialize list of persons
-        if(!personList.isEmpty()) {
+        if (!personList.isEmpty()) {
             personList.stream()
                     .sorted(Comparator.comparing(person -> person.getName().fullName))
                     .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
