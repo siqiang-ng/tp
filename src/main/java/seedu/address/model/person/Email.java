@@ -10,27 +10,29 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Email {
 
     private static final String SPECIAL_CHARACTERS = "!#$%&'*+/=?`{|}~^.-";
-    public static final String MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
+    public static final String MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain.extension "
             + "and adhere to the following constraints:\n"
             + "1. The local-part should only contain alphanumeric characters and these special characters, excluding "
             + "the parentheses, (" + SPECIAL_CHARACTERS + ") .\n"
             + "2. This is followed by a '@' and then a domain name. "
-            + "The domain name should contain a mail server and extension.\n"
-            + "    - The mail server's name should be at least 1 character long, "
-            + "start and end with alphanumeric characters "
-            + "and consists of alphanumeric characters, or hyphens for the characters in between.\n"
-            + "    - The extension should be at least 2 characters long, "
-            + "start and end with alphanumeric characters\n"
-            + "and consists of alphanumeric characters, periods or hyphens for the characters in between.";
+            + "The domain name should: \n"
+            + "    - be at least 1 character long \n"
+            + "    - start and end with alphanumeric characters\n"
+            + "    - consist of alphanumeric characters, or hyphens for the characters in between.\n"
+            + "3. This is followed by a '.' and then an extension."
+            + "The extension should: \n"
+            + "    - be at least 2 characters long\n"
+            + "    - start and end with alphanumeric characters\n"
+            + "    - consist of alphanumeric characters, periods or hyphens for the characters in between.";
 
     // alphanumeric and special characters
     private static final String LOCAL_PART_REGEX = "^[\\w" + SPECIAL_CHARACTERS + "]+";
     // alphanumeric characters for the first and last characters
     // alphanumeric, underscore and hyphen for the middle characters
-    private static final String DOMAIN_MAIL_SERVER_REGEX = "[^\\W_]([a-zA-Z0-9-]*[^\\W_])*";
-    private static final String DOMAIN_EXTENSION_REGEX = "[^\\W_][[a-zA-Z0-9.-]]*[^\\W_]$";
+    private static final String DOMAIN_NAME_REGEX = "[^\\W_]([a-zA-Z0-9-]*[^\\W_])*";
+    private static final String EXTENSION_REGEX = "[^\\W_][[a-zA-Z0-9.-]]*[^\\W_]$";
     public static final String VALIDATION_REGEX = LOCAL_PART_REGEX + "@"
-            + DOMAIN_MAIL_SERVER_REGEX + "\\." + DOMAIN_EXTENSION_REGEX;
+            + DOMAIN_NAME_REGEX + "\\." + EXTENSION_REGEX;
 
     public final String value;
 

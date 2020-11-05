@@ -45,20 +45,20 @@ public class EmailTest {
         assertFalse(Email.isValidEmail("peter@jack@example.com")); // '@' symbol in local part
         assertFalse(Email.isValidEmail("peter jack@example.com")); // spaces in local part
 
-        // domain server name
-        assertFalse(Email.isValidEmail("peterjack@exam_ple.com")); // underscore in domain server name
-        assertFalse(Email.isValidEmail("peterjack@exam ple.com")); // spaces in domain server name
-        assertFalse(Email.isValidEmail("peterjack@-example.com")); // domain server name starts with a hyphen
-        assertFalse(Email.isValidEmail("peterjack@example-.com")); // domain server name ends with a hyphen
+        // domain name
+        assertFalse(Email.isValidEmail("peterjack@exam_ple.com")); // underscore in domain name
+        assertFalse(Email.isValidEmail("peterjack@exam ple.com")); // spaces in domain name
+        assertFalse(Email.isValidEmail("peterjack@-example.com")); // domain name starts with a hyphen
+        assertFalse(Email.isValidEmail("peterjack@example-.com")); // domain name ends with a hyphen
 
-        // domain extension
-        assertFalse(Email.isValidEmail("peterjack@example.c")); // domain extension has less than 2 characters
-        assertFalse(Email.isValidEmail("peterjack@example.co_m")); // underscore in domain extension
-        assertFalse(Email.isValidEmail("peterjack@example.co m")); // spaces in domain extension
-        assertFalse(Email.isValidEmail("peterjack@example..com")); // domain extension starts with a period
-        assertFalse(Email.isValidEmail("peterjack@example.com.")); // domain extension ends with a period
-        assertFalse(Email.isValidEmail("peterjack@example.-com")); // domain extension starts with a hyphen
-        assertFalse(Email.isValidEmail("peterjack@example.com-")); // domain extension ends with a hyphen
+        // extension
+        assertFalse(Email.isValidEmail("peterjack@example.c")); // extension has less than 2 characters
+        assertFalse(Email.isValidEmail("peterjack@example.co_m")); // underscore in extension
+        assertFalse(Email.isValidEmail("peterjack@example.co m")); // spaces in extension
+        assertFalse(Email.isValidEmail("peterjack@example..com")); // extension starts with a period
+        assertFalse(Email.isValidEmail("peterjack@example.com.")); // extension ends with a period
+        assertFalse(Email.isValidEmail("peterjack@example.-com")); // extension starts with a hyphen
+        assertFalse(Email.isValidEmail("peterjack@example.com-")); // extension ends with a hyphen
 
         // valid email
         assertTrue(Email.isValidEmail("PeterJack_1190@example.com"));
@@ -68,13 +68,13 @@ public class EmailTest {
         assertTrue(Email.isValidEmail("!#$%&'*+/=?`{|}~^.-@example.org")); // special characters local part
         assertTrue(Email.isValidEmail("a1+be!@example1.com")); // mixture of alphanumeric and special characters
         assertTrue(Email.isValidEmail("a1+be!@1example1.1com1")); // first and last characters for domain are numbers
-        assertTrue(Email.isValidEmail("peter_jack@very-very-very-long-example.com")); // long domain server name
+        assertTrue(Email.isValidEmail("peter_jack@very-very-very-long-example.com")); // long domain name
         assertTrue(Email.isValidEmail("if.you.dream.it_you.can.do.it@example.com")); // long local part
-        // long domain extension with periods
+        // long extension with periods
         assertTrue(Email.isValidEmail("peterjack@example.long.long.long.extension"));
-        // long domain extension with hyphens
+        // long extension with hyphens
         assertTrue(Email.isValidEmail("peterjack@example.long-long-long-extension"));
-        // long domain extension with hyphens and periods
+        // long Extension with hyphens and periods
         assertTrue(Email.isValidEmail("peterjack@example.long-long.long.extension"));
     }
 }
