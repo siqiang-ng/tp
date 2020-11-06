@@ -17,6 +17,7 @@ import seedu.address.model.person.Person;
 public class PersonListPanel extends UiPart<Region> {
     private static final String FXML = "PersonListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
+    private final List<Person> currentPersonList;
     private final List<Person> originalPersonList;
 
     @FXML
@@ -27,6 +28,7 @@ public class PersonListPanel extends UiPart<Region> {
      */
     public PersonListPanel(ObservableList<Person> personList) {
         super(FXML);
+        this.currentPersonList = personList;
         this.originalPersonList = personList;
         personListView.setItems(personList);
         personListView.setCellFactory(listView -> new PersonListViewCell());
@@ -37,6 +39,7 @@ public class PersonListPanel extends UiPart<Region> {
      */
     public PersonListPanel(ObservableList<Person> personList, List<Person> originalPersonList) {
         super(FXML);
+        this.currentPersonList = personList;
         this.originalPersonList = originalPersonList;
         personListView.setItems(personList);
         personListView.setCellFactory(listView -> new PersonListViewCell());
@@ -54,14 +57,15 @@ public class PersonListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                int displayedIndex = 0;
+                int actualIndex = 0;
                 for (int i = 0; i < originalPersonList.size(); i++) {
                     if (originalPersonList.get(i).equals(person)) {
-                        displayedIndex = i + 1;
+                        actualIndex = i + 1;
                         break;
                     }
                 }
-                setGraphic(new PersonCard(person, displayedIndex).getRoot());
+                boolean isPersonList = currentPersonList.equals(originalPersonList);
+                setGraphic(new PersonCard(person, isPersonList, getIndex() + 1, actualIndex).getRoot());
             }
         }
     }

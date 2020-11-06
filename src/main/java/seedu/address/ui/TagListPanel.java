@@ -21,6 +21,7 @@ public class TagListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(TagListPanel.class);
     private final Function<Tag, List<Person>> findContactsByTag;
     private final List<Tag> originalTagList;
+    private final List<Tag> currentTagList;
 
     @FXML
     private ListView<Tag> tagListView;
@@ -30,6 +31,7 @@ public class TagListPanel extends UiPart<Region> {
      */
     public TagListPanel(ObservableList<Tag> tagList, Function<Tag, List<Person>> findContactsByTag) {
         super(FXML);
+        this.currentTagList = tagList;
         this.originalTagList = tagList;
         tagListView.setItems(tagList);
         tagListView.setCellFactory(listView -> new TagListViewCell());
@@ -41,6 +43,7 @@ public class TagListPanel extends UiPart<Region> {
      */
     public TagListPanel(ObservableList<Tag> tagList, List<Tag> originalTagList, Function<Tag, List<Person>> findContactsByTag) {
         super(FXML);
+        this.currentTagList = tagList;
         this.originalTagList = originalTagList;
         tagListView.setItems(tagList);
         tagListView.setCellFactory(listView -> new TagListViewCell());
@@ -73,7 +76,9 @@ public class TagListPanel extends UiPart<Region> {
                         break;
                     }
                 }
-                setGraphic(new TagCard(tag, getIndex() + 1, actualIndex, findContactsByTag.apply(tag)).getRoot());
+                boolean isTagList = currentTagList.equals(originalTagList);
+                setGraphic(new TagCard(tag, isTagList, getIndex() + 1,
+                                        actualIndex, findContactsByTag.apply(tag)).getRoot());
             }
         }
     }

@@ -28,6 +28,7 @@
           </minWidth>
         </Label>
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="actualId" styleClass="extra_label" />
       </HBox>
       <HBox fx:id="tagsBox" spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-tags" styleClass="small-icon"/>

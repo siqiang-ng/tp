@@ -196,14 +196,15 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isSortTag()) {
                 tagListPanel = new TagListPanel(logic.getSortedTagList(),
-                                                logic.getFilteredTagList(),
+                                                logic.getAllFilteredTagList(),
                                                 logic::findContactsByTag);
             } else {
                 tagListPanel = new TagListPanel(logic.getFilteredTagList(), logic::findContactsByTag);
             }
 
             if (commandResult.isSortPerson()) {
-                personListPanel = new PersonListPanel(logic.getSortedPersonList(), logic.getFilteredPersonList());
+                personListPanel = new PersonListPanel(logic.getSortedPersonList(),
+                                                        logic.getAllFilteredPersonList());
             } else {
                 personListPanel = new PersonListPanel(logic.getFilteredPersonList());
             }

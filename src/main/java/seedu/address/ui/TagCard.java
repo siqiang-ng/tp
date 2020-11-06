@@ -57,14 +57,18 @@ public class TagCard extends UiPart<Region> {
     /**
      * Creates a {@code TagCard} with the given {@code Tag}, index, and {@code personList} to display.
      */
-    public TagCard(Tag tag, int displayedIndex, int actualIndex, List<Person> personList) {
+    public TagCard(Tag tag, boolean isTagList, int displayedIndex, int actualIndex, List<Person> personList) {
         super(FXML);
         requireAllNonNull(tag, personList);
         assert displayedIndex > 0 : "Displayed index should be greater than 0";
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
-        actualId.setText("(Actual Index: " + actualIndex + ")");
+        if (isTagList) {
+            actualId.setVisible(false);
+        } else {
+            actualId.setText("(Actual Index: " + actualIndex + ")");
+        }
         // Initialize meeting link
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
