@@ -32,7 +32,7 @@ public class TaskAddCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TASK + "Peer review ";
 
-    public static final String MESSAGE_SUCCESS = "New task added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New task added to the tag %1$s : \n%2$s";
     public static final String MESSAGE_TASK_NAME_NOT_PROVIDED = "Name of task must be provided.";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in this tag.";
 
@@ -68,7 +68,7 @@ public class TaskAddCommand extends Command {
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, tagToEdit, editedTag));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, tagToEdit.getTagName(), editTagDescriptor.newTagTask));
     }
 
     /**
