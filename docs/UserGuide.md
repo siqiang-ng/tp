@@ -34,9 +34,16 @@ title: User Guide
 ## Introduction
 Welcome to the *Projact User Guide*!
 
-Projact is a **project and contact management app that helps NUS computing students to organise their fellow students' contacts and their teams' meeting links and tasks**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
+#### Is Projact a typo?
+Nope, Projact is a combination of Project and Contact!
+It is a **project and contact management app that helps you, NUS computing students, to organise your fellow students' contacts by their modules or internship/work companies along with your project teams' meeting links and tasks**. 
 
-The Projact application consists of a person list, which stores the contacts of the other computing students, and a tag list, which can store the tags of the modules that the current user is taking in this semester and even more!
+Projact has been optimized for use via a Command Line Interface (CLI) so you can easily type all the commands. But no worries, there is still a Graphical User Interface (GUI) so you can see every change you make to your contacts, meeting links and tasks.
+
+#### How does Projact work?
+Projact stores:
+- A list of the contacts you have added.
+- A list of tags which you use to label your contacts. 
 
 --------------------------------------------------------------------------------------------------------------------
 
