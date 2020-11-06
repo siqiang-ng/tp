@@ -242,6 +242,11 @@ Dislike how the current list of contacts is displayed? Sort the names in alphabe
 Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
 </div>
  
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
+    1. Do note that `sort` command does not sort the contact list displayed after `find` command!
+    2. Only edit the contact based on the **Actual Index** as displayed!
+</div> 
+ 
 **Format:** `sort`
  
 **Step-By-Step Guide:**
@@ -335,10 +340,16 @@ Examples:
 
 #### Sorting tags by tag name: `tagsort`
 
-Dislike how the current list of tags is displayed? Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
+Dislike how the current list of tags is displayed? 
+Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
+</div>
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
+    1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+    2. Only edit the tag based on the **Actual Index** as displayed!
 </div>
 
 **Format:** `tagsort`
