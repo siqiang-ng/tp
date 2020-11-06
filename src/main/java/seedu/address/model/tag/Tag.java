@@ -16,7 +16,7 @@ public class Tag {
 
     // Identity fields
     private final TagName tagName;
-    private final List<TagTask> tagTasks;
+    private List<TagTask> tagTasks;
     private final Optional<MeetingLink> meetingLink;
 
     /**
@@ -49,6 +49,19 @@ public class Tag {
 
     public Optional<MeetingLink> getMeetingLink() {
         return meetingLink;
+    }
+
+    /**
+     * Removes all completed tasks.
+     */
+    public void clearCompletedTasks() {
+        List<TagTask> newTagTasks = new ArrayList<>();
+        for (TagTask task : tagTasks) {
+            if (!task.getIsDone()) {
+                newTagTasks.add(task);
+            }
+        }
+        this.tagTasks = newTagTasks;
     }
 
     /**
