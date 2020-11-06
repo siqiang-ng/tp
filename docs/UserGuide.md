@@ -425,8 +425,12 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 
 **Format:** `taskadd INDEX task/TASK_NAME`
 
-* Adds a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Adds a task to the tag with the `INDEX` from the current view of the tag list after doing `taglist`.
 * Task will not be added if specified tag with `INDEX` already has a task with the same task name.
+
+<div markdown="span" class="alert alert-info">:information_source: **Tip:**
+A tag can only have up to 26 tasks added for now. 
+</div>
 
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
