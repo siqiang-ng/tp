@@ -378,7 +378,7 @@ Step 3: You should see the updated tag list without the "family" tag.
 
 #### Adding a link under a tag: `linkadd`
 
-This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
 
 **Format:** `linkadd INDEX l/LINK`
 
