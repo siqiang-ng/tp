@@ -80,17 +80,13 @@ Before you go on, here are some key terms and symbols you should know!
 ### Symbols
 
 <!--suppress HtmlUnknownAttribute -->
-<div>
 <div markdown="span" class="alert alert-info"> 
    <b>:information_source: This information symbol signals that there are things you should take note of!</b>
 </div> 
-<br />
 
 <div markdown="span" class="alert alert-primary"> 
    <b>:bulb: The light bulb symbol will show you a tip to make your Projact experience smoother.</b>
 </div> 
-<br />
-</div>
 
 Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
 
