@@ -35,7 +35,8 @@ public class TaskAddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New task added: %1$s";
     public static final String MESSAGE_TASK_NAME_NOT_PROVIDED = "Name of task must be provided.";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in this tag.";
-    public static final String MESSAGE_MAXIMUM_TASKS_EXCEEDED = "The maximum number of tasks that are allowed to be added has been exceeded.";
+    public static final String MESSAGE_MAXIMUM_TASKS_EXCEEDED = "The maximum number of tasks that are allowed to be "
+            + "added has been exceeded.";
 
     private final Index index;
     private final EditTagDescriptor editTagDescriptor;
