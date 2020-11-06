@@ -82,12 +82,12 @@ Before you go on, here are some key terms and symbols you should know!
 <!--suppress HtmlUnknownAttribute -->
 <div markdown="block" class="alert alert-info">
 
-<div> :information_source: 
-<b> This information symbol signals that there are things you should take note of! </b>
-</div> 
-
 <div> 
-<b> :bulb: The light bulb symbol will show you a tip to make your Projact experience smoother. </b>
+:information_source: This information symbol signals that there are things you should take note of!
+</div> 
+<br />
+<div> 
+:bulb: The light bulb symbol will show you a tip to make your Projact experience smoother.
 </div> 
 
 </div>
