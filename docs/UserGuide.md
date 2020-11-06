@@ -63,16 +63,16 @@ Before you go on, here are some key terms and symbols you should know!
 - Each contact can have any number of tags, from 0 to any number you assign it!
 - Tags can store the following information:
     - Tasks
-    - Meeting link
+    - Links
 
 #### How about Tasks?
 - Ever forget what to-dos have been allocated to your project mates? Keep track of them by storing the to-dos as Tasks in Projact!
 - Tasks are stored under a tag so you can easily categorise them.
 - Whenever you or your project mates are done with their tasks, you can easily check them off and feel accomplished!
 
-#### And Meeting Links?
-- There are so many meeting links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
-- The Meeting Link will be stored under a tag so it's easy to know what it's for. 
+#### And Links?
+- There are so many links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
+- The link will be stored under a tag so it's easy to know what it's for. 
 
 #### Index?
 - Index refers to the contact's or tag's position in its list. You will need this to use many of the commands! But fret not, it's really easy to identify the index of your desired contact or tag. Find out more about this later on in the User Guide!
@@ -88,6 +88,8 @@ Before you go on, here are some key terms and symbols you should know!
 #### <div> :bulb: </div>
 - The light bulb symbol will show you a tip to make your Projact experience smoother.
 
+#### <div> :exclamation: </div>
+- The exclamation mark symbol is a warning for any side effects that may result from the command, or any other important information you should know before you proceed.
 </div>
 
 Now you're prepared to embark on this journey and have Projact manage your contacts and projacts.
@@ -96,7 +98,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer. Click [here](https://phoenixnap.com/kb/check-java-version-on-m…) to check if you have the correct version of Java installed. 
 
 1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.3/projact.jar).
 
@@ -374,9 +376,9 @@ Step 3: You should see the updated tag list without the "family" tag.
 
 ### Link Features
 
-#### Adding a meeting link under a tag: `linkadd`
+#### Adding a link under a tag: `linkadd`
 
-This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
 
 **Format:** `linkadd INDEX l/LINK`
 
@@ -400,9 +402,9 @@ Click on the link to be redirected to your browser!
 
 ![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
-#### Deleting the meeting link under the tag: `linkdelete`
+#### Deleting the link under the tag: `linkdelete`
 
-Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
+Want to get rid of the link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
 
