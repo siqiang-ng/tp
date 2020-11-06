@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
 <HBox id="personCardPane" fx:id="personCardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
@@ -27,10 +29,22 @@
         </Label>
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
       </HBox>
-      <FlowPane fx:id="tags" />
-      <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-      <Label fx:id="telegramAddress" styleClass="cell_small_label" text="\$telegramAddress" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+      <HBox fx:id="tagsBox" spacing="5" alignment="CENTER_LEFT">
+        <FontIcon iconLiteral="fas-tags" styleClass="small-icon"/>
+        <FlowPane fx:id="tags" />
+      </HBox>
+      <HBox spacing="5" alignment="CENTER_LEFT">
+        <FontIcon iconLiteral="fas-phone-square-alt" styleClass="big-icon"/>
+        <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+      </HBox>
+      <HBox spacing="5" alignment="CENTER_LEFT">
+        <FontIcon iconLiteral="fab-telegram" styleClass="big-icon" />
+        <Label fx:id="telegramAddress" styleClass="cell_small_label" text="\$telegramAddress" />
+      </HBox>
+      <HBox spacing="5" alignment="CENTER_LEFT">
+        <FontIcon iconLiteral="fas-envelope-square" styleClass="big-icon"/>
+        <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+      </HBox>
     </VBox>
   </GridPane>
 </HBox>
