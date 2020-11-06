@@ -69,17 +69,22 @@ public class TagListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                int actualIndex = 0;
-                for (int i = 0; i < originalTagList.size(); i++) {
-                    if (originalTagList.get(i).equals(tag)) {
-                        actualIndex = i + 1;
-                        break;
-                    }
-                }
+                int actualIndex = getActualIndex(tag);
                 boolean isTagList = currentTagList.equals(originalTagList);
                 setGraphic(new TagCard(tag, isTagList, getIndex() + 1,
                                         actualIndex, findContactsByTag.apply(tag)).getRoot());
             }
+        }
+
+        protected int getActualIndex(Tag tag) {
+            int actualIndex = 0;
+            for (int i = 0; i < originalTagList.size(); i++) {
+                if (originalTagList.get(i).equals(tag)) {
+                    actualIndex = i + 1;
+                    break;
+                }
+            }
+            return actualIndex;
         }
     }
 

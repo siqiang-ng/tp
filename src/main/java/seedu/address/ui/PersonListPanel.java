@@ -57,16 +57,21 @@ public class PersonListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                int actualIndex = 0;
-                for (int i = 0; i < originalPersonList.size(); i++) {
-                    if (originalPersonList.get(i).equals(person)) {
-                        actualIndex = i + 1;
-                        break;
-                    }
-                }
+                int actualIndex = getActualIndex(person);
                 boolean isPersonList = currentPersonList.equals(originalPersonList);
                 setGraphic(new PersonCard(person, isPersonList, getIndex() + 1, actualIndex).getRoot());
             }
+        }
+
+        protected int getActualIndex(Person person) {
+            int actualIndex = 0;
+            for (int i = 0; i < originalPersonList.size(); i++) {
+                if (originalPersonList.get(i).equals(person)) {
+                    actualIndex = i + 1;
+                    break;
+                }
+            }
+            return actualIndex;
         }
     }
 

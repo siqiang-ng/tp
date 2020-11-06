@@ -56,15 +56,31 @@ public class PersonCard extends UiPart<Region> {
         assert displayedIndex > 0 : "Displayed index should be greater than 0";
         this.person = person;
         id.setText(displayedIndex + ". ");
+        name.setText(person.getName().fullName);
+        phone.setText(person.getPhone().value);
+        telegramAddress.setText("@" + person.getTelegramAddress().value);
+        email.setText(person.getEmail().value);
+
+        initializeActualIndex(isPersonList, actualIndex);
+        initializeTags();
+    }
+
+    /**
+     * Initializa the actual Index for each {@Code PersonCard}
+     */
+    private void initializeActualIndex(boolean isPersonList, int actualIndex) {
         if (isPersonList) {
             actualId.setVisible(false);
         } else {
             actualId.setText("(Actual Index: " + actualIndex + ")");
         }
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        telegramAddress.setText("@" + person.getTelegramAddress().value);
-        email.setText(person.getEmail().value);
+    }
+
+
+    /**
+     * Initialize all the tags for each {@Code PersonCard}
+     */
+    public void initializeTags() {
         if (!person.getTagNames().isEmpty()) {
             person.getTagNames().stream()
                     .sorted(Comparator.comparing(tagName -> tagName.tagName))

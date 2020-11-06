@@ -64,20 +64,41 @@ public class TagCard extends UiPart<Region> {
         this.tag = tag;
         id.setText(displayedIndex + ". ");
         tagName.setText(tag.getTagName().tagName);
+
+        initializeActualIndex(isTagList, actualIndex);
+        initializeLinks();
+        initializePersonList(personList);
+        initializeTaskList(tag);
+    }
+
+    /**
+     * Initializa the actual Index for each {@Code TagCard}
+     */
+    private void initializeActualIndex(boolean isTagList, int actualIndex) {
         if (isTagList) {
             actualId.setVisible(false);
         } else {
             actualId.setText("(Actual Index: " + actualIndex + ")");
         }
-        // Initialize meeting link
+    }
+
+    /**
+     * Initialize the link for each {@Code TagCard}
+     */
+    private void initializeLinks() {
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
             setHyperlinkAction(meetingLink, link.link);
         }, () -> {
-                linkBox.setVisible(false);
-                linkBox.setManaged(false);
-            });
-        // Initialize list of persons
+            linkBox.setVisible(false);
+            linkBox.setManaged(false);
+        });
+    }
+
+    /**
+     * Initialize the person list for each {@Code TagCard}
+     */
+    private void initializePersonList(List<Person> personList) {
         if (!personList.isEmpty()) {
             personList.stream()
                     .sorted(Comparator.comparing(person -> person.getName().fullName))
@@ -86,7 +107,12 @@ public class TagCard extends UiPart<Region> {
             personsBox.setVisible(false);
             personsBox.setManaged(false);
         }
-        // Initialize list of tasks
+    }
+
+    /**
+     * Initialize the task list for each {@Code TagCard}
+     */
+    private void initializeTaskList(Tag tag) {
         List<TagTask> tagTasksList = tag.getTagTasks();
         if (!tagTasksList.isEmpty()) {
             String taskList = "";
