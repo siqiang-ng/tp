@@ -166,11 +166,11 @@ The `sort` command allows a user to sort the current person list in alphabetical
     1. LogicManager calls parseCommand method of ProjactParser.
     1. ProjactParser returns SortCommand.
     1. LogicManager executes SortCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
-    
+
 - Why is it implemented that way?
     - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
-    
-The diagram below shows a sample interaction of SortCommand. 
+
+The diagram below shows a sample interaction of SortCommand.
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
 #### Tag features
