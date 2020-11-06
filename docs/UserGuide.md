@@ -385,7 +385,7 @@ This command ties a meeting link to a specified tag. It will come in handy if yo
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
 
-Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkdelete 6 l/https://skype.com/cs2103proj/` and hit enter.
+Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
 
 <div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
