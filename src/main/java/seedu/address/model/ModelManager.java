@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.logging.Filter;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -197,7 +198,6 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredTags.setPredicate(predicate);
     }
-
 
     //=========== Sorted Tag List Accessors =============================================================
 

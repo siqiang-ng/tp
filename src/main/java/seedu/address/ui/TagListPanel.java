@@ -20,6 +20,7 @@ public class TagListPanel extends UiPart<Region> {
     private static final String FXML = "TagListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(TagListPanel.class);
     private final Function<Tag, List<Person>> findContactsByTag;
+    private final List<Tag> originalTagList;
 
     @FXML
     private ListView<Tag> tagListView;
@@ -29,6 +30,18 @@ public class TagListPanel extends UiPart<Region> {
      */
     public TagListPanel(ObservableList<Tag> tagList, Function<Tag, List<Person>> findContactsByTag) {
         super(FXML);
+        this.originalTagList = tagList;
+        tagListView.setItems(tagList);
+        tagListView.setCellFactory(listView -> new TagListViewCell());
+        this.findContactsByTag = findContactsByTag;
+    }
+
+    /**
+     * Creates a {@code TagListPanel} with the given {@code ObservableList}.
+     */
+    public TagListPanel(ObservableList<Tag> tagList, List<Tag> originalTagList, Function<Tag, List<Person>> findContactsByTag) {
+        super(FXML);
+        this.originalTagList = originalTagList;
         tagListView.setItems(tagList);
         tagListView.setCellFactory(listView -> new TagListViewCell());
         this.findContactsByTag = findContactsByTag;
@@ -53,7 +66,14 @@ public class TagListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new TagCard(tag, getIndex() + 1, findContactsByTag.apply(tag)).getRoot());
+                int displayedIndex = 0;
+                for (int i = 0; i < originalTagList.size(); i++) {
+                    if (originalTagList.get(i).equals(tag)) {
+                        displayedIndex = i + 1;
+                        break;
+                    }
+                }
+                setGraphic(new TagCard(tag, displayedIndex, findContactsByTag.apply(tag)).getRoot());
             }
         }
     }
