@@ -14,7 +14,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/siqiang-ng.png" width="200px">
 
 [[github](https://github.com/siqiang-ng)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/siqiang-ngg.md)]
 
 * Role: Team Lead
 * Responsibility: Scheduling and Tracking
@@ -24,6 +24,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/joeytoh.png" width="200px">
 
 [[github](http://github.com/JoeyToh)]
+[[portfolio](team/JoeyToh.md)]
 
 * Role: Developer
 * Responsibilities: Documentation
@@ -51,6 +52,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/pockii.png" width="200px">
 
 [[github](http://github.com/pockii)]
+[[portfolio](team/pockii.md)]
 
 * Role: Developer
 * Responsibilities: Integration

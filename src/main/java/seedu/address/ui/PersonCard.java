@@ -42,6 +42,8 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
+    @FXML
+    private HBox tagsBox;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -56,9 +58,14 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         telegramAddress.setText("@" + person.getTelegramAddress().value);
         email.setText(person.getEmail().value);
-        person.getTagNames().stream()
-                .sorted(Comparator.comparing(tagName -> tagName.tagName))
-                .forEach(tagName -> tags.getChildren().add(new Label(tagName.tagName)));
+        if (!person.getTagNames().isEmpty()) {
+            person.getTagNames().stream()
+                    .sorted(Comparator.comparing(tagName -> tagName.tagName))
+                    .forEach(tagName -> tags.getChildren().add(new Label(tagName.tagName)));
+        } else {
+            tagsBox.setVisible(false);
+            tagsBox.setManaged(false);
+        }
     }
 
     @Override
