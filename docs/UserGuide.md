@@ -439,7 +439,7 @@ Example:
 
 #### Marking a task under a tag as done: `taskdone`
 
-After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how do you mark the 
 task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
 the alphabetical index `ALPHAINDEX` to do the magic!
 
@@ -458,14 +458,30 @@ Step 3: You should see the task "complete user guide" have a tick beside it.
 
 #### Deleting a task: `taskdelete`
 
-Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
+Are the tasks added no longer needed? Or perhaps you've accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
 
 **Format:** `taskdelete INDEX ALPHAINDEX`
 
-* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Deletes a task to the tag with the `INDEX` from the current view of the tag list (either tagsort or taglist).
 
 Example:
 * `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
+
+#### Clearing all completed tasks: `taskclear`
+
+Do you want the satisfaction of striking off all the tasks you've completed? Well, Projact can't do that but it sure can offer you a way to delete all of your completed tasks!
+
+**Format:** `taskclear`
+
+**Step-By-Step Guide:**
+
+Step 1: Key in the `taskclear` command.
+![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
+
+Step 2: Hit enter and all the completed tasks will be removed.
+![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -515,6 +531,7 @@ Action | Format, Examples
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
 **Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
 **Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
+**Task Clear** | `taskclear
 
 --------------------------------------------------------------------------------------------------------------------
 
