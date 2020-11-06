@@ -116,20 +116,16 @@
     -fx-border-width: 1;
 }
 
-.list-cell .label {
-    -fx-text-fill: white;
-}
-
 .cell_big_label {
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 16px;
-    -fx-text-fill: #010504;
+    -fx-text-fill: white;
 }
 
 .cell_small_label {
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13px;
-    -fx-text-fill: #010504;
+    -fx-text-fill: white;
 }
 
 .stack-pane {
@@ -370,4 +366,10 @@
 .small-icon {
     -fx-icon-size: 12;
     -fx-icon-color: #f0f0f0;
+}
+
+.extra_label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13.5px;
+    -fx-text-fill: #fff670;
 }

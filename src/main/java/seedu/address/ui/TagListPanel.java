@@ -66,14 +66,14 @@ public class TagListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                int displayedIndex = 0;
+                int actualIndex = 0;
                 for (int i = 0; i < originalTagList.size(); i++) {
                     if (originalTagList.get(i).equals(tag)) {
-                        displayedIndex = i + 1;
+                        actualIndex = i + 1;
                         break;
                     }
                 }
-                setGraphic(new TagCard(tag, displayedIndex, findContactsByTag.apply(tag)).getRoot());
+                setGraphic(new TagCard(tag, getIndex() + 1, actualIndex, findContactsByTag.apply(tag)).getRoot());
             }
         }
     }
