@@ -2,8 +2,8 @@ package seedu.address.logic.parser.tagparsers;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_LINK;
 import static seedu.address.logic.commands.tagcommands.LinkAddCommand.MESSAGE_LINK_NOT_PROVIDED;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LINK;
 
 import java.util.Optional;
 
