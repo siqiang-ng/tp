@@ -28,9 +28,10 @@ public class LinkAddCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_LINK + "LINK\n"
             + "Example: " + COMMAND_WORD
-            + " 1 " + PREFIX_LINK + "https://nus-sg.zoom/cs2101g01";
+            + " 1 " + PREFIX_LINK + "https://skype.com/cs2101g01";
 
     public static final String MESSAGE_SUCCESS = "New link added: %1$s";
+    public static final String MESSAGE_LINK_NOT_PROVIDED = "A link must be provided.";
     public static final String MESSAGE_LINK_ALREADY_EXISTS = "This tag already has a link tied to it.";
 
     private final Index targetIndex;

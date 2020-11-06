@@ -2,6 +2,7 @@ package seedu.address.logic.parser.tagparsers;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.tagcommands.LinkAddCommand.MESSAGE_LINK_NOT_PROVIDED;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LINK;
 
 import java.util.Optional;
@@ -32,6 +33,10 @@ public class LinkAddCommandParser {
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, LinkAddCommand.MESSAGE_USAGE), pe);
+        }
+
+        if (argMultimap.getValue(PREFIX_LINK).isEmpty()) {
+            throw new ParseException(MESSAGE_LINK_NOT_PROVIDED);
         }
 
         Optional<MeetingLink> link = ParserUtil.parseMeetingLink(argMultimap.getValue(PREFIX_LINK).get());
