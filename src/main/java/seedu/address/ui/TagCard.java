@@ -90,9 +90,9 @@ public class TagCard extends UiPart<Region> {
             meetingLink.setText(link.toString());
             setHyperlinkAction(meetingLink, link.link);
         }, () -> {
-            linkBox.setVisible(false);
-            linkBox.setManaged(false);
-        });
+                linkBox.setVisible(false);
+                linkBox.setManaged(false);
+            });
     }
 
     /**

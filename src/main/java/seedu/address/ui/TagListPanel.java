@@ -41,7 +41,8 @@ public class TagListPanel extends UiPart<Region> {
     /**
      * Creates a {@code TagListPanel} with the given {@code ObservableList}.
      */
-    public TagListPanel(ObservableList<Tag> tagList, List<Tag> originalTagList, Function<Tag, List<Person>> findContactsByTag) {
+    public TagListPanel(ObservableList<Tag> tagList, List<Tag> originalTagList,
+                        Function<Tag, List<Person>> findContactsByTag) {
         super(FXML);
         this.currentTagList = tagList;
         this.originalTagList = originalTagList;
