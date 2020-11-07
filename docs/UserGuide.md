@@ -11,7 +11,7 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Meeting Links](#and-meeting-links)
+        * [Links](#and-links)
         * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
@@ -70,16 +70,16 @@ Before you go on, here are some key terms and symbols you should know!
 - Each contact can have any number of tags, from 0 to any number you assign it!
 - Tags can store the following information:
     - Tasks
-    - Meeting link
+    - Links
 
 #### How about Tasks?
 - Ever forget what to-dos have been allocated to your project mates? Keep track of them by storing the to-dos as Tasks in Projact!
 - Tasks are stored under a tag so you can easily categorise them.
 - Whenever you or your project mates are done with their tasks, you can easily check them off and feel accomplished!
 
-#### And Meeting Links?
-- There are so many meeting links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
-- The Meeting Link will be stored under a tag so it's easy to know what it's for. 
+#### And Links?
+- There are so many links floating around now and it's tough to keep track of them all. But don't worry, we've got your back!
+- The link will be stored under a tag so it's easy to know what it's for. 
 
 #### Index?
 - Index refers to the contact's or tag's position in its list. You will need this to use many of the commands! But fret not, it's really easy to identify the index of your desired contact or tag. Find out more about this later on in the User Guide!
@@ -88,20 +88,25 @@ Before you go on, here are some key terms and symbols you should know!
 
 <!--suppress HtmlUnknownAttribute -->
 <div markdown="span" class="alert alert-info"> 
-   <b>:information_source: This information symbol signals that there are things you should take note of.</b>
+   <b>:information_source: This information symbol provides you with additional information.</b>
 </div> 
-<br />
+<br>
 <div markdown="span" class="alert alert-primary"> 
    <b>:bulb: This light bulb symbol will show you tips to make your Projact experience smoother.</b>
 </div> 
-<br />
-Now you're prepared to embark on this journey and have Projact manage your contacts and projacts!
+<br>
+<div markdown="span" class="alert alert-danger"> 
+   <b> :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects. </b>
+</div> 
+<br>
+
+Now you're prepared to embark on this journey and have Projact manage your contacts and projects.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer. Click [here](https://phoenixnap.com/kb/check-java-version-on-m…) to check if you have the correct version of Java installed. 
 
 1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.3/projact.jar).
 
@@ -187,11 +192,20 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
+<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+* No two contacts can have the same name
+* Phone numbers can be 7 to 15 digits long.
+</div> 
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
-</div>
+
+* Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
+
+* A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 
 * Listed tags will be created automatically if they are not found in the tag list.
+
+</div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
@@ -316,8 +330,8 @@ Step 2: For example, if you want to change the name of the `family` tag to `brot
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Take note:**<br>
+<div markdown="span" class="alert alert-danger">
+**:exclamation: Note:**<br>
 * The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
@@ -360,7 +374,7 @@ Step 2: Hit enter and the list with all the tag names sorted will be displayed i
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
 The tag will also be removed from the contact(s) that contain(s) the tag.
 </div>
 
@@ -379,9 +393,9 @@ Step 3: You should see the updated tag list without the "family" tag.
 
 ### Link Features
 
-#### Adding a meeting link under a tag: `linkadd`
+#### Adding a link under a tag: `linkadd`
 
-This command ties a meeting link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on. (E.g. Zoom, Skype)
+This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
 
 **Format:** `linkadd INDEX l/LINK`
 
@@ -390,9 +404,9 @@ This command ties a meeting link to a specified tag. It will come in handy if yo
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
 
-Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkdelete 6 l/https://skype.com/cs2103proj/` and hit enter.
+Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
 
-<div markdown="span" class="alert alert-primary">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
 </div>
 
@@ -405,9 +419,9 @@ Click on the link to be redirected to your browser!
 
 ![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
-#### Deleting the meeting link under the tag: `linkdelete`
+#### Deleting the link under the tag: `linkdelete`
 
-Want to get rid of the meeting link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
+Want to get rid of the link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
 
@@ -430,8 +444,19 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 
 **Format:** `taskadd INDEX task/TASK_NAME`
 
-* Adds a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Adds a task to the tag with the `INDEX` from the current view of the tag list after doing `taglist`.
 * Task will not be added if specified tag with `INDEX` already has a task with the same task name.
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Maximum number of tasks in each tag:**<br>
+
+* Only a maximum of 26 tasks can be added, due to the alphabet being used as an index.
+
+* Attempts to add additional tags after 26 will result in an error.<br>
+  i.e. Unable to add new tasks after the task with index `z`.
+
+</div>
 
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.

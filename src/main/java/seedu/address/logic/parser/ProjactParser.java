@@ -38,6 +38,8 @@ import seedu.address.logic.parser.tagparsers.TagAddCommandParser;
 import seedu.address.logic.parser.tagparsers.TagDeleteCommandParser;
 import seedu.address.logic.parser.tagparsers.TagEditCommandParser;
 import seedu.address.logic.parser.tagparsers.TagFindCommandParser;
+import seedu.address.logic.parser.tagparsers.TaskAddCommandParser;
+import seedu.address.logic.parser.tagparsers.TaskDeleteCommandParser;
 import seedu.address.logic.parser.tagparsers.TaskDoneCommandParser;
 
 /**

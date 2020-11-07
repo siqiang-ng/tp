@@ -21,13 +21,13 @@
         <Insets top="5" right="5" bottom="5" left="15" />
       </padding>
       <HBox spacing="5" alignment="CENTER_LEFT">
-        <Label fx:id="id" styleClass="cell_big_label">
+        <Label fx:id="id" styleClass="cell_big_label" wrapText="true">
           <minWidth>
             <!-- Ensures that the label text is never truncated -->
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="name" text="\$first" styleClass="cell_big_label" wrapText="true" />
       </HBox>
       <HBox fx:id="tagsBox" spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-tags" styleClass="small-icon"/>
@@ -35,15 +35,15 @@
       </HBox>
       <HBox spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-phone-square-alt" styleClass="big-icon"/>
-        <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+        <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" wrapText="true" />
       </HBox>
       <HBox spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fab-telegram" styleClass="big-icon" />
-        <Label fx:id="telegramAddress" styleClass="cell_small_label" text="\$telegramAddress" />
+        <Label fx:id="telegramAddress" styleClass="cell_small_label" text="\$telegramAddress" wrapText="true" />
       </HBox>
       <HBox spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-envelope-square" styleClass="big-icon"/>
-        <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+        <Label fx:id="email" styleClass="cell_small_label" text="\$email" wrapText="true" />
       </HBox>
     </VBox>
   </GridPane>
