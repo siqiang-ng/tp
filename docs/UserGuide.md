@@ -427,14 +427,12 @@ Want to get rid of the link under a particular tag? Use the `linkdelete` command
 
 **Step-By-Step Guide:**
 
-Step 1: First key in `taglist` and hit enter to display all the tags.
+Step 1: First key in `taglist` and hit enter to display all the tags. For example, if you want to remove the link from 
+the "classmates" tag, key in `linkdelete 2` and hit enter.
 ![LinkDeleteCommand Step 1](images/LinkDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the link from the "classmates" tag, key in `linkdelete 3` and hit enter.
+Step 2: You should see the link being removed from the "cs2100" tag like this.
 ![LinkDeleteCommand Step 2](images/LinkDeleteCommandGuide2.png)
-
-Step 3: You should see the link being removed from the "classmates" tag like this.
-![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
 
 ### Task Features
 
