@@ -11,7 +11,7 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Meeting Links](#and-meeting-links)
+        * [Meeting Links](#and-links)
         * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
@@ -183,6 +183,12 @@ Projact data are saved in the hard disk automatically after any command that cha
 Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
+
+<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+
+* No two contacts can have the same name
+
+</div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
