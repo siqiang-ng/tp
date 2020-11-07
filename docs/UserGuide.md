@@ -185,10 +185,14 @@ Adds a contact to the person list.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
-</div>
+
+* Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
+
+* A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 
 * Listed tags will be created automatically if they are not found in the tag list.
+
+</div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
