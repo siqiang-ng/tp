@@ -184,6 +184,10 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
+<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+Phone numbers can be 7 to 15 digits long.
+</div> 
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 </div>
@@ -314,7 +318,7 @@ Step 3: You should see the tag's name being edited. Everyone who had the old tag
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Take note:**<br>
+**:information_source: Note:**<br>
 * The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
@@ -430,7 +434,7 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 * Adds a task to the tag with the `INDEX` from the current view of the tag list after doing `taglist`.
 * Task will not be added if specified tag with `INDEX` already has a task with the same task name.
 
-<div markdown="span" class="alert alert-info">:information_source: **Tip:**
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
 A tag can only have up to 26 tasks added for now. 
 </div>
 
