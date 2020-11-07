@@ -118,13 +118,6 @@ public class TagEditCommand extends Command {
             setTagName(toCopy.tagName);
         }
 
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull();
-        }
-
         public void setTagName(TagName tagName) {
             this.tagName = tagName;
         }
