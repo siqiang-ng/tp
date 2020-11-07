@@ -11,7 +11,7 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Meeting Links](#and-meeting-links)
+        * [Links](#and-links)
         * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
@@ -185,7 +185,8 @@ Adds a contact to the person list.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:information_source: **Note:**
-Phone numbers can be 7 to 15 digits long.
+* No two contacts can have the same name
+* Phone numbers can be 7 to 15 digits long.
 </div> 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
