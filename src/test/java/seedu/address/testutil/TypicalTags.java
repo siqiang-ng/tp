@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.tag.Tag;
+import seedu.address.model.tag.TagTask;
 
 /**
  * A utility class containing a list of {@code Tag} objects to be used in tests.
@@ -25,6 +26,9 @@ public class TypicalTags {
     public static final Tag CS2040 = new TagBuilder().withTagName("CS2040")
                                                     .withMeetingLink("https://zoomus.nus").build();
 
+    //Tags with TagTasks
+    public static final Tag CS2103 = new TagBuilder().withTagName("CS2103")
+            .withTagTasks(new TagTask("submit assignment", false)).build();
 
     private TypicalTags() {} // prevents instantiation
 
@@ -34,5 +38,9 @@ public class TypicalTags {
 
     public static List<Tag> getTypicalTagsWithLinks() {
         return new ArrayList<>(Arrays.asList(CS2101, CS2040));
+    }
+
+    public static List<Tag> getTypicalTagsWithTasks() {
+        return new ArrayList<>(Arrays.asList(CS2103));
     }
 }

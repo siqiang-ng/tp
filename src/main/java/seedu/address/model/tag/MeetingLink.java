@@ -12,7 +12,7 @@ import java.net.URL;
  */
 public class MeetingLink {
 
-    public static final String MESSAGE_CONSTRAINTS = "The URL must start with either http:// or https://,"
+    public static final String MESSAGE_CONSTRAINTS = "The link must start with either http:// or https://,"
             + " followed by a subdomain, and end with top level domains like"
             + " .com or .org";
 

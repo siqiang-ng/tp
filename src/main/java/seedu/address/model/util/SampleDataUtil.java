@@ -26,43 +26,43 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new PersonName("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                new TelegramAddress("alex_yeoh"), getTagNameSet("friends")),
+                new TelegramAddress("alex_yeoh"), getTagNameSet("ma1101r")),
             new Person(new PersonName("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                new TelegramAddress("berniceYu"), getTagNameSet("colleagues", "friends")),
+                new TelegramAddress("berniceYu"), getTagNameSet("cs2100", "cs2103")),
             new Person(new PersonName("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                new TelegramAddress("char_Oli"), getTagNameSet("CS2100")),
+                new TelegramAddress("char_Oli"), getTagNameSet("cs2100")),
             new Person(new PersonName("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                new TelegramAddress("david123"), getTagNameSet("family")),
+                new TelegramAddress("david123"), getTagNameSet("cs2106")),
             new Person(new PersonName("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                new TelegramAddress("Irfan_Ibrahim24"), getTagNameSet("CS2101")),
+                new TelegramAddress("Irfan_Ibrahim24"), getTagNameSet("cs2101")),
             new Person(new PersonName("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                new TelegramAddress("RoyBalak111"), getTagNameSet("colleagues"))
+                new TelegramAddress("RoyBalak111"), getTagNameSet("cs2103"))
         };
     }
 
     public static Tag[] getSampleTags() {
         try {
             Tag[] tags = new Tag[] {
-                new Tag(new TagName("colleagues"),
-                        getTagTaskList(new TagTask("after work party", false)),
+                new Tag(new TagName("ma1101r"),
+                        getTagTaskList(new TagTask("complete tutorial 05", false)),
                         Optional.of(new MeetingLink("https://zoom.com"))),
-                new Tag(new TagName("CS2101"),
+                new Tag(new TagName("cs2101"),
                         getTagTaskList(
                                 new TagTask("presentation on mon", false),
-                                new TagTask("complete user guide", false),
+                                new TagTask("complete user guide", true),
                                 new TagTask("email teacher for consultation", false)),
                         Optional.of(
-                                new MeetingLink("https://nus-sg.zoom.us/j/96034098506?pwd=b3l6UWpMb25yN1"
+                                new MeetingLink("https://nus-sg.zoom.us/a/32443"
                                         + "JlUldTbGdhbTFSdz09"))),
-                new Tag(new TagName("CS2100"),
+                new Tag(new TagName("cs2100"),
                         getTagTaskList(
                                 new TagTask("project meeting at 2pm", true),
                                 new TagTask("assignment 1 submission by 23:59", false)),
                         Optional.of(new MeetingLink("https://nus-sg.com"))),
-                new Tag(new TagName("family"),
+                new Tag(new TagName("cs2103"),
                         getTagTaskList(),
                         Optional.of(new MeetingLink("http://skype.com"))),
-                new Tag(new TagName("friends"),
+                new Tag(new TagName("cs2106"),
                         getTagTaskList(),
                         Optional.empty())
             };

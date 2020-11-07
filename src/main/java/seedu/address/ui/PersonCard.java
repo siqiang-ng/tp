@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -40,21 +42,30 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
+    @FXML
+    private HBox tagsBox;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
+        requireNonNull(person);
+        assert displayedIndex > 0 : "Displayed index should be greater than 0";
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         telegramAddress.setText("@" + person.getTelegramAddress().value);
         email.setText(person.getEmail().value);
-        person.getTagNames().stream()
-                .sorted(Comparator.comparing(tagName -> tagName.tagName))
-                .forEach(tagName -> tags.getChildren().add(new Label(tagName.tagName)));
+        if (!person.getTagNames().isEmpty()) {
+            person.getTagNames().stream()
+                    .sorted(Comparator.comparing(tagName -> tagName.tagName))
+                    .forEach(tagName -> tags.getChildren().add(new Label(tagName.tagName)));
+        } else {
+            tagsBox.setVisible(false);
+            tagsBox.setManaged(false);
+        }
     }
 
     @Override
