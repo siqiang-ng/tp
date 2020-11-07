@@ -33,7 +33,7 @@ class TagSortCommandTest {
         // null -> returns false
         assertFalse(commandOne.equals(null));
 
-        // different tag -> returns false
+        // different tagsort commands -> returns false
         assertFalse(commandOne.equals(commandTwo));
     }
 

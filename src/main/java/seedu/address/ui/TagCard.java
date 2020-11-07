@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.TagTask;
@@ -40,10 +41,17 @@ public class TagCard extends UiPart<Region> {
     @FXML
     private Hyperlink meetingLink;
     @FXML
+    private HBox linkBox;
+    @FXML
     private FlowPane persons;
     @FXML
+    private HBox personsBox;
+    @FXML
     private Label tasks;
-
+    @FXML
+    private Label tasksHeader;
+    @FXML
+    private VBox tasksBox;
     /**
      * Creates a {@code TagCard} with the given {@code Tag}, index, and {@code personList} to display.
      */
@@ -58,21 +66,34 @@ public class TagCard extends UiPart<Region> {
         tag.getMeetingLink().ifPresentOrElse(link -> {
             meetingLink.setText(link.toString());
             setHyperlinkAction(meetingLink, link.link);
-        }, () -> meetingLink.setVisible(false));
+        }, () -> {
+                linkBox.setVisible(false);
+                linkBox.setManaged(false);
+            });
         // Initialize list of persons
-        personList.stream()
-                .sorted(Comparator.comparing(person -> person.getName().fullName))
-                .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
+        if (!personList.isEmpty()) {
+            personList.stream()
+                    .sorted(Comparator.comparing(person -> person.getName().fullName))
+                    .forEach(person -> persons.getChildren().add(new Label(person.getName().fullName)));
+        } else {
+            personsBox.setVisible(false);
+            personsBox.setManaged(false);
+        }
         // Initialize list of tasks
         List<TagTask> tagTasksList = tag.getTagTasks();
-        String taskList = "";
-        char start = 'a';
-        for (TagTask task : tagTasksList) {
-            taskList += start + ". " + task.toString() + "\n";
-            start++;
+        if (!tagTasksList.isEmpty()) {
+            String taskList = "";
+            char start = 'a';
+            for (TagTask task : tagTasksList) {
+                taskList += "\t" + start + ". " + task.toString() + "\n";
+                start++;
+            }
+            tasksHeader.setText("Tasks: ");
+            tasks.setText(taskList);
+        } else {
+            tasksBox.setVisible(false);
+            tasksBox.setManaged(false);
         }
-
-        tasks.setText(taskList);
     }
 
     /**

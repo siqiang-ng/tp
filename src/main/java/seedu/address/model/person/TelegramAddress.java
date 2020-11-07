@@ -10,11 +10,13 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class TelegramAddress {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Telegram addresses should only contain alphanumeric characters, numbers and underscores, "
-                    + "and it should not be blank";
+            "Telegram addresses have the following constraints: "
+                + " 1. They can only contain alphanumeric characters and underscores with no spaces in between.\n"
+                + " 2. They should be 5 - 32 characters long.\n"
+                + " 3. They must start with an alphabet letter and end with an alphanumeric character.";
 
 
-    public static final String VALIDATION_REGEX = "^[A-Za-z0-9][\\w]{3,}[A-Za-z0-9]$";
+    public static final String VALIDATION_REGEX = "^[A-Za-z][\\w]{3,30}[A-Za-z0-9]$";
 
     public final String value;
 

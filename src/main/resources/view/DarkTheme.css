@@ -361,3 +361,13 @@
 #meetingLink {
     -fx-text-fill: white;
 }
+
+.big-icon {
+    -fx-icon-size: 14;
+    -fx-icon-color: #f0f0f0;
+}
+
+.small-icon {
+    -fx-icon-size: 12;
+    -fx-icon-color: #f0f0f0;
+}
