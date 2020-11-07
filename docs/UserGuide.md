@@ -146,7 +146,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
   
-* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`. `INDEX` must be a positive integer number!
 
 </div>
 
@@ -231,7 +231,7 @@ Examples:
 Do you have too many contacts such that you are unable to look for the contact you need? 
 Use our `find` command to look for that contact using words that his/her name contains.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+**Format:** `find KEYWORD [MORE_KEYWORDS]`
 
 <div markdown="span" class="alert alert-primary">:information_source: **Note:**
 * The search is case-insensitive. e.g `hans` will match `Hans`
@@ -272,17 +272,38 @@ Step 2: Hit enter and the list with all the contact names sorted will be display
 
 #### Deleting a contact : `delete`
 
-Deletes the specified contact from the person list.
+Want to remove a contact? Simply use our `delete` command with the index `INDEX` of that contact shown in the displayed contact list!
 
-Format: `delete INDEX`
+**Format:** `delete INDEX`
 
-* Deletes the contact at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+* If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
+* Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
+</div>
 
-Examples:
+**Example Guide**:
+
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
-* `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
+   Step 1: This is the original list after using `list` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide1.png)
+   
+   Step 2: After entering `delete 2`, the contact Charlotte is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide2.png)
+   
+* `find Irfan` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   Step 1: This is the list after using the `find Irfan` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
+   
+   Step 2: After entering `delete 1`, the contact Irfan is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)
+   
+* `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
+   Step 1: This is the list after using the `sort` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
+   
+   Step 2: After entering `delete 1`, the contact Irfan is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)   
 
 ### Tag Features
 
