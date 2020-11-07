@@ -471,17 +471,15 @@ Example:
 
 Do you want the satisfaction of striking off all the tasks you've completed? Well, Projact can't do that but it sure can offer you a way to delete all of your completed tasks!
 
-**Format:** `taskclear`
+**Format:** `taskclear INDEX`
 
 **Step-By-Step Guide:**
 
-Step 1: Key in the `taskclear` command.
+Step 1: For example, if you want to clear all the completed tasks under the tag"C2101", Key in `taskclear 2`.
 ![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
 
-Step 2: Hit enter and all the completed tasks will be removed.
+Step 2: Hit enter and you should see that all the completed tasks will be removed.
 ![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
-
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -531,7 +529,7 @@ Action | Format, Examples
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
 **Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
 **Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
-**Task Clear** | `taskclear
+**Task Clear** | `taskclear INDEX` <br> e.g., `taskclear 1`
 
 --------------------------------------------------------------------------------------------------------------------
 

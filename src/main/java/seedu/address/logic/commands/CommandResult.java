@@ -52,6 +52,10 @@ public class CommandResult {
         this(feedbackToUser, false, false, false, false, false, false);
     }
 
+    public CommandResult(String feedbackToUser, boolean tagListShown) {
+        this(feedbackToUser, false, false, false, false, tagListShown, false);
+    }
+
     public String getFeedbackToUser() {
         return feedbackToUser;
     }
