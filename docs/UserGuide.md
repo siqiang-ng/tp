@@ -11,7 +11,7 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Meeting Links](#and-meeting-links)
+        * [Links](#and-links)
         * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
@@ -184,11 +184,20 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
+<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+* No two contacts can have the same name
+* Phone numbers can be 7 to 15 digits long.
+</div> 
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
-</div>
+
+* Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
+
+* A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 
 * Listed tags will be created automatically if they are not found in the tag list.
+
+</div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
@@ -314,7 +323,7 @@ Step 3: You should see the tag's name being edited. Everyone who had the old tag
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Take note:**<br>
+**:information_source: Note:**<br>
 * The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
@@ -430,8 +439,15 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 * Adds a task to the tag with the `INDEX` from the current view of the tag list after doing `taglist`.
 * Task will not be added if specified tag with `INDEX` already has a task with the same task name.
 
-<div markdown="span" class="alert alert-info">:information_source: **Tip:**
-A tag can only have up to 26 tasks added for now. 
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Maximum number of tasks in each tag:**<br>
+
+* Only a maximum of 26 tasks can be added, due to the alphabet being used as an index.
+
+* Attempts to add additional tags after 26 will result in an error.<br>
+  i.e. Unable to add new tasks after the task with index `z`.
+
 </div>
 
 Example:

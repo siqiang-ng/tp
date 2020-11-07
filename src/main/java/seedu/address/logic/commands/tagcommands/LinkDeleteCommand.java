@@ -22,7 +22,7 @@ public class LinkDeleteCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the link from the tag identified by the index number used in the displayed tag list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
+            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ")\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_DELETE_LINK_SUCCESS = "Deleted Link: %1$s from %2$s";
