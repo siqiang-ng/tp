@@ -111,9 +111,11 @@ public class Person {
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Telegram Address: ")
-                .append(getTelegramAddress())
-                .append(" Tag Names: ");
-        getTagNames().forEach(builder::append);
+                .append(getTelegramAddress());
+        if (!getTagNames().isEmpty()) {
+            builder.append(" Tag Names: ");
+            getTagNames().forEach(builder::append);
+        }
         return builder.toString();
     }
 

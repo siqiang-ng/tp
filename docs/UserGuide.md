@@ -11,7 +11,7 @@ title: User Guide
         * [Contacts](#what-are-contacts)
         * [Tags](#wait-what-are-tags)
         * [Tasks](#how-about-tasks)
-        * [Meeting Links](#and-links)
+        * [Links](#and-links)
         * [Index](#index) 
     * [Symbols](#symbols)
 * [Quick Start](#quick-start)
@@ -185,10 +185,9 @@ Adds a contact to the person list.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:information_source: **Note:**
-
 * No two contacts can have the same name
-
-</div>
+* Phone numbers can be 7 to 15 digits long.
+</div> 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
@@ -320,7 +319,7 @@ Step 3: You should see the tag's name being edited. Everyone who had the old tag
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
 <div markdown="block" class="alert alert-info">
-**:information_source: Take note:**<br>
+**:information_source: Note:**<br>
 * The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
