@@ -205,9 +205,15 @@ Examples:
 
 #### Listing all contacts : `list`
 
-Shows a list of all the contacts in the person list.
+Want to look at all the friends you have? Me too! Use `list` to view all the contacts you have added so far.
 
-Format: `list`
+**Format**: `list`
+
+**Step-By-Step Guide:**
+
+Step 1: Key in `list` and hit enter. The list with all the contacts you have added will be displayed immediately as shown.
+![ListCommand Step 1](images/ListCommandGuide1.png)
+
 
 #### Editing a contact : `edit`
 
