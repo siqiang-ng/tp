@@ -4,15 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalTags.CS1101S;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.tag.MeetingLink;
 import seedu.address.model.tag.TagName;
-import seedu.address.model.tag.TagTask;
 
 public class JsonAdaptedTagTest {
     private static final String INVALID_TAG_NAME = " ";
