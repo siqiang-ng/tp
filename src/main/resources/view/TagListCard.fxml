@@ -22,14 +22,14 @@
         <Insets top="5" right="5" bottom="5" left="15" />
       </padding>
       <HBox spacing="5" alignment="CENTER_LEFT">
-        <Label fx:id="id" styleClass="cell_big_label">
+        <Label fx:id="id" styleClass="cell_big_label" wrapText="true">
           <minWidth>
             <!-- Ensures that the label text is never truncated -->
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="tagName" text="\$first" styleClass="cell_big_label" />
-        <Label fx:id="actualId" styleClass="extra_label" />
+        <Label fx:id="tagName" text="\$first" styleClass="cell_big_label" wrapText="true" />
+        <Label fx:id="actualId" styleClass="extra_label" wrapText="true" />
       </HBox>
       <HBox fx:id ="personsBox" spacing="5" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-user-circle" styleClass="big-icon" />
@@ -37,14 +37,14 @@
       </HBox>
       <HBox fx:id="linkBox" spacing="2" alignment="CENTER_LEFT">
         <FontIcon iconLiteral="fas-link" styleClass="small-icon" />
-        <Hyperlink fx:id="meetingLink" styleClass="cell_small_label" />
+        <Hyperlink fx:id="meetingLink" styleClass="cell_small_label" wrapText="true" />
       </HBox>
       <VBox fx:id="tasksBox">
           <HBox spacing="6" alignment="CENTER_LEFT">
             <FontIcon iconLiteral="fas-tasks" styleClass="small-icon" />
-            <Label fx:id="tasksHeader" styleClass="cell_small_label" />
+            <Label fx:id="tasksHeader" styleClass="cell_small_label" wrapText="true" />
            </HBox>
-          <Label fx:id="tasks" styleClass="cell_small_label" />
+          <Label fx:id="tasks" styleClass="cell_small_label" wrapText="true" />
       </VBox>
     </VBox>
   </GridPane>
