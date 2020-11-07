@@ -1,16 +1,37 @@
 package seedu.address.model.tag;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_COLLEAGUE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_NAME_HUSBAND;
 import static seedu.address.testutil.TypicalTags.COLLEAGUE;
 import static seedu.address.testutil.TypicalTags.GROUPMATE;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.testutil.TagBuilder;
 
 public class TagTest {
+    @Test
+    public void testLegalConstruction() {
+        Tag tag = new Tag(new TagName(VALID_TAG_NAME_COLLEAGUE));
+        assertTrue(tag.getTagName().tagName.equals(VALID_TAG_NAME_COLLEAGUE));
+        assertTrue(tag.getTagTasks().equals(new ArrayList<TagTask>()));
+        assertTrue(tag.getMeetingLink().equals(Optional.empty()));
+    }
+
+    @Test
+    public void testIllegalConstruction() {
+        try {
+            Tag tag = new Tag(null);
+        } catch (NullPointerException npe) {
+            assertTrue(true);
+        }
+    }
 
     @Test
     void isSameTag() {
