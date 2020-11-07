@@ -475,12 +475,14 @@ Do you want the satisfaction of striking off all the tasks you've completed? Wel
 
 **Step-By-Step Guide:**
 
-Step 1: For example, if you want to clear all the completed tasks under the tag"C2101", Key in `taskclear 2`.
+Step 1: For example, if you want to clear all the completed tasks from the tag"C2101", Key in `taskclear 2`.
 ![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
 
 Step 2: Hit enter and you should see that all the completed tasks will be removed.
 ![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
 
+Example:
+* `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary

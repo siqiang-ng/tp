@@ -18,19 +18,19 @@ public class TaskClearCommand extends Command {
     public static final String COMMAND_WORD = "taskclear";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Clears all completed tasks under the tag identified by the index number used "
+            + ": Clears all completed tasks from the tag identified by the index number used "
             + "in the displayed tag list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_CLEAR_TASK_SUCCESS = "The completed tasks under %1$s have been cleared.";
 
-    public static final String MESSAGE_NO_TASKS_SUCCESS = "There are no completed tasks under %1$s to be cleared.";
+    public static final String MESSAGE_NO_TASKS_SUCCESS = "There are no completed tasks from %1$s to be cleared.";
 
     private final Index index;
 
     /**
-     * Creates an TaskDeleteCommand to remove all completed tasks under the specified {@code Tag}
+     * Creates an TaskDeleteCommand to remove all completed tasks from the specified {@code Tag}
      * @param index of the tag in the filtered tag list to edit
      */
     public TaskClearCommand(Index index) {
