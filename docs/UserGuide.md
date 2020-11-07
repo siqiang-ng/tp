@@ -238,10 +238,12 @@ Examples:
   
 #### Sort contacts by name: `sort`
 
-Dislike how the current list of contacts is displayed? Sort the names in alphabetical order by typing a single `sort` word on the command line.
+Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
+typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
+Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
+Simply enter `list` on the command line to get back to the chronological order.
 </div>
  
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
@@ -256,8 +258,12 @@ Do you wish to get back to the previous list? No worries, this sorted list is no
 Step 1: Key in the `sort` command.
 ![SortContactCommand Step 1](images/SortCommandGuide1.png)
 
-Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
+Step 2: Hit enter and the list with all the contact names will be sorted immediately as shown.
 ![SortContactCommand Step 2](images/SortCommandGuide2.png)
+
+Step 3: If you want to edit 'Alex Yeoh', use the actual index **2** instead of 1. For example, `edit 2 t/cs1010` will
+change the tag 'ma1101r' to 'cs1010' under Alex.
+![SortContactCommand Step 3](images/SortCommandGuide3.png)
 
 #### Deleting a contact : `delete`
 
