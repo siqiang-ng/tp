@@ -228,21 +228,29 @@ Examples:
 
 #### Locating contacts by name: `find`
 
-Finds the contacts whose names contain any of the given keywords.
+Do you have too many contacts such that you are unable to look for the contact you need? 
+Use our `find` command to look for that contact using words that his/her name contains.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
+<div markdown="span" class="alert alert-primary">:information_source: **Note:**
 * The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Contacts matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+</div> 
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Type more than one keyword to find more than one contact each time!
+e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+</div>
+
+**Example Guide:**
+1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
+![FindCommand 1](images/FindAlexResult.png)
+
+2. If you want to find both `Alex Yeoh` and `David Li`, type `find alex david`. The display result will be as shown.
+![FindCommand 2](images/findAlexDavidResult.png)
   
 #### Sort contacts by name: `sort`
 
