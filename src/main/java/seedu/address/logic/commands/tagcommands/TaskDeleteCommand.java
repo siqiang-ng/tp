@@ -22,10 +22,10 @@ public class TaskDeleteCommand extends Command {
     public static final String COMMAND_WORD = "taskdelete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Delete the task identified by the alphabetical "
-            + "index number used in the task list of the tag, which is identified by the numerical index used in "
-            + "the displayed tag list. "
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
-            + "ALPHABETICAL INDEX (must be in lower case from 'a' to 'z')"
+            + "index number used in the task list \n of the tag, which is identified by the numerical index used in "
+            + "the displayed tag list. \n"
+            + "Parameters: \n1. INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") \n"
+            + "2. ALPHABETICAL INDEX (must be an alphabet in lower case from 'a' to 'z') \n"
             + "Example: " + COMMAND_WORD + " 1 a";
 
     public static final String MESSAGE_MARK_DELETE_SUCCESS = "This task in tag %1$s has been deleted:\n" + "%2$s";
@@ -73,6 +73,10 @@ public class TaskDeleteCommand extends Command {
      */
     private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
+        if (oldTaskList.isEmpty()) {
+            throw new CommandException(Messages.MESSAGE_NO_TASK_LIST);
+        }
+
         if (taskIndex.getZeroBased() >= oldTaskList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }

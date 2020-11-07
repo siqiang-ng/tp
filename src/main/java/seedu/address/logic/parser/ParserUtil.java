@@ -27,6 +27,7 @@ public class ParserUtil {
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
     public static final String MESSAGE_INVALID_ALPHAINDEX = "Alphabetical index must be a single letter.";
     public static final String MESSAGE_INVALID_LOWERCASEINDEX = "Alphabetical index must be in lowercase!";
+    public static final String MESSAGE_MISSING_ARGS = "Need one more argument!";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -52,7 +53,7 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_ALPHAINDEX);
         }
         int asciiRepresentation = trimmedIndex.charAt(0);
-        if (asciiRepresentation < 97 && asciiRepresentation > 122) {
+        if (asciiRepresentation < 97 || asciiRepresentation > 122) {
             throw new ParseException(MESSAGE_INVALID_LOWERCASEINDEX);
         }
         int convertedIndex = asciiRepresentation - 97;
@@ -67,7 +68,7 @@ public class ParserUtil {
         String[] arrOfIndex = trimmedArgs.split(" ", 2);
 
         if (arrOfIndex.length != 2) {
-            throw new ParseException(MESSAGE_INVALID_INDEX);
+            throw new ParseException(MESSAGE_MISSING_ARGS);
         }
         return arrOfIndex;
     }
