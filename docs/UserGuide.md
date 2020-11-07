@@ -349,15 +349,15 @@ Examples:
 #### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? 
-Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
+Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**
+<div markdown="span" class="alert alert-info"> :information_source: **Note:**
     1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
-    2. Only edit the tag based on the **Actual Index** as displayed!
+    2. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
 </div>
 
 **Format:** `tagsort`
@@ -367,7 +367,7 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 Step 1: Key in the `tagsort` command.
 ![TagSortCommand Step 1](images/TagSortCommandGuide1.png)
 
-Step 2: Hit enter and the list with all the tag names sorted will be displayed immediately as shown.
+Step 2: Hit enter and the list with all the tag names will be sorted immediately as shown.
 ![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
 
 #### Deleting a tag: `tagdelete`
