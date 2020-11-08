@@ -246,7 +246,7 @@ Use our `find` command to look for that contact using words that his/her name co
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]`
 
-<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 
@@ -259,7 +259,7 @@ Use our `find` command to look for that contact using words that his/her name co
 </div> 
 
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 
 * Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
@@ -278,14 +278,14 @@ Use our `find` command to look for that contact using words that his/her name co
 Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
 typing a single `sort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 
 Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
 Simply enter `list` on the command line to get back to the chronological order.
 
 </div>
  
-<div markdown="span" class="alert alert-info">:information_source: **Note:**
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b>
 
 1. Do note that `sort` command does not sort the contact list displayed after `find` command!
 
@@ -313,7 +313,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 
 **Format:** `delete INDEX`
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 * If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
 * Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
 </div>
