@@ -94,13 +94,28 @@ public class LogicManagerTest {
     }
 
     @Test
+    public void getAllFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> logic.getAllFilteredPersonList().remove(0));
+    }
+
+    @Test
     public void getFilteredTagList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredTagList().remove(0));
     }
 
     @Test
+    public void getAllFilteredTagList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> logic.getAllFilteredTagList().remove(0));
+    }
+
+    @Test
     public void getSortedPersonList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> logic.getSortedPersonList().remove(0));
+    }
+
+    @Test
+    public void getSortedTagList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> logic.getSortedTagList().remove(0));
     }
 
 

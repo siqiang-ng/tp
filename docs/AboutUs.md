@@ -14,7 +14,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/siqiang-ng.png" width="200px">
 
 [[github](https://github.com/siqiang-ng)]
-[[portfolio](team/siqiang-ngg.md)]
+[[portfolio](team/siqiang-ng.md)]
 
 * Role: Team Lead
 * Responsibility: Scheduling and Tracking
@@ -34,6 +34,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/akgrensoar.png" width="200px">
 
 [[github](https://github.com/akgrenSoar)]
+[[portfolio](team/akgrenSoar.md)]
 
 * Role: Developer
 * Responsibilities: Testing

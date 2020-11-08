@@ -52,6 +52,19 @@ public class Tag {
     }
 
     /**
+     * Returns a list of the tag's uncompleted tasks.
+     */
+    public List<TagTask> getAllUncompletedTasks() {
+        List<TagTask> newTagTasks = new ArrayList<>();
+        for (TagTask task : tagTasks) {
+            if (!task.getIsDone()) {
+                newTagTasks.add(task);
+            }
+        }
+        return newTagTasks;
+    }
+
+    /**
      * Returns true if both tags have the same name
      * This defines a weaker notion of equality between two tags.
      */
@@ -96,7 +109,7 @@ public class Tag {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTagName())
-                .append(" Meeting Link: ");
+                .append(" Link: ");
         getMeetingLink().ifPresent(link -> builder.append(link));
         builder.append(" Tasks: ");
         getTagTasks().forEach(builder::append);

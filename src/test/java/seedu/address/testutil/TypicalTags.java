@@ -29,6 +29,13 @@ public class TypicalTags {
     //Tags with TagTasks
     public static final Tag CS2103 = new TagBuilder().withTagName("CS2103")
             .withTagTasks(new TagTask("submit assignment", false)).build();
+    public static final Tag CS2030 = new TagBuilder().withTagName("CS2030")
+            .withTagTasks(new TagTask("submit lab", true)).build();
+
+    //Tags with TagTasks and Links
+    public static final Tag CS1101S = new TagBuilder().withTagName("CS1101S")
+            .withTagTasks(new TagTask("practical", false))
+            .withMeetingLink("https://skype.com").build();
 
     private TypicalTags() {} // prevents instantiation
 
@@ -41,6 +48,6 @@ public class TypicalTags {
     }
 
     public static List<Tag> getTypicalTagsWithTasks() {
-        return new ArrayList<>(Arrays.asList(CS2103));
+        return new ArrayList<>(Arrays.asList(CS2103, CS2030));
     }
 }

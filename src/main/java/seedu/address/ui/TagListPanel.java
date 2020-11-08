@@ -20,6 +20,8 @@ public class TagListPanel extends UiPart<Region> {
     private static final String FXML = "TagListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(TagListPanel.class);
     private final Function<Tag, List<Person>> findContactsByTag;
+    private final List<Tag> originalTagList;
+    private final List<Tag> currentTagList;
 
     @FXML
     private ListView<Tag> tagListView;
@@ -29,6 +31,21 @@ public class TagListPanel extends UiPart<Region> {
      */
     public TagListPanel(ObservableList<Tag> tagList, Function<Tag, List<Person>> findContactsByTag) {
         super(FXML);
+        this.currentTagList = tagList;
+        this.originalTagList = tagList;
+        tagListView.setItems(tagList);
+        tagListView.setCellFactory(listView -> new TagListViewCell());
+        this.findContactsByTag = findContactsByTag;
+    }
+
+    /**
+     * Creates a {@code TagListPanel} with the given {@code ObservableList}.
+     */
+    public TagListPanel(ObservableList<Tag> tagList, List<Tag> originalTagList,
+                        Function<Tag, List<Person>> findContactsByTag) {
+        super(FXML);
+        this.currentTagList = tagList;
+        this.originalTagList = originalTagList;
         tagListView.setItems(tagList);
         tagListView.setCellFactory(listView -> new TagListViewCell());
         this.findContactsByTag = findContactsByTag;
@@ -53,8 +70,23 @@ public class TagListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new TagCard(tag, getIndex() + 1, findContactsByTag.apply(tag)).getRoot());
+                int actualIndex = getActualIndex(tag);
+                boolean isTagList = currentTagList.equals(originalTagList);
+                setGraphic(new TagCard(tag, isTagList, getIndex() + 1,
+                                        actualIndex, findContactsByTag.apply(tag)).getRoot());
             }
+            refresh();
+        }
+
+        protected int getActualIndex(Tag tag) {
+            int actualIndex = 0;
+            for (int i = 0; i < originalTagList.size(); i++) {
+                if (originalTagList.get(i).equals(tag)) {
+                    actualIndex = i + 1;
+                    break;
+                }
+            }
+            return actualIndex;
         }
     }
 
