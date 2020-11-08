@@ -42,7 +42,8 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "cs2103";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the Projact";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the contact list. "
+            + "Make sure the new contact is of a different name";
 
     private final Person toAdd;
 

@@ -54,7 +54,8 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the Projact.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the contact list."
+            + "Make sure the new contact is of a different name";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;

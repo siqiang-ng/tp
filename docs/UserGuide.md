@@ -270,7 +270,7 @@ Use our `find` command to look for that contact using words that his/her name co
   
 #### Sort contacts by name: `sort`
 
-Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
+Dislike how the current list of contacts is displayed? Sort the names in alphanumerical order by 
 typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
@@ -415,7 +415,7 @@ Examples:
 #### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? 
-Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
+Sort the tags by their names in alphanumerical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
