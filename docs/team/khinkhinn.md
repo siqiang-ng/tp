@@ -10,11 +10,6 @@ Projact is a **project management app that helps NUS computing students to organ
 Given below are my contributions to the project.
 
 ### New Features
-* **Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
   
 * **Feature**: Added the ability to add tags.
   * What it does: allows the user to add a new tag with zero contacts in the tag. 
