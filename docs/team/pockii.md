@@ -14,7 +14,7 @@ Given below are my contributions to the project.
   * Highlights: This implementation was challenging as it had to make changes to every contact with the edited Tag's previous name. 
   * Justification: improves the user experience by providing an easy way for the user to correct their mistakes.
 
-* **Feature**: JSON Storage for Tags with their names, tasks and meeting links. (Pull requests [|#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#142](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/142))
+* **Feature**: JSON Storage for Tags with their names, tasks and meeting links. (Pull requests [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#142](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/142))
   * What it does: allows the user's data to be saved and reloaded upon the next usage of the app.
   * Highlights: This feature affects existing and future tag commands. 
 
