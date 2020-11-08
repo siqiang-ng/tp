@@ -261,6 +261,7 @@ Use our `find` command to look for that contact using words that his/her name co
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 
+
 * Type more than one keyword to find more than one contact each time!
 e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
@@ -280,13 +281,18 @@ Dislike how the current list of contacts is displayed? Sort the names in ascendi
 typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+
 Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
 Simply enter `list` on the command line to get back to the chronological order.
+
 </div>
  
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
+
     1. Do note that `sort` command does not sort the contact list displayed after `find` command!
+    
     2. Only edit the contact based on the **Actual Index** as displayed!
+    
 </div> 
  
 **Format:** `sort`
