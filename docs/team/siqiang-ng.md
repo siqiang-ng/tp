@@ -56,7 +56,6 @@ Given below are my contributions to the project.
     * Edited documentation for `find` and `delete` commands (Pull request [\#235](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/235))
     * Updated the FAQ section (Pull request [\#215](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/215))
 * **Developer Guide**:
-    * Wrote Table of Contents (Pull request [\#76](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/76))
     * Wrote the Product Scope & User Stories (Pull request [\#19](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/19), 
     [\#133](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/133))
     * Added implementations and the UML diagrams of `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete`
