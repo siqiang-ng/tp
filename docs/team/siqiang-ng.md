@@ -5,7 +5,8 @@ title: Ng Si Qiang's Project Portfolio Page
 
 ## Project: Projact
 
-Projact is a **contact and project management app that helps NUS computing students to organise their fellow computing students' contacts and their teams' meeting links and tasks**. 
+Projact is a contact and project management app that helps NUS computing students to
+ organise their contacts and their projects' meeting links and tasks. 
 
 Given below are my contributions to the project.
 
