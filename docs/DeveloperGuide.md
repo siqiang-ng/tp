@@ -358,15 +358,8 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
 --------------------------------------------------------------------------------------------------------------------
 ## **Known Issues**
 
-### Projact v1.2
-
-**Tag display auto-refresh issue**
-
-Problem: The tag display does not refresh itself after adding, editing and deleting a tag.
-
-Workaround: Run the `taglist` command again to refresh the display
-
-Technicalities/Explanations: The problem is caused by an ongoing change in Model, which is scheduled to be completed by Projact v1.3.
+### Projact v1.4
+(TO BE ADDED AT THE END)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -387,11 +380,10 @@ Technicalities/Explanations: The problem is caused by an ongoing change in Model
 * has a need to manage a significant number of computing student contacts
 * prefer desktop apps over other types
 * can type fast
-* prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 * wants to group contacts based on the different modules
 * has a need to store the different meeting platforms for each module project in one platform
-* wants to filter inactive contacts but does not want to delete them (Archive the contact)
+* wants a task tracker
 
 
 **Value propositions**:
@@ -400,7 +392,7 @@ Technicalities/Explanations: The problem is caused by an ongoing change in Model
 * Sorts contacts based on the different module tags.
 * Allows convenient search for project mates / friends taking the same module.
 * Allows convenient search for the link for team meeting.
-* Filters the main person list such that inactive contacts will not be seen.
+* Allows the addition of tasks to track the task progress.
 
 --------------------------------------------------------------------------------------------------------------------
 ### **B: User Stories**
@@ -409,24 +401,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                               | So that I can…​                                                     |
 | -------- | ------------------------------------------ | ------------------------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions                           | refer to instructions when I forget how to use the App                 |
-| `* * *`  | new user                                   | see sample contacts                              | have a brief idea on what the app will look like when it is being used |
-| `* * *`  | user                                       | add a new person                                 |                                                                        |
-| `* * *`  | user                                       | delete a person                                  | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name                            | locate details of persons without having to go through the entire list |
+| `* * *`  | new user                                   | see usage instructions                           | refer to instructions when I forget how to use the application.        |
+| `* * *`  | new user                                   | see sample contacts and tags                     | have a brief idea on what the app will look like when it is being used |
+| `* * *`  | user                                       | add a new contact                                |                                                                        |
+| `* * *`  | user                                       | delete a contact                                 | remove contacts that I no longer need                                  |
+| `* * *`  | user                                       | find a contact by name                           | locate details of persons without having to go through the entire list |
 | `* * *`  | user                                       | save a telegram handle to its respective contact | find the telegram chat with that person quickly                        |
 | `* * *`  | user                                       | create a tag                                     | find or sort the contacts based on tags later on.                      |
 | `* * *`  | user                                       | delete a tag                                     | remove tags that are accidentally added or no longer required          |
-| `* * *`  | user                                       | list all tags                                    | quickly find all the tags that I have add                              |
-| `* * *`  | user                                       | search for a tag                                 | find all contacts with that tag                                        |
+| `* * *`  | user                                       | find a tag by name                               | locate details of the tag without having to go through the entire list |
+| `* * *`  | user                                       | list all tags                                    | quickly browse through all the tags that I have adde                   |
+| `* * *`  | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
+| `* * *`  | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
+| `* * *`  | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
+| `* * *`  | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
+| `* *`    | student                        	        | clear all completed tasks under each tag         | remove the tasks that are no longer required                           |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
-| `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
-| `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
 | `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
-| `* *`    | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
-| `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
 | `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
