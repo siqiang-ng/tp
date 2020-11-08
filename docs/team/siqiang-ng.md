@@ -14,7 +14,7 @@ Given below are my contributions to the project.
 * **Feature**: Command to list the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
   * What it does: allows the user to list all the tags that have been created. 
   * Justification: allows the user to keep track of all the tags that have been added.
-  * Highlights: This enhancement helps to display all the future implemented tag commands results. 
+  * Highlights: This feature helps to display all the tag command results. 
 
 * **Feature**: Commands to sort person list and taglist. 
 (Pull requests [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120),
@@ -68,8 +68,7 @@ Given below are my contributions to the project.
      [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
 
 ### Community    
-* PRs reviewed (with non-trivial review comments): [\#65](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/65), 
-[\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
+* PRs reviewed (with non-trivial review comments): [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
 [\#145](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/145), [\#219](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/219), 
 [\#222](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/222), [\#240](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/240),
 [\#241](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/241)
