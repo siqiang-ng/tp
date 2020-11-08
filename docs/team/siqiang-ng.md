@@ -39,11 +39,18 @@ Given below are my contributions to the project.
   * What it does: allows the user to view the tasklist under each tag.
   * Justification: This feature allows the user to view the tasks under each tag.
  
+### Enhancements to Existing Features
+* **Enhancement**: Wrote additional tests for existing features to increase coverage 
+ (Pull requests [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57), [\#70](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/70),
+ [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120), 
+ [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204), 
+ [\#230](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/230))
+ 
 ### Code Contributed
 * [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=siqiang-ng)
 
 ### Project Management
-* Wrapped up all the milestones and managed releases `v1.2` - `v1.3` (2 releases) on GitHub
+* Wrapped up all the milestones and managed releases `v1.2` - `v1.4` (3 releases) on GitHub
 * Changed the product icon (Pull request [\#210](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/210))
 * Maintained the issue tracker from time to time
 
