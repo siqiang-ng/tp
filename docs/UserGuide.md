@@ -314,8 +314,11 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 **Format:** `delete INDEX`
 
 <div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
+
 * If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
+
 * Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
+
 </div>
 
 **Example Guide**:
