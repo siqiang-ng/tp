@@ -287,9 +287,9 @@ Simply enter `list` on the command line to get back to the chronological order.
  
 <div markdown="span" class="alert alert-info">:information_source: <b>Note:</b>
 
-1. Do note that `sort` command does not sort the contact list displayed after `find` command!
+* Do note that `sort` command does not sort the contact list displayed after `find` command!
 
-1. Only edit the contact based on the **Actual Index** as displayed!
+* Only edit the contact based on the **Actual Index** as displayed!
     
 </div> 
  
@@ -426,9 +426,9 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 
 <div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b>
 
-1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+* Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
 
-1. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+* Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
 
 </div>
 
