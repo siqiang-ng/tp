@@ -52,7 +52,7 @@ public class Tag {
     }
 
     /**
-     * Removes all completed tasks.
+     * Returns a list of the tag's uncompleted tasks.
      */
     public List<TagTask> getAllUncompletedTasks() {
         List<TagTask> newTagTasks = new ArrayList<>();
@@ -109,7 +109,7 @@ public class Tag {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTagName())
-                .append(" Meeting Link: ");
+                .append(" Link: ");
         getMeetingLink().ifPresent(link -> builder.append(link));
         builder.append(" Tasks: ");
         getTagTasks().forEach(builder::append);

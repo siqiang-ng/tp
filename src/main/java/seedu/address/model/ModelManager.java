@@ -198,7 +198,6 @@ public class ModelManager implements Model {
         filteredTags.setPredicate(predicate);
     }
 
-
     //=========== Sorted Tag List Accessors =============================================================
 
     /**
