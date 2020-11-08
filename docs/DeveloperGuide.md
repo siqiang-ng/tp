@@ -739,7 +739,7 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     4. Test case: `linkadd 2` <br>
         Expected: No link is added. Error message stating that there should be a link is shown in the status message.
         
-    5: Test case: `linkadd 2 l/http` <br>
+    5. Test case: `linkadd 2 l/http` <br>
         Expected: No link is added. Error message stating the correct link format is shown in the status message.
         
 #### Deletes a link
@@ -813,13 +813,13 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 2 completed tasks, while the other tags have none.
     
     2. Test case: `taskclear 1` <br>
-        Expected: All the completed tasks in the first tag in the list are deleted. Details of deleted tasks is shown in the status message.
+        Expected: All the completed tasks in the first tag in the list are deleted. Success message is shown in the status message.
         
     3. Test case: `taskclear 1` (repeating the same command) <br>
-        Expected: Error message stating that there are no tasks under the indicated tag is shown in the status message.
+        Expected: Error message stating that there are no completed tasks under the indicated tag is shown in the status message.
         
     4. Test case: `taskdelete 2 a` <br>
-        Expected: Error message stating that there are no tasks under the indicated tag is shown in the status message.
+        Expected: Error message stating that there are no completed tasks under the indicated tag is shown in the status message.
         
 #### Saves data
 
