@@ -3,14 +3,14 @@ layout: page
 title: Ng Si Qiang's Project Portfolio Page
 ---
 
-## Project: Projact
+### Project: Projact
 
 Projact is a contact and project management app that helps NUS computing students to
  organise their contacts and their projects' meeting links and tasks. 
 
 Given below are my contributions to the project.
 
-### New Features Added
+#### New Features Added
 * **Feature**: Command to list all the tags in the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
   * Justification: allows the user to keep track of all the tags that have been added.
   * Highlights: This feature helps to display all the tag command results. 
@@ -32,22 +32,22 @@ Given below are my contributions to the project.
   * Highlight: This implementation was challenging because there are no similar commands in the original AB3 to refer. New methods have to be created in the Index and 
   ParserUtil classes to parse the different index.
  
-### Enhancements to Existing Features
+#### Enhancements to Existing Features
 * **Enhancement**: Wrote additional tests for existing features to increase coverage 
  (Pull requests [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57), [\#70](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/70),
  [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120), 
  [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204), 
  [\#230](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/230))
  
-### Code Contributed
+#### Code Contributed
 * [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=siqiang-ng)
 
-### Project Management
+#### Project Management
 * Wrapped up all milestones and managed releases `v1.2` - `v1.4` on GitHub
 * Changed the product icon (Pull request [\#210](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/210))
 * Maintained the issue tracker from time to time
 
-### Documentation    
+#### Documentation    
 * **User Guide**:
     * Documented `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete` features
     (Pull requests [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), 
@@ -63,7 +63,7 @@ Given below are my contributions to the project.
      [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120), [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138),
      [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
 
-### Community    
+#### Community    
 * PRs reviewed (with non-trivial comments): [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
 [\#145](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/145), [\#219](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/219), 
 [\#222](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/222), [\#240](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/240),
