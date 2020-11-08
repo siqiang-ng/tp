@@ -384,10 +384,10 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 
 **Step-By-Step Guide:**
 
-Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
+Step 1: Key in `taglist` and hit enter to display all the tags.
 ![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
 
-Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
+Step 2: For example, if you want to change the name of the `ma1101r` tag to `ma1521`, then key in `tagedit 1 t/ma1521` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
 
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.

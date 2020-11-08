@@ -28,8 +28,8 @@ Given below are my contributions to the project.
 
 * **Enhancement**: Removed Address field in Person's model. (Pull request [\#68](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/68))
   * Justification: It is uncommon for target users to know or save their acquaintances' address.
-* **Enhancement**: Refined regex for valid emails. (Pull request [\#218](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/218))
 
+* **Enhancement**: Refined regex for valid emails. (Pull request [\#218](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/218))
 * **Enhancement**: Edited ModelManager and Tag's model to support new features. (Pull requests [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#113](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/113))
   * Highlights: This enhancement affects existing contact, tag, link and task commands.
 
@@ -55,7 +55,7 @@ Given below are my contributions to the project.
     
 * **Developer Guide**:
     * Updated UML diagrams for Model and Storage. (Pull request [\#]())
-    * Added implementations and use cases of `tagedit` and `taskdone` feature. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#]())
+    * Added implementations and use cases of `tagedit` and `taskclear` feature. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#224](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/224), [\#]())
 
 #### Community    
 * PRs reviewed (with non-trivial review comments): (Pull request [\#69](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/69), [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), [\#119](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/119), [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#249](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/249))
