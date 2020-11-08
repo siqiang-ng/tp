@@ -28,7 +28,20 @@ This developer guide provides information that helps you to get started as a con
     * [E: Glossary](#e-glossary)
     * [F: Instructions for Manual Testing](#f-instructions-for-manual-testing)
         * [Launch and Shut Down](#launch-and-shutdown)
-        * [Deletes a person](#deletes-a-person)
+        * [Contact Commands](#contact-commands)
+            * [Adds a person](#adds-a-person)
+            * [Edits a person](#edits-a-person)
+            * [Deletes a person](#deletes-a-person)
+            * [Finds a person](#finds-a-person)
+        * [Tag Commands](#tag-commands)
+        * [Link Commands](#link-commands)
+            * [Adds a link](#adds-a-link)
+            * [Deletes a link](#deletes-a-link)
+        * [Task Commands](#task-commands)
+            * [Adds a task](#adds-a-task)
+            * [Marks a task as done](#marks-a-task-as-done)
+            * [Deletes a task](#deletes-a-task)
+            * [Clears completed tasks](#clears-completed-tasks)
         * [Saves data](#saves-data)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -641,7 +654,7 @@ testers are expected to do more *exploratory* testing.
        Expected: The most recent window size and location is retained.
        
 #### Contact Commands       
-#### Adding a person
+#### Adds a person
 
 1. Adding a person while all persons are being shown
 
@@ -656,7 +669,7 @@ testers are expected to do more *exploratory* testing.
     4. Test case: `add n/Jane p/98881999 e/janelim@gmail.com ta/jane_lim t/cs2103` <br>
         Expected: No person is added. Duplicate person error shown in the status message due to existing contact having the exact same name.
     
-#### Editing a person
+#### Edits a person
 
 1. Editing a person while all persons are being shown
 
@@ -689,7 +702,7 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
       
-#### Finding a person
+#### Finds a person
 
 1. Finding a person while all persons are being shown
     
@@ -713,11 +726,11 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
 `taglist` should be used instead.
 
 #### Link Commands
-#### Adding a link
+#### Adds a link
 
 1. Adding a link to a tag while all tags are being shown
 
-    1. Prerequisites: List all tags using the `taglist` command.
+    1. Prerequisites: List all tags using the `taglist` command. For step 2, assume the first tag in the list has no pre-existing link.
     
     2. Test case: `linkadd 1 l/http://zoom.com/` <br>
         Expected: The link is added to the first tag in the tag list. The link is shown in the status message.
@@ -731,7 +744,7 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     5: Test case: `linkadd 2 l/http` <br>
         Expected: No link is added. Error message stating the correct link format is shown in the status message.
         
-#### Deleting a link
+#### Deletes a link
 
 1. Deleting a link from a tag while all the tags are being shown
 
@@ -747,7 +760,7 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
         Expected: No link is deleted. Invalid command format error is shown in the status message due to non-positive index.
 
 #### Task Commands
-#### Adding a task
+#### Adds a task
 
 1. Adding a task to a tag while all tags are being shown
 
@@ -762,7 +775,7 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     4. Test case: `taskadd 5 task/peer review` <br>
         Expected: No task is added. Error message stating that index is invalid is shown in the status message.
         
-#### Marking a task as done
+#### Marks a task as done
 
 1. Marking a task as done while all tags are being shown
 
@@ -780,7 +793,7 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     5. Test case: `taskdone 2 a` <br>
         Expected: No task is marked as done. Error message stating that there are no tasks under the indicated tag is shown in the status message.
 
-#### Deleting a task
+#### Deletes a task
 
 1. Deleting a task from a tag while all the tags are being shown
 
@@ -795,14 +808,14 @@ The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `ta
     4. Test case: `taskdelete 2 a` <br>
         Expected: No task is deleted. Error message stating that there are no tasks under the indicated tag is shown in the status message.
 
-#### Clearing tasks
+#### Clears completed tasks
 
-1. Clearing the tasks from a tag while all the tags are being shown
+1. Clearing the completed tasks from a tag while all the tags are being shown
 
-    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 1 task, while the other tags have none.
+    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 2 completed tasks, while the other tags have none.
     
     2. Test case: `taskclear 1` <br>
-        Expected: All the tasks in the first tag in the list is deleted. Details of deleted tasks is shown in the status message.
+        Expected: All the completed tasks in the first tag in the list are deleted. Details of deleted tasks is shown in the status message.
         
     3. Test case: `taskclear 1` (repeating the same command) <br>
         Expected: Error message stating that there are no tasks under the indicated tag is shown in the status message.
