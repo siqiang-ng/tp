@@ -542,9 +542,9 @@ the alphabetical index `ALPHAINDEX` to do the magic!
 **Step-By-Step Guide:**
 
 Step 1: First key in `taglist` and hit enter to display all the tags.
-![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+![TaskDoneCommand Step 1](images/TaskDoneCommandGuide1.png)
 
-Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 a" and hit enter.
 ![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
 
 Step 3: You should see the task "complete user guide" have a tick beside it.
