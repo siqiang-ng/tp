@@ -88,15 +88,15 @@ Before you go on, here are some key terms and symbols you should know!
 
 <!--suppress HtmlUnknownAttribute -->
 <div markdown="span" class="alert alert-info"> 
-   <b>:information_source: This information symbol provides you with additional information.</b>
+   :information_source: This information symbol provides you with additional information.
 </div> 
 <br>
 <div markdown="span" class="alert alert-primary"> 
-   <b>:bulb: This light bulb symbol will show you tips to make your Projact experience smoother.</b>
+   :bulb: This light bulb symbol will show you tips to make your Projact experience smoother.
 </div> 
 <br>
 <div markdown="span" class="alert alert-danger"> 
-   <b> :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects. </b>
+   :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects.
 </div> 
 <br>
 
@@ -154,7 +154,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
   
-* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`. `INDEX` must be a positive integer number!
 
 </div>
 
@@ -192,12 +192,16 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:information_source: **Note:**
+<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
+
 * No two contacts can have the same name
+
 * Phone numbers can be 7 to 15 digits long.
+
 </div> 
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 
 * Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
 
@@ -237,35 +241,56 @@ Examples:
 
 #### Locating contacts by name: `find`
 
-Finds the contacts whose names contain any of the given keywords.
+Do you have too many contacts such that you are unable to look for the contact you need? 
+Use our `find` command to look for that contact using words that his/her name contains.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+**Format:** `find KEYWORD [MORE_KEYWORDS]`
+
+<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Contacts matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+
+* Only the name is searched.
+
+* Only full words will be matched e.g. `Han` will not match `Hans`.
+
+</div> 
+
+
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+
+* Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
+</div>
+
+
+**Example Guide:**
+1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
+![FindCommand 1](images/FindAlexResult.png)
+
+2. If you want to find both `Alex Yeoh` and `David Li`, type `find alex david`. The display result will be as shown.
+![FindCommand 2](images/findAlexDavidResult.png)
   
 #### Sort contacts by name: `sort`
 
 Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
 typing a single `sort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+
 Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
 Simply enter `list` on the command line to get back to the chronological order.
+
 </div>
  
-<div markdown="span" class="alert alert-info">:information_source: **Note:**
-    1. Do note that `sort` command does not sort the contact list displayed after `find` command!
-    2. Only edit the contact based on the **Actual Index** as displayed!
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b>
+
+* Do note that `sort` command does not sort the contact list displayed after `find` command!
+
+* Only edit the contact based on the **Actual Index** as displayed!
+    
 </div> 
  
 **Format:** `sort`
@@ -284,17 +309,43 @@ change the tag 'ma1101r' to 'cs1010' under Alex.
 
 #### Deleting a contact : `delete`
 
-Deletes the specified contact from the person list.
+Want to remove a contact? Simply use our `delete` command with the index `INDEX` of that contact shown in the displayed contact list!
 
-Format: `delete INDEX`
+**Format:** `delete INDEX`
 
-* Deletes the contact at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 
-Examples:
+* If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
+
+* Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
+
+</div>
+
+**Example Guide**:
+
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
-* `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
+   Step 1: This is the original list after using `list` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide1.png)
+   
+   Step 2: After entering `delete 2`, the contact Charlotte is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide2.png)
+   
+* `find Irfan` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
+   Step 1: This is the list after using the `find Irfan` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
+   
+   Step 2: After entering `delete 1`, the contact Irfan is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)
+   
+* `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
+   
+   Step 1: This is the list after using the `sort` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide5.png)
+   
+   Step 2: After entering `delete 1`, the contact David is deleted, not Alex Yeoh as the actual index of Alex is 3.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide6.png)   
 
 ### Tag Features
 
@@ -341,9 +392,10 @@ Step 2: For example, if you want to change the name of the `family` tag to `brot
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
-<div markdown="span" class="alert alert-danger">
-**:exclamation: Note:**<br>
+<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+
 * The index **must be a positive integer** 1, 2, 3, …​
+
 </div>
 
 #### Locating tags by name: `tagfind`
@@ -368,13 +420,16 @@ Examples:
 Dislike how the current list of tags is displayed? 
 Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
-<div markdown="span" class="alert alert-info"> :information_source: **Note:**
-    1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
-    2. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b>
+
+* Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+
+* Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+
 </div>
 
 **Format:** `tagsort`
@@ -391,7 +446,7 @@ Step 2: Hit enter and the list with all the tag names will be sorted immediately
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 The tag will also be removed from the contact(s) that contain(s) the tag.
 </div>
 
@@ -423,14 +478,14 @@ Step 1: First key in `taglist` and hit enter to display all the tags.
 
 Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
 </div>
 
 ![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
 
 Step 3: You should see the link being added to the "CS2103Project" tag like this. 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Click on the link to be redirected to your browser!
 </div>
 
@@ -478,7 +533,7 @@ Example:
 
 #### Marking a task under a tag as done: `taskdone`
 
-After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how do you mark the 
 task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
 the alphabetical index `ALPHAINDEX` to do the magic!
 
@@ -487,9 +542,9 @@ the alphabetical index `ALPHAINDEX` to do the magic!
 **Step-By-Step Guide:**
 
 Step 1: First key in `taglist` and hit enter to display all the tags.
-![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+![TaskDoneCommand Step 1](images/TaskDoneCommandGuide1.png)
 
-Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 a" and hit enter.
 ![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
 
 Step 3: You should see the task "complete user guide" have a tick beside it.
@@ -497,15 +552,31 @@ Step 3: You should see the task "complete user guide" have a tick beside it.
 
 #### Deleting a task: `taskdelete`
 
-Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
+Are the tasks added no longer needed? Or perhaps you've accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
 
 **Format:** `taskdelete INDEX ALPHAINDEX`
 
-* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Deletes a task to the tag with the `INDEX` from the current view of the tag list (either tagsort or taglist).
 
 Example:
 * `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
 
+#### Clearing all completed tasks: `taskclear`
+
+Do you want the satisfaction of striking off all the tasks you've completed? Well, Projact can't do that but it sure can offer you a way to delete all of your completed tasks!
+
+**Format:** `taskclear INDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: For example, if you want to clear all the completed tasks from the tag"C2101", Key in `taskclear 2`.
+![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
+
+Step 2: Hit enter and you should see that all the completed tasks will be removed.
+![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
+
+Example:
+* `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
@@ -554,6 +625,7 @@ Action | Format, Examples
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
 **Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
 **Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
+**Task Clear** | `taskclear INDEX` <br> e.g., `taskclear 1`
 
 --------------------------------------------------------------------------------------------------------------------
 
