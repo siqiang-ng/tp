@@ -25,10 +25,10 @@ import seedu.address.model.tag.TagTask;
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
-            new Person(new PersonName("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                new TelegramAddress("alex_yeoh"), getTagNameSet("ma1101r")),
             new Person(new PersonName("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new TelegramAddress("berniceYu"), getTagNameSet("cs2100", "cs2103")),
+            new Person(new PersonName("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
+                new TelegramAddress("alex_yeoh"), getTagNameSet("ma1101r")),
             new Person(new PersonName("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
                 new TelegramAddress("char_Oli"), getTagNameSet("cs2100")),
             new Person(new PersonName("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),

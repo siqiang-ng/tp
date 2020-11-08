@@ -35,6 +35,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
+    private Label actualId;
+    @FXML
     private Label phone;
     @FXML
     private Label telegramAddress;
@@ -48,7 +50,7 @@ public class PersonCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex) {
+    public PersonCard(Person person, boolean isPersonList, int displayedIndex, int actualIndex) {
         super(FXML);
         requireNonNull(person);
         assert displayedIndex > 0 : "Displayed index should be greater than 0";
@@ -58,6 +60,27 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         telegramAddress.setText("@" + person.getTelegramAddress().value);
         email.setText(person.getEmail().value);
+
+        initializeActualIndex(isPersonList, actualIndex);
+        initializeTags();
+    }
+
+    /**
+     * Initializa the actual Index for each {@Code PersonCard}
+     */
+    private void initializeActualIndex(boolean isPersonList, int actualIndex) {
+        if (isPersonList) {
+            actualId.setVisible(false);
+        } else {
+            actualId.setText("(Actual Index: " + actualIndex + ")");
+        }
+    }
+
+
+    /**
+     * Initialize all the tags for each {@Code PersonCard}
+     */
+    public void initializeTags() {
         if (!person.getTagNames().isEmpty()) {
             person.getTagNames().stream()
                     .sorted(Comparator.comparing(tagName -> tagName.tagName))
