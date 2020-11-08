@@ -299,7 +299,21 @@ The LinkDelete command allows a user to delete the meeting link from a tag perma
 
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
-    
+  
+**TaskAdd command**
+ 
+The TaskAdd command allows the user to add a task to a tag. 
+
+1. The command is passed into `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is `taskadd` and the arguments.
+4. `ProjactParser` calls the parse method of `TaskAddCommandParser`, which parses the argument, creates a new `editTagDescriptor` object, and returns a new `TaskAddCommand` with the new `editTagDescriptor` object used as an argument.
+5. The `LogicManager` then calls the execute method of the `TaskAddCommand`, which calls the setTag method of `Model`.
+
+The diagram below shows a sample interaction of `TaskAddCommand`. 
+
+![TaskAddSequenceDiagram](images/TaskAddSequenceDiagram.png)
+
 **TaskDone command**
  
 The TaskDone command allows the user to mark a task under a tag as done. 
@@ -321,6 +335,20 @@ The TaskDone command allows the user to mark a task under a tag as done.
 The diagram below shows a sample interaction of `TaskDoneCommand`. 
 
 ![TaskDoneSequenceDiagram](images/TaskDoneSequenceDiagram.png)    
+
+**TaskDelete command**
+ 
+The TaskDelete command allows the user to delete a task from a tag. 
+
+1. The command is passed into `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is `taskdone` and the arguments.
+4. `ProjactParser` calls the parse method of `TaskDeleteCommandParser`, which parses the argument, cand returns a new `TaskDeleteCommand`.
+5. The `LogicManager` then calls the execute method of the `TaskDeleteCommand`, which calls the setTag method of `Model`.
+
+The diagram below shows a sample interaction of `TaskDeleteCommand`. 
+
+![TaskDeleteSequenceDiagram](images/TaskDeleteSequenceDiagram.png)
 
 ### Future implementation plans
 **TagAdd command**
