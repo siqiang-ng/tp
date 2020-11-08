@@ -247,11 +247,18 @@ Examples:
   
 #### Sort contacts by name: `sort`
 
-Dislike how the current list of contacts is displayed? Sort the names in alphabetical order by typing a single `sort` word on the command line.
+Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
+typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
+Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
+Simply enter `list` on the command line to get back to the chronological order.
 </div>
+ 
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
+    1. Do note that `sort` command does not sort the contact list displayed after `find` command!
+    2. Only edit the contact based on the **Actual Index** as displayed!
+</div> 
  
 **Format:** `sort`
  
@@ -260,8 +267,12 @@ Do you wish to get back to the previous list? No worries, this sorted list is no
 Step 1: Key in the `sort` command.
 ![SortContactCommand Step 1](images/SortCommandGuide1.png)
 
-Step 2: Hit enter and the list with all the contact names sorted will be displayed immediately as shown.
+Step 2: Hit enter and the list with all the contact names will be sorted immediately as shown.
 ![SortContactCommand Step 2](images/SortCommandGuide2.png)
+
+Step 3: If you want to edit 'Alex Yeoh', use the actual index **2** instead of 1. For example, `edit 2 t/cs1010` will
+change the tag 'ma1101r' to 'cs1010' under Alex.
+![SortContactCommand Step 3](images/SortCommandGuide3.png)
 
 #### Deleting a contact : `delete`
 
@@ -346,10 +357,16 @@ Examples:
 
 #### Sorting tags by tag name: `tagsort`
 
-Dislike how the current list of tags is displayed? Sort the tags by their names in alphabetical order by typing a single `tagsort` word on the command line.
+Dislike how the current list of tags is displayed? 
+Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
+</div>
+
+<div markdown="span" class="alert alert-info"> :information_source: **Note:**
+    1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+    2. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
 </div>
 
 **Format:** `tagsort`
@@ -359,7 +376,7 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 Step 1: Key in the `tagsort` command.
 ![TagSortCommand Step 1](images/TagSortCommandGuide1.png)
 
-Step 2: Hit enter and the list with all the tag names sorted will be displayed immediately as shown.
+Step 2: Hit enter and the list with all the tag names will be sorted immediately as shown.
 ![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
 
 #### Deleting a tag: `tagdelete`
@@ -419,14 +436,12 @@ Want to get rid of the link under a particular tag? Use the `linkdelete` command
 
 **Step-By-Step Guide:**
 
-Step 1: First key in `taglist` and hit enter to display all the tags.
+Step 1: First key in `taglist` and hit enter to display all the tags. For example, if you want to remove the link from 
+the "classmates" tag, key in `linkdelete 2` and hit enter.
 ![LinkDeleteCommand Step 1](images/LinkDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the link from the "classmates" tag, key in `linkdelete 3` and hit enter.
+Step 2: You should see the link being removed from the "cs2100" tag like this.
 ![LinkDeleteCommand Step 2](images/LinkDeleteCommandGuide2.png)
-
-Step 3: You should see the link being removed from the "classmates" tag like this.
-![LinkDeleteCommand Step 3](images/LinkDeleteCommandGuide3.png)
 
 ### Task Features
 

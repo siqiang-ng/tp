@@ -34,15 +34,19 @@ Given below are my contributions to the project.
 
 ### Project Management
 * Managed releases `v1.2` - `v1.3` (2 releases) on GitHub
-* Changed the product icon to Projact
-* Maintained the issue tracker
-* Documented the target user profile and the user stories
+* Changed the product icon 
+* Maintained the issue tracker from time to time
 
 ### Documentation    
 * **User Guide**:
+    * Created the Table of Contents
     * Added documentation for the features `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete`
     * Updated the FAQ section
 * **Developer Guide**:
+    * Created the Table of Contents
+    * Added the use case for creating a tag
+    * Wrote the Product Scope
+    * Maintain the User Stories
     * Added implementation details and the UML diagrams of the `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete` features.
 
 ### Community    
