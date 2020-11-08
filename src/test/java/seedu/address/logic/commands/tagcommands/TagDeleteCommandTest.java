@@ -58,7 +58,6 @@ public class TagDeleteCommandTest {
 
         Model expectedModel = new ModelManager(model.getProjact(), new UserPrefs());
         expectedModel.deleteTag(tagToDelete);
-        showNoTag(expectedModel);
 
         assertCommandSuccess(tagDeleteCommand, model, expectedMessage, expectedModel);
     }
@@ -98,12 +97,4 @@ public class TagDeleteCommandTest {
         assertFalse(deleteFirstCommand.equals(deleteSecondCommand));
     }
 
-    /**
-     * Updates {@code model}'s filtered list to show no one.
-     */
-    private void showNoTag(Model model) {
-        model.updateFilteredTagList(p -> false);
-
-        assertTrue(model.getFilteredTagList().isEmpty());
-    }
 }
