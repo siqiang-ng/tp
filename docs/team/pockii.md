@@ -36,7 +36,7 @@ Given below are my contributions to the project.
 * **Enhancement**: Edited existing commands to update Tag's UI. (Pull requests [\#113](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/113), [\#135](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/135))
   * Highlights: This enhancement was difficult as it required modifying existing commands.
 
-* **Enhancement**: Improved the GUI by adding icons and removed blank spaces when fields are missing. (Pull request [\#216](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/216))
+* **Enhancement**: Improved the GUI by adding icons and removing blank spaces. (Pull request [\#216](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/216))
   * Credits: Used [FontAwesome5](https://github.com/kordamp/ikonli) for the icons.
  
 #### Code Contributed
