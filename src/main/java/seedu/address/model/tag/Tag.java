@@ -114,7 +114,7 @@ public class Tag {
             getMeetingLink().ifPresent(link -> builder.append(link));
         }
 
-        if(!getTagTasks().isEmpty()) {
+        if (!getTagTasks().isEmpty()) {
             builder.append(" Tasks: ");
             getTagTasks().forEach(builder::append);
         }
