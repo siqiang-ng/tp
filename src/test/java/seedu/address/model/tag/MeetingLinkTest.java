@@ -27,7 +27,9 @@ class MeetingLinkTest {
         // Invalid meeting link
         assertFalse(MeetingLink.isValidMeetingLink("http.com"));
         assertFalse(MeetingLink.isValidMeetingLink("http://"));
+        assertFalse(MeetingLink.isValidMeetingLink("http://.com"));
         assertFalse(MeetingLink.isValidMeetingLink("@#$%"));
+        assertFalse(MeetingLink.isValidMeetingLink("www.google.com"));
 
         // Valid meeting link
         assertTrue(MeetingLink.isValidMeetingLink("http://google.com"));

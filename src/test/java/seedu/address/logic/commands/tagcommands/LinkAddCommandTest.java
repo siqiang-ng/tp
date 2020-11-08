@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
-import java.util.Arrays;
+import java.net.MalformedURLException;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.ModelManager;
 import seedu.address.model.tag.MeetingLink;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.TagBuilder;
@@ -20,7 +20,8 @@ public class LinkAddCommandTest {
 
     @Test
     public void constructor_nullIndex_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new LinkAddCommand(null, new MeetingLink("http://www.google.com/")));
+        assertThrows(NullPointerException.class, () -> new LinkAddCommand(null,
+                new MeetingLink("http://www.google.com/")));
     }
 
     @Test
@@ -30,46 +31,37 @@ public class LinkAddCommandTest {
 
     @Test
     public void execute_linkAcceptedByModel_addSuccessful() throws Exception {
-//        ModelStubAcceptingLinkAdded modelStub = new ModelStubAcceptingTagAdded();
-//        Tag validTag = new TagBuilder().build();
-//
-//        CommandResult commandResult = new TagAddCommand(validTag).execute(modelStub);
-//
-//        assertEquals(String.format(TagAddCommand.MESSAGE_SUCCESS, validTag), commandResult.getFeedbackToUser());
-//        assertEquals(Arrays.asList(validTag), modelStub.tagsAdded);
+        ModelManager modelManager = new ModelManager();
+        Tag validTag = new TagBuilder().build();
+        modelManager.addTag(validTag);
+        MeetingLink validLink = new MeetingLink("http://zoom.com/");
+        CommandResult commandResult = new LinkAddCommand(Index.fromZeroBased(0), validLink).execute(modelManager);
+
+        assertEquals(String.format(LinkAddCommand.MESSAGE_SUCCESS, validLink), commandResult.getFeedbackToUser());
     }
 
     @Test
-    public void execute_linkAlreadyExists_throwsCommandException() {
-
-    }
-
-    @Test
-    public void execute_invalidTagIndex_throwsCommandException() {
-
-    }
-
-    @Test
-    public void equals() {
-        Tag cs2101 = new TagBuilder().withTagName("cs2101").build();
-        Tag cs2103t = new TagBuilder().withTagName("cs2103t").build();
-        TagAddCommand add2101Command = new TagAddCommand(cs2101);
-        TagAddCommand add2103tCommand = new TagAddCommand(cs2103t);
+    public void equals() throws MalformedURLException {
+        MeetingLink zoom = new MeetingLink("http://zoom.com/");
+        MeetingLink skype = new MeetingLink("http://skype.com/");
+        LinkAddCommand addZoomCommand = new LinkAddCommand(Index.fromZeroBased(1), zoom);
+        LinkAddCommand addSkypeCommand = new LinkAddCommand(Index.fromZeroBased(1), skype);
 
         // same object -> returns true
-        assertTrue(add2101Command.equals(add2101Command));
+        assertTrue(addZoomCommand.equals(addZoomCommand));
 
         // same values -> returns true
-        TagAddCommand add2101CommandCopy = new TagAddCommand(cs2101);
-        assertTrue(add2101Command.equals(add2101CommandCopy));
+        LinkAddCommand addZoomCommandCopy = new LinkAddCommand(Index.fromZeroBased(1), zoom);
+        assertTrue(addZoomCommandCopy.equals(addZoomCommand));
 
         // different types -> returns false
-        assertFalse(add2101Command.equals(1));
+        assertFalse(addZoomCommand.equals(1));
 
         // null -> returns false
-        assertFalse(add2101Command.equals(null));
+        assertFalse(addZoomCommand.equals(null));
 
-        // different person -> returns false
-        assertFalse(add2101Command.equals(add2103tCommand));
+        // different links -> returns false
+        assertFalse(addSkypeCommand.equals(addZoomCommand));
     }
+
 }
