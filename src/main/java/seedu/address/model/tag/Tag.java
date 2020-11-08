@@ -52,6 +52,19 @@ public class Tag {
     }
 
     /**
+     * Returns a list of the tag's uncompleted tasks.
+     */
+    public List<TagTask> getAllUncompletedTasks() {
+        List<TagTask> newTagTasks = new ArrayList<>();
+        for (TagTask task : tagTasks) {
+            if (!task.getIsDone()) {
+                newTagTasks.add(task);
+            }
+        }
+        return newTagTasks;
+    }
+
+    /**
      * Returns true if both tags have the same name
      * This defines a weaker notion of equality between two tags.
      */
