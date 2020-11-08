@@ -402,17 +402,17 @@ The tag will also be removed from the contact(s) that contain(s) the tag.
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5` and hit enter.
+Step 2: For example, if you want to remove the "ma1101r" tag, key in `tagdelete 1` and hit enter.
 ![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
 
-Step 3: You should see the updated tag list without the "family" tag.
+Step 3: You should see the updated tag list without the "ma1101r" tag.
 ![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
 
 ### Link Features
 
 #### Adding a link under a tag: `linkadd`
 
-This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
+This command ties a link to a specified tag. It will come in handy if you have group projects or lessons where you have a permanent platform that your group or class meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
 
 **Format:** `linkadd INDEX l/LINK`
 
@@ -421,7 +421,7 @@ This command ties a link to a specified tag. It will come in handy if you have g
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
 
-Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
+Step 2: For example, if you want to add your Zoom tutorial meeting link to the "ma1101r" tag, key in `linkadd 1 l/http://nus-sg.com/ma1101r-T5` and hit enter.
 
 <div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
@@ -429,7 +429,7 @@ Ensure that the link provided starts with either "https://" or "http://" and has
 
 ![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
 
-Step 3: You should see the link being added to the "CS2103Project" tag like this. 
+Step 3: You should see the link being added to the "ma1101r" tag like this. 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Click on the link to be redirected to your browser!
 </div>
@@ -565,7 +565,8 @@ in the other computer. The data should remain the same as it was in your previou
 
 **Q**: I have tried double-clicking the `projact.jar` file but the application does not open. <br>
 **A**: Please ensure that you have loaded the `projact.jar` file from our latest release on our github website. 
-A temporary solution could be to open your Command Prompt (Windows OS) or terminal (MacOS) and key in `java -jar <path_of_file>`. 
+Check the Java version on your device and ensure that it is Java 11 and above. If it still doesn't work, 
+a temporary solution could be to open your Command Prompt (Windows OS) or terminal (MacOS) and key in `java -jar <path_of_file>`. 
 For example, `java -jar C:\Users\name\projact\projact.jar`. We understand that this may be troublesome over time, so please 
 drop an email at siqiang@comp.nus.edu.sg or raise an issue on our github page.
 
