@@ -300,10 +300,10 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
    
 * `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
    Step 1: This is the list after using the `sort` command.
-   ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
+   ![DeleteCommand Step 1](images/DeleteCommandGuide5.png)
    
    Step 2: After entering `delete 1`, the contact Irfan is deleted.
-   ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)   
+   ![DeleteCommand Step 2](images/DeleteCommandGuide6.png)   
 
 ### Tag Features
 
