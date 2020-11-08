@@ -43,6 +43,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/khinkhinn.png" width="200px">
 
 [[github](http://github.com/khinkhinn)]
+[[portfolio](team/khinkhinn.md)]
 
 * Role: Developer
 * Responsibilities: Deliverables & Scheduling + Threading
