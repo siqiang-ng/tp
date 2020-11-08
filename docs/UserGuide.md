@@ -176,13 +176,13 @@ Format: `clear`
 
 #### Exiting the program : `exit`
 
-Exits Projact application.
+The Projact application will close automatically with this command.
 
 Format: `exit`
 
 #### Saving the data
 
-Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Projact data are saved in your hard disk automatically after any command that changes the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
 
 ### Contact Features
 
