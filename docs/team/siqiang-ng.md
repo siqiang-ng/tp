@@ -18,7 +18,7 @@ Given below are my contributions to the project.
 
 * **Feature**: Added the commands to sort the list of contact names and the list of tag names. 
 (Pull requests [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120),
-[\#223](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/223)
+[\#223](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/223))
   * What it does: allows the user to sort the contact names in the person list or the tag names in the tag list based on numbers then in alphabetical order. 
   * Justification: This feature allows the user to change how the contacts and tags are viewed in the list based on their personal preference.  
   * Highlight: This implementation was challenging because it uses SortedList, rather than the Filtered List which is used in AB3. 
