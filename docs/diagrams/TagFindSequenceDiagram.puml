@@ -5,8 +5,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":ProjactParser" as ProjactParser LOGIC_COLOR
 participant ":TagFindCommandParser" as TagFindCommandParser LOGIC_COLOR
-participant "predicate:TagNameContainsKeywordsPredicate" as TagNameContainsKeywordsPredicate LOGIC_COLOR
-participant "c:TagFindCommand" as TagFindCommand LOGIC_COLOR
+participant ":TagNameContainsKeywordsPredicate" as TagNameContainsKeywordsPredicate LOGIC_COLOR
+participant ":TagFindCommand" as TagFindCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -14,10 +14,10 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("tagfind friends family")
+[-> LogicManager : execute("tagfind friends")
 activate LogicManager
 
-LogicManager -> ProjactParser : parseCommand("tagfind friends family")
+LogicManager -> ProjactParser : parseCommand("tagfind friends")
 activate ProjactParser
 
 create TagFindCommandParser
@@ -27,11 +27,11 @@ activate TagFindCommandParser
 TagFindCommandParser --> ProjactParser
 deactivate TagFindCommandParser
 
-ProjactParser -> TagFindCommandParser : parse("friends family")
+ProjactParser -> TagFindCommandParser : parse("friends")
 activate TagFindCommandParser
 
 create TagNameContainsKeywordsPredicate
-TagFindCommandParser -> TagNameContainsKeywordsPredicate : TagNameContainsKeywordsPredicate(List<String> keywords)
+TagFindCommandParser -> TagNameContainsKeywordsPredicate
 activate TagNameContainsKeywordsPredicate
 
 TagNameContainsKeywordsPredicate --> TagFindCommandParser : predicate
@@ -41,16 +41,16 @@ create TagFindCommand
 TagFindCommandParser -> TagFindCommand : TagFindCommand(predicate)
 activate TagFindCommand
 
-TagFindCommand --> TagFindCommandParser : c
+TagFindCommand --> TagFindCommandParser
 deactivate TagFindCommand
 
-TagFindCommandParser --> ProjactParser : c
+TagFindCommandParser --> ProjactParser
 deactivate TagFindCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 TagFindCommandParser -[hidden]-> ProjactParser
 destroy TagFindCommandParser
 
-ProjactParser --> LogicManager : c
+ProjactParser --> LogicManager
 deactivate ProjactParser
 
 LogicManager -> TagFindCommand : execute()
@@ -66,7 +66,7 @@ create CommandResult
 TagFindCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> TagFindCommand
+CommandResult --> TagFindCommand : result
 deactivate CommandResult
 
 TagFindCommand --> LogicManager : result
