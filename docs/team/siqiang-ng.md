@@ -11,7 +11,7 @@ Projact is a contact and project management app that helps NUS computing student
 Given below are my contributions to the project.
 
 ### New Features Added
-* **Feature**: Command to list the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
+* **Feature**: Command to list all the tags in the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
   * What it does: allows the user to list all the tags that have been created. 
   * Justification: allows the user to keep track of all the tags that have been added.
   * Highlights: This feature helps to display all the tag command results. 
@@ -19,7 +19,7 @@ Given below are my contributions to the project.
 * **Feature**: Commands to sort person list and taglist. 
 (Pull requests [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120),
 [\#223](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/223))
-  * What it does: allows the user to sort the contact names in the person list or the tag names in the tag list based on numbers then in alphabetical order. 
+  * What it does: allows the user to sort the contact names in the person list or the tag names in the tag list in alphanumerical order. 
   * Justification: allows the user to change the person list and tag list based on their personal preference.  
   * Highlight: This implementation was challenging because it uses SortedList, rather than the Filtered List that the UI used to display the lists. 
     It also affects the original commands so there are many design considerations required.
@@ -30,7 +30,6 @@ Given below are my contributions to the project.
   
 * **Feature**: Command to mark a task in a tag as done. 
 (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204))
-  * What it does: allows the user to mark a task in the task list of a tag as done.
   * Justification: allows the user to keep track of the progress of the tasks added. 
   * Highlight: This implementation was challenging because there are no similar commands in the original AB3 to refer. New methods have to be created in the Index and 
   ParserUtil classes to parse the different index.
