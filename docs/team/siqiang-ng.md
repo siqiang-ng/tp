@@ -74,6 +74,11 @@ Given below are my contributions to the project.
      [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
 
 ### Community    
-* PRs reviewed (with non-trivial review comments):
+* PRs reviewed (with non-trivial review comments): [\#65](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/65), 
+[\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
+[\#145](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/145), [\#219](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/219), 
+[\#222](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/222), [\#240](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/240),
+[\#241](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/241)
+
 
 
