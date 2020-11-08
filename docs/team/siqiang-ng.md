@@ -45,7 +45,7 @@ Given below are my contributions to the project.
 #### Project Management
 * Wrapped up all milestones and managed releases `v1.2` - `v1.4` on GitHub
 * Changed the product icon (Pull request [\#210](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/210))
-* Maintained the issue tracker from time to time
+* Maintained the issue tracker for `v1.2` - `v1.4`
 
 #### Documentation    
 * **User Guide**:
