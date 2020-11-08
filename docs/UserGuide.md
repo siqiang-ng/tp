@@ -392,7 +392,7 @@ Step 2: For example, if you want to change the name of the `family` tag to `brot
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
-<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> <br>
+<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
 
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -420,13 +420,16 @@ Examples:
 Dislike how the current list of tags is displayed? 
 Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
-<div markdown="span" class="alert alert-info"> :information_source: **Note:**
-    1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
-    2. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b>
+
+1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+
+1. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+
 </div>
 
 **Format:** `tagsort`
@@ -443,7 +446,7 @@ Step 2: Hit enter and the list with all the tag names will be sorted immediately
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 The tag will also be removed from the contact(s) that contain(s) the tag.
 </div>
 
@@ -475,14 +478,14 @@ Step 1: First key in `taglist` and hit enter to display all the tags.
 
 Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
 </div>
 
 ![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
 
 Step 3: You should see the link being added to the "CS2103Project" tag like this. 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Click on the link to be redirected to your browser!
 </div>
 
