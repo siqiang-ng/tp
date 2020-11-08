@@ -37,17 +37,13 @@ public class TaskClearCommandTest {
     }
 
     @Test
-    public void execute_tagWithNoCompletedTasks_success() {
+    public void execute_tagWithNoCompletedTasks_throwsCommandException() {
         Tag identifiedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
-        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
 
         TaskClearCommand taskClearCommand = new TaskClearCommand(INDEX_FIRST_TAG);
-        String expectedMessage = String.format(TaskClearCommand.MESSAGE_NO_TASKS_SUCCESS, identifiedTag.getTagName());
+        String expectedMessage = String.format(TaskClearCommand.MESSAGE_NO_TASKS, identifiedTag.getTagName());
 
-        ModelManager expectedModel = new ModelManager(model.getProjact(), new UserPrefs());
-        expectedModel.setTag(identifiedTag, editedTag);
-
-        assertCommandSuccess(taskClearCommand, model, expectedMessage, expectedModel);
+        assertCommandFailure(taskClearCommand, model, expectedMessage);
     }
 
     @Test

@@ -25,7 +25,7 @@ public class TaskClearCommand extends Command {
 
     public static final String MESSAGE_CLEAR_TASK_SUCCESS = "The completed tasks under %1$s have been cleared.";
 
-    public static final String MESSAGE_NO_TASKS_SUCCESS = "There are no completed tasks from %1$s to be cleared.";
+    public static final String MESSAGE_NO_TASKS = "There are no completed tasks from %1$s to be cleared.";
 
     private final Index index;
 
@@ -52,14 +52,12 @@ public class TaskClearCommand extends Command {
         Tag editedTag = new Tag(identifiedTag.getTagName(), newTagTasks, identifiedTag.getMeetingLink());
 
         if (identifiedTag.getTagTasks().size() == newTagTasks.size()) {
-            return new CommandResult(String.format(MESSAGE_NO_TASKS_SUCCESS, identifiedTag.getTagName()),
-                    false, false, false, false, false, false);
+            throw new CommandException(String.format(MESSAGE_NO_TASKS, identifiedTag.getTagName()));
         }
 
         model.setTag(identifiedTag, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
-        return new CommandResult(String.format(MESSAGE_CLEAR_TASK_SUCCESS, identifiedTag.getTagName()),
-                false, false, false, false, false, false);
+        return new CommandResult(String.format(MESSAGE_CLEAR_TASK_SUCCESS, identifiedTag.getTagName()));
     }
 
     @Override
