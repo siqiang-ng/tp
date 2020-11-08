@@ -29,7 +29,7 @@ Given below are my contributions to the project.
 * **Enhancement**: Removed Address field in Person's model. (Pull request [\#68](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/68))
   * Justification: It is uncommon for target users to know or save their acquaintances' address.
 * **Enhancement**: Refined regex for valid emails. (Pull request [\#218](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/218))
-<div style="page-break-after: always;"></div>
+
 * **Enhancement**: Edited ModelManager and Tag's model to support new features. (Pull requests [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#113](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/113))
   * Highlights: This enhancement affects existing contact, tag, link and task commands.
 
