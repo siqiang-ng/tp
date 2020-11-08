@@ -392,7 +392,7 @@ Step 2: For example, if you want to change the name of the `family` tag to `brot
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
-<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> <br>
 
 * The index **must be a positive integer** 1, 2, 3, …​
 
