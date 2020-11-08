@@ -30,7 +30,7 @@ Given below are my contributions to the project.
   
 * **Feature**: Command to mark a task in a tag as done. 
 (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204))
-  * What it does: allows the user to mark a particular task in the task list of a tag as done.
+  * What it does: allows the user to mark a task in the task list of a tag as done.
   * Justification: allows the user to keep track of the progress of the tasks added. 
   * Highlight: This implementation was challenging because there are no similar commands in the original AB3 to refer. New methods have to be created in the Index and 
   ParserUtil classes to parse the different index.
