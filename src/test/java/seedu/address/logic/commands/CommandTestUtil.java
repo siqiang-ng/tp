@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -44,6 +45,8 @@ public class CommandTestUtil {
     public static final String VALID_TAG_NAME_FRIEND = "friend";
     public static final String VALID_TAG_NAME_COLLEAGUE = "colleague";
     public static final String VALID_TAG_NAME_HANDBALL = "handball";
+    public static final String VALID_TASK_NAME_HOMEWORK = "homework";
+    public static final String VALID_TASK_NAME_MEETING = "meeting";
     public static final String VALID_TAG_LINK_ZOOM = "http://www.zoom.com/";
     public static final String VALID_TAG_LINK_SKYPE = "http://skype.com/cs2103t";
 
@@ -61,6 +64,8 @@ public class CommandTestUtil {
     public static final String TAG_NAME_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_NAME_HUSBAND;
     public static final String TAG_NAME_DESC_COLLEAGUE = " " + PREFIX_TAG + VALID_TAG_NAME_COLLEAGUE;
     public static final String TAG_NAME_DESC_HANDBALL = " " + PREFIX_TAG + VALID_TAG_NAME_HANDBALL;
+    public static final String TASK_NAME_DESC_HOMEWORK = " " + PREFIX_TASK + VALID_TASK_NAME_HOMEWORK;
+    public static final String TASK_NAME_DESC_MEETING = " " + PREFIX_TASK + VALID_TASK_NAME_MEETING;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
