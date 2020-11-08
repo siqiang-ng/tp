@@ -88,15 +88,15 @@ Before you go on, here are some key terms and symbols you should know!
 
 <!--suppress HtmlUnknownAttribute -->
 <div markdown="span" class="alert alert-info"> 
-   <b>:information_source: This information symbol provides you with additional information.</b>
+   :information_source: This information symbol provides you with additional information.
 </div> 
 <br>
 <div markdown="span" class="alert alert-primary"> 
-   <b>:bulb: This light bulb symbol will show you tips to make your Projact experience smoother.</b>
+   :bulb: This light bulb symbol will show you tips to make your Projact experience smoother.
 </div> 
 <br>
 <div markdown="span" class="alert alert-danger"> 
-   <b> :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects. </b>
+   :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects.
 </div> 
 <br>
 
