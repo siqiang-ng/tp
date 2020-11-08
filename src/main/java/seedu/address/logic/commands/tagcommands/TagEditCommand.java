@@ -31,7 +31,7 @@ public class TagEditCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TAG + "CS2101";
 
-    public static final String MESSAGE_EDIT_TAG_SUCCESS = "Edited Tag: %1$s";
+    public static final String MESSAGE_EDIT_TAG_SUCCESS = "Edited Tag: %1$s to %2$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_TAG = "This tag already exists in Projact.";
 

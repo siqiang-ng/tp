@@ -108,11 +108,16 @@ public class Tag {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getTagName())
-                .append(" Link: ");
-        getMeetingLink().ifPresent(link -> builder.append(link));
-        builder.append(" Tasks: ");
-        getTagTasks().forEach(builder::append);
+        builder.append(getTagName());
+        if (!getMeetingLink().isEmpty()) {
+            builder.append(" Link: ");
+            getMeetingLink().ifPresent(link -> builder.append(link));
+        }
+
+        if(!getTagTasks().isEmpty()) {
+            builder.append(" Tasks: ");
+            getTagTasks().forEach(builder::append);
+        }
 
         return builder.toString();
     }

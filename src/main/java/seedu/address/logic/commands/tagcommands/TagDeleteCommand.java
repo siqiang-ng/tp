@@ -2,6 +2,7 @@ package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 
 import java.util.HashSet;
 import java.util.List;
@@ -64,6 +65,7 @@ public class TagDeleteCommand extends Command {
         }
 
         model.deleteTag(tagToDelete);
+        model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
         return new CommandResult(String.format(MESSAGE_DELETE_TAG_SUCCESS, tagToDelete));
     }
 
