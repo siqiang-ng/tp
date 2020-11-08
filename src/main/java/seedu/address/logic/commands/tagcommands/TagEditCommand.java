@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -116,13 +115,6 @@ public class TagEditCommand extends Command {
          */
         public EditTagDescriptor(EditTagDescriptor toCopy) {
             setTagName(toCopy.tagName);
-        }
-
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull();
         }
 
         public void setTagName(TagName tagName) {
