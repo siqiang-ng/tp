@@ -49,8 +49,8 @@ public class TaskAddCommandParserTest {
     }
 
     private class EditTagDescriptorStub extends TaskAddCommand.EditTagDescriptor {
-        EditTagDescriptorStub(String VALID_TASK_NAME) {
-            setNewTagTask(new TagTask(VALID_TASK_NAME, false));
+        EditTagDescriptorStub(String validTaskName) {
+            setNewTagTask(new TagTask(validTaskName, false));
         }
     }
 }

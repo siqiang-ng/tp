@@ -47,8 +47,10 @@ public class TaskAddCommandTest {
 
     @Test
     public void equals() {
-        TaskAddCommand commandOne = new TaskAddCommand(Index.fromZeroBased(1), new EditTagDescriptorStub(VALID_TASK_NAME_HOMEWORK));
-        TaskAddCommand commandTwo = new TaskAddCommand(Index.fromZeroBased(0), new EditTagDescriptorStub(VALID_TASK_NAME_MEETING));
+        TaskAddCommand commandOne = new TaskAddCommand(Index.fromZeroBased(1),
+                new EditTagDescriptorStub(VALID_TASK_NAME_HOMEWORK));
+        TaskAddCommand commandTwo = new TaskAddCommand(Index.fromZeroBased(0),
+                new EditTagDescriptorStub(VALID_TASK_NAME_MEETING));
 
         // same object -> returns true
         assertTrue(commandOne.equals(commandOne));
@@ -64,8 +66,8 @@ public class TaskAddCommandTest {
     }
 
     private class EditTagDescriptorStub extends EditTagDescriptor {
-        EditTagDescriptorStub(String VALID_TASK_NAME) {
-            setNewTagTask(new TagTask(VALID_TASK_NAME, false));
+        EditTagDescriptorStub(String validTaskName) {
+            setNewTagTask(new TagTask(validTaskName, false));
         }
     }
 }
