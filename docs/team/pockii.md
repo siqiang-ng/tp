@@ -15,7 +15,7 @@ Given below are my contributions to the project.
   * Justification: improves user's experience by providing an easy way to correct their mistakes.
 
 * **Feature**: JSON Storage for Tags with their names, tasks and meeting links. (Pull requests [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#142](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/142))
-  * What it does: allows the user's data to be saved and reloaded upon the next usage of the app.
+  * What it does: allows users' data to be saved and loaded upon the next usage of the app.
   * Highlights: This feature affects existing and future tag commands. 
 
 * **Feature**: Command to clear all completed tasks from a Tag. (Pull request [\#224](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/224))
