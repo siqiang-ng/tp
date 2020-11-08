@@ -34,6 +34,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/akgrensoar.png" width="200px">
 
 [[github](https://github.com/akgrenSoar)]
+[[portfolio](team/akgrenSoar.md)]
 
 * Role: Developer
 * Responsibilities: Testing
@@ -43,6 +44,7 @@ You can reach us at the email `siqiang@comp.nus.edu.sg`
 <img src="images/khinkhinn.png" width="200px">
 
 [[github](http://github.com/khinkhinn)]
+[[portfolio](team/khinkhinn.md)]
 
 * Role: Developer
 * Responsibilities: Deliverables & Scheduling + Threading

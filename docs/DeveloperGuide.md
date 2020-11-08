@@ -537,14 +537,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-#### **Use case: View tag members**
+#### **Use case: Find a tag**
 
 **MSS**
 
-1.  User requests to list tags
-2.  Projact shows a list of tags
-3.  User requests to view members of a specific tag in the list
-4.  Projact displays members of the specified tag
+1.  User searches for tag(s) by keyword(s)
+2.  Projact displays a list of matching tags
 
     Use case ends.
 
@@ -554,15 +552,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 3a. The given index is invalid.
-
-    * 3a1. Projact shows an error message.
-
-      Use case resumes at step 2.
-
-* 4a. Specified tag has no members.
+* 2b. There are no tags that match the keyword(s)
 
   Use case ends.
+
+* 2c. User did not specify any keyword
+
+    * 2c1. Projact shows an error message.
+
+      Use case resumes at step 1.
 
 #### **Use case: Edit tag**
 
