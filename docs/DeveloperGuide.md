@@ -18,7 +18,10 @@ This developer guide provides information that helps you to get started as a con
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
 * [Implementation](#implementation)
-* [Known Issues](#known-issues)
+    * [Contact Features](#contact-features)
+    * [Tag Features](#tag-features)
+    * [Link Features](#link-features)
+    * [Task Features](#task-features)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix](#appendix)
     * [A: Product Scope](#a-product-scope)
@@ -133,7 +136,7 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Projact`, which `Person` references. This allows `Projact` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Projact`, and its `TagName` is referenced by `Person`. This allows `Projact` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
@@ -156,8 +159,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 --------------------------------------------------------------------------------------------------------------------
 ## **Implementation**
 
-### Implemented features
-#### Contact features
+### Contact features
 **Sort command**
 The `sort` command allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
@@ -173,12 +175,29 @@ The `sort` command allows a user to sort the current person list in alphabetical
 The diagram below shows a sample interaction of SortCommand.
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
 
-#### Tag features
+### Tag features
+**TagAdd command**
+
+The TagAdd command allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+
+1. The command is passed into `LogicManager`.
+2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+3. `ProjactParser` identifies the commandWord, which in this case is 'tagadd' and the arguments.
+4. `ProjactParser` calls the parse method of `TagAddCommandParser`, which parses the argument, creates a new `Tag` object, and returns a new `TagAddCommand` with the new `Tag` object used as an argument.
+5. The `LogicManager` then calls the execute method of the `TagAddCommand`, which calls the addTag method of `Model`.
+
+The diagram below shows a sample interaction of `TagAddCommand`. 
+
+![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
+
+- Why is it implemented that way:
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+
 **TagEdit command**
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
+3. `ProjactParser` identifies the command word, which in this case is 'tagedit' and the arguments.
 4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
 5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
 6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
@@ -252,7 +271,8 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
  
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
-    
+
+### Link Features    
 **LinkAdd command**
 
 The LinkAdd command allows a user to add a meeting link to a specified tag.
@@ -279,7 +299,8 @@ The LinkDelete command allows a user to delete the meeting link from a tag perma
 
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
-    
+
+### Task Features    
 **TaskDone command**
  
 The TaskDone command allows the user to mark a task under a tag as done. 
@@ -302,71 +323,27 @@ The diagram below shows a sample interaction of `TaskDoneCommand`.
 
 ![TaskDoneSequenceDiagram](images/TaskDoneSequenceDiagram.png)    
 
-### Future implementation plans
-**TagAdd command**
+**TaskClear command**
 
-The TagAdd command allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
-
-1. The command is passed into `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagadd' and the arguments.
-4. `ProjactParser` calls the parse method of `TagAddCommandParser`, which parses the argument, creates a new `Tag` object, and returns a new `TagAddCommand` with the new `Tag` object used as an argument.
-5. The `LogicManager` then calls the execute method of the `TagAddCommand`, which calls the addTag method of `Model`.
-
-The diagram below shows a sample interaction of `TagAddCommand`. 
-
-![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
-
-- Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
-
-**TagEdit command**
+The TaskClear command allows the user to clear all completed tasks under a tag.
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
-4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
-5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
-6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
+3. `ProjactParser` identifies the command word, which in this case is 'taskclear' and the arguments.
+4. `ProjactParser` calls the parse method of `TaskClearCommandParser`, which parses the argument, creates a new `Index` object and returns a new `TaskClearCommand` with the new `Index` object as an argument.
+5. The `LogicManager` then calls the execute method of the `TaskClearCommand`, which retrieves the `Tag` object at the specified index in `FilteredTagList`.  From the `Tag`, a list of its uncompleted tasks, `List<TagTask>`, is obtained.
+6.  A new `Tag` object is created with the new `List<TagTask>` and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+7. `FilteredTagList` is then updated to reflect the changes in `Model`.
 
-The diagram below shows a sample interaction of `TagEditCommand`.
-
-![Sequence Diagram of Tag Edit](images/TagEditSequenceDiagram.png)
-  
 - Why is it implemented that way:
-  - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
-  - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
+    - The command is implemented to be similar to the current command classes, so that there would be minimal changes to the overall design of the product.
+    - An alternative implementation would be for `TaskClearCommand` to not take in an index and just delete all completed tasks from every tag. 
+        - However, the user may want to keep certain tags with completed tasks for tracking purposes. 
+        - Furthermore, this implementation will result in a significantly long execution time for the `TaskClearCommand` as the number of tags and tasks increase. 
+    
+The diagram below shows a sample interaction of `TaskDoneCommand`. 
 
-**TagDelete command**
-
-The TagDelete command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
-
-How it would be implemented:
-1. The command is passed in to `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagdelete' and the arguments.
-4. `ProjactParser` calls the parse method of `TagDeleteCommandParser`, which parses the argument, creates a new `Index` object with the parsed user input, and returns a new `TagDeleteCommand` with the new `Index` object used as an argument.
-5. The `LogicManager` then calls the execute method of the `TagDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. From this list, the tag to be deleted is retrieved by its index. Then, the `ModelManager` will go on to remove all instances of the tag.
-
-The diagram below shows a sample interaction of `TagDeleteCommand`.
-
-![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
- 
-- Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
-
---------------------------------------------------------------------------------------------------------------------
-## **Known Issues**
-
-### Projact v1.2
-
-**Tag display auto-refresh issue**
-
-Problem: The tag display does not refresh itself after adding, editing and deleting a tag.
-
-Workaround: Run the `taglist` command again to refresh the display
-
-Technicalities/Explanations: The problem is caused by an ongoing change in Model, which is scheduled to be completed by Projact v1.3.
+![TaskClearSequenceDiagram](images/TaskClearSequenceDiagram.png)    
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -422,16 +399,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
-| `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
+| `* *`    | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags               |
 | `* *`    | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
-| `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
+| `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag               |
+| `* *`    | student with many tasks                    | clear all completed tasks for a tag              | quickly remove tasks that I have already marked completed under the tag|
 | `* *`    | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
 | `* *`    | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
 | `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
 | `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
-| `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
+| `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands                   |
 | `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
 
 --------------------------------------------------------------------------------------------------------------------
@@ -462,6 +440,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
+#### **Use case: UC02 - List all tags**
+
+**MSS**
+
+1. User requests to list tags
+2. Projact shows a list of tags
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+  
 #### **Use case: Create a Tag**
 
 **MSS**
@@ -502,20 +495,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-#### **Use case: List all tags**
-
-**MSS**
-
-1. User requests to list tags
-2. Projact shows a list of tags
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
 
 #### **Use case: View tag members**
 
@@ -548,30 +527,53 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to list tags
-2. Projact shows a list of tags
-3. User requests to edit a specific tag in the list
-4. Projact edits the tag
+1. User requests to <u>list tags (UC02) </u>
+2. User requests to edit a specific tag in the list
+3. Projact edits the tag
 
    Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
 
      Use case ends.
 
-* 3a. The given index is invalid.
+* 2a. The given index is invalid.
 
-    * 3a1. Projact shows an error message.
+    * 2a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+* 2b. The new tag name is missing.
+
+    * 2b1. Projact shows an error message.
 
       Use case resumes at step 2.
 
-* 3b. The new tag name is missing.
+#### **Use case: Clear completed tasks**
 
-    * 3b1. Projact shows an error message.
+**MSS**
+1. User requests to <u>list tags (UC02) </u>
+2. User requests to delete all completed tasks from a tag in the list
+3. Projact deletes all completed tasks from the tag
+
+**Extensions**
+* 1a. The list is empty.
+
+     Use case ends.
+     
+* 2a. The given index is invalid.
+
+    * 2a1. Projact shows an error message.
 
       Use case resumes at step 2.
+
+* 2b. The tag has no completed tasks.
+
+    * 2b1. Projact shows an error message.
+
+      Use case resumes at step 2.     
 
 *{More to be added}*
 
