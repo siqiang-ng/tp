@@ -24,7 +24,7 @@ Given below are my contributions to the project.
     It also affects the original commands so there are many design considerations required.
   
 * **Feature**: Command to delete the link in a tag. (Pull request [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138))
-  * Justification: improves the product significantly as the user is able to add a link and needs a way to remove the link from the tag as well.
+  * Justification: improves the product as the user needs a way to remove the link from a tag.
   
 * **Feature**: Command to mark a task in a tag as done. 
 (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204))
@@ -64,7 +64,7 @@ Given below are my contributions to the project.
      [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
 
 ### Community    
-* PRs reviewed (with non-trivial review comments): [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
+* PRs reviewed (with non-trivial comments): [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), 
 [\#145](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/145), [\#219](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/219), 
 [\#222](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/222), [\#240](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/240),
 [\#241](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/241)
