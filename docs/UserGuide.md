@@ -193,9 +193,13 @@ Adds a contact to the person list.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:information_source: **Note:**
+
 * No two contacts can have the same name
+
 * Phone numbers can be 7 to 15 digits long.
+
 </div> 
+
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 
@@ -249,10 +253,12 @@ Use our `find` command to look for that contact using words that his/her name co
 * Only full words will be matched e.g. `Han` will not match `Hans`
 </div> 
 
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Type more than one keyword to find more than one contact each time!
 e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 </div>
+
 
 **Example Guide:**
 1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
