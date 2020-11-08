@@ -31,7 +31,20 @@ This developer guide provides information that helps you to get started as a con
     * [E: Glossary](#e-glossary)
     * [F: Instructions for Manual Testing](#f-instructions-for-manual-testing)
         * [Launch and Shut Down](#launch-and-shutdown)
-        * [Deletes a person](#deletes-a-person)
+        * [Contact Commands](#contact-commands)
+            * [Adds a person](#adds-a-person)
+            * [Edits a person](#edits-a-person)
+            * [Deletes a person](#deletes-a-person)
+            * [Finds a person](#finds-a-person)
+        * [Tag Commands](#tag-commands)
+        * [Link Commands](#link-commands)
+            * [Adds a link](#adds-a-link)
+            * [Deletes a link](#deletes-a-link)
+        * [Task Commands](#task-commands)
+            * [Adds a task](#adds-a-task)
+            * [Marks a task as done](#marks-a-task-as-done)
+            * [Deletes a task](#deletes-a-task)
+            * [Clears completed tasks](#clears-completed-tasks)
         * [Saves data](#saves-data)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -283,7 +296,14 @@ The LinkAdd command allows a user to add a meeting link to a specified tag.
 4. `ProjactParser` calls the parse method of `LinkAddCommandParser`, which parses the argument, creates a new `Optional<MeetingLink>` and `Index` object, and returns a new `LinkAddCommand` with the new `Optional<MeetingLink>` and `Index` objects used as arguments.
 5. The `LogicManager` then calls the execute method of the `LinkAddCommand`, which creates a new `Tag` object with the `Optional<MeetingLink>` object, and replaces the current `Tag` object at the specified index in `FilteredTagList`.
 6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
- 
+
+- Why is it implemented this way:
+    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkAddCommand` would also be largely similar to classes implemented in AB3.
+
+The diagram below shows a sample interaction of `LinkAddCommand`. 
+
+![LinkAddSequenceDiagram](images/LinkAddSequenceDiagram.png)  
+
 **LinkDelete command**
  
 The LinkDelete command allows a user to delete the meeting link from a tag permanently. 
@@ -496,14 +516,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-#### **Use case: View tag members**
+#### **Use case: Find a tag**
 
 **MSS**
 
-1.  User requests to list tags
-2.  Projact shows a list of tags
-3.  User requests to view members of a specific tag in the list
-4.  Projact displays members of the specified tag
+1.  User searches for tag(s) by keyword(s)
+2.  Projact displays a list of matching tags
 
     Use case ends.
 
@@ -513,15 +531,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 3a. The given index is invalid.
-
-    * 3a1. Projact shows an error message.
-
-      Use case resumes at step 2.
-
-* 4a. Specified tag has no members.
+* 2b. There are no tags that match the keyword(s)
 
   Use case ends.
+
+* 2c. User did not specify any keyword
+
+    * 2c1. Projact shows an error message.
+
+      Use case resumes at step 1.
 
 #### **Use case: Edit tag**
 
@@ -605,8 +623,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 --------------------------------------------------------------------------------------------------------------------
 ### **E: Glossary**
 
+* **Contact**: A person's information, which includes the name, phone number, email address and Telegram handle of the person
+* **Tag**: A label to group and/or distinguish different contacts. Examples: Relationship with person (friend, family, etc), common module taken (MA1101R, CS2101, etc)
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
 ### **F: Instructions for manual testing**
@@ -624,32 +643,186 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file
+   2. Double-click the jar file
        Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
+       
+#### Contact Commands       
+#### Adds a person
 
+1. Adding a person while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    
+    2. Test case: `add n/Jane p/98765432 e/jane@gmail.com ta/jane_tan t/cs2103` <br>
+        Expected: A new contact is added to the end of the persons list with the contact details set to the respective user inputs. Contact details are shown in the status message.
+    
+    3. Test case: `add n/Jane p/98765432 e/jane@gmail.com` <br>
+        Expected: No person is added. Invalid command format error shown in the status message due to missing `ta/TELEGRAM_ADDRESS` field.
+    
+    4. Test case: `add n/Jane p/98881999 e/janelim@gmail.com ta/jane_lim t/cs2103` <br>
+        Expected: No person is added. Duplicate person error shown in the status message due to existing contact having the exact same name.
+    
+#### Edits a person
+
+1. Editing a person while all persons are being shown
+
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    
+    2. Test case: `edit 1 n/James Lee e/jameslee@example.com` <br>
+        Expected: Contact details of the first contact in the list is set to the respective user inputs. Updated contact details are shown in the status message.
+    
+    3. Test case: `edit 0 n/James Lee` <br>
+        Expected: No person is edited. Invalid command format error shown in the status message due to non-positive index indicated.
+    
+    4. Test case: `edit 1` <br>
+        Expected: No person is edited. Error message stating that there should be at least one field provided in shown in the status message.
+
+    5. Test case: `edit x` (where x is larger than the list size)<br>
+        Expected: No person is edited. Error message stating that index is invalid is shown in the status message.
+             
 #### Deletes a person
 
 1. Deleting a person while all persons are being shown
 
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   2. Test case: `delete 1`<br>
+      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.
 
-   1. Test case: `delete 0`<br>
+   3. Test case: `delete 0`<br>
       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
+      
+#### Finds a person
 
+1. Finding a person while all persons are being shown
+    
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list. For the following test cases, assume that the list contains the contacts: Jane, John, JanE.
+    
+    2. Test case: `find john` <br>
+        Expected: The contact John and his contact details is listed. The number of contacts listed is shown in the status message.
+        
+    3. Test case: `find jane` <br>
+        Expected: The contacts Jane and JanE are listed. The number of contacts listed is shown in the status message.
+        
+    4. Test case: `find james` <br>
+        Expected: No contacts are listed. The number of contacts listed is shown in the status message.
+        
+    5. Test case: `find` <br>
+        Expected: Invalid command format error is shown in the status message due to missing `KEYWORD` field.
+        
+#### Tag Commands
 
+The manual testing of tag commands such as `tagadd`, `tagedit`, `tagdelete`, `tagfind` can be done in a similar to the contact commands. However, instead of using `list` to list all tags,
+`taglist` should be used instead.
+
+#### Link Commands
+#### Adds a link
+
+1. Adding a link to a tag while all tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command. For step 2, assume the first tag in the list has no pre-existing link.
+    
+    2. Test case: `linkadd 1 l/http://zoom.com/` <br>
+        Expected: The link is added to the first tag in the tag list. The link is shown in the status message.
+        
+    3. Test case: `linkadd 1 l/http://google.com/` <br>
+        Expected: No link is added. Error message stating there is already a link is shown in the status message.
+    
+    4. Test case: `linkadd 2` <br>
+        Expected: No link is added. Error message stating that there should be a link is shown in the status message.
+        
+    5. Test case: `linkadd 2 l/http` <br>
+        Expected: No link is added. Error message stating the correct link format is shown in the status message.
+        
+#### Deletes a link
+
+1. Deleting a link from a tag while all the tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that only the first tag has a link.
+    
+    2. Test case: `linkdelete 1` <br>
+        Expected: Link is deleted from the first tag in the list. Details of deleted link is shown in the status message.
+        
+    3. Test case: `linkdelete 2`<br>
+        Expected: No link is deleted. Error message stating that the tag does not have a link is shown in the status message.
+        
+    4. Test case: `linkdelete 0` <br>
+        Expected: No link is deleted. Invalid command format error is shown in the status message due to non-positive index.
+
+#### Task Commands
+#### Adds a task
+
+1. Adding a task to a tag while all tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command.
+    
+    2. Test case: `taskadd 1 task/submit reflection` <br>
+        Expected: Task is added to the first tag in the list, with a cross beside it to indicate that the task is incomplete. Task details are shown in the status message.
+        
+    3. Test case: `taskadd 1` <br>
+        Expected: No task is added. Invalid command format error shown in the status message due to missing `task/TASK_NAME` field.
+        
+    4. Test case: `taskadd 5 task/peer review` <br>
+        Expected: No task is added. Error message stating that index is invalid is shown in the status message.
+        
+#### Marks a task as done
+
+1. Marking a task as done while all tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 1 task, while the other tags have none.
+    
+    2. Test case: `taskdone 1 a` <br>
+        Expected: The first task in the first tag in the list is marked as done. Cross changes to a tick to indicate that the task is completed. Task details are shown in the status message.
+        
+    3. Test case: `taskdone 1 a` (repeating the same command) <br>
+        Expected: Message stating that the task has already been completed is shown in the status message.
+        
+    4. Test case: `taskdone 1 b` <br>
+        Expected: No task is marked as done. Error message stating that the task index is invalid is shown in the status message.
+    
+    5. Test case: `taskdone 2 a` <br>
+        Expected: No task is marked as done. Error message stating that there are no tasks under the indicated tag is shown in the status message.
+
+#### Deletes a task
+
+1. Deleting a task from a tag while all the tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 1 task, while the other tags have none.
+    
+    2. Test case: `taskdelete 1 a` <br>
+        Expected: The first task in the first tag in the list is deleted. Details of deleted task is shown in the status message.
+        
+    3. Test case: `taskdelete 1 a` (repeating the same command) <br>
+        Expected: No task is deleted. Error message stating that there are no tasks under the indicated tag is shown in the status message.
+        
+    4. Test case: `taskdelete 2 a` <br>
+        Expected: No task is deleted. Error message stating that there are no tasks under the indicated tag is shown in the status message.
+
+#### Clears completed tasks
+
+1. Clearing the completed tasks from a tag while all the tags are being shown
+
+    1. Prerequisites: List all tags using the `taglist` command. For the following test cases, assume that the first tag has 2 completed tasks, while the other tags have none.
+    
+    2. Test case: `taskclear 1` <br>
+        Expected: All the completed tasks in the first tag in the list are deleted. Success message is shown in the status message.
+        
+    3. Test case: `taskclear 1` (repeating the same command) <br>
+        Expected: Error message stating that there are no completed tasks under the indicated tag is shown in the status message.
+        
+    4. Test case: `taskdelete 2 a` <br>
+        Expected: Error message stating that there are no completed tasks under the indicated tag is shown in the status message.
+        
 #### Saves data
 
 1. Dealing with missing/corrupted data files
@@ -657,5 +830,5 @@ testers are expected to do more *exploratory* testing.
    1. If the data file is missing, the application will launch a window that is populated with the sample data. User can use the `clear` command to get an empty projact window.
       Expected: Window with sample data
 
-   1. If the data file is corrupted, users should delete the `projact.json` file in data folder. Relaunch the jar file again.
+   2. If the data file is corrupted, users should delete the `projact.json` file in data folder. Relaunch the jar file again.
       Expected: Window with sample data
