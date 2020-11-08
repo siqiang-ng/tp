@@ -312,6 +312,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
    ![DeleteCommand Step 2](images/DeleteCommandGuide2.png)
    
 * `find Irfan` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
    Step 1: This is the list after using the `find Irfan` command.
    ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
    
@@ -319,10 +320,11 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
    ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)
    
 * `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
+   
    Step 1: This is the list after using the `sort` command.
    ![DeleteCommand Step 1](images/DeleteCommandGuide5.png)
    
-   Step 2: After entering `delete 1`, the contact Irfan is deleted.
+   Step 2: After entering `delete 1`, the contact David is deleted, not Alex Yeoh as the actual index of Alex is 3.
    ![DeleteCommand Step 2](images/DeleteCommandGuide6.png)   
 
 ### Tag Features
