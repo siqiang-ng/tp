@@ -27,12 +27,12 @@ public class TaskAddCommand extends Command {
     public static final String COMMAND_WORD = "taskadd";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a task to a tag. "
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
             + PREFIX_TASK + "TASK DESCRIPTION "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TASK + "Peer review ";
 
-    public static final String MESSAGE_SUCCESS = "New task added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New task added to the tag %1$s : \n%2$s";
     public static final String MESSAGE_TASK_NAME_NOT_PROVIDED = "Name of task must be provided.";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in this tag.";
     public static final String MESSAGE_MAXIMUM_TASKS_EXCEEDED = "The maximum number of tasks that are allowed to be "
@@ -74,7 +74,7 @@ public class TaskAddCommand extends Command {
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, tagToEdit, editedTag));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, tagToEdit.getTagName(), editTagDescriptor.newTagTask));
     }
 
     /**

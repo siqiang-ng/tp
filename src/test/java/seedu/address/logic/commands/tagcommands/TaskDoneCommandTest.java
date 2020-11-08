@@ -21,7 +21,6 @@ import seedu.address.model.tag.Tag;
 
 class TaskDoneCommandTest {
     private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalProjact(), new UserPrefs());
 
     @Test
     public void execute_invalidTagIndexUnfilteredList_failure() {

@@ -25,8 +25,7 @@ public class TagEditCommandParser implements Parser<TagEditCommand> {
      */
     public TagEditCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_TAG);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_TAG);
 
         Index index;
 

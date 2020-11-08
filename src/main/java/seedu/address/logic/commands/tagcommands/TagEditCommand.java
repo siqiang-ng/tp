@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -27,7 +26,7 @@ public class TagEditCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the name of the tag identified "
             + "by the index number used in the displayed tag list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
             + PREFIX_TAG + "TAG NAME\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TAG + "CS2101";
@@ -116,13 +115,6 @@ public class TagEditCommand extends Command {
          */
         public EditTagDescriptor(EditTagDescriptor toCopy) {
             setTagName(toCopy.tagName);
-        }
-
-        /**
-         * Returns true if at least one field is edited.
-         */
-        public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull();
         }
 
         public void setTagName(TagName tagName) {

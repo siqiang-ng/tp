@@ -24,8 +24,8 @@ public class TaskDeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Delete the task identified by the alphabetical "
             + "index number used in the task list \n of the tag, which is identified by the numerical index used in "
             + "the displayed tag list. \n"
-            + "Parameters: \n1. INDEX (must be a positive integer) \n"
-            + "2. ALPHABETICAL INDEX (must be an alphabet in lower case from 'a' to 'z')\n"
+            + "Parameters: \n1. INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") \n"
+            + "2. ALPHABETICAL INDEX (must be an alphabet in lower case from 'a' to 'z') \n"
             + "Example: " + COMMAND_WORD + " 1 a";
 
     public static final String MESSAGE_MARK_DELETE_SUCCESS = "This task in tag %1$s has been deleted:\n" + "%2$s";
@@ -57,21 +57,22 @@ public class TaskDeleteCommand extends Command {
 
         Tag tagToEdit = lastShownList.get(index.getZeroBased());
 
-        List<TagTask> editedTaskList = createEditedTaskList(tagToEdit, taskIndex);
+        TagTask deletedTask = tagToEdit.getTagTasks().get(taskIndex.getZeroBased());
+
+        List<TagTask> editedTaskList = createModifiedTaskList(tagToEdit, taskIndex);
 
         Tag editedTag = new Tag(tagToEdit.getTagName(), editedTaskList, tagToEdit.getMeetingLink());
 
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
         return new CommandResult(String.format(MESSAGE_MARK_DELETE_SUCCESS,
-                tagToEdit.getTagName(),
-                editedTaskList.get(taskIndex.getZeroBased())));
+                tagToEdit.getTagName(), deletedTask));
     }
 
     /**
      * Remove the target task and returns an edited {@code List<TagTask>}.
      */
-    private static List<TagTask> createEditedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
+    private static List<TagTask> createModifiedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
         if (oldTaskList.isEmpty()) {
             throw new CommandException(Messages.MESSAGE_NO_TASK_LIST);
@@ -80,6 +81,7 @@ public class TaskDeleteCommand extends Command {
         if (taskIndex.getZeroBased() >= oldTaskList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
+
         List<TagTask> updatedTagTask = new ArrayList<>(oldTaskList);
         updatedTagTask.remove(taskIndex.getZeroBased());
         return updatedTagTask;

@@ -96,7 +96,7 @@ public class Tag {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTagName())
-                .append(" Meeting Link: ");
+                .append(" Link: ");
         getMeetingLink().ifPresent(link -> builder.append(link));
         builder.append(" Tasks: ");
         getTagTasks().forEach(builder::append);

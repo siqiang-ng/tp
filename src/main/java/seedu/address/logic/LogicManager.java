@@ -72,7 +72,19 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public ObservableList<Person> getAllFilteredPersonList() {
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        return model.getFilteredPersonList();
+    }
+
+    @Override
     public ObservableList<Tag> getFilteredTagList() {
+        return model.getFilteredTagList();
+    }
+
+    @Override
+    public ObservableList<Tag> getAllFilteredTagList() {
+        model.updateFilteredTagList(Model.PREDICATE_SHOW_ALL_TAGS);
         return model.getFilteredTagList();
     }
 

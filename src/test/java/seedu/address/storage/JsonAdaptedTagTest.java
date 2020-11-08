@@ -2,7 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalTags.CS2101;
+import static seedu.address.testutil.TypicalTags.CS1101S;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +14,13 @@ public class JsonAdaptedTagTest {
     private static final String INVALID_TAG_NAME = " ";
     private static final String INVALID_MEETING_LINK = "meeting_link";
 
-    private static final String VALID_TAG_NAME = CS2101.getTagName().tagName;
-    private static final String VALID_MEETING_LINK = CS2101.getMeetingLink().toString();
+    private static final String VALID_TAG_NAME = CS1101S.getTagName().tagName;
+    private static final String VALID_MEETING_LINK = CS1101S.getMeetingLink().toString();
 
     @Test
     public void toModelType_validTagDetails_returnsTag() throws Exception {
-        JsonAdaptedTag tag = new JsonAdaptedTag(CS2101);
-        assertEquals(CS2101, tag.toModelType());
+        JsonAdaptedTag tag = new JsonAdaptedTag(CS1101S);
+        assertEquals(CS1101S, tag.toModelType());
     }
 
     @Test

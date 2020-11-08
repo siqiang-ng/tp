@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showTagAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TAG;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjactWithLinks;
 
 import java.util.Optional;
@@ -15,10 +16,12 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.tag.Tag;
+import seedu.address.testutil.Assert;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
@@ -68,6 +71,17 @@ public class LinkDeleteCommandTest {
                 Optional.empty()));
 
         assertCommandSuccess(linkDeleteCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_noLinkInTag_throwsCommandException() {
+        Model modelNoLink = new ModelManager(getTypicalProjact(), new UserPrefs());
+        showTagAtIndex(modelNoLink, INDEX_FIRST_TAG);
+
+        LinkDeleteCommand linkDeleteCommand = new LinkDeleteCommand(INDEX_FIRST_TAG);
+
+        Assert.assertThrows(CommandException.class, LinkDeleteCommand.MESSAGE_NO_LINK_FAILURE, () ->
+                linkDeleteCommand.execute(modelNoLink));
     }
 
     @Test
