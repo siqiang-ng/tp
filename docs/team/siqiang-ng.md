@@ -24,7 +24,7 @@ Given below are my contributions to the project.
     It also affects the original commands so there are many design considerations required.
   
 * **Feature**: Command to delete the link in a tag. (Pull request [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138))
-  * Justification: improves the product as the user needs a way to remove the link from a tag.
+  * Justification: allows the user to remove wrongly added link
   
 * **Feature**: Command to mark a task in a tag as done. 
 (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204))
