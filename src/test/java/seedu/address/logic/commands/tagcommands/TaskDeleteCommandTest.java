@@ -16,7 +16,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.tag.Tag;
 
 public class TaskDeleteCommandTest {
     private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
