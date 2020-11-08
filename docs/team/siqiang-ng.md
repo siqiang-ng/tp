@@ -59,7 +59,7 @@ Given below are my contributions to the project.
     * Created the Table of Contents (Pull request [\#76](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/76))
     * Wrote the Product Scope & User Stories (Pull request [\#19](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/19), 
     [\#133](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/133))
-    * Added implementation details and the UML diagrams of the `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete` features 
+    * Added implementations and the UML diagrams of the `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete` features 
     (Pull requests [\#98](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/98), [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116),
      [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120), [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138),
      [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
