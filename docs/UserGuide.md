@@ -247,16 +247,23 @@ Use our `find` command to look for that contact using words that his/her name co
 **Format:** `find KEYWORD [MORE_KEYWORDS]`
 
 <div markdown="span" class="alert alert-primary">:information_source: **Note:**
+
 * The search is case-insensitive. e.g `hans` will match `Hans`
+
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+
+* Only full words will be matched e.g. `Han` will not match `Hans`.
+
 </div> 
 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+
 Type more than one keyword to find more than one contact each time!
 e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
 </div>
 
 
