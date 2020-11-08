@@ -289,9 +289,9 @@ Simply enter `list` on the command line to get back to the chronological order.
  
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
 
-    1. Do note that `sort` command does not sort the contact list displayed after `find` command!
-    
-    2. Only edit the contact based on the **Actual Index** as displayed!
+1. Do note that `sort` command does not sort the contact list displayed after `find` command!
+
+1. Only edit the contact based on the **Actual Index** as displayed!
     
 </div> 
  
