@@ -11,7 +11,7 @@ Given below are my contributions to the project.
 #### New Features
 * **Feature**: Command to edit Tag's names. (Pull request [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109))
   * What it does: allows the user to change the name of a tag for all its occurrences. 
-  * Highlights: This implementation was challenging as it affected every contact with the edited Tag's previous name. 
+  * Highlights: This implementation was challenging as it affected contacts with the edited Tag. 
   * Justification: improves user's experience by providing an easy way to correct their mistakes.
 
 * **Feature**: JSON Storage for Tags with their names, tasks and meeting links. (Pull requests [\#109](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/109), [\#142](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/142))
@@ -51,15 +51,15 @@ Given below are my contributions to the project.
 * **User Guide**:
     * Updated the Introduction and About the User Guide. (Pull requests [\#147](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/147), [\#222](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/222))
     * Edit UG's format. (Pull request [\#111](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/111))
-    * Documented `tagedit` and `taskclear` commands. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#]())
-    * Edited documentation for `list` command. (Pull request [\#]())
+    * Documented `tagedit` and `taskclear` commands. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#251](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/251))
+    * Edited documentation for `list` command. (Pull request [\#251](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/251))
     
 * **Developer Guide**:
-    * Updated UML diagrams for Model and Storage. (Pull request [\#]())
-    * Added implementations and use cases of `tagedit` and `taskclear` feature. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#224](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/224), [\#]())
+    * Updated UML diagrams for Model and Storage. (Pull request [\#251](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/251))
+    * Added implementations and use cases of `tagedit` and `taskclear` feature. (Pull requests [\#146](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/146), [\#224](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/224), [\#251](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/251))
 
 #### Community    
-* PRs reviewed (with non-trivial review comments): (Pull request [\#69](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/69), [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), [\#119](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/119), [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#249](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/249))
+* PRs reviewed (with non-trivial review comments): (Pull request [\#69](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/69), [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118), [\#119](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/119), [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#237](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/237), [\#247](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/247), [\#248](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/248), [\#249](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/249))
 
 #### Tools
 * Integrated a third party library (FontAwesome5) to the project (Pull request [\#216](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/216))
