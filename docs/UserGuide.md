@@ -261,7 +261,7 @@ Use our `find` command to look for that contact using words that his/her name co
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 
-Type more than one keyword to find more than one contact each time!
+* Type more than one keyword to find more than one contact each time!
 e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 </div>
