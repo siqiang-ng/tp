@@ -192,20 +192,14 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
-
-* No two contacts can have the same name
-
+* No two contacts can have the same name.
 * Phone numbers can be 7 to 15 digits long.
-
-</div> 
-
+* Telegram addresses can be 5-32 characters long.
+* A contact can be created with 0 or more tags.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 
 * Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
-
-* A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 
 * Listed tags will be created automatically if they are not found in the tag list.
 
@@ -213,7 +207,8 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
+* `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
+  ![result for 'add n/Betsy Crowe'](images/AddCommandGuide1.png)
 
 #### Listing all contacts : `list`
 
@@ -400,20 +395,22 @@ Step 3: You should see the tag's name being edited. Everyone who had the old tag
 
 #### Locating tags by name: `tagfind`
 
-Finds the tags whose names contain any of the given keywords.
+Searching for a tag?
+Use the `tagfind` command to search for a tag that matches the given keywords.
 
 Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 
 * The search is case-insensitive. e.g `friends` will match `Friends`
 * The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
-* Only the name is searched.
+* Only the tagname of the tag is searched.
 * Only full words will be matched e.g. `Team` will not match `Team1`
 * Contacts matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Team A` will return `Team B`, `Group A`
 
 Examples:
-* `tagfind Group` returns `group` and `Group A`
-* `tagfind Team B` returns `Team A`, `Group B`<br>
+* `tagfind CS` returns `cs` and `cs 3244` but not `cs1101`
+* `tagfind cs2100 CS2101` returns `cs2100` and `cs2101`<br>
+  ![result for 'tagfind cs2100 cs2101'](images/TagFindCommandGuide1.png)
 
 #### Sorting tags by tag name: `tagsort`
 
@@ -593,7 +590,7 @@ Action | Format, Examples
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
 **List** | `list`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
@@ -607,7 +604,7 @@ Action | Format, Examples
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag List** | `taglist`
 **Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
-**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind cs2100 cs2101`
 **Tag Sort** | `tagsort`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
 
