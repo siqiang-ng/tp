@@ -12,7 +12,6 @@ Given below are my contributions to the project.
 
 ### New Features Added
 * **Feature**: Command to list all the tags in the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
-  * What it does: allows the user to list all the tags that have been created. 
   * Justification: allows the user to keep track of all the tags that have been added.
   * Highlights: This feature helps to display all the tag command results. 
 
@@ -25,7 +24,6 @@ Given below are my contributions to the project.
     It also affects the original commands so there are many design considerations required.
   
 * **Feature**: Command to delete the link in a tag. (Pull request [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138))
-  * What it does: allows the user to remove the link added to a tag.
   * Justification: improves the product significantly as the user is able to add a link and needs a way to remove the link from the tag as well.
   
 * **Feature**: Command to mark a task in a tag as done. 
