@@ -20,7 +20,7 @@ Given below are my contributions to the project.
 (Pull requests [\#116](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/116), [\#120](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/120),
 [\#223](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/223))
   * What it does: allows the user to sort the contact names in the person list or the tag names in the tag list in alphanumerical order. 
-  * Justification: allows the user to change the person list and tag list based on their personal preference.  
+  * Justification: allows the user to view lists based on their personal preference.  
   * Highlight: This implementation was challenging because it uses SortedList, rather than the Filtered List that the UI used to display the lists. 
     It also affects the original commands so there are many design considerations required.
   
