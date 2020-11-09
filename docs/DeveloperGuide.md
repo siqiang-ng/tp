@@ -335,18 +335,18 @@ The diagram below shows a sample interaction of `LinkDeleteCommand`.
 ![LinkDeleteSequenceDiagram](images/LinkDeleteSequenceDiagram.png)  
 
 - Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` will also be largely similar to classes implemented in AB3.
 
 ### Task Features 
      
 **TaskAdd command**
  
-The TaskAdd command allows the user to add a task to a tag. 
+The `taskadd` command allows the user to add a task to a tag. 
 
-- How is TaskAddCommand executed
+- How is TaskAddCommand executed:
     1. The command is passed into `LogicManager`.
     2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-    3. `ProjactParser` identifies the commandWord, which in this case is `taskadd` and the arguments.
+    3. `ProjactParser` identifies the commandWord, which in this case is 'taskadd' and the arguments.
     4. `ProjactParser` calls the parse method of `TaskAddCommandParser`, which parses the argument, creates a new `editTagDescriptor` object, and returns a new `TaskAddCommand` with the new `editTagDescriptor` object used as an argument.
     5. The `LogicManager` then calls the execute method of the `TaskAddCommand`, which calls the setTag method of `Model`.
 
@@ -354,11 +354,14 @@ The diagram below shows a sample interaction of `TaskAddCommand`.
 
 ![TaskAddSequenceDiagram](images/TaskAddSequenceDiagram.png)
 
+- Why is it implemented that way:
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TaskAddCommand` will also be largely similar to classes implemented in AB3.
+
 **TaskDone command**
  
-The TaskDone command allows the user to mark a task under a tag as done. 
+The `taskdone` command allows the user to mark a task under a tag as done. 
  
--How it is implemented:
+- How is TaskDoneCommand executed:
     1. The command is passed in to `LogicManager`.
     1. `LogicManager` calls the parseCommand method of `ProjactParser`.
     1. `ProjactParser` identifies the command word, which in this case is 'taskdone' and the arguments.
@@ -368,14 +371,15 @@ The TaskDone command allows the user to mark a task under a tag as done.
     the tag, the task list will be retrieved to get the targeted task using the task Index. The targeted task will be marked done and a new tag with
     the modified task list will be created and replaced the old Tag. 
     1. Then, the `ModelManager` will update the tag list.
+    
+The diagram below shows a sample interaction of `TaskDoneCommand`. 
+
+![TaskDoneSequenceDiagram](images/TaskDoneSequenceDiagram.png)   
 
 - Why is it implemented that way:
     - The command is implemented such that there is no need for any prefixes. This helps to shorten the command and reduces the time required to mark a task as done.
     - The second index uses an alphabetical index instead of a numerical one. This avoids confusion between the index of the tag and the index of the task.
-
-The diagram below shows a sample interaction of `TaskDoneCommand`. 
-
-![TaskDoneSequenceDiagram](images/TaskDoneSequenceDiagram.png)    
+ 
 
 **TaskDelete command**
  
