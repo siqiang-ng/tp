@@ -8,6 +8,7 @@ Projact is a **project and contact management app that helps NUS computing stude
 
 This developer guide provides information that helps you to get started as a contributor to Projact.
 
+<div style="page-break-after: always;">
 ## **Table of Contents**
 * [Setting up](#setting-up-getting-started)
 * [Design](#design)
@@ -46,7 +47,7 @@ This developer guide provides information that helps you to get started as a con
             * [Deletes a task](#deletes-a-task)
             * [Clears completed tasks](#clears-completed-tasks)
         * [Saves data](#saves-data)
-
+</div>
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
