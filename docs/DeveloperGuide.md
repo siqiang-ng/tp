@@ -139,7 +139,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2021S1-CS2103T-T17-4/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
 
@@ -443,17 +443,17 @@ The diagram below shows a sample interaction of `TaskDoneCommand`.
 * can type fast
 * is reasonably comfortable using CLI apps
 * wants to group contacts based on the different modules
-* has a need to store the different meeting platforms for each module project in one platform
-* wants a task tracker
+* has a need to store different url links for each module in a single accessible location
+* wants to keep track of tasks and deadlines
 
 
 **Value propositions**:
 
 * Manages contacts faster than a typical mouse/GUI driven app.
-* Sorts contacts based on the different tags.
+* Sorts contacts based on the different modules.
 * Allows convenient search for project mates / friends taking the same module.
 * Allows convenient search for the link for team meeting.
-* Allows the addition of tasks to track the task progress.
+* Has a to-do list to keep track of task progress.
 
 --------------------------------------------------------------------------------------------------------------------
 ### **B: User Stories**
