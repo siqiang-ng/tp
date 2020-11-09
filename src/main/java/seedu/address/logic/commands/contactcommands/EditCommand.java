@@ -42,7 +42,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
             + "by the index number used in the displayed person list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
+            + "Parameters: INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ") "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
@@ -54,7 +54,8 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the Projact.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the contact list."
+            + "Make sure the new contact is of a different name";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
