@@ -176,7 +176,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 **Sort command**
 
-The `sort` command allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
+The `sort` command allows a user to sort the current person list in alphanumerical order. 
 
 - How is SortContactCommand executed
     1. The command is passed into `LogicManager`
@@ -267,15 +267,14 @@ The diagram below shows a sample interaction of `TagFindCommand`.
 - Why is it implemented that way:
     - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` will also be largely similar to classes implemented in AB3.
 
+**TagSort command**
 
-**TagSort feature**
+The `tagsort` command allows a user to sort the tag list in alphanumerical order. 
 
-The TagSort feature allows a user to sort the tag list in alphabetical order permanently. Tags that are being added to the list later will not be sorted and be displayed at the end of the list.
-
-The implementation and interaction of the TagSort command is similar to SortContact feature but it uses TagNameComaparator instead.
+The implementation and interaction of the `TagSortCommand` is similar to `SortContactCommand` but it uses `TagNameComaparator` instead of `PersonNameComparator`.
 
 - Why is it implemented that way:
-    - The TagSort and SortContact share the similar functions with one sorting the tag list and the other one sorting the person list. Hence, a similar set of commands are created for this feature to ensure the application can work smoothly.
+    - The TagSort and SortContact commands share similar functions with the former sorting the tag list and the latter sorting the person list. Hence, a similar set of methods are for this feature to ensure the application can work smoothly.
     
 **TagDelete command**
 
