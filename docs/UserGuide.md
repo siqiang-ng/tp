@@ -274,7 +274,7 @@ Want to look at all the friends you have? Me too! Use `list` to view all the con
   
 #### Sort contacts by name: `sort`
 
-Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
+Dislike how the current list of contacts is displayed? Sort the names in alphanumerical order by 
 typing a single `sort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
@@ -425,7 +425,7 @@ Want to see all the tags you have added? Display them with simply the `taglist` 
 #### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? 
-Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
+Sort the tags by their names in alphanumerical order by typing a single `tagsort` word on the command line.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
