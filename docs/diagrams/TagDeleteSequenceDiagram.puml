@@ -6,7 +6,7 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":ProjactParser" as ProjactParser LOGIC_COLOR
 participant ":TagDeleteCommandParser" as TagDeleteCommandParser LOGIC_COLOR
 participant "index:Index" as Index LOGIC_COLOR
-participant "c:TagDeleteCommand" as TagDeleteCommand LOGIC_COLOR
+participant "command:TagDeleteCommand" as TagDeleteCommand LOGIC_COLOR
 participant "list:FilteredList" as FilteredList LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
@@ -39,16 +39,16 @@ create TagDeleteCommand
 TagDeleteCommandParser -> TagDeleteCommand : TagDeleteCommand(index)
 activate TagDeleteCommand
 
-TagDeleteCommand --> TagDeleteCommandParser : c
+TagDeleteCommand --> TagDeleteCommandParser : command
 deactivate TagDeleteCommand
 
-TagDeleteCommandParser --> ProjactParser : c
+TagDeleteCommandParser --> ProjactParser : command
 deactivate TagDeleteCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 TagDeleteCommandParser -[hidden]-> ProjactParser
 destroy TagDeleteCommandParser
 
-ProjactParser --> LogicManager : c
+ProjactParser --> LogicManager : command
 deactivate ProjactParser
 
 LogicManager -> TagDeleteCommand : execute()
@@ -77,7 +77,7 @@ create CommandResult
 TagDeleteCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> TagDeleteCommand
+CommandResult --> TagDeleteCommand : result
 deactivate CommandResult
 
 TagDeleteCommand --> LogicManager : result

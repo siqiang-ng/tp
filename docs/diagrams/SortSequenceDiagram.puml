@@ -4,7 +4,7 @@
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":ProjactParser" as ProjactParser LOGIC_COLOR
-participant ":SortContactCommand" as SortContactCommand LOGIC_COLOR
+participant "command:SortContactCommand" as SortContactCommand LOGIC_COLOR
 participant "comparator:PersonNameComparator" as PersonNameComparator LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
@@ -27,13 +27,13 @@ create PersonNameComparator
 SortContactCommand -> PersonNameComparator
 activate PersonNameComparator
 
-PersonNameComparator --> SortContactCommand
+PersonNameComparator --> SortContactCommand : comparator
 deactivate PersonNameComparator
 
-SortContactCommand --> ProjactParser
+SortContactCommand --> ProjactParser : command
 deactivate SortContactCommand
 
-ProjactParser --> LogicManager
+ProjactParser --> LogicManager : command
 deactivate ProjactParser
 
 LogicManager -> SortContactCommand : execute()
@@ -46,13 +46,13 @@ Model --> SortContactCommand
 deactivate Model
 
 create CommandResult
-SortContactCommand -> CommandResult : set SortPerson and TagList fields to true
+SortContactCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> SortContactCommand
+CommandResult --> SortContactCommand : result
 deactivate CommandResult
 
-SortContactCommand --> LogicManager : CommandResult
+SortContactCommand --> LogicManager : result
 deactivate SortContactCommand
 
 [<--LogicManager
