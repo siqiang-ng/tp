@@ -410,10 +410,13 @@ Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 * Contacts matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Team A` will return `Team B`, `Group A`
 
-Examples:
-* `tagfind CS` returns `cs` and `cs 3244` but not `cs1101`
-* `tagfind cs2100 CS2101` returns `cs2100` and `cs2101`<br>
-  ![result for 'tagfind cs2100 cs2101'](images/TagFindCommandGuide1.png)
+**Step-By-Step Guide:**
+
+Step 1: If you want to find both `cs2100` and `cs2101`, type `tagfind cs2100 cs2101`.
+![TagFindCommand Step1](images/TagFindCommandGuide1.png)
+
+Step 2: Hit enter and the tags that match either of the keywords will be displayed.
+![TagFindCommand Step2](images/TagFindCommandGuide2.png)
 
 #### Listing all tags: `taglist`
 
