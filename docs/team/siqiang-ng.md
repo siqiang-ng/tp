@@ -35,6 +35,8 @@ Given below are my contributions to the project.
   * What it does: allows the user to view the tasklist under each tag.
   * Justification: This feature allows the user to view the tasks under each tag.
 
+<div style="page-break-after: always;"></div>
+
 #### Enhancements to Existing Features
 * **Enhancement**: Wrote additional tests for existing features to increase coverage 
  (Pull requests [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57), [\#70](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/70),
