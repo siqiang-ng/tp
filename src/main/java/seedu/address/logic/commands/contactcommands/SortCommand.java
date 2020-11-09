@@ -15,7 +15,7 @@ public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
     public static final String MESSAGE_SUCCESS = "These are the contacts in your person list "
-                                                    + "sorted in ascending number then alphabetical order.";
+                                                    + "sorted in alphanumerical order.";
 
     @Override
     public CommandResult execute(Model model) {

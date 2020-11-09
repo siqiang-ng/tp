@@ -75,6 +75,7 @@ public class TagListPanel extends UiPart<Region> {
                 setGraphic(new TagCard(tag, isTagList, getIndex() + 1,
                                         actualIndex, findContactsByTag.apply(tag)).getRoot());
             }
+            refresh();
         }
 
         protected int getActualIndex(Tag tag) {

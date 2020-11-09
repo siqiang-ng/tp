@@ -26,7 +26,7 @@ public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the Projact. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the contact list. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -38,11 +38,12 @@ public class AddCommand extends Command {
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_TELEGRAM_ADDRESS + "john_doe123 "
-            + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney";
+            + PREFIX_TAG + "cs2101 "
+            + PREFIX_TAG + "cs2103";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the Projact";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the contact list. "
+            + "Make sure the new contact is of a different name";
 
     private final Person toAdd;
 

@@ -12,7 +12,7 @@
 * Projact remembers all your contact details
 * Projact organises your contact into groups
 * Projact allow fast access to team links (e.g. zoom link, google doc)
-* Projact reduces clutter with group archiving
+* Projact helps you keep track of your tasks
 
 ### Documentation
 

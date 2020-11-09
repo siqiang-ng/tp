@@ -60,7 +60,8 @@ public class SampleDataUtil {
                                 new TagTask("assignment 1 submission by 23:59", false)),
                         Optional.of(new MeetingLink("https://nus-sg.com"))),
                 new Tag(new TagName("cs2103"),
-                        getTagTaskList(),
+                        getTagTaskList(
+                                new TagTask("close 1.4 milestone", false)),
                         Optional.of(new MeetingLink("http://skype.com"))),
                 new Tag(new TagName("cs2106"),
                         getTagTaskList(),

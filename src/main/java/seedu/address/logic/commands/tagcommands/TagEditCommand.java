@@ -26,12 +26,12 @@ public class TagEditCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the name of the tag identified "
             + "by the index number used in the displayed tag list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
+            + "Parameters: INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ") "
             + PREFIX_TAG + "TAG NAME\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TAG + "CS2101";
 
-    public static final String MESSAGE_EDIT_TAG_SUCCESS = "Edited Tag: %1$s";
+    public static final String MESSAGE_EDIT_TAG_SUCCESS = "Edited Tag: %1$s to %2$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_TAG = "This tag already exists in Projact.";
 

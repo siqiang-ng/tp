@@ -63,10 +63,10 @@ deactivate Model
 create CommandResult
 TagEditCommand -> CommandResult
 activate CommandResult
-CommandResult ---> TagEditCommand
+CommandResult ---> TagEditCommand : result
 deactivate CommandResult
 
-TagEditCommand --> LogicManager : result
+TagEditCommand --> LogicManager
 deactivate TagEditCommand
 
 LogicManager -->[
