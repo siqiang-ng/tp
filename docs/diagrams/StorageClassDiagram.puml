@@ -21,4 +21,5 @@ JsonProjactStorage .left.|> ProjactStorage
 JsonProjactStorage .down.> JsonSerializableProjact
 JsonSerializableProjact .right.> JsonAdaptedPerson
 JsonSerializableProjact .left.> JsonAdaptedTag
+JsonAdaptedTag .down.> JsonAdaptedTagTask
 @enduml

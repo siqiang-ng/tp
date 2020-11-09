@@ -216,7 +216,7 @@ public class TagAddCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains a single tag.
      */
     private class ModelStubWithTag extends ModelStub {
         private final Tag tag;
@@ -234,7 +234,7 @@ public class TagAddCommandTest {
     }
 
     /**
-     * A Model stub that always accept the person being added.
+     * A Model stub that always accept the tag being added.
      */
     private class ModelStubAcceptingTagAdded extends ModelStub {
         final ArrayList<Tag> tagsAdded = new ArrayList<>();

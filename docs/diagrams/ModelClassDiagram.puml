@@ -15,7 +15,7 @@ Class ModelManager
 Class UserPrefs
 Class ReadOnlyUserPrefs
 
-Package Person {
+Package Person\n {
 Class Person
 Class Email
 Class Name
@@ -24,17 +24,22 @@ Class TelegramAddress
 Class UniquePersonList
 }
 
-Package Tag {
+Package Tag\n {
 Class Tag
 Class TagName
+Class MeetingLink
 Class UniqueTagList
+}
+
+Package TagTask\n {
+Class TagTask
 }
 }
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
 
-Projact .right.|> ReadOnlyProjact
+Projact .up.|> ReadOnlyProjact
 
 ModelManager .up.|> Model
 Model .right.> ObservableList
@@ -48,7 +53,7 @@ Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> TelegramAddress
-Person --> "*" Tag
+Person --> "*" TagName
 
 Name -[hidden]right-> Phone
 Phone -[hidden]right-> TelegramAddress
@@ -57,9 +62,15 @@ TelegramAddress -[hidden]right-> Email
 Projact *--> "1" UniqueTagList
 UniqueTagList o--> "*" Tag
 Tag *--> TagName
+Tag *--> MeetingLink
+Tag *--> "*" TagTask
 
-UniquePersonList -[hidden]left-> UniqueTagList
 
-ModelManager -->"1" Person : filtered list
-ModelManager -->"1" Tag : filtered list
+ModelManager --> Person : \n sorted list
+ModelManager --> Person : \nfiltered list\t
+
+ModelManager --> Tag : \n filtered list
+ModelManager --> Tag : \n  sorted list
+
+
 @enduml
