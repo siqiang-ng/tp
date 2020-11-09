@@ -265,7 +265,7 @@ The diagram below shows a sample interaction of `TagFindCommand`.
 ![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` will also be largely similar to classes implemented in AB3.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagFindCommand` will also be largely similar to classes implemented in AB3.
 
 **TagSort command**
 
@@ -278,7 +278,7 @@ The implementation and interaction of the `TagSortCommand` is similar to `SortCo
     
 **TagDelete command**
 
-The TagDelete command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
+The `tagdelete` command allows a user to delete a tag permanently. This feature will result in the removal of the tag from the tag list and from any contact with said tag.
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -291,7 +291,7 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
 ![TagDeleteSequenceDiagram](images/TagDeleteSequenceDiagram.png)
  
 - Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` will also be largely similar to classes implemented in AB3.
 
 ### Link Features    
 **LinkAdd command**
