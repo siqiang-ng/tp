@@ -201,7 +201,7 @@ The `tagadd` command allows a user to add a new tag to the tag list. The tag add
 - How is TagAddCommand executed
     1. The command is passed into `LogicManager`.
     2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-    3. `ProjactParser` identifies and returns TagAddCommand.
+    3. `ProjactParser` identifies the commandWord, which in this case is 'tagadd' and the arguments.
     4. `ProjactParser` calls the parse method of `TagAddCommandParser`, which parses the argument, creates a new `Tag` object, and returns a new `TagAddCommand` with the new `Tag` object used as an argument.
     5. The `LogicManager` then calls the execute method of the `TagAddCommand`, which calls the addTag method of `Model`.
 
@@ -219,7 +219,7 @@ The `tagedit` command allows a user to edit the tag name of a tag in the list.
 - How is TagEditCommand executed
     1. The command is passed in to `LogicManager`.
     2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-    3. `ProjactParser` identifies and return `TagEditCommand`.
+    3. `ProjactParser` identifies the commandWord, which in this case is 'tagedit' and the arguments.
     4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
     5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
     6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
@@ -252,7 +252,7 @@ The diagram below shows a sample interaction of `TagListCommand`.
 
 **TagFind command**
 
-The TagFind command allows a user to display all tags which contains at least one of the specified keywords.
+The `tagfind` command allows a user to display all tags which contains at least one of the specified keywords.
 
 1. The command is passed in to `LogicManager`.
 2. `LogicManager` calls the parseCommand method of `ProjactParser`.
@@ -265,7 +265,8 @@ The diagram below shows a sample interaction of `TagFindCommand`.
 ![TagFindSequenceDiagram](images/TagFindSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - In order to make use of the existing codebase while keeping to the principle of accomplishing a task with a single action rather than a series of actions, we decided to find a `Tag` by keywords rather than navigating to a `Tag` by index.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` will also be largely similar to classes implemented in AB3.
+
 
 **TagSort feature**
 
