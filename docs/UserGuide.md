@@ -397,34 +397,6 @@ Step 2: Enter the `tagadd` command and the new tag name `t/personal`.
 Step 3: Press enter, and the tag is now added after the last displayed tag `cs2106`. 
 ![TagAddCommand Step 3](images/TagAddCommandGuide3.png)
 
-#### Editing a tag : `tagedit`
-
-Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
-
-**Format**: `tagedit INDEX t/TAG_NAME`
-
-Example:
-* `tagedit 1 t/ma1521` edits the name of the first tag in the list to `ma1521`
-
-**Step-By-Step Guide:**
-
-Step 1: Key in `taglist` and hit enter to display all the tags.
-![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
-
-Step 2: For example, if you want to change the name of the `ma1101r` tag to `ma1521`, then key in `tagedit 1 t/ma1521` and hit enter.
-![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
-
-Step 3: You should see the tag's name being edited. 
-![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
-
-<div markdown="block" class="alert alert-danger"> :exclamation: <b>Note:</b> 
-
-* The index **must be a positive integer** 1, 2, 3, …​
-
-* Contact(s) who had the old tag will also have it renamed.
-
-</div>
-
 #### Locating tags by name: `tagfind`
 
 Searching for a tag? Use the `tagfind` command to search for a tag that matches the given keywords.
@@ -486,7 +458,43 @@ Sort the tags by their names in alphanumerical order by typing a single `tagsort
  
 ![TagSort Command](images/TagSortCommandGuide2.png)
 
-#### Deleting a tag: `tagdelete`
+#### Editing a tag : `tagedit`
+
+Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
+
+**Format**: `tagedit INDEX t/TAG_NAME`
+
+<div markdown="block" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+* Contact(s) who had the old tag will also have it renamed.
+
+</div>
+
+**Example Guide:**
+* `taglist` followed by the `tagedit 1 t/ma1521` edits the name of the first tag in the list to "ma1521".
+Step 1: Key in `taglist` and hit enter to display all the tags.
+![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
+
+Step 2: Key in `tagedit 1 t/ma1521` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
+
+* `tagfind cs2101` followed by `tagedit 1 t/cs1231s` edits the name of the first tag in the results of `tagfind` command to "cs1231s".
+Step 1: Key in `tagfind cs2101` and hit enter to display all the tags.
+![TagEditCommand Step 1](images/TagEditCommandGuide3.png)
+
+Step 2: Key in `tagedit 1 t/cs1231s` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide4.png)
+
+* `tagsort` followed by `tagedit 2 t/cs2101` edits the name of the second tag in the original tag list to "cs2101".
+Step 1: Key in `tagsort` and hit enter to display all the tags.
+![TagEditCommand Step 1](images/TagEditCommandGuide5.png)
+
+Step 2: Key in `tagedit 2 t/cs2101` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide6.png)
+
+#### Deleting a tag: `tagdelete` 
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
@@ -522,6 +530,8 @@ This command ties a link to a specified tag. It will come in handy if you have g
 **Format:** `linkadd INDEX l/LINK`
 
 <div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b>
+* The index **must be a positive integer** 1, 2, 3, …​
+
 * Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
 </div>
 
