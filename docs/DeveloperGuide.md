@@ -330,7 +330,8 @@ The TaskDone command allows the user to mark a task under a tag as done.
     1. Then, the `ModelManager` will update the tag list.
 
 - Why is it implemented that way:
-    - The command is implemented such that there is no need for any prefixes. This helps to shorten the command and reduces the time required just to mark a task as done.
+    - The command is implemented such that there is no need for any prefixes. This helps to shorten the command and reduces the time required to mark a task as done.
+    - The second index uses an alphabetical index instead of a numerical one. This avoids confusion between the index of the tag and the index of the task.
 
 The diagram below shows a sample interaction of `TaskDoneCommand`. 
 
@@ -345,6 +346,9 @@ The TaskDelete command allows the user to delete a task from a tag.
 3. `ProjactParser` identifies the commandWord, which in this case is `taskdone` and the arguments.
 4. `ProjactParser` calls the parse method of `TaskDeleteCommandParser`, which parses the argument, cand returns a new `TaskDeleteCommand`.
 5. The `LogicManager` then calls the execute method of the `TaskDeleteCommand`, which calls the setTag method of `Model`.
+
+- Why is it implemented that way:
+    - The design consideration on the indices for the `TaskDeleteCommand` is similar to `TaskDoneCommand`.
 
 The diagram below shows a sample interaction of `TaskDeleteCommand`. 
 
