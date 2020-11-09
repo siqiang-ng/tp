@@ -8,7 +8,6 @@ Projact is a **project and contact management app that helps NUS computing stude
 
 This developer guide provides information that helps you to get started as a contributor to Projact.
 
-<div style="page-break-after: always;"></div>
 ## **Table of Contents**
 * [Setting up](#setting-up-getting-started)
 * [Design](#design)
