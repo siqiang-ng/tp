@@ -27,7 +27,7 @@ public class TagDeleteCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the tag identified by the index number used in the displayed tag list.\n"
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ")\n"
+            + "Parameters: INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ")\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_DELETE_TAG_SUCCESS = "Deleted Tag: %1$s";
