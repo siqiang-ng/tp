@@ -19,8 +19,8 @@ title: User Guide
     * [General](#general-features)
     * [Contact](#contact-features)
     * [Tag](#tag-features)
-        * [Link](#link-features)
-        * [Task](#task-features)
+    * [Link](#link-features)
+    * [Task](#task-features)
 * [Command Summary](#command-summary)
     * [General](#general-commands)
     * [Contact](#contact-commands)
@@ -90,11 +90,9 @@ Before you go on, here are some key terms and symbols you should know!
 <div markdown="span" class="alert alert-info"> 
    :information_source: This information symbol provides you with additional information.
 </div> 
-<br>
 <div markdown="span" class="alert alert-primary"> 
    :bulb: This light bulb symbol will show you tips to make your Projact experience smoother.
 </div> 
-<br>
 <div markdown="span" class="alert alert-danger"> 
    :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects.
 </div> 
@@ -196,16 +194,15 @@ Adds a contact to the person list.
 **Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 * No two contacts can have the same name.
-* Phone numbers can be 7 to 15 digits long.
-* Telegram addresses can be 5-32 characters long.
+* Phone numbers must be 7 to 15 digits long.
+* Telegram addresses must be 5-32 characters long.
 * A contact can be created with 0 or more tags.
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-
-* Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
-
-* Listed tags will be created automatically if they are not found in the tag list.
-
+    <ul>
+        <li> Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.</li>
+        <li> Listed tags will be created automatically if they are not found in the tag list.</li>
+    </ul>
 </div>
 
 Examples:
