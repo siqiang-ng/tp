@@ -108,7 +108,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 1. Ensure you have Java `11` or above installed in your Computer. Click [here](https://phoenixnap.com/kb/check-java-version-on-m…) to check if you have the correct version of Java installed. 
 
-1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.3/projact.jar).
+1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.4/projact.jar).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Projact application.
 
@@ -162,17 +162,20 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 #### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Hello! Do you need help using Projact? Enter the command `help` to access our user guide for more information!
 
-![help message](images/helpMessage.png)
+**Format**: `help`
 
-Format: `help`
+![Help Command](images/helpMessage.png)
 
 #### Clearing all entries : `clear`
 
-Clears all contact entries from the person list in Projact.
+Would you like to delete all the current contacts and tags in Projact? Just use the 'clear' command!
 
-Format: `clear`
+**Format**: `clear`
+
+![Clear Command](images/ClearCommandGuide2.png)
+
 
 #### Exiting the program : `exit`
 
@@ -182,7 +185,7 @@ Format: `exit`
 
 #### Saving the data
 
-Projact data are saved in your hard disk automatically after any command that changes the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
+Projact's data is saved to your hard disk automatically if there are any changes so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
 
 ### Contact Features
 
@@ -190,7 +193,7 @@ Projact data are saved in your hard disk automatically after any command that ch
 
 Adds a contact to the person list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
+**Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 * No two contacts can have the same name.
 * Phone numbers can be 7 to 15 digits long.
@@ -207,14 +210,9 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
-* `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
-  ![result for 'add n/Betsy Crowe'](images/AddCommandGuide1.png)
-
-#### Listing all contacts : `list`
-
-Shows a list of all the contacts in the person list.
-
-Format: `list`
+* `add n/Alex King e/alexk1ng11@example.com ta/alek1ng p/91111111 t/hallmate`
+* `add n/Betsy Crowe e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101 t/friend`
+![result for 'add n/Betsy Crowe'](images/AddCommandGuide1.png)
 
 #### Editing a contact : `edit`
 
@@ -233,6 +231,7 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 t/CS2103T` Edits the tag of the 2nd contact to only contain the module CS2103T tag.
+
 
 #### Locating contacts by name: `find`
 
@@ -260,13 +259,20 @@ Use our `find` command to look for that contact using words that his/her name co
 
 </div>
 
-
 **Example Guide:**
 1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
 ![FindCommand 1](images/FindAlexResult.png)
 
 2. If you want to find both `Alex Yeoh` and `David Li`, type `find alex david`. The display result will be as shown.
 ![FindCommand 2](images/findAlexDavidResult.png)
+
+#### Listing all contacts : `list`
+
+Want to look at all the friends you have? Me too! Use `list` to view all the contacts you have added so far.
+
+**Format**: `list`
+
+![list command](images/ListCommandGuide1.png)
   
 #### Sort contacts by name: `sort`
 
@@ -346,7 +352,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 
 #### Adding a tag : `tagadd`
 
-Adds a tag to the tag list.
+Do you want to add a tag without any contacts? Use the `tagadd` command to achieve this!
 
 Format: `tagadd t/TAG`
 
@@ -354,21 +360,18 @@ Format: `tagadd t/TAG`
 * Tag will not be created if it already exists in the tag list.
 
 Examples:
-* `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
+* `tagadd t/personal` creates a tag named personal without any contact being assigned to the tag.
 
-#### Listing all tags: `taglist`
-
-Want to see all the tags you have added? Display them with simply the `taglist` command.
-
-**Format:** `taglist`
- 
 **Step-By-Step Guide:**
 
-Step 1: Key in the `taglist` command.
-![TagListCommand Step 1](images/TagListCommandGuide1.png)
+Step 1: Start on the `taglist` view.
+![TagAddCommand Step 1](images/TagAddCommandGuide1.png)
 
-Step 2: Hit enter and the list with all the tags that you have added will be displayed immediately as shown.
-![TagListCommand Step 2](images/TagListCommandGuide2.png)
+Step 2: Enter the `tagadd` command and the new tag name `t/personal`. 
+![TagAddCommand Step 2](images/TagAddCommandGuide2.png)
+
+Step 3: Press enter, and the tag is now added after the last displayed tag `cs2106`. 
+![TagAddCommand Step 3](images/TagAddCommandGuide3.png)
 
 #### Editing a tag : `tagedit`
 
@@ -378,10 +381,10 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 
 **Step-By-Step Guide:**
 
-Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
+Step 1: Key in `taglist` and hit enter to display all the tags.
 ![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
 
-Step 2: For example, if you want to change the name of the `cs2103` tag to `cs2103t`, then key in `tagedit 4 t/cs2103t` and hit enter.
+Step 2: For example, if you want to change the name of the `ma1101r` tag to `ma1521`, then key in `tagedit 1 t/ma1521` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
 
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
@@ -415,6 +418,14 @@ Step 1: If you want to find both `cs2100` and `cs2101`, type `tagfind cs2100 cs2
 Step 2: Hit enter and the tags that match either of the keywords will be displayed.
 ![TagFindCommand Step2](images/TagFindCommandGuide2.png)
 
+#### Listing all tags: `taglist`
+
+Want to see all the tags you have added? Display them with simply the `taglist` command.
+
+**Format:** `taglist`
+ 
+![TagList Command](images/TagListCommandGuide2.png)
+
 #### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? 
@@ -434,13 +445,7 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 
 **Format:** `tagsort`
  
-**Step-By-Step Guide:**
-
-Step 1: Key in the `tagsort` command.
-![TagSortCommand Step 1](images/TagSortCommandGuide1.png)
-
-Step 2: Hit enter and the list with all the tag names will be sorted immediately as shown.
-![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
+![TagSort Command](images/TagSortCommandGuide2.png)
 
 #### Deleting a tag: `tagdelete`
 
@@ -531,6 +536,17 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
 
+**Step-By-Step Guide:**
+
+Step 1: Start on the `taglist` view.
+![TaskAddCommand Step 1](images/TaskAddCommandGuide1.png)
+
+Step 2: Enter the `taskadd` command, the index of the tag you want to add a task to `1`, and the new task name `tn/watch lecture 6`. 
+![TaskAddCommand Step 2](images/TaskAddCommandGuide2.png)
+
+Step 3: Press enter, and the task is now added after the last displayed task `complete tutorial 05`. 
+![TaskAddCommand Step 3](images/TaskAddCommandGuide3.png)
+
 #### Marking a task under a tag as done: `taskdone`
 
 After adding a task to your targeted tag, you must have seen the cross beside the task description. So how do you mark the 
@@ -560,6 +576,17 @@ Are the tasks added no longer needed? Or perhaps you've accidentally added the w
 
 Example:
 * `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
+
+**Step-By-Step Guide:**
+
+Step 1: Start on the `taglist` view.
+![TaskDeleteCommand Step 1](images/TaskDeleteCommandGuide1.png)
+
+Step 2: Enter the `taskdelete` command, the index of the tag you want to delete a task from `2`, and the task name you want to delete `b`. 
+![TaskDeleteCommand Step 2](images/TaskDeleteCommandGuide2.png)
+
+Step 3: Press enter, and the task is now deleted. 
+![TaskDeleteCommand Step 3](images/TaskDeleteCommandGuide3.png)
 
 #### Clearing all completed tasks: `taskclear`
 
@@ -594,9 +621,9 @@ Action | Format, Examples
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
-**List** | `list`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**List** | `list`
 **Sort** | `sort`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 

@@ -31,10 +31,10 @@ create TaskDoneCommand
 TaskDoneCommandParser -> TaskDoneCommand : TaskDoneCommand(tagIndex, taskIndex)
 activate TaskDoneCommand
 
-TaskDoneCommand --> TaskDoneCommandParser : Command
+TaskDoneCommand --> TaskDoneCommandParser : command
 deactivate TaskDoneCommand
 
-TaskDoneCommandParser --> ProjactParser : Command
+TaskDoneCommandParser --> ProjactParser : command
 deactivate TaskDoneCommandParser
 TaskDoneCommandParser -[hidden]-> ProjactParser
 destroy TaskDoneCommandParser
