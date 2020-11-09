@@ -50,9 +50,11 @@ This developer guide provides information that helps you to get started as a con
 </div>
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;">
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
