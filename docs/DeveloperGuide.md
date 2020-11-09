@@ -18,7 +18,6 @@ This developer guide provides information that helps you to get started as a con
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
 * [Implementation](#implementation)
-* [Known Issues](#known-issues)
 * [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
 * [Appendix](#appendix)
     * [A: Product Scope](#a-product-scope)
@@ -354,12 +353,6 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
  
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagDeleteCommand` would also be largely similar to classes implemented in AB3.
-
---------------------------------------------------------------------------------------------------------------------
-## **Known Issues**
-
-### Projact v1.4
-(TO BE ADDED AT THE END)
 
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
