@@ -544,10 +544,10 @@ Example:
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the "ma1101r" tag, key in `tagdelete 1` and hit enter.
+Step 2: For example, if you want to remove the `ma1101r` tag, key in `tagdelete 1` and hit enter.
 ![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
 
-Step 3: You should see the updated tag list without the "ma1101r" tag.
+Step 3: You should see the updated tag list without the `ma1101r` tag.
 ![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
 
 ### Link Features
