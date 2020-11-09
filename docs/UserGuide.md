@@ -88,15 +88,15 @@ Before you go on, here are some key terms and symbols you should know!
 
 <!--suppress HtmlUnknownAttribute -->
 <div markdown="span" class="alert alert-info"> 
-   <b>:information_source: This information symbol provides you with additional information.</b>
+   :information_source: This information symbol provides you with additional information.
 </div> 
 <br>
 <div markdown="span" class="alert alert-primary"> 
-   <b>:bulb: This light bulb symbol will show you tips to make your Projact experience smoother.</b>
+   :bulb: This light bulb symbol will show you tips to make your Projact experience smoother.
 </div> 
 <br>
 <div markdown="span" class="alert alert-danger"> 
-   <b> :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects. </b>
+   :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects.
 </div> 
 <br>
 
@@ -108,7 +108,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 1. Ensure you have Java `11` or above installed in your Computer. Click [here](https://phoenixnap.com/kb/check-java-version-on-m…) to check if you have the correct version of Java installed. 
 
-1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.3/projact.jar).
+1. Download the latest `projact.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-4/tp/releases/download/v1.4/projact.jar).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Projact application.
 
@@ -154,7 +154,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
   
-* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`.
+* `INDEX` refers to the contact's position in `list` or the tag's position in `taglist`. `INDEX` must be a positive integer number!
 
 </div>
 
@@ -162,7 +162,7 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 #### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Hello! Do you need help using Projact? Enter the command `help` to access our user guide for more information!
 
 ![help message](images/helpMessage.png)
 
@@ -174,15 +174,23 @@ Clears all contact entries from the person list in Projact.
 
 Format: `clear`
 
+**Step-By-Step Guide:**
+
+Step 1: Key in the `clear` command.
+![ClearCommand Step 1](images/ClearCommandGuide1.png)
+
+Step 2: Hit enter and all previous entries in Projact will be cleared.
+![ClearCommand Step 2](images/ClearCommandGuide2.png)
+
 #### Exiting the program : `exit`
 
-Exits Projact application.
+The Projact application will close automatically with this command.
 
 Format: `exit`
 
 #### Saving the data
 
-Projact data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Projact data are saved in your hard disk automatically after any command that changes the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
 
 ### Contact Features
 
@@ -192,16 +200,14 @@ Adds a contact to the person list.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:information_source: **Note:**
-* No two contacts can have the same name
+* No two contacts can have the same name.
 * Phone numbers can be 7 to 15 digits long.
-</div> 
+* Telegram addresses can be 5-32 characters long.
+* A contact can be created with 0 or more tags.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 
 * Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
-
-* A person can have any number of tags since he/she is able to take more than one module with the user. (including 0)
 
 * Listed tags will be created automatically if they are not found in the tag list.
 
@@ -209,13 +215,9 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101`
-
-#### Listing all contacts : `list`
-
-Shows a list of all the contacts in the person list.
-
-Format: `list`
+* `add n/Alex King e/alexk1ng11@example.com ta/alek1ng p/91111111 t/hallmate`
+* `add n/Betsy Crowe e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101 t/friend`
+![result for 'add n/Betsy Crowe'](images/AddCommandGuide1.png)
 
 #### Editing a contact : `edit`
 
@@ -237,35 +239,61 @@ Examples:
 
 #### Locating contacts by name: `find`
 
-Finds the contacts whose names contain any of the given keywords.
+Do you have too many contacts such that you are unable to look for the contact you need? 
+Use our `find` command to look for that contact using words that his/her name contains.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+**Format:** `find KEYWORD [MORE_KEYWORDS]`
+
+<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Contacts matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+
+* Only the name is searched.
+
+* Only full words will be matched e.g. `Han` will not match `Hans`.
+
+</div> 
+
+
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+
+* Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
+</div>
+
+#### Listing all contacts : `list`
+
+Shows a list of all the contacts in the person list.
+
+Format: `list`
+
+**Example Guide:**
+1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
+![FindCommand 1](images/FindAlexResult.png)
+
+2. If you want to find both `Alex Yeoh` and `David Li`, type `find alex david`. The display result will be as shown.
+![FindCommand 2](images/findAlexDavidResult.png)
   
 #### Sort contacts by name: `sort`
 
 Dislike how the current list of contacts is displayed? Sort the names in ascending number then alphabetical order by 
 typing a single `sort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+
 Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
 Simply enter `list` on the command line to get back to the chronological order.
+
 </div>
  
-<div markdown="span" class="alert alert-info">:information_source: **Note:**
-    1. Do note that `sort` command does not sort the contact list displayed after `find` command!
-    2. Only edit the contact based on the **Actual Index** as displayed!
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b>
+
+* Do note that `sort` command does not sort the contact list displayed after `find` command!
+
+* Only edit the contact based on the **Actual Index** as displayed!
+    
 </div> 
  
 **Format:** `sort`
@@ -284,23 +312,49 @@ change the tag 'ma1101r' to 'cs1010' under Alex.
 
 #### Deleting a contact : `delete`
 
-Deletes the specified contact from the person list.
+Want to remove a contact? Simply use our `delete` command with the index `INDEX` of that contact shown in the displayed contact list!
 
-Format: `delete INDEX`
+**Format:** `delete INDEX`
 
-* Deletes the contact at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 
-Examples:
+* If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
+
+* Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
+
+</div>
+
+**Example Guide**:
+
 * `list` followed by `delete 2` deletes the 2nd contact in the person list.
-* `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
+   Step 1: This is the original list after using `list` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide1.png)
+   
+   Step 2: After entering `delete 2`, the contact Charlotte is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide2.png)
+   
+* `find Irfan` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+   
+   Step 1: This is the list after using the `find Irfan` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
+   
+   Step 2: After entering `delete 1`, the contact Irfan is deleted.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)
+   
+* `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
+   
+   Step 1: This is the list after using the `sort` command.
+   ![DeleteCommand Step 1](images/DeleteCommandGuide5.png)
+   
+   Step 2: After entering `delete 1`, the contact David is deleted, not Alex Yeoh as the actual index of Alex is 3.
+   ![DeleteCommand Step 2](images/DeleteCommandGuide6.png)   
 
 ### Tag Features
 
 #### Adding a tag : `tagadd`
 
-Adds a tag to the tag list.
+Do you want to add a tag without any contacts? Use the `tagadd` command to achieve this!
 
 Format: `tagadd t/TAG`
 
@@ -308,7 +362,60 @@ Format: `tagadd t/TAG`
 * Tag will not be created if it already exists in the tag list.
 
 Examples:
-* `tagadd t/CS2103T` creates a tag named CS2103T without assigning to any contact
+* `tagadd t/personal` creates a tag named personal without any contact being assigned to the tag.
+
+**Step-By-Step Guide:**
+
+Step 1: Start on the `taglist` view.
+![TagAddCommand Step 1](images/TagAddCommandGuide1.png)
+
+Step 2: Enter the `tagadd` command and the new tag name `t/personal`. 
+![TagAddCommand Step 2](images/TagAddCommandGuide2.png)
+
+Step 3: Press enter, and the tag is now added after the last displayed tag `cs2106`. 
+![TagAddCommand Step 3](images/TagAddCommandGuide3.png)
+
+#### Editing a tag : `tagedit`
+
+Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
+
+**Format**: `tagedit INDEX t/TAG_NAME`
+
+**Step-By-Step Guide:**
+
+Step 1: Key in `taglist` and hit enter to display all the tags.
+![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
+
+Step 2: For example, if you want to change the name of the `ma1101r` tag to `ma1521`, then key in `tagedit 1 t/ma1521` and hit enter.
+![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
+
+Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
+![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
+
+<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+</div>
+
+#### Locating tags by name: `tagfind`
+
+Searching for a tag?
+Use the `tagfind` command to search for a tag that matches the given keywords.
+
+Format: `tagfind KEYWORD [MORE_KEYWORDS]`
+
+* The search is case-insensitive. e.g `friends` will match `Friends`
+* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
+* Only the tagname of the tag is searched.
+* Only full words will be matched e.g. `Team` will not match `Team1`
+* Contacts matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Team A` will return `Team B`, `Group A`
+
+Examples:
+* `tagfind CS` returns `cs` and `cs 3244` but not `cs1101`
+* `tagfind cs2100 CS2101` returns `cs2100` and `cs2101`<br>
+  ![result for 'tagfind cs2100 cs2101'](images/TagFindCommandGuide1.png)
 
 #### Listing all tags: `taglist`
 
@@ -324,57 +431,21 @@ Step 1: Key in the `taglist` command.
 Step 2: Hit enter and the list with all the tags that you have added will be displayed immediately as shown.
 ![TagListCommand Step 2](images/TagListCommandGuide2.png)
 
-#### Editing a tag : `tagedit`
-
-Made a mistake while adding tags? We got you! Here's a simple `tagedit` command to quickly fix your typos.
-
-**Format**: `tagedit INDEX t/TAG_NAME`
-
-**Step-By-Step Guide:**
-
-Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
-![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
-
-Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
-![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
-
-Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
-![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
-
-<div markdown="span" class="alert alert-danger">
-**:exclamation: Note:**<br>
-* The index **must be a positive integer** 1, 2, 3, …​
-</div>
-
-#### Locating tags by name: `tagfind`
-
-Finds the tags whose names contain any of the given keywords.
-
-Format: `tagfind KEYWORD [MORE_KEYWORDS]`
-
-* The search is case-insensitive. e.g `friends` will match `Friends`
-* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
-* Only the name is searched.
-* Only full words will be matched e.g. `Team` will not match `Team1`
-* Contacts matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Team A` will return `Team B`, `Group A`
-
-Examples:
-* `tagfind Group` returns `group` and `Group A`
-* `tagfind Team B` returns `Team A`, `Group B`<br>
-
 #### Sorting tags by tag name: `tagsort`
 
 Dislike how the current list of tags is displayed? 
 Sort the tags by their names in ascending number then in alphabetical order by typing a single `tagsort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
-<div markdown="span" class="alert alert-info"> :information_source: **Note:**
-    1. Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
-    2. Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b>
+
+* Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
+
+* Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
+
 </div>
 
 **Format:** `tagsort`
@@ -391,7 +462,7 @@ Step 2: Hit enter and the list with all the tag names will be sorted immediately
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 The tag will also be removed from the contact(s) that contain(s) the tag.
 </div>
 
@@ -402,17 +473,17 @@ The tag will also be removed from the contact(s) that contain(s) the tag.
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the "family" tag, key in `tagdelete 5` and hit enter.
+Step 2: For example, if you want to remove the "ma1101r" tag, key in `tagdelete 1` and hit enter.
 ![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
 
-Step 3: You should see the updated tag list without the "family" tag.
+Step 3: You should see the updated tag list without the "ma1101r" tag.
 ![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
 
 ### Link Features
 
 #### Adding a link under a tag: `linkadd`
 
-This command ties a link to a specified tag. It will come in handy if you have group projects where you have a permanent platform that your group meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
+This command ties a link to a specified tag. It will come in handy if you have group projects or lessons where you have a permanent platform that your group or class meets on (E.g. Zoom, Skype). However, do note that there can only be one link per tag.
 
 **Format:** `linkadd INDEX l/LINK`
 
@@ -421,16 +492,16 @@ This command ties a link to a specified tag. It will come in handy if you have g
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
 
-Step 2: For example, if you want to add a Skype meeting link to the "CS2103Project" tag, key in `linkadd 6 l/https://skype.com/cs2103proj/` and hit enter.
+Step 2: For example, if you want to add your Zoom tutorial meeting link to the "ma1101r" tag, key in `linkadd 1 l/http://nus-sg.com/ma1101r-T5` and hit enter.
 
-<div markdown="span" class="alert alert-danger">:exclamation: **Warning:**
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
 Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
 </div>
 
 ![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
 
-Step 3: You should see the link being added to the "CS2103Project" tag like this. 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Step 3: You should see the link being added to the "ma1101r" tag like this. 
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
 Click on the link to be redirected to your browser!
 </div>
 
@@ -476,9 +547,20 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 Example:
 * `taskadd 2 task/peer review` adds a task to the tag with the index 2 in the current tag list.
 
+**Step-By-Step Guide:**
+
+Step 1: Start on the `taglist` view.
+![TaskAddCommand Step 1](images/TaskAddCommandGuide1.png)
+
+Step 2: Enter the `taskadd` command, the index of the tag you want to add a task to `1`, and the new task name `tn/watch lecture 6`. 
+![TaskAddCommand Step 2](images/TaskAddCommandGuide2.png)
+
+Step 3: Press enter, and the task is now added after the last displayed task `complete tutorial 05`. 
+![TaskAddCommand Step 3](images/TaskAddCommandGuide3.png)
+
 #### Marking a task under a tag as done: `taskdone`
 
-After adding a task to your targeted tag, you must have seen the cross beside the task description. So how to mark the 
+After adding a task to your targeted tag, you must have seen the cross beside the task description. So how do you mark the 
 task as done once you have completed the task? Use `taskdone` followed by the index `INDEX` of the tag and 
 the alphabetical index `ALPHAINDEX` to do the magic!
 
@@ -487,9 +569,9 @@ the alphabetical index `ALPHAINDEX` to do the magic!
 **Step-By-Step Guide:**
 
 Step 1: First key in `taglist` and hit enter to display all the tags.
-![TaskDoneCommand Step 1](images/LinkDeleteCommandGuide1.png)
+![TaskDoneCommand Step 1](images/TaskDoneCommandGuide1.png)
 
-Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 b" and hit enter.
+Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 a" and hit enter.
 ![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
 
 Step 3: You should see the task "complete user guide" have a tick beside it.
@@ -497,15 +579,42 @@ Step 3: You should see the task "complete user guide" have a tick beside it.
 
 #### Deleting a task: `taskdelete`
 
-Are the tasks added no longer needed? Or perhaps you accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
+Are the tasks added no longer needed? Or perhaps you've accidentally added the wrong task to the wrong tag? Worry not! Use the `taskdelete` command followed by the index of that tag, and the alphabetical index of the task!
 
 **Format:** `taskdelete INDEX ALPHAINDEX`
 
-* Deletes a task to the tag with the `INDEX` from the currrent view of the tag list (either tagsort or taglist).
+* Deletes a task to the tag with the `INDEX` from the current view of the tag list (either tagsort or taglist).
 
 Example:
 * `taskdelete 1 b` deletes the task with the alphabetical index b from the tag with the index 1 in the current tag list.
 
+**Step-By-Step Guide:**
+
+Step 1: Start on the `taglist` view.
+![TaskDeleteCommand Step 1](images/TaskDeleteCommandGuide1.png)
+
+Step 2: Enter the `taskdelete` command, the index of the tag you want to delete a task from `2`, and the task name you want to delete `b`. 
+![TaskDeleteCommand Step 2](images/TaskDeleteCommandGuide2.png)
+
+Step 3: Press enter, and the task is now deleted. 
+![TaskDeleteCommand Step 3](images/TaskDeleteCommandGuide3.png)
+
+#### Clearing all completed tasks: `taskclear`
+
+Do you want the satisfaction of striking off all the tasks you've completed? Well, Projact can't do that but it sure can offer you a way to delete all of your completed tasks!
+
+**Format:** `taskclear INDEX`
+
+**Step-By-Step Guide:**
+
+Step 1: For example, if you want to clear all the completed tasks from the tag"C2101", Key in `taskclear 2`.
+![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
+
+Step 2: Hit enter and you should see that all the completed tasks will be removed.
+![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
+
+Example:
+* `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
@@ -522,7 +631,7 @@ Action | Format, Examples
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com ta/jamesHO t/CS2101 t/CS2103T`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
 **List** | `list`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
@@ -536,7 +645,7 @@ Action | Format, Examples
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag List** | `taglist`
 **Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
-**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind friends colleagues`
+**Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind cs2100 cs2101`
 **Tag Sort** | `tagsort`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
 
@@ -554,6 +663,7 @@ Action | Format, Examples
 **Task Add** | `taskadd INDEX task/TASK_NAME`<br> e.g., `taskadd 1 task/peer review`
 **Task Delete** | `taskdelete INDEX ALPHAINDEX`<br> e.g., `taskdelete 1 b`
 **Task Done** | `taskdone INDEX ALPHAINDEX`<br> e.g., `taskdone 1 c`
+**Task Clear** | `taskclear INDEX` <br> e.g., `taskclear 1`
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -565,7 +675,8 @@ in the other computer. The data should remain the same as it was in your previou
 
 **Q**: I have tried double-clicking the `projact.jar` file but the application does not open. <br>
 **A**: Please ensure that you have loaded the `projact.jar` file from our latest release on our github website. 
-A temporary solution could be to open your Command Prompt (Windows OS) or terminal (MacOS) and key in `java -jar <path_of_file>`. 
+Check the Java version on your device and ensure that it is Java 11 and above. If it still doesn't work, 
+a temporary solution could be to open your Command Prompt (Windows OS) or terminal (MacOS) and key in `java -jar <path_of_file>`. 
 For example, `java -jar C:\Users\name\projact\projact.jar`. We understand that this may be troublesome over time, so please 
 drop an email at siqiang@comp.nus.edu.sg or raise an issue on our github page.
 

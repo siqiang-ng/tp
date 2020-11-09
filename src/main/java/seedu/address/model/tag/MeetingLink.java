@@ -17,7 +17,7 @@ public class MeetingLink {
             + " .com or .org";
 
     public static final String VALIDATION_REGEX =
-            "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+            "^https?:\\/\\/([-a-zA-Z0-9]+\\.)+[a-zA-Z]{2,3}(:\\d{1,5})?([?\\/].*)?$";
 
     public final URL link;
 
