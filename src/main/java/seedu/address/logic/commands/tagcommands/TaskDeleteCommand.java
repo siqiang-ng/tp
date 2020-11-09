@@ -57,8 +57,6 @@ public class TaskDeleteCommand extends Command {
 
         Tag tagToEdit = lastShownList.get(index.getZeroBased());
 
-        TagTask deletedTask = tagToEdit.getTagTasks().get(taskIndex.getZeroBased());
-
         List<TagTask> editedTaskList = createModifiedTaskList(tagToEdit, taskIndex);
 
         Tag editedTag = new Tag(tagToEdit.getTagName(), editedTaskList, tagToEdit.getMeetingLink());
@@ -66,7 +64,7 @@ public class TaskDeleteCommand extends Command {
         model.setTag(tagToEdit, editedTag);
         model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
         return new CommandResult(String.format(MESSAGE_MARK_DELETE_SUCCESS,
-                tagToEdit.getTagName(), deletedTask));
+                tagToEdit.getTagName(), tagToEdit.getTagTasks().get(taskIndex.getZeroBased())));
     }
 
     /**
@@ -74,6 +72,7 @@ public class TaskDeleteCommand extends Command {
      */
     private static List<TagTask> createModifiedTaskList(Tag tagToEdit, Index taskIndex) throws CommandException {
         List<TagTask> oldTaskList = tagToEdit.getTagTasks();
+
         if (oldTaskList.isEmpty()) {
             throw new CommandException(Messages.MESSAGE_NO_TASK_LIST);
         }
