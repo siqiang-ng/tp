@@ -26,9 +26,9 @@ Given below are my contributions to the project.
   * Highlights: Similar to the above feature, we initially struggled with how to use the currently implemented model to add this new feature. However we managed to come up with a work around to the problem of finding the exact task to delete by implementing an alphabetical index, so that it would be easier to identify which index to delete.
 
 ### Enhancements to Existing Features
-* **Enhancement**: Refactored the code to use terms specific to our app (Pull requests [\#53]())
+* **Enhancement**: Refactored the code to use terms specific to our app (Pull requests [\#53](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/53))
     * Justification: This improved readability of code for other developers, as our app was adapted from an app called "AddressBook", which might be confusing for new developers unaware of this.
-* **Enhancement**: Fixed bug that resulted in text being cut off when it was longer than the result display box. (Pull requests [\#234]())
+* **Enhancement**: Fixed bug that resulted in text being cut off when it was longer than the result display box. (Pull requests [\#234](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/234))
 
 ### Code Contributed
 * [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=khinkhinn&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
@@ -38,12 +38,11 @@ Given below are my contributions to the project.
 
 ### Documentation    
 * **User Guide**:
-    * Added documentation for feature `tagedit` [\#29]()
-    * Added documentation for the features `taskadd` and `taskdelete` [\#149]()
+    * Added documentation for `tagedit`, `taskadd` and `taskdelete` features [\#29](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/29), [\#149](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/149)
 * **Developer Guide**:
-    * Added implementation details of the `tagadd` feature [\#93]()
-    * Added non-functional requirements [\#33]()
-    * Formatted developer guide to ensure that there was a consistent format and style during `v1.3` [\#97]()
+    * Added non-functional requirements [\#33](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/33)
+    * Added implementation details of the `tagadd`, `taskadd` and `taskdelete` features [\#93](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/93), [\#250](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/250)
+    * Formatted developer guide to ensure that there was a consistent format and style during `v1.3` [\#97](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/97)
 
 ### Community    
-* PRs reviewed (with non-trivial review comments): [\#27]()
+* PRs reviewed (with non-trivial review comments): [\#27](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/27)
