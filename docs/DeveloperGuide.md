@@ -389,7 +389,7 @@ The diagram below shows a sample interaction of `TagDeleteCommand`.
 **Value propositions**:
 
 * Manages contacts faster than a typical mouse/GUI driven app.
-* Sorts contacts based on the different module tags.
+* Sorts contacts based on the different tags.
 * Allows convenient search for project mates / friends taking the same module.
 * Allows convenient search for the link for team meeting.
 * Allows the addition of tasks to track the task progress.
@@ -410,19 +410,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | create a tag                                     | find or sort the contacts based on tags later on.                      |
 | `* * *`  | user                                       | delete a tag                                     | remove tags that are accidentally added or no longer required          |
 | `* * *`  | user                                       | find a tag by name                               | locate details of the tag without having to go through the entire list |
-| `* * *`  | user                                       | list all tags                                    | quickly browse through all the tags that I have adde                   |
-| `* * *`  | student                        	        | add tasks for each module tag                    | remind myself of all the tasks that are under those tags.              |
-| `* * *`  | student                        	        | delete tasks for each module tag                 | remove the tasks that are no longer required for that module           |
-| `* * *`  | student with many project groups	        | add the meeting platform links to each module tag| conveniently contact the team or initiate a team meeting               |
+| `* * *`  | user                                       | list all tags                                    | quickly browse through all the tags that I have added                  |
+| `* * *`  | student                        	        | add tasks for each tag                           | remind myself of all the tasks that are under those tags.              |
+| `* * *`  | student                        	        | delete tasks for each tag                        | remove the tasks that are no longer required for that module           |
+| `* * *`  | student with many project groups	        | add the meeting platform links to each tag       | conveniently contact the team or initiate a team meeting               |
 | `* * *`  | student with many project groups	        | delete the meeting platform link for each tag    | remove the link if it has been added wrongly                           |
 | `* *`    | student                        	        | clear all completed tasks under each tag         | remove the tasks that are no longer required                           |
 | `* *`    | user                                       | update a tag (name)                              | correct the misspelled tag name                                        |
 | `* *`    | user                                       | sort the tags by its tag name                    | view tags in alphabetical order                                        |
 | `* *`    | user with many contacts                    | sort the contacts by name                        | view contacts in alphabetical order                                    |
 | `* *`    | student                        	        | mark the status of a particular task as done     | keep track of the different task progress under that tag.              |
-| `* *`    | student with many project groups	        | add remarks on the module tag                    | find module-related information from the module tag                    |
-| `* *`    | student with many project groups	        | delete the comments on the module tag            |                                                                        |
-| `*`      | long-time user	                            | archive old module tags 	                       | keep my contacts up to date                                            |
+| `* *`    | student with many project groups	        | add remarks on the tag                           | find module-related information from the tag                           |
+| `* *`    | student with many project groups	        | delete the comments on the tag                   |                                                                        |
+| `*`      | long-time user	                            | archive old tags 	                               | keep my contacts up to date                                            |
 | `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
 | `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands.                  |
 | `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
