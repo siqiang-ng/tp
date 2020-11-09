@@ -50,7 +50,7 @@ public class TagEditCommandTest {
         TagEditCommand tagEditCommand = new TagEditCommand(INDEX_FIRST_TAG, new EditTagDescriptor());
         Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
 
-        String expectedMessage = String.format(TagEditCommand.MESSAGE_EDIT_TAG_SUCCESS, editedTag);
+        String expectedMessage = String.format(TagEditCommand.MESSAGE_EDIT_TAG_SUCCESS, editedTag, editedTag);
 
         Model expectedModel = new ModelManager(new Projact(model.getProjact()), new UserPrefs());
 

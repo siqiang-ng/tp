@@ -43,6 +43,3 @@ Given below are my contributions to the project.
     * Added non-functional requirements [\#33](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/33)
     * Added implementation details of the `tagadd`, `taskadd` and `taskdelete` features [\#93](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/93), [\#250](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/250)
     * Formatted developer guide to ensure that there was a consistent format and style during `v1.3` [\#97](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/97)
-
-### Community    
-* PRs reviewed (with non-trivial review comments): [\#27](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/27)

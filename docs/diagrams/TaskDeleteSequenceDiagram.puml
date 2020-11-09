@@ -58,7 +58,7 @@ deactivate Model
 create CommandResult
 TaskDeleteCommand -> CommandResult
 activate CommandResult
-CommandResult ---> TaskDeleteCommand
+CommandResult ---> TaskDeleteCommand : result
 deactivate CommandResult
 
 TaskDeleteCommand --> LogicManager : result

@@ -2,6 +2,7 @@ package seedu.address.logic.commands.tagcommands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TAGS;
 
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +27,7 @@ public class TagDeleteCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the tag identified by the index number used in the displayed tag list.\n"
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ")\n"
+            + "Parameters: INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ")\n"
             + "Example: " + COMMAND_WORD + " 1";
 
     public static final String MESSAGE_DELETE_TAG_SUCCESS = "Deleted Tag: %1$s";
@@ -64,6 +65,7 @@ public class TagDeleteCommand extends Command {
         }
 
         model.deleteTag(tagToDelete);
+        model.updateFilteredTagList(PREDICATE_SHOW_ALL_TAGS);
         return new CommandResult(String.format(MESSAGE_DELETE_TAG_SUCCESS, tagToDelete));
     }
 
