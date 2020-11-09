@@ -9,7 +9,7 @@ Projact is a contact and project management app that helps NUS computing student
 
 Given below are my contributions to the project.
 
-### New Features
+#### New Features
 * **Feature**: Added the ability to delete a tag. (Pull request [\#118](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/118))
   * What it does: allows the user to delete a tag that has been created. 
   * Justification: This feature allows the user to remove any tags that they deem are irrelevant or unnecessary so as to not clutter up the list of tags.
@@ -20,21 +20,22 @@ Given below are my contributions to the project.
     
 * **Feature**: Added the command to add a link to a tag. (Pull request [\#140](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/140))
   * What it does: allows the user to tie the specified link to a tag, which can be directly clicked on from the tag list.
-  * Justification: This feature provides a quick and easy way for the user to manage the links he/she has on hand. It enhances users' experience as they can add a meeting link to their project group tag or add a module website link to their module tag.
-  
-### Enhancements to Existing Features
- 
+  * Justification: This feature provides a quick and easy way for the user to manage the links he/she has on hand. It enhances users' experience as they can add a meeting link to their project group tag or add a module website link to their module tag. 
+
+#### Enhancements to Existing Features
 * **Enhancement**: Redesigned the Tag class to support new features. (Pull request [\#58](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/58))
     * What it does: Instead of having the Tag class as a field under a Person, the Tag class is now a standalone.
     * Justification: This allows for the adding of fields to a Tag, such as a `link` field and `task` field.
 
-### Code Contributed
+<div style="page-break-after: always;"></div> 
+
+#### Code Contributed
 * [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=joeytoh&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
-### Project Management
+#### Project Management
 * Aided in maintenance of issue tracker at the end of `v1.3`
 
-### Documentation    
+#### Documentation    
 * **User Guide**:
     * Updated the Introduction and About the User Guide sections (Pull request [\#88](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/88))
     * Managed documentation for the features `taglist`, `tagdelete`, `linkadd` (Pull request [\#148](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/148))
