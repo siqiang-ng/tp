@@ -3,7 +3,7 @@ layout: page
 title: Yeo Ke Xin's Project Portfolio Page
 ---
 
-### Project: Projact 
+## Project: Projact 
 Projact is a contact and project management app that helps NUS computing students to organise their contacts and their projects' meeting links and tasks.
  
 Given below are my contributions to the project.
