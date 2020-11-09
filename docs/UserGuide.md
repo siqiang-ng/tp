@@ -19,8 +19,8 @@ title: User Guide
     * [General](#general-features)
     * [Contact](#contact-features)
     * [Tag](#tag-features)
-        * [Link](#link-features)
-        * [Task](#task-features)
+    * [Link](#link-features)
+    * [Task](#task-features)
 * [Command Summary](#command-summary)
     * [General](#general-commands)
     * [Contact](#contact-commands)
@@ -90,11 +90,9 @@ Before you go on, here are some key terms and symbols you should know!
 <div markdown="span" class="alert alert-info"> 
    :information_source: This information symbol provides you with additional information.
 </div> 
-<br>
 <div markdown="span" class="alert alert-primary"> 
    :bulb: This light bulb symbol will show you tips to make your Projact experience smoother.
 </div> 
-<br>
 <div markdown="span" class="alert alert-danger"> 
    :exclamation: This exclamation mark symbol warns you about the command's input constraints or possible side effects.
 </div> 
@@ -176,7 +174,6 @@ Would you like to delete all the current contacts and tags in Projact? Just use 
 
 ![Clear Command](images/ClearCommandGuide2.png)
 
-
 #### Exiting the program : `exit`
 
 The Projact application will close automatically with this command.
@@ -195,14 +192,21 @@ Have you made a new friend? Great! Use the `add` command to add a new contact in
 
 **Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
+
 * No two contacts can have the same name.
+
 * Phone numbers must be 7 to 15 digits long.
+
 * Telegram addresses must be 5-32 characters long.
-* A contact can be created with 0 or more tags.
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b><br>
+* Emails must follow the format local-part@domain.extension (e.g. test@test.com)
+</div>
 
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b><br>
 * Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
+
+* A contact can be created with 0 or more tags.
 
 * Listed tags will be created automatically if they are not found in the tag list.
 
@@ -226,14 +230,23 @@ and she is your `CS2101` classmate as well as a `friend`.
 Oops! Accidentally misentered your contact's details? Fret not! The `edit` command allows you to edit a single field 
 (or multiple fields) as needed!
 
-Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
+**Format**: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
+    
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
 
-* Edits the contact at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* The index **must be a positive integer** 1, 2, 3, …​
+
 * At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
+
 * When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
-* You can remove all the contact’s tags by typing `t/` without
-    specifying any tags after it.
+
+</div>
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b><br>
+
+* You can remove all the contact’s tags by typing `t/` without specifying any tags after it.
+
+</div>
 
 **Example Guide:** 
 
@@ -253,21 +266,22 @@ Use our `find` command to look for that contact using words that his/her name co
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]`
 
-<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b><br>
-
-* The search is case-insensitive. e.g `hans` will match `Hans`
-
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
 
 * Only the name is searched.
 
 * Only full words will be matched e.g. `Han` will not match `Hans`.
 
-</div> 
+</div>
 
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* The search is case-insensitive. e.g `hans` will match `Hans`
+
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+
+* Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
 </div>
 
 **Example Guide:**
@@ -283,41 +297,32 @@ Want to look at all the friends you have? Me too! Use `list` to view all the con
 
 **Format**: `list`
 
-![list command](images/ListCommandGuide1.png)
+![List Command](images/ListCommandGuide1.png)
   
 #### Sort contacts by name: `sort`
 
 Dislike how the current list of contacts is displayed? Sort the names in alphanumerical order by 
 typing a single `sort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
 
-Do you wish to get back to the previous list? No worries, this sorted list is not permanent! 
-Simply enter `list` on the command line to get back to the chronological order.
-
-</div>
- 
-<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b><br>
-
-* Do note that `sort` command does not sort the contact list displayed after `find` command!
+* Do note that `sort` command does not sort the contact list displayed with `find` command!
 
 * Only edit the contact based on the **Actual Index** as displayed!
     
 </div> 
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
+
+* Do you wish to get back to the previous list? No worries, this sorted list is not permanent! Simply enter `list` on the command line to get back to the chronological order.
+
+</div>
+ 
  
 **Format:** `sort`
  
-**Step-By-Step Guide:**
+![Sort Command](images/SortCommandGuide2.png)
 
-Step 1: Key in the `sort` command.
-![SortContactCommand Step 1](images/SortCommandGuide1.png)
-
-Step 2: Hit enter and the list with all the contact names will be sorted immediately as shown.
-![SortContactCommand Step 2](images/SortCommandGuide2.png)
-
-Step 3: If you want to edit 'Alex Yeoh', use the actual index **2** instead of 1. For example, `edit 2 t/cs1010` will
-change the tag 'ma1101r' to 'cs1010' under Alex.
-![SortContactCommand Step 3](images/SortCommandGuide3.png)
 
 #### Deleting a contact : `delete`
 
@@ -325,11 +330,11 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 
 **Format:** `delete INDEX`
 
-<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
 
 * If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
 
-* Delete the contact does not delete the respective tag(s). The name will be removed from the tag only!
+* Deleting the contact does not delete the respective tag(s). The name will be removed from the tag only!
 
 </div>
 
@@ -390,6 +395,9 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 
 **Format**: `tagedit INDEX t/TAG_NAME`
 
+Example:
+* `tagedit 1 t/ma1521` edits the name of the first tag in the list to `ma1521`
+
 **Step-By-Step Guide:**
 
 Step 1: Key in `taglist` and hit enter to display all the tags.
@@ -398,26 +406,40 @@ Step 1: Key in `taglist` and hit enter to display all the tags.
 Step 2: For example, if you want to change the name of the `ma1101r` tag to `ma1521`, then key in `tagedit 1 t/ma1521` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
 
-Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
+Step 3: You should see the tag's name being edited. 
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
-<div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
-The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="block" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+* Contact(s) who had the old tag will also have it renamed.
+
 </div>
 
 #### Locating tags by name: `tagfind`
 
-Searching for a tag?
-Use the `tagfind` command to search for a tag that matches the given keywords.
+Searching for a tag? Use the `tagfind` command to search for a tag that matches the given keywords.
 
-Format: `tagfind KEYWORD [MORE_KEYWORDS]`
+**Format**: `tagfind KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `friends` will match `Friends`
-* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
-* Only the tagname of the tag is searched.
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
+
+* Only the name of the tag is searched.
+
 * Only full words will be matched e.g. `Team` will not match `Team1`
-* Contacts matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Team A` will return `Team B`, `Group A`
+
+</div>
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
+
+* The search is case-insensitive. e.g `cs2101` will match `CS2101`
+
+* The order of the keywords does not matter. e.g. `Team1 GroupA` will match `GroupA Team1`
+
+* Contacts matching at least one keyword will be returned (i.e. `OR` search). e.g. `Team A` will return `Team B`, `Group A`
+
+</div>
 
 **Step-By-Step Guide:**
 
@@ -440,16 +462,16 @@ Want to see all the tags you have added? Display them with simply the `taglist` 
 Dislike how the current list of tags is displayed? 
 Sort the tags by their names in alphanumerical order by typing a single `tagsort` word on the command line.
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
-</div>
-
-<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b><br>
+<div markdown="block" class="alert alert-danger"> :exclamation: <b>Note:</b><br>
 
 * Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
 
 * Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
 
+</div>
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
+* Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
 **Format:** `tagsort`
@@ -460,11 +482,17 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 
 Want to get rid of a particular tag? Use the `tagdelete` command follow by the index `INDEX` of that tag from the tag list.
 
-<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
-The tag will also be removed from the contact(s) that contain(s) the tag.
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b>
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+* The tag will also be removed from the contact(s) that contain(s) the tag.
+
 </div>
 
 **Format:** `tagdelete INDEX`
+Example:
+* `tagdelete` edits the first tag in the list.
 
 **Step-By-Step Guide:**
 
@@ -485,24 +513,26 @@ This command ties a link to a specified tag. It will come in handy if you have g
 
 **Format:** `linkadd INDEX l/LINK`
 
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b>
+* Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
+</div>
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
+You can click on the link to be redirected to your browser or application!
+</div>
+
+Example:
+* `linkadd 1 l/http://nus-sg.com` edits the first tag in the list to have the link "http://nus-sg.com".
+
 **Step-By-Step Guide:**
 
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![LinkAddCommand Step 1](images/LinkAddCommandGuide1.png)
 
 Step 2: For example, if you want to add your Zoom tutorial meeting link to the "ma1101r" tag, key in `linkadd 1 l/http://nus-sg.com/ma1101r-T5` and hit enter.
-
-<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
-Ensure that the link provided starts with either "https://" or "http://" and has top level domains such as ".com" and ".org".
-</div>
-
 ![LinkAddCommand Step 2](images/LinkAddCommandGuide2.png)
 
 Step 3: You should see the link being added to the "ma1101r" tag like this. 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-Click on the link to be redirected to your browser!
-</div>
-
 ![LinkAddCommand Step 3](images/LinkAddCommandGuide3.png)
 
 #### Deleting the link under the tag: `linkdelete`
@@ -510,6 +540,15 @@ Click on the link to be redirected to your browser!
 Want to get rid of the link under a particular tag? Use the `linkdelete` command followed by the index `INDEX` of that tag from the tag list.
  
 **Format:** `linkdelete INDEX`
+
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b>
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+</div>
+
+Example:
+* `linkdelete 1` deletes the link from the first tag in the list.
 
 **Step-By-Step Guide:**
 
@@ -529,16 +568,16 @@ Is there a specific task you want to add to a tag? Simply use the `taskadd` comm
 **Format:** `taskadd INDEX task/TASK_NAME`
 
 * Adds a task to the tag with the `INDEX` from the current view of the tag list after doing `taglist`.
+
+<div markdown="block" class="alert alert-danger">
+
+**:exclamation: Warning:**<br>
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+* Only a maximum of 26 tasks can be added to each tag, due to the alphabet being used as an index. i.e. Unable to add new tasks after the task with index `z`.
+
 * Task will not be added if specified tag with `INDEX` already has a task with the same task name.
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Maximum number of tasks in each tag:**<br>
-
-* Only a maximum of 26 tasks can be added, due to the alphabet being used as an index.
-
-* Attempts to add additional tags after 26 will result in an error.<br>
-  i.e. Unable to add new tasks after the task with index `z`.
 
 </div>
 
@@ -564,12 +603,15 @@ the alphabetical index `ALPHAINDEX` to do the magic!
 
 **Format:** `taskdone INDEX ALPHAINDEX`
 
+Example:
+* `taskdone 1 a` marks the task with the alphabetical index a from the first tag in the list as completed.
+
 **Step-By-Step Guide:**
 
 Step 1: First key in `taglist` and hit enter to display all the tags.
 ![TaskDoneCommand Step 1](images/TaskDoneCommandGuide1.png)
 
-Step 2: For example, if you want to mark the second task under the tag "CS2101" as done. Key in "taskdone 2 a" and hit enter.
+Step 2: For example, if you want to mark the second task under the tag "cs2101" as done. Key in "taskdone 2 a" and hit enter.
 ![TaskDoneCommand Step 2](images/TaskDoneCommandGuide2.png)
 
 Step 3: You should see the task "complete user guide" have a tick beside it.
@@ -603,16 +645,16 @@ Do you want the satisfaction of striking off all the tasks you've completed? Wel
 
 **Format:** `taskclear INDEX`
 
+Example:
+* `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
+
 **Step-By-Step Guide:**
 
-Step 1: For example, if you want to clear all the completed tasks from the tag"C2101", Key in `taskclear 2`.
+Step 1: For example, if you want to clear all the completed tasks from the tag "cs2101", Key in `taskclear 2`.
 ![TaskClearCommand Step 1](images/TaskClearCommandGuide1.png)
 
 Step 2: Hit enter and you should see that all the completed tasks will be removed.
 ![TaskClearCommand Step 2](images/TaskClearCommandGuide2.png)
-
-Example:
-* `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -669,7 +711,7 @@ Action | Format, Examples
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Copy all the current files generated by the application, together with `projact.jar` file and paste in an empty folder 
+**A**: Copy all the current files generated by the application, together with the `projact.jar` file and paste them in an empty folder 
 in the other computer. The data should remain the same as it was in your previous computer.
 
 **Q**: I have tried double-clicking the `projact.jar` file but the application does not open. <br>
