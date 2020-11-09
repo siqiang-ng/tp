@@ -173,48 +173,56 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ## **Implementation**
 
 ### Contact features
+
 **Sort command**
+
 The `sort` command allows a user to sort the current person list in alphabetical order permanently. Contacts that are being added to the list later will not be sorted and added to the end of the list.
 
 - How is SortContactCommand executed
-    1. The command is passed into LogicManager
-    1. LogicManager calls parseCommand method of ProjactParser.
-    1. ProjactParser returns SortCommand.
-    1. LogicManager executes SortCommand, which updates the sorted person list by comparing the personNames using PersonNameComparator in Model.
-
-- Why is it implemented that way?
-    - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered List and Predicate, Sorted List and Comparable are used to sort the list.
+    1. The command is passed into `LogicManager`
+    1. `LogicManager` calls parseCommand method of `ProjactParser`.
+    1. `ProjactParser` identifies and returns `SortCommand`.
+    1. `LogicManager` executes `SortCommand`, which updates the sorted person list by comparing the personNames using `PersonNameComparator` in `Model`.
 
 The diagram below shows a sample interaction of SortCommand.
+
 ![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+- Why is it implemented that way?
+    - The overall implementation flow of the `sort` command is similar to the `find` command in the original AB3 but instead of using Filtered
+     List and Predicate, Sorted List and Comparator are used to sort the list.
 
 ### Tag features
 
 **TagAdd command**
 
-The TagAdd command allows a user to add a new tag to the tag list. The tag added will not have any people in it initially.
+The `tagadd` command allows a user to add a new tag to the tag list. The tag added will not have any contacts under it initially.
 
-1. The command is passed into `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is 'tagadd' and the arguments.
-4. `ProjactParser` calls the parse method of `TagAddCommandParser`, which parses the argument, creates a new `Tag` object, and returns a new `TagAddCommand` with the new `Tag` object used as an argument.
-5. The `LogicManager` then calls the execute method of the `TagAddCommand`, which calls the addTag method of `Model`.
+- How is TagAddCommand executed
+    1. The command is passed into `LogicManager`.
+    2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    3. `ProjactParser` identifies and returns TagAddCommand.
+    4. `ProjactParser` calls the parse method of `TagAddCommandParser`, which parses the argument, creates a new `Tag` object, and returns a new `TagAddCommand` with the new `Tag` object used as an argument.
+    5. The `LogicManager` then calls the execute method of the `TagAddCommand`, which calls the addTag method of `Model`.
 
 The diagram below shows a sample interaction of `TagAddCommand`. 
 
 ![TagAddSequenceDiagram](images/TagAddSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand would also be largely similar to classes implemented in AB3.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the TagAddCommand will also be largely similar to classes implemented in AB3.
 
 **TagEdit command**
 
-1. The command is passed in to `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the command word, which in this case is 'tagedit' and the arguments.
-4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
-5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
-6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
+The `tagedit` command allows a user to edit the tag name of a tag in the list.
+
+- How is TagEditCommand executed
+    1. The command is passed in to `LogicManager`.
+    2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    3. `ProjactParser` identifies and return `TagEditCommand`.
+    4. `ProjactParser` calls the parse method of `TagEditCommandParser`, which parses the argument, creates a new `Index` object and a new `EditTagDescriptor`object, and returns a new `TagEditCommand` with those objects used as arguments.
+    5. The `LogicManager` then calls the execute method of the `TagEditCommand`, which create a new `Tag` object with the edited field and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+    6. `FilteredTagList` is updated with the edited `Tag` object and will reflect the changes in the `Model`.
 
 The diagram below shows a sample interaction of `TagEditCommand`.
 
@@ -223,16 +231,15 @@ The diagram below shows a sample interaction of `TagEditCommand`.
 - Why is it implemented that way:
   - The implementation of the TagEdit command is very similar to the Edit command so that we can reuse the previous code.
   - For example, by making the commandWord 'tagedit' instead of 'tag edit', we are able to make use of `ProjectParser` instead of creating a different parser just to identify tag commands.
-  - TagEdit can only edit the tag name and edits to TagTasks or MeetingLinks will be done with `taskedit` or `linkedit`. This is more intuitive for the user and prevents them from having to remember that Tag contains TagTasks and MeetingLinks.
-
+  
 **TagList command**
 
-The TagList command allows a user to display all the tags in the tag list currently.
+The `taglist` command allows a user to display all the tags in the tag list currently.
 
-- How is TagList Command executed
+- How is TagListCommand executed
     1. The command is passed into `LogicManager`.
     1. `LogicManager` calls parseCommand method of `ProjactParser`.
-    1. `ProjactParser` returns `TagListCommand`.
+    1. `ProjactParser` identifies and returns `TagListCommand`.
     1. `LogicManager` executes `TagListCommand`, which sets isTagList parameter in `CommandResult` to true.
     1. `MainWindow` detects `CommandResult` isTagList() returns true and hence invokes the showTagList() method.
     
@@ -241,7 +248,7 @@ The diagram below shows a sample interaction of `TagListCommand`.
 ![TagListSequenceDiagram](images/TagListSequenceDiagram.png)
 
 - Why is it implemented that way:
-    - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` would also be largely similar to classes implemented in AB3.
+    - The command is implemented to be as similar as possible to the current command classes, so that there will be minimal changes to the overall design of the product. Most new classes added to accommodate the `TagListCommand` will also be largely similar to classes implemented in AB3.
 
 **TagFind command**
 
