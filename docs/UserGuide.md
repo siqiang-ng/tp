@@ -164,23 +164,18 @@ Now you're prepared to embark on this journey and have Projact manage your conta
 
 Hello! Do you need help using Projact? Enter the command `help` to access our user guide for more information!
 
-![help message](images/helpMessage.png)
+**Format**: `help`
 
-Format: `help`
+![Help Command](images/helpMessage.png)
 
 #### Clearing all entries : `clear`
 
-Clears all contact entries from the person list in Projact.
+Would you like to delete all the current contacts and tags in Projact? Just use the 'clear' command!
 
-Format: `clear`
+**Format**: `clear`
 
-**Step-By-Step Guide:**
+![Clear Command](images/ClearCommandGuide2.png)
 
-Step 1: Key in the `clear` command.
-![ClearCommand Step 1](images/ClearCommandGuide1.png)
-
-Step 2: Hit enter and all previous entries in Projact will be cleared.
-![ClearCommand Step 2](images/ClearCommandGuide2.png)
 
 #### Exiting the program : `exit`
 
@@ -190,7 +185,7 @@ Format: `exit`
 
 #### Saving the data
 
-Projact data are saved in your hard disk automatically after any command that changes the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
+Projact's data is saved to your hard disk automatically after any changes in the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
 
 ### Contact Features
 
@@ -198,7 +193,7 @@ Projact data are saved in your hard disk automatically after any command that ch
 
 Adds a contact to the person list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
+**Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
 * No two contacts can have the same name.
 * Phone numbers can be 7 to 15 digits long.
@@ -237,6 +232,7 @@ Examples:
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 *  `edit 2 t/CS2103T` Edits the tag of the 2nd contact to only contain the module CS2103T tag.
 
+
 #### Locating contacts by name: `find`
 
 Do you have too many contacts such that you are unable to look for the contact you need? 
@@ -263,18 +259,20 @@ Use our `find` command to look for that contact using words that his/her name co
 
 </div>
 
-#### Listing all contacts : `list`
-
-Shows a list of all the contacts in the person list.
-
-Format: `list`
-
 **Example Guide:**
 1. If you want to find `Alex Yeoh`, type `find Alex` or `find Yeoh`. The display result will be as shown.
 ![FindCommand 1](images/FindAlexResult.png)
 
 2. If you want to find both `Alex Yeoh` and `David Li`, type `find alex david`. The display result will be as shown.
 ![FindCommand 2](images/findAlexDavidResult.png)
+
+#### Listing all contacts : `list`
+
+Want to look at all the friends you have? Me too! Use `list` to view all the contacts you have added so far.
+
+**Format**: `list`
+
+![list command](images/ListCommandGuide1.png)
   
 #### Sort contacts by name: `sort`
 
@@ -423,13 +421,7 @@ Want to see all the tags you have added? Display them with simply the `taglist` 
 
 **Format:** `taglist`
  
-**Step-By-Step Guide:**
-
-Step 1: Key in the `taglist` command.
-![TagListCommand Step 1](images/TagListCommandGuide1.png)
-
-Step 2: Hit enter and the list with all the tags that you have added will be displayed immediately as shown.
-![TagListCommand Step 2](images/TagListCommandGuide2.png)
+![TagList Command](images/TagListCommandGuide2.png)
 
 #### Sorting tags by tag name: `tagsort`
 
@@ -450,13 +442,7 @@ Do you wish to get back to the previous tag list? No worries, this sorted tag li
 
 **Format:** `tagsort`
  
-**Step-By-Step Guide:**
-
-Step 1: Key in the `tagsort` command.
-![TagSortCommand Step 1](images/TagSortCommandGuide1.png)
-
-Step 2: Hit enter and the list with all the tag names will be sorted immediately as shown.
-![TagSortCommand Step 2](images/TagSortCommandGuide2.png)
+![TagSort Command](images/TagSortCommandGuide2.png)
 
 #### Deleting a tag: `tagdelete`
 
@@ -632,9 +618,9 @@ Action | Format, Examples
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
-**List** | `list`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**List** | `list`
 **Sort** | `sort`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 
