@@ -494,7 +494,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `Projact` and the **Actor** is the `user`, unless specified otherwise)
 
-#### **Use case: Delete a person**
+#### **Use case: UC01 - Delete a person**
 
 **MSS**
 
@@ -507,7 +507,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The list containing all the persons is empty.
 
   Use case ends.
 
@@ -528,11 +528,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The list containing all the tags is empty.
 
   Use case ends.
   
-#### **Use case: Create a Tag**
+#### **Use case: UC03 - Create a Tag**
 
 **MSS**
 
@@ -549,7 +549,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-#### **Use case: Delete a tag**
+#### **Use case: UC04 - Delete a tag**
 
 **MSS**
 
@@ -562,7 +562,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The list containing all the tags is empty.
 
   Use case ends.
 
@@ -573,7 +573,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-#### **Use case: Find a tag**
+#### **Use case: UC05 - Find a tag**
 
 **MSS**
 
@@ -584,7 +584,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list is empty.
+* 2a. The list containing all the tags is empty.
 
   Use case ends.
 
@@ -592,13 +592,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 2c. User did not specify any keyword
+* 2c. User did not specify any keywords.
 
     * 2c1. Projact shows an error message.
 
       Use case resumes at step 1.
 
-#### **Use case: Edit tag**
+#### **Use case: UC06 - Edit tag**
 
 **MSS**
 
@@ -610,7 +610,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. The list is empty.
+* 1a. The list containing all the tags is empty.
 
      Use case ends.
 
@@ -626,12 +626,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-#### **Use case: Clear completed tasks**
+#### **Use case: UC07 - Add a link to a tag**
+
+**MSS**
+1. User requests to <u>list tags (UC02) </u>
+2. User requests to add a link to a tag in the list.
+3. Projact adds the link to the tag.
+
+   Use case ends.
+
+**Extensions**
+* 1a. The list containing all the tags is empty.
+
+     Use case ends.
+     
+* 2a. The given index is invalid.
+
+    * 2a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+* 2b. The tag already has a link.
+
+    * 2b1. Projact shows an error message.
+
+      Use case resumes at step 2. 
+      
+* 2c. The input link is not valid.
+
+    * 2b1. Projact shows an error message.
+
+      Use case resumes at step 2. 
+
+#### **Use case: UC08 - Mark a task as done**
+
+**MSS**
+1. User requests to <u>list tags (UC02) </u>
+2. User requests to mark a particular task from a tag in the list as done.
+3. Projact changes the status of the task to 'done'.
+
+   Use case ends.
+
+**Extensions**
+* 1a. The list containing all the tags is empty.
+
+     Use case ends.
+     
+* 2a. The given index is invalid.
+
+    * 2a1. Projact shows an error message.
+
+      Use case resumes at step 2.
+
+* 2b. The targeted task has been completed.
+
+    * 2b1. Projact shows an error message.
+
+      Use case resumes at step 2.     
+      
+#### **Use case: UC09 - Clear completed tasks**
 
 **MSS**
 1. User requests to <u>list tags (UC02) </u>
 2. User requests to delete all completed tasks from a tag in the list
 3. Projact deletes all completed tasks from the tag
+  
+   Use case ends.
 
 **Extensions**
 * 1a. The list is empty.
@@ -649,8 +709,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. Projact shows an error message.
 
       Use case resumes at step 2.     
-
-*{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
 ### **D: Non-Functional Requirements**
