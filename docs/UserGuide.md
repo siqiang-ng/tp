@@ -233,51 +233,18 @@ Have you made a new friend? Great! Use the `add` command to add a new contact in
 
 </div>
 
-**Example Guide:** 
+**Step-By-Step Guide:** 
 
 Let's say you have a friend named `Betsy Crowe` that you want to add into your list of contacts.
 Her email address is `betsycrowe@example.com`, her telegram handle is `betsycr0w`, her phone number is `91234567`, 
 and she is your `CS2101` classmate as well as a `friend`.
 
-1. First, type the `add` command followed by `Betsy`'s details as in the format below
+Step 1: First, type the `add` command followed by `Betsy`'s details as in the format below.
 `add n/Betsy Crowe e/betsycrowe@example.com ta/betsycr0w p/91234567 t/CS2101 t/friend`
 ![AddCommandGuide1](images/AddCommandGuide1.png)
 
-2. Hit enter and she will be added at the bottom of the list of contacts.
+Step 2: Hit enter and she will be added at the bottom of the list of contacts.
 ![AddCommandGuide2](images/AddCommandGuide2.png)
-
-#### Editing a contact : `edit`
-
-Oops! Accidentally misentered your contact's details? Fret not! The `edit` command allows you to edit a single field 
-(or multiple fields) as needed!
-
-**Format**: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
-    
-<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
-
-* The index **must be a positive integer** 1, 2, 3, …​
-
-* At least one of the optional fields must be provided.
-
-* When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
-
-</div>
-
-<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b><br>
-
-* You can remove all the contact’s tags by typing `t/` without specifying any tags after it.
-
-</div>
-
-**Example Guide:** 
-
-For example, if you want to change `Bernice Yu`'s telegram handle from `berniceYu` to `berniceYu123`
-
-1. Taking note that `Bernice` is the first person in the list, type in `edit 1 ta/berniceYu123`
-![EditCommandGuide1](images/EditCommandGuide1.png)
-
-2. Hit enter, and her telegram handle will be changed.
-![EditCommandGuide2](images/EditCommandGuide2.png)
 
 
 #### Locating contacts by name: `find`
@@ -344,6 +311,55 @@ typing a single `sort` word on the command line.
  
 ![Sort Command](images/SortCommandGuide2.png)
 
+#### Editing a contact : `edit`
+
+Oops! Accidentally misentered your contact's details? Fret not! The `edit` command allows you to edit a single field 
+(or multiple fields) as needed!
+
+**Format**: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
+    
+<div markdown="block" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
+
+* The index **must be a positive integer** 1, 2, 3, …​
+
+* At least one of the optional fields must be provided.
+
+* When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
+
+</div>
+
+<div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b><br>
+
+* You can remove all the contact’s tags by typing `t/` without specifying any tags after it.
+
+</div>
+
+**Example Guide:** 
+
+* `list` followed by `edit 1 ta/berniceYu123` edits the telegram handle of the first contact in the person list from `berniceYu` to `berniceYu123`
+
+    Step 1: This is the original list after using `list` command.
+    ![EditCommand Step 1](images/EditCommandGuide1.png)
+    
+    Step 2: Type in `edit 1 ta/berniceYu123` and hit enter. You should wee that her telegram handle has changed.
+    ![EditCommand Step 2](images/EditCommandGuide2.png)
+
+* `find Irfan` followed by `edit 1 t/cs2100` edits the first contact in the results of the `find` command to have the `cs2100` tag.
+   
+   Step 1: This is the list after using the `find Irfan` command.
+   ![EditCommand Step 1](images/EditCommandGuide3.png)
+   
+   Step 2: After entering `edit 1 t/cs2100`, Irfan now has the `cs2100` tag.
+   ![EditCommand Step 2](images/EditCommandGuide4.png)
+   
+* `sort` followed by `edit 1 n/Bella Yu` edits the name of the first contact in the original contact list to `Bella Yu`
+   
+   Step 1: This is the list after using the `sort` command.
+   ![EditCommand Step 1](images/EditCommandGuide5.png)
+   
+   Step 2: After entering `edit 1 n/Bella Yu`, the name of the first contact Bernice, instead of Alex, is changed to Bella.
+   ![EditCommand Step 2](images/EditCommandGuide6.png)   
+
 
 #### Deleting a contact : `delete`
 
@@ -361,7 +377,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 
 **Example Guide**:
 
-* `list` followed by `delete 2` deletes the 2nd contact in the person list.
+* `list` followed by `delete 2` deletes the second contact in the person list.
    
    Step 1: This is the original list after using `list` command.
    ![DeleteCommand Step 1](images/DeleteCommandGuide1.png)
@@ -369,7 +385,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
    Step 2: After entering `delete 2`, the contact Charlotte is deleted.
    ![DeleteCommand Step 2](images/DeleteCommandGuide2.png)
    
-* `find Irfan` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+* `find Irfan` followed by `delete 1` deletes the first contact in the results of the `find` command.
    
    Step 1: This is the list after using the `find Irfan` command.
    ![DeleteCommand Step 1](images/DeleteCommandGuide3.png)
@@ -377,7 +393,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
    Step 2: After entering `delete 1`, the contact Irfan is deleted.
    ![DeleteCommand Step 2](images/DeleteCommandGuide4.png)
    
-* `sort` followed by `delete 1` deletes the 1st contact in the original contact list.
+* `sort` followed by `delete 1` deletes the first contact in the original contact list.
    
    Step 1: This is the list after using the `sort` command.
    ![DeleteCommand Step 1](images/DeleteCommandGuide5.png)
@@ -486,21 +502,21 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 </div>
 
 **Example Guide:**
-* `taglist` followed by the `tagedit 1 t/ma1521` edits the name of the first tag in the list to "ma1521".
+* `taglist` followed by the `tagedit 1 t/ma1521` edits the name of the first tag in the list to `ma1521`.
 Step 1: Key in `taglist` and hit enter to display all the tags.
 ![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
 
 Step 2: Key in `tagedit 1 t/ma1521` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
 
-* `tagfind cs2101` followed by `tagedit 1 t/cs1231s` edits the name of the first tag in the results of `tagfind` command to "cs1231s".
+* `tagfind cs2101` followed by `tagedit 1 t/cs1231s` edits the name of the first tag in the results of `tagfind` command to `cs1231s`.
 Step 1: Key in `tagfind cs2101` and hit enter to display all the tags.
 ![TagEditCommand Step 1](images/TagEditCommandGuide3.png)
 
 Step 2: Key in `tagedit 1 t/cs1231s` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide4.png)
 
-* `tagsort` followed by `tagedit 2 t/cs2101` edits the name of the second tag in the original tag list to "cs2101".
+* `tagsort` followed by `tagedit 2 t/cs2101` edits the name of the second tag in the original tag list to `cs2101`.
 Step 1: Key in `tagsort` and hit enter to display all the tags.
 ![TagEditCommand Step 1](images/TagEditCommandGuide5.png)
 
