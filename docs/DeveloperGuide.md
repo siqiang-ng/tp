@@ -319,9 +319,9 @@ The diagram below shows a sample interaction of `LinkAddCommand`.
 
 **LinkDelete command**
  
-The LinkDelete command allows a user to delete the meeting link from a tag permanently. 
+The `linkdelete` command allows a user to delete the meeting link from a tag permanently. 
  
-- How is LinkDelete command implemented:
+- How is LinkDeleteCommand executed:
     1. The command is passed in to `LogicManager`.
     1. `LogicManager` calls the parseCommand method of `ProjactParser`.
     1. `ProjactParser` identifies the command word, which in this case is 'linkdelete' and the arguments.
@@ -329,6 +329,10 @@ The LinkDelete command allows a user to delete the meeting link from a tag perma
     1. The `LogicManager` then calls the execute method of the `LinkDeleteCommand`, which retrieves the most updated tag list from the `ModelManager`. 
     From this list, the tag that will has its meeting link being removed will be retrieved. A new tag will be created with an empty meeting link using Optional class and replaced the old tag retrieved. 
     1. Then, the `ModelManager` will update the tag list.
+    
+The diagram below shows a sample interaction of `LinkDeleteCommand`. 
+    
+![LinkDeleteSequenceDiagram](images/LinkDeleteSequenceDiagram.png)  
 
 - Why is it implemented that way:
     - The command was implemented to be as similar as possible to the current command classes, so that there would be minimal changes to the overall design of the product. Most new classes added to accommodate the `LinkDeleteCommand` would also be largely similar to classes implemented in AB3.
