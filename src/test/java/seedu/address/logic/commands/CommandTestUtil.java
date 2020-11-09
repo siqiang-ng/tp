@@ -66,6 +66,8 @@ public class CommandTestUtil {
     public static final String TAG_NAME_DESC_HANDBALL = " " + PREFIX_TAG + VALID_TAG_NAME_HANDBALL;
     public static final String TASK_NAME_DESC_HOMEWORK = " " + PREFIX_TASK + VALID_TASK_NAME_HOMEWORK;
     public static final String TASK_NAME_DESC_MEETING = " " + PREFIX_TASK + VALID_TASK_NAME_MEETING;
+    public static final String LINK_DESC_ZOOM = " " + PREFIX_LINK + VALID_TAG_LINK_ZOOM;
+    public static final String LINK_DESC_SKYPE = " " + PREFIX_LINK + VALID_TAG_LINK_SKYPE;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones

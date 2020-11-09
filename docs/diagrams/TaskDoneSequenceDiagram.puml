@@ -58,10 +58,10 @@ deactivate Model
 create CommandResult
 TaskDoneCommand -> CommandResult
 activate CommandResult
-CommandResult ---> TaskDoneCommand
+CommandResult ---> TaskDoneCommand : result
 deactivate CommandResult
 
-TaskDoneCommand --> LogicManager : Command Result
+TaskDoneCommand --> LogicManager : result
 deactivate TaskDoneCommand
 
 LogicManager -->[

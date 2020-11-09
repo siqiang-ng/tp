@@ -31,10 +31,10 @@ create LinkAddCommand
 LinkAddCommandParser -> LinkAddCommand : LinkAddCommand(tagIndex, link)
 activate LinkAddCommand
 
-LinkAddCommand --> LinkAddCommandParser : Command
+LinkAddCommand --> LinkAddCommandParser : command
 deactivate LinkAddCommand
 
-LinkAddCommandParser --> ProjactParser : Command
+LinkAddCommandParser --> ProjactParser : command
 deactivate LinkAddCommandParser
 LinkAddCommandParser -[hidden]-> ProjactParser
 destroy LinkAddCommandParser
@@ -58,10 +58,10 @@ deactivate Model
 create CommandResult
 LinkAddCommand -> CommandResult
 activate CommandResult
-CommandResult ---> LinkAddCommand
+CommandResult ---> LinkAddCommand : result
 deactivate CommandResult
 
-LinkAddCommand --> LogicManager : Command Result
+LinkAddCommand --> LogicManager : result
 deactivate LinkAddCommand
 
 LogicManager -->[

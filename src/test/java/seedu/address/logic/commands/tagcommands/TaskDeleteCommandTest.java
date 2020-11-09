@@ -8,6 +8,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TAG;
 import static seedu.address.testutil.TypicalProjact.getTypicalProjact;
+import static seedu.address.testutil.TypicalProjact.getTypicalProjactWithTasks;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.tag.Tag;
 
 public class TaskDeleteCommandTest {
     private Model model = new ModelManager(getTypicalProjact(), new UserPrefs());
@@ -38,6 +40,25 @@ public class TaskDeleteCommandTest {
         TaskDeleteCommand taskDeleteCommand = new TaskDeleteCommand(outOfBoundIndex, INDEX_FIRST_TASK);
 
         assertCommandFailure(taskDeleteCommand, model, Messages.MESSAGE_INVALID_TAG_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_invalidTaskIndexUnfilteredList_failure() {
+        Model modelWithTasks = new ModelManager(getTypicalProjactWithTasks(), new UserPrefs());
+        Tag editedTag = modelWithTasks.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Index outOfBoundIndex = Index.fromOneBased(editedTag.getTagTasks().size() + 1);
+        TaskDeleteCommand taskDeleteCommand = new TaskDeleteCommand(INDEX_FIRST_TAG, outOfBoundIndex);
+
+        assertCommandFailure(taskDeleteCommand, modelWithTasks, Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_noTaskList_failure() {
+        Tag editedTag = model.getFilteredTagList().get(INDEX_FIRST_TAG.getZeroBased());
+        Index taskIndex = Index.fromOneBased(editedTag.getTagTasks().size() + 1);
+        TaskDeleteCommand taskDeleteCommand = new TaskDeleteCommand(INDEX_FIRST_TAG, taskIndex);
+
+        assertCommandFailure(taskDeleteCommand, model, Messages.MESSAGE_NO_TASK_LIST);
     }
 
     @Test
