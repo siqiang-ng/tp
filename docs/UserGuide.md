@@ -198,11 +198,9 @@ Adds a contact to the person list.
 * Telegram addresses must be 5-32 characters long.
 * A contact can be created with 0 or more tags.
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-    <ul>
-        <li> Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.</li>
-        <li> Listed tags will be created automatically if they are not found in the tag list.</li>
-    </ul>
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
+* Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
+* Listed tags will be created automatically if they are not found in the tag list.
 </div>
 
 Examples:
