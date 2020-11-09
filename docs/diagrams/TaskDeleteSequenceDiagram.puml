@@ -31,10 +31,10 @@ create TaskDeleteCommand
 TaskDeleteCommandParser -> TaskDeleteCommand : TaskDeleteCommand(tagIndex, taskIndex)
 activate TaskDeleteCommand
 
-TaskDeleteCommand --> TaskDeleteCommandParser : Command
+TaskDeleteCommand --> TaskDeleteCommandParser : command
 deactivate TaskDeleteCommand
 
-TaskDeleteCommandParser --> ProjactParser : Command
+TaskDeleteCommandParser --> ProjactParser : command
 deactivate TaskDeleteCommandParser
 TaskDeleteCommandParser -[hidden]-> ProjactParser
 destroy TaskDeleteCommandParser
@@ -61,7 +61,7 @@ activate CommandResult
 CommandResult ---> TaskDeleteCommand
 deactivate CommandResult
 
-TaskDeleteCommand --> LogicManager : Command Result
+TaskDeleteCommand --> LogicManager : result
 deactivate TaskDeleteCommand
 
 LogicManager -->[

@@ -31,10 +31,10 @@ create TaskAddCommand
 TaskAddCommandParser -> TaskAddCommand : TaskAddCommand(index, editTagDescriptor)
 activate TaskAddCommand
 
-TaskAddCommand --> TaskAddCommandParser : Command
+TaskAddCommand --> TaskAddCommandParser : command
 deactivate TaskAddCommand
 
-TaskAddCommandParser --> ProjactParser : Command
+TaskAddCommandParser --> ProjactParser : command
 deactivate TaskAddCommandParser
 TaskAddCommandParser -[hidden]-> ProjactParser
 destroy TaskAddCommandParser
@@ -61,7 +61,7 @@ activate CommandResult
 CommandResult ---> TaskAddCommand
 deactivate CommandResult
 
-TaskAddCommand --> LogicManager : Command Result
+TaskAddCommand --> LogicManager : result
 deactivate TaskAddCommand
 
 LogicManager -->[
