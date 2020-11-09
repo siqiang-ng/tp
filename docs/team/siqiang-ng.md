@@ -3,12 +3,13 @@ layout: page
 title: Ng Si Qiang's Project Portfolio Page
 ---
 
-## Project: Projact 
+### Project: Projact 
 Projact is a contact and project management app that helps NUS computing students to
  organise their contacts and their projects' meeting links and tasks. 
 
 Given below are my contributions to the project.
 
+<div style="page-break-after: always;">
 #### New Features Added
 * **Feature**: Command to list all the tags in the tag list. (Pull request [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57))
   * Justification: allows the user to keep track of all the tags that have been added.
@@ -23,14 +24,19 @@ Given below are my contributions to the project.
     It also affects the original commands so there are many design considerations required.
   
 * **Feature**: Command to delete the link in a tag. (Pull request [\#138](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/138))
-  * Justification: allows the user to remove wrongly added link
+ * Justification: This feature improves the product as the user is able to add a link and needs a way to remove the link from the tag as well.
   
 * **Feature**: Command to mark a task in a tag as done. 
 (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139), [\#204](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/204))
   * Justification: allows the user to keep track of the progress of the tasks added. 
   * Highlight: This implementation was challenging because there are no similar commands in the original AB3 to refer. New methods have to be created in the Index and 
   ParserUtil classes to parse the different index.
- 
+  
+* **Feature**: Added the UI to display the tasklist in each tag. (Pull request [\#139](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/139))
+  * What it does: allows the user to view the tasklist under each tag.
+  * Justification: This feature allows the user to view the tasks under each tag.
+</div>
+
 #### Enhancements to Existing Features
 * **Enhancement**: Wrote additional tests for existing features to increase coverage 
  (Pull requests [\#57](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/57), [\#70](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/70),
@@ -55,6 +61,8 @@ Given below are my contributions to the project.
     * Edited documentation for `find` and `delete` commands (Pull request [\#235](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/235))
     * Updated the FAQ section (Pull request [\#215](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/215))
 * **Developer Guide**:
+    * Created the Table of Contents (Pull request [\#76](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/76))
+    * Added the use case for creating a tag (Pull request [\#19](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/19))
     * Wrote the Product Scope & User Stories (Pull request [\#19](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/19), 
     [\#133](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/133))
     * Added implementations and the UML diagrams of `taglist`, `sort`, `tagsort`, `taskdone`, `linkdelete`
