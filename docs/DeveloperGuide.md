@@ -399,7 +399,6 @@ The diagram below shows a sample interaction of `TaskDoneCommand`.
 
 ![TaskClearSequenceDiagram](images/TaskClearSequenceDiagram.png)    
 
-
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -462,6 +461,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | student with many project groups	        | add remarks on the tag                           | find module-related information from the tag                           |
 | `* *`    | student with many project groups	        | delete the comments on the tag                   |                                                                        |
 | `*`      | long-time user	                            | archive old tags 	                               | keep my contacts up to date                                            |
+| `*`      | long-time user	                            | unarchive old tags	                           | conveniently use the same old tag containing the same contact          |
+| `*`      | power user	                                | create shortcuts for existing commands           | type faster in my preferred way for certain commands                   |
+| `*`      | power user	                                | import and export person list to another device  | save time compiling the person list                                    |
+
 
 --------------------------------------------------------------------------------------------------------------------
 ### **C: Use Cases**
