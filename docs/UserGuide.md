@@ -200,7 +200,7 @@ Adds a contact to the person list.
 * Telegram addresses can be 5-32 characters long.
 * A contact can be created with 0 or more tags.
 
-<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
+<div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b><br>
 
 * Numbers and underscores are allowed in a person's name so that you could set it to your contact's nickname.
 
@@ -240,7 +240,7 @@ Use our `find` command to look for that contact using words that his/her name co
 
 **Format:** `find KEYWORD [MORE_KEYWORDS]`
 
-<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b>
+<div markdown="span" class="alert alert-primary">:information_source: <b>Note:</b><br>
 
 * The search is case-insensitive. e.g `hans` will match `Hans`
 
@@ -254,9 +254,7 @@ Use our `find` command to look for that contact using words that his/her name co
 
 
 <div markdown="span" class="alert alert-primary">:bulb: <b>Tip:</b>
-
-* Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-
+Type more than one keyword to find more than one contact each time! e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 </div>
 
 **Example Guide:**
@@ -286,7 +284,7 @@ Simply enter `list` on the command line to get back to the chronological order.
 
 </div>
  
-<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b>
+<div markdown="span" class="alert alert-info">:information_source: <b>Note:</b><br>
 
 * Do note that `sort` command does not sort the contact list displayed after `find` command!
 
@@ -314,7 +312,7 @@ Want to remove a contact? Simply use our `delete` command with the index `INDEX`
 
 **Format:** `delete INDEX`
 
-<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b>
+<div markdown="span" class="alert alert-danger">:exclamation: <b>Warning:</b><br>
 
 * If you have just used `sort`, follow the `Actual Index` as displayed to delete the particular contact you want!
 
@@ -391,9 +389,7 @@ Step 3: You should see the tag's name being edited. Everyone who had the old tag
 ![TagEditCommand Step 3](images/TagEditCommandGuide3.png)
 
 <div markdown="span" class="alert alert-danger"> :exclamation: <b>Note:</b> 
-
-* The index **must be a positive integer** 1, 2, 3, …​
-
+The index **must be a positive integer** 1, 2, 3, …​
 </div>
 
 #### Locating tags by name: `tagfind`
@@ -435,7 +431,7 @@ Sort the tags by their names in ascending number then in alphabetical order by t
 Do you wish to get back to the previous tag list? No worries, this sorted tag list is not permanent! Simply enter `taglist` on the command line to get back to the chronological order.
 </div>
 
-<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b>
+<div markdown="span" class="alert alert-info"> :information_source: <b>Note:</b><br>
 
 * Do note that `tagsort` command does not sort the tag list displayed after `tagfind` command!
 
@@ -604,6 +600,7 @@ Step 2: Hit enter and you should see that all the completed tasks will be remove
 
 Example:
 * `taskclear 1` clears all completed tasks from the tag with the index 1 in the current tag list.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
