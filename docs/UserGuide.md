@@ -297,6 +297,8 @@ typing a single `sort` word on the command line.
 * Do note that `sort` command does not sort the contact list displayed with `find` command!
 
 * Only edit the contact based on the **Actual Index** as displayed!
+
+* **Actual Index is not shown** if it is the same as the displayed index (white) in the sorted list
     
 </div> 
 
@@ -325,6 +327,8 @@ Oops! Accidentally misentered your contact's details? Fret not! The `edit` comma
 * At least one of the optional fields must be provided.
 
 * When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
+
+* If you have just used `sort`, follow the `Actual Index` as displayed to edit the particular contact you want.
 
 </div>
 
@@ -477,6 +481,8 @@ Sort the tags by their names in alphanumerical order by typing a single `tagsort
 
 * Only edit the tag based on the **Actual Index** as displayed! (Similar to `sort` command!)
 
+* **Actual Index is not shown** if it is the same as the displayed index (white) in the sorted list
+
 </div>
 
 <div markdown="block" class="alert alert-primary">:bulb: <b>Tip:</b>
@@ -493,11 +499,13 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 
 **Format**: `tagedit INDEX t/TAG_NAME`
 
-<div markdown="block" class="alert alert-danger"> :exclamation: <b>Note:</b> 
+<div markdown="block" class="alert alert-danger"> :exclamation: <b>Warning:</b> 
 
 * The index **must be a positive integer** 1, 2, 3, …​
 
 * Contact(s) who had the old tag will also have it renamed.
+
+* If you have just used `tagsort`, follow the `Actual Index` as displayed to edit the particular tag you want.
 
 </div>
 
@@ -533,22 +541,33 @@ Want to get rid of a particular tag? Use the `tagdelete` command follow by the i
 
 * The tag will also be removed from the contact(s) that contain(s) the tag.
 
+* If you have just used `tagsort`, follow the `Actual Index` as displayed to delete the particular tag you want.
+
 </div>
 
 **Format:** `tagdelete INDEX`
-Example:
-* `tagdelete` edits the first tag in the list.
 
-**Step-By-Step Guide:**
-
-Step 1: First key in `taglist` and hit enter to display all the tags.
+**Example Guide:**
+* `taglist` followed by the `tagdelete 1` deletes the first tag in the list.
+Step 1: Key in `taglist` and hit enter to display all the tags.
 ![TagDeleteCommand Step 1](images/TagDeleteCommandGuide1.png)
 
-Step 2: For example, if you want to remove the `ma1101r` tag, key in `tagdelete 1` and hit enter.
+Step 2: Key in `tagdelete 1` and hit enter.
 ![TagDeleteCommand Step 2](images/TagDeleteCommandGuide2.png)
 
-Step 3: You should see the updated tag list without the `ma1101r` tag.
-![TagDeleteCommand Step 3](images/TagDeleteCommandGuide3.png)
+* `tagfind cs2100` followed by `tagdelete 1` deletes the first tag in the results of `tagfind` command.
+Step 1: Key in `tagfind cs2100` and hit enter to display all the tags.
+![TagDeleteCommand Step 1](images/TagDeleteCommandGuide3.png)
+
+Step 2: Key in `tagdelete 1` and hit enter.
+![TagDeleteCommand Step 2](images/TagDeleteCommandGuide4.png)
+
+* `tagsort` followed by `tagdelete 1` deletes first tag in the original tag list.
+Step 1: Key in `tagsort` and hit enter to display all the tags.
+![TagDeleteCommand Step 1](images/TagDeleteCommandGuide5.png)
+
+Step 2: Key in `tagdelete 1` and hit enter.
+![TagDeleteCommand Step 2](images/TagDeleteCommandGuide6.png)
 
 ### Link Features
 
