@@ -383,13 +383,14 @@ The diagram below shows a sample interaction of `TaskDoneCommand`.
 
 **TaskDelete command**
  
-The TaskDelete command allows the user to delete a task from a tag. 
+The `taskdelete` command allows the user to delete a task from a tag. 
 
-1. The command is passed into `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the commandWord, which in this case is `taskdone` and the arguments.
-4. `ProjactParser` calls the parse method of `TaskDeleteCommandParser`, which parses the argument, cand returns a new `TaskDeleteCommand`.
-5. The `LogicManager` then calls the execute method of the `TaskDeleteCommand`, which calls the setTag method of `Model`.
+- How is TaskDeleteCommand executed:
+    1. The command is passed into `LogicManager`.
+    2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    3. `ProjactParser` identifies the commandWord, which in this case is `taskdone` and the arguments.
+    4. `ProjactParser` calls the parse method of `TaskDeleteCommandParser`, which parses the argument, cand returns a new `TaskDeleteCommand`.
+    5. The `LogicManager` then calls the execute method of the `TaskDeleteCommand`, which calls the setTag method of `Model`.
 
 - Why is it implemented that way:
     - The design consideration on the indices for the `TaskDeleteCommand` is similar to `TaskDoneCommand`.
@@ -400,26 +401,27 @@ The diagram below shows a sample interaction of `TaskDeleteCommand`.
 
 **TaskClear command**
 
-The TaskClear command allows the user to clear all completed tasks under a tag.
+The `taskclear` command allows the user to clear all completed tasks under a tag.
 
-1. The command is passed in to `LogicManager`.
-2. `LogicManager` calls the parseCommand method of `ProjactParser`.
-3. `ProjactParser` identifies the command word, which in this case is 'taskclear' and the arguments.
-4. `ProjactParser` calls the parse method of `TaskClearCommandParser`, which parses the argument, creates a new `Index` object and returns a new `TaskClearCommand` with the new `Index` object as an argument.
-5. The `LogicManager` then calls the execute method of the `TaskClearCommand`, which retrieves the `Tag` object at the specified index in `FilteredTagList`.  From the `Tag`, a list of its uncompleted tasks, `List<TagTask>`, is obtained.
-6.  A new `Tag` object is created with the new `List<TagTask>` and replaces the current `Tag` object at the specified index in `FilteredTagList`.
-7. `FilteredTagList` is then updated to reflect the changes in `Model`.
-
-- Why is it implemented that way:
-    - The command is implemented to be similar to the current command classes, so that there would be minimal changes to the overall design of the product.
-    - An alternative implementation would be for `TaskClearCommand` to not take in an index and just delete all completed tasks from every tag. 
-        - However, the user may want to keep certain tags with completed tasks for tracking purposes. 
-        - Furthermore, this implementation will result in a significantly long execution time for the `TaskClearCommand` as the number of tags and tasks increase. 
+- How is TaskClearCommand executed:
+    1. The command is passed in to `LogicManager`.
+    2. `LogicManager` calls the parseCommand method of `ProjactParser`.
+    3. `ProjactParser` identifies the command word, which in this case is 'taskclear' and the arguments.
+    4. `ProjactParser` calls the parse method of `TaskClearCommandParser`, which parses the argument, creates a new `Index` object and returns a new `TaskClearCommand` with the new `Index` object as an argument.
+    5. The `LogicManager` then calls the execute method of the `TaskClearCommand`, which retrieves the `Tag` object at the specified index in `FilteredTagList`.  From the `Tag`, a list of its uncompleted tasks, `List<TagTask>`, is obtained.
+    6.  A new `Tag` object is created with the new `List<TagTask>` and replaces the current `Tag` object at the specified index in `FilteredTagList`.
+    7. `FilteredTagList` is then updated to reflect the changes in `Model`.
     
 The diagram below shows a sample interaction of `TaskDoneCommand`. 
 
 ![TaskClearSequenceDiagram](images/TaskClearSequenceDiagram.png)    
 
+- Why is it implemented that way:
+    - The command is implemented to be similar to the current command classes, so that there will be minimal changes to the overall design of the product.
+    - An alternative implementation would be for `TaskClearCommand` to not take in an index and just delete all completed tasks from every tag. 
+        - However, the user may want to keep certain tags with completed tasks for tracking purposes. 
+        - Furthermore, this implementation will result in a significantly long execution time for the `TaskClearCommand` as the number of tags and tasks increase. 
+    
 --------------------------------------------------------------------------------------------------------------------
 ## **Documentation, logging, testing, configuration, dev-ops**
 
