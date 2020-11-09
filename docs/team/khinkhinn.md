@@ -31,7 +31,7 @@ Given below are my contributions to the project.
 * **Enhancement**: Fixed bug that resulted in text being cut off when it was longer than the result display box. (Pull requests [\#234](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/234))
 
 ### Code Contributed
-* [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=khinkhinn&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
+* [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=khinkhinn)
 
 ### Project Management
 * Aided in maintenance of issue tracker during `v1.1`
