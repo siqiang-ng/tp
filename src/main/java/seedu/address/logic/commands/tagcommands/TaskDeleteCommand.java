@@ -24,7 +24,7 @@ public class TaskDeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Delete the task identified by the alphabetical "
             + "index number used in the task list \n of the tag, which is identified by the numerical index used in "
             + "the displayed tag list. \n"
-            + "Parameters: \n1. INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") \n"
+            + "Parameters: \n1. INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ") \n"
             + "2. ALPHABETICAL INDEX (must be an alphabet in lower case from 'a' to 'z') \n"
             + "Example: " + COMMAND_WORD + " 1 a";
 

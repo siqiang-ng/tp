@@ -3,9 +3,11 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM_ADDRESS;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -43,6 +45,10 @@ public class CommandTestUtil {
     public static final String VALID_TAG_NAME_FRIEND = "friend";
     public static final String VALID_TAG_NAME_COLLEAGUE = "colleague";
     public static final String VALID_TAG_NAME_HANDBALL = "handball";
+    public static final String VALID_TASK_NAME_HOMEWORK = "homework";
+    public static final String VALID_TASK_NAME_MEETING = "meeting";
+    public static final String VALID_TAG_LINK_ZOOM = "http://www.zoom.com/";
+    public static final String VALID_TAG_LINK_SKYPE = "http://skype.com/cs2103t";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -52,10 +58,14 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String TELEGRAM_ADDRESS_DESC_AMY = " " + PREFIX_TELEGRAM_ADDRESS + VALID_TELEGRAM_ADDRESS_AMY;
     public static final String TELEGRAM_ADDRESS_DESC_BOB = " " + PREFIX_TELEGRAM_ADDRESS + VALID_TELEGRAM_ADDRESS_BOB;
+    public static final String TAG_LINK_ZOOM = " " + PREFIX_LINK + VALID_TAG_LINK_ZOOM;
+    public static final String TAG_LINK_SKYPE = " " + PREFIX_LINK + VALID_TAG_LINK_SKYPE;
     public static final String TAG_NAME_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_NAME_FRIEND;
     public static final String TAG_NAME_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_NAME_HUSBAND;
     public static final String TAG_NAME_DESC_COLLEAGUE = " " + PREFIX_TAG + VALID_TAG_NAME_COLLEAGUE;
     public static final String TAG_NAME_DESC_HANDBALL = " " + PREFIX_TAG + VALID_TAG_NAME_HANDBALL;
+    public static final String TASK_NAME_DESC_HOMEWORK = " " + PREFIX_TASK + VALID_TASK_NAME_HOMEWORK;
+    public static final String TASK_NAME_DESC_MEETING = " " + PREFIX_TASK + VALID_TASK_NAME_MEETING;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
@@ -64,6 +74,7 @@ public class CommandTestUtil {
                                             " " + PREFIX_TELEGRAM_ADDRESS; // telegram address cannot be blank
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_TAG_NAME_DESC = " " + PREFIX_TAG + "colleague*";
+    public static final String INVALID_TAG_LINK_DESC = " " + PREFIX_LINK + "http";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

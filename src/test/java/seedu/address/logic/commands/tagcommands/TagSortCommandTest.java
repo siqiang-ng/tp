@@ -39,7 +39,7 @@ class TagSortCommandTest {
 
 
     @Test
-    public void execute_sortContactCommand_success() {
+    public void execute_sortTagCommand_success() {
         String expectedMessage = MESSAGE_SUCCESS;
         CommandResult expectedResult = new CommandResult(
                 expectedMessage, false, false, true, false, true, false);

@@ -26,7 +26,7 @@ public class TagEditCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the name of the tag identified "
             + "by the index number used in the displayed tag list. "
             + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer from 0 to " + Integer.MAX_VALUE + ") "
+            + "Parameters: INDEX (must be a positive integer from 1 to " + Integer.MAX_VALUE + ") "
             + PREFIX_TAG + "TAG NAME\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_TAG + "CS2101";

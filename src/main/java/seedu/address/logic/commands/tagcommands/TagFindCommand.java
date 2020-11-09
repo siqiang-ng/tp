@@ -20,7 +20,7 @@ public class TagFindCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all tags whose names contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " groupA TeamB CS2103";
+            + "Example: " + COMMAND_WORD + " cs2106 ma1101r";
 
     private final TagNameContainsKeywordsPredicate predicate;
 
