@@ -23,7 +23,7 @@ Given below are my contributions to the project.
 * **Feature**: Added the ability to delete tasks from tags.
   * What it does: allows the user to delete tasks from tags one at a time. This is done by using both the index of the tag and the index of the task.
   * Justification: This feature improves the product as the user can now delete tasks that they have either added accidentally or made a typo in.
-  * Highlights: Similar to the above feature, we initially struggled with how to use the currently implemented model to add this new feature. However we managed to come up with a work around to the problem of finding the exact task to delete by implementing an alphabetical index, so that it would be easier to identify which index to delete.
+  * Highlights: Similar to the above feature, we initially struggled with using the currently implemented model to add this new feature. However we managed to solve this by finding the exact task using an alphabetical index, making it easier to identify which index to delete.
 
 ### Enhancements to Existing Features
 * **Enhancement**: Refactored the code to use terms specific to our app (Pull requests [\#53](https://github.com/AY2021S1-CS2103T-T17-4/tp/pull/53))
