@@ -18,7 +18,7 @@ Given below are my contributions to the project.
 * **Feature**: Added the ability to add tasks to tags.
   * What it does: allows the user to add tasks to tags one at a time.
   * Justification: This feature improves the product significantly because the functionality of tags has been greatly improved. Tags are now capable of storing more information, and tasks in particular can help the user be more organised.
-  * Highlights: This enhancement was hard to implement as adding a task was more like editing a tag. Previous edit commands did not care about the previous entry, and merely overwrote them (such as tags being rewritten when user edits a contact). However for task related commands, it was necessary to edit the previous list of tasks, and this posed a challenge. We managed to solve this by introducing a new method that would work with the current implementation.
+  * Highlights: This enhancement was hard to implement as previous commands did not care about the previous entry, and merely overwrote them (such as tags being rewritten when user edits a contact). However for task related commands, it was necessary to retrieve the previous list of tasks, and this posed a challenge. We managed to solve this by introducing a new method that would work with the current implementation.
 
 * **Feature**: Added the ability to delete tasks from tags.
   * What it does: allows the user to delete tasks from tags one at a time. This is done by using both the index of the tag and the index of the task.
@@ -27,7 +27,7 @@ Given below are my contributions to the project.
 
 ### Enhancements to Existing Features
 * **Enhancement**: Refactored the code to use terms specific to our app (Pull requests [\#53]())
-    * Justification: This improved readability of code for other developers, as our app was adapted from an app called "AddressBook", which might be confusing for new developers unaware of this. Hence refactoring the code to use the term "Projact" instead of "AddressBook" in various files made the code more consistent.
+    * Justification: This improved readability of code for other developers, as our app was adapted from an app called "AddressBook", which might be confusing for new developers unaware of this.
 * **Enhancement**: Fixed bug that resulted in text being cut off when it was longer than the result display box. (Pull requests [\#234]())
 
 ### Code Contributed
