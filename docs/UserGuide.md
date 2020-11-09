@@ -185,7 +185,7 @@ Format: `exit`
 
 #### Saving the data
 
-Projact's data is saved to your hard disk automatically after any changes in the data so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
+Projact's data is saved to your hard disk automatically if there are any changes so there is no need to save manually. Don't worry, the data you have entered in previously will be automatically loaded when you reopen Projact the next time.
 
 ### Contact Features
 
