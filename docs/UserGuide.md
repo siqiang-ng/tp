@@ -381,7 +381,7 @@ Made a mistake while adding tags? We got you! Here's a simple `tagedit` command 
 Step 1: Key in `taglist` and hit enter to display all the tags. Then, scroll until you find the tag you want to edit.
 ![TagEditCommand Step 1](images/TagEditCommandGuide1.png)
 
-Step 2: For example, if you want to change the name of the `family` tag to `brother`, then key in `tagedit 4 t/brother` and hit enter.
+Step 2: For example, if you want to change the name of the `cs2103` tag to `cs2103t`, then key in `tagedit 4 t/cs2103t` and hit enter.
 ![TagEditCommand Step 2](images/TagEditCommandGuide2.png)
 
 Step 3: You should see the tag's name being edited. Everyone who had the old tag will also have it renamed.
@@ -407,10 +407,13 @@ Format: `tagfind KEYWORD [MORE_KEYWORDS]`
 * Contacts matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Team A` will return `Team B`, `Group A`
 
-Examples:
-* `tagfind CS` returns `cs` and `cs 3244` but not `cs1101`
-* `tagfind cs2100 CS2101` returns `cs2100` and `cs2101`<br>
-  ![result for 'tagfind cs2100 cs2101'](images/TagFindCommandGuide1.png)
+**Step-By-Step Guide:**
+
+Step 1: If you want to find both `cs2100` and `cs2101`, type `tagfind cs2100 cs2101`.
+![TagFindCommand Step1](images/TagFindCommandGuide1.png)
+
+Step 2: Hit enter and the tags that match either of the keywords will be displayed.
+![TagFindCommand Step2](images/TagFindCommandGuide2.png)
 
 #### Sorting tags by tag name: `tagsort`
 
