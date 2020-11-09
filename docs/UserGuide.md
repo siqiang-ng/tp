@@ -209,7 +209,7 @@ Projact's data is saved to your hard disk automatically if there are any changes
 
 #### Adding a contact: `add`
 
-Adds a contact to the person list.
+Have you made a new friend? Great! Use the `add` command to add a new contact into the list.
 
 **Format**: `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​`
 
@@ -233,15 +233,23 @@ Adds a contact to the person list.
 
 </div>
 
-Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com ta/john_doe123`
-* `add n/Alex King e/alexk1ng11@example.com ta/alek1ng p/91111111 t/hallmate`
-* `add n/Betsy Crowe e/betsycrowe@example.com ta/betsycr0w p/1234567 t/CS2101 t/friend`
-![result for 'add n/Betsy Crowe'](images/AddCommandGuide1.png)
+**Example Guide:** 
+
+Let's say you have a friend named `Betsy Crowe` that you want to add into your list of contacts.
+Her email address is `betsycrowe@example.com`, her telegram handle is `betsycr0w`, her phone number is `91234567`, 
+and she is your `CS2101` classmate as well as a `friend`.
+
+1. First, type the `add` command followed by `Betsy`'s details as in the format below
+`add n/Betsy Crowe e/betsycrowe@example.com ta/betsycr0w p/91234567 t/CS2101 t/friend`
+![AddCommandGuide1](images/AddCommandGuide1.png)
+
+2. Hit enter and she will be added at the bottom of the list of contacts.
+![AddCommandGuide2](images/AddCommandGuide2.png)
 
 #### Editing a contact : `edit`
 
-Edits the contact details of an existing contact in the person list.
+Oops! Accidentally misentered your contact's details? Fret not! The `edit` command allows you to edit a single field 
+(or multiple fields) as needed!
 
 **Format**: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`
     
@@ -261,10 +269,15 @@ Edits the contact details of an existing contact in the person list.
 
 </div>
 
-Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
-*  `edit 2 t/CS2103T` Edits the tag of the 2nd contact to only contain the module CS2103T tag.
+**Example Guide:** 
+
+For example, if you want to change `Bernice Yu`'s telegram handle from `berniceYu` to `berniceYu123`
+
+1. Taking note that `Bernice` is the first person in the list, type in `edit 1 ta/berniceYu123`
+![EditCommandGuide1](images/EditCommandGuide1.png)
+
+2. Hit enter, and her telegram handle will be changed.
+![EditCommandGuide2](images/EditCommandGuide2.png)
 
 
 #### Locating contacts by name: `find`
