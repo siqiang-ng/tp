@@ -367,7 +367,7 @@ Format: `tagadd t/TAG`
 * Tag will not be created if it already exists in the tag list.
 
 Examples:
-* `tagadd t/person` creates a tag named personal without any contact being assigned to the tag.
+* `tagadd t/personal` creates a tag named personal without any contact being assigned to the tag.
 
 **Step-By-Step Guide:**
 
