@@ -691,10 +691,10 @@ Action | Format, Examples
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL ta/TELEGRAM_ADDRESS [t/TAG]…​` <br> e.g., `add n/Betsy Crowe e/bcrow@example.com ta/betsycr0w p/1234567 t/cs2101 t/ma1101r`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Sort** | `sort`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [ta/TELEGRAM_ADDRESS] [t/TAG]…​`<br> e.g., `edit 2 n/James Lee e/jameslee@example.com`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 
 ### Tag commands
@@ -703,9 +703,9 @@ Action | Format, Examples
 --------|------------------
 **Tag Add** | `tagadd t/TAG`<br> e.g., `tagadd t/CS2103T`
 **Tag List** | `taglist`
-**Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Find** | `tagfind  KEYWORD [MORE_KEYWORDS]`<br> e.g., `tagfind cs2100 cs2101`
 **Tag Sort** | `tagsort`
+**Tag Edit**| `tagedit INDEX t/TAG_NAME` <br> e.g., `tagedit 1 t/CS2101`
 **Tag Delete**| `tagdelete INDEX` <br> e.g., `tagdelete 1`
 
 ### Link commands
